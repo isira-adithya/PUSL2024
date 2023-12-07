@@ -6,7 +6,7 @@
 <%
     boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
     if (isLoggedIn) {
-        response.sendRedirect("/");
+        response.sendRedirect("/user/profile.jsp");
     }
 %>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 </head>
 <body>
     <form action="/api/customer/login" method="post">
-        <input type="text" name="username" placeholder="Email Address Here"> <br>
+        <input type="text" name="email" placeholder="Email Address Here"> <br>
         <input type="password" name="password" placeholder="Password"> <br>
         <input type="submit" value="Login"> <br>
     </form>
