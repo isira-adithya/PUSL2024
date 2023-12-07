@@ -7,14 +7,14 @@ package com.isiraadithya.greensupermarket;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
 
 /**
  *
- * @author INFERNUS
+ * @author @isira_adithya
  */
+@WebServlet(name = "apibase", value = "/api")
 public class API extends HttpServlet {
 
     /**

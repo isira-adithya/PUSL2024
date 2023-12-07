@@ -5,14 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%! public static int visitor_count = 0; %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home</title>
     </head>
     <body>
-        This page has been visited <i><b><%= ++visitor_count %></b></i> times.
+        Add Content Here
     </body>
 </html>
