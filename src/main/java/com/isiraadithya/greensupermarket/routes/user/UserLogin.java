@@ -1,4 +1,4 @@
-package com.isiraadithya.greensupermarket.routes.customer;
+package com.isiraadithya.greensupermarket.routes.user;
 
 import com.isiraadithya.greensupermarket.models.User;
 import jakarta.servlet.ServletException;
@@ -9,10 +9,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-@WebServlet(name = "customerLogin", value = "/api/customer/login")
-public class CustomerLogin extends HttpServlet {
+@WebServlet(name = "userLogin", value = "/api/user/login")
+public class UserLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
