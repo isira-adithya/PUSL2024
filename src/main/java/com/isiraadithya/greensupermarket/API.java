@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author INFERNUS
+ * @author @isira_adithya
  */
 public class API extends HttpServlet {
 
