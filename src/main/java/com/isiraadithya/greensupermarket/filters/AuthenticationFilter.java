@@ -29,6 +29,8 @@ public class AuthenticationFilter implements Filter {
             } else {
                 res.sendRedirect("/login.jsp?err=Unauthorized");
             }
+        } else {
+            filterChain.doFilter(servletRequest, servletResponse);
         }
 
     }
