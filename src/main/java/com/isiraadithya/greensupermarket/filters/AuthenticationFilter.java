@@ -19,6 +19,10 @@ public class AuthenticationFilter implements Filter {
         String requestPath = req.getRequestURI();
 
         if (requestPath.contains("/user/") || requestPath.contains("/admin/")){
+            if (requestPath.contains("/login")){
+                filterChain.doFilter(servletRequest, servletResponse);
+                return;
+            }
             if (req.getSession().getAttribute("isLoggedIn") != null){
                 if(requestPath.contains("/admin/")){
                     if (!req.getSession().getAttribute("role").equals("admin")){
@@ -26,11 +30,13 @@ public class AuthenticationFilter implements Filter {
                     }
                 }
                 filterChain.doFilter(servletRequest, servletResponse);
+                return;
             } else {
                 res.sendRedirect("/login.jsp?err=Unauthorized");
             }
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
+            return;
         }
 
     }
