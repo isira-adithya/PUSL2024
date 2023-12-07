@@ -12,6 +12,7 @@ import java.sql.SQLException;
  */
 public class Database {
     // JDBC URL, username, and password of MariaDB server
+    // TODO: Use Environment Variable here; instead of hardcoding credentials.
     private static final String JDBC_URL = "jdbc:mariadb://localhost:3306/greensupermarket";
     private static final String USERNAME = "greensupermarket";
     private static final String PASSWORD = "ezpass123";
