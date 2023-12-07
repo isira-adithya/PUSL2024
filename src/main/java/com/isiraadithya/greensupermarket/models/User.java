@@ -30,6 +30,9 @@ public class User {
     public String country;
     public String postalcode;
 
+    // Other variables
+    private boolean isPasswordSet = false;
+
     public User(String _email, String _fname, String _lname, String _phone, String _street_address, String _city, String _state, String _country, String _postalcode, String _role) {
         email = _email;
         firstname = _fname;
@@ -57,6 +60,7 @@ public class User {
 
     public void setPassword(String _newpass){
         password = BCrypt.hashpw(_newpass, BCrypt.gensalt());
+        isPasswordSet = true;
     }
 
     public void setPasswordHash(String _pwhash){
@@ -75,7 +79,27 @@ public class User {
     }
 
     public void saveUser(){
-
+        if (isPasswordSet) {
+            try {
+                Connection dbconn = Database.connect();
+                String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+                sqlStatement.setString(1, email);
+                sqlStatement.setString(2, password);
+                sqlStatement.setString(3, firstname);
+                sqlStatement.setString(4, lastname);
+                sqlStatement.setString(5, phone);
+                sqlStatement.setString(6, street_address);
+                sqlStatement.setString(7, city);
+                sqlStatement.setString(8, state);
+                sqlStatement.setString(9, country);
+                sqlStatement.setString(10, postalcode);
+                sqlStatement.setString(11, role);
+                sqlStatement.execute();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
     public static int getUserCount(){
