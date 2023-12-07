@@ -20,9 +20,16 @@ DROP TABLE IF EXISTS ShoppingCart;
 
 CREATE TABLE Users (
     userid INT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(128) NOT NULL,
+    firstname VARCHAR(100),
+    lastname VARCHAR(100),
+    phone VARCHAR(20), /* Should contain the country code, for ex: +94123456789 */
+    street_address VARCHAR(1000), /* For ex: No 74, Sundara Mawatha */
+    city VARCHAR(1000), /* Gampaha */
+    state VARCHAR(1000), /* Western Province */
+    country VARCHAR(1000), /* Sri Lanka */
+    postalcode VARCHAR(100) /* 11870 */
 );
 CREATE TABLE Products (
     productid INT PRIMARY KEY,
@@ -56,17 +63,17 @@ CREATE TABLE ShoppingCart (
 );
 
 -- Sample Data
-INSERT INTO Users (userid, username, password, email) VALUES
-(1, 'john_doe', 'password123', 'john.doe@example.com'),
-(2, 'alice_smith', 'securepass', 'alice.smith@example.com'),
-(3, 'bob_jones', 'pass123', 'bob.jones@example.com'),
-(4, 'emma_wilson', 'emma_pass', 'emma.wilson@example.com'),
-(5, 'mike_brown', 'mike_pass', 'mike.brown@example.com'),
-(6, 'linda_jackson', 'linda_pass', 'linda.jackson@example.com'),
-(7, 'alex_martin', 'alex_pass', 'alex.martin@example.com'),
-(8, 'susan_white', 'susan_pass', 'susan.white@example.com'),
-(9, 'kevin_hill', 'kevin_pass', 'kevin.hill@example.com'),
-(10, 'natalie_adams', 'natalie_pass', 'natalie.adams@example.com');
+INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode) VALUES
+(1, 'john.doe@example.com', 'password123', 'John', 'Doe', '+94123456789', 'No 74, Sundara Mawatha', 'Gampaha', 'Western Province', 'Sri Lanka', '11870'),
+(2, 'alice.smith@example.com', 'securepass', 'Alice', 'Smith', '+94123456790', 'Apt 12, Rose Gardens', 'Colombo', 'Western Province', 'Sri Lanka', '10100'),
+(3, 'bob.jones@example.com', 'pass123', 'Bob', 'Jones', '+94123456791', 'Lot 5, Green Avenue', 'Kandy', 'Central Province', 'Sri Lanka', '20000'),
+(4, 'emma.wilson@example.com', 'emma_pass', 'Emma', 'Wilson', '+94123456792', 'House 8, Blue Street', 'Negombo', 'Western Province', 'Sri Lanka', '11500'),
+(5, 'mike.brown@example.com', 'mike_pass', 'Mike', 'Brown', '+94123456793', 'Villa 3, Palm Lane', 'Jaffna', 'Northern Province', 'Sri Lanka', '40000'),
+(6, 'linda.jackson@example.com', 'linda_pass', 'Linda', 'Jackson', '+94123456794', 'Block C, Sun City Apartments', 'Matara', 'Southern Province', 'Sri Lanka', '81000'),
+(7, 'alex.martin@example.com', 'alex_pass', 'Alex', 'Martin', '+94123456795', 'Unit 6, Hillside Residency', 'Anuradhapura', 'North Central Province', 'Sri Lanka', '50000'),
+(8, 'susan.white@example.com', 'susan_pass', 'Susan', 'White', '+94123456796', 'Lane 23, Meadow View', 'Batticaloa', 'Eastern Province', 'Sri Lanka', '30000'),
+(9, 'kevin.hill@example.com', 'kevin_pass', 'Kevin', 'Hill', '+94123456797', 'Flat 4B, Skyline Tower', 'Trincomalee', 'Eastern Province', 'Sri Lanka', '31000'),
+(10, 'natalie.adams@example.com', 'natalie_pass', 'Natalie', 'Adams', '+94123456798', 'No 17, Golden Lane', 'Galle', 'Southern Province', 'Sri Lanka', '80000');
 
 INSERT INTO Products (productid, productname, price, description) VALUES
 (1, 'Laptop', 999.99, 'Powerful laptop for all your needs'),
