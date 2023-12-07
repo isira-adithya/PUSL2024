@@ -14,7 +14,7 @@
     <title>Profile</title>
 </head>
 <body>
-    <form>
+    <form method="post" action="/api/user/update">
         <h3>Personal Information</h3>
         <label>Email: </label>
         <input type="text" disabled name="email" value="<%=currentUser.email%>"> <br>
@@ -36,6 +36,30 @@
         <input type="text" disabled name="country" value="<%=currentUser.country%>"> <br>
         <label>Postal Code: </label>
         <input type="text" disabled name="postalcode" value="<%=currentUser.postalcode%>"> <br>
+        <input type="submit" value="Submit" id="submitBtn" hidden>
+        <hr>
     </form>
+    <button id="editBtn" onclick="toggleEdit()">Edit</button>
+    <script>
+        var isEditMode = false;
+        function toggleEdit(){
+            isEditMode = !isEditMode;
+            const inputTags = document.getElementsByTagName("input")
+            for (let i = 0; i < inputTags.length; i++) {
+                const inputTag = inputTags[i];
+                if (inputTag.name == "email"){
+                    continue
+                }
+                inputTag.disabled = !isEditMode;
+            }
+            if (isEditMode){
+                document.getElementById("editBtn").innerText = "Preview";
+                document.getElementById("submitBtn").hidden = false;
+            } else {
+                document.getElementById("editBtn").innerText = "Edit";
+                document.getElementById("submitBtn").hidden = true;
+            }
+        }
+    </script>
 </body>
 </html>
