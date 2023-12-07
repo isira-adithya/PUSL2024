@@ -15,17 +15,17 @@ import java.io.PrintWriter;
 public class CustomerLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
+        String email = req.getParameter("email");
         String password = req.getParameter("password");
-        if (username != "null"){
-            User userObj = User.FindUserByEmail(username);
+        if (email != "null"){
+            User userObj = User.FindUserByEmail(email);
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
                     HttpSession session = req.getSession(true);
                     session.setAttribute("isLoggedIn", true);
-                    session.setAttribute("email", username);
+                    session.setAttribute("email", email);
                     session.setAttribute("role", "user");
-                    resp.sendRedirect("/");
+                    resp.sendRedirect("/user/profile.jsp");
                 } else {
                     resp.sendRedirect("/login.jsp?err=Invalid Username or Password");
                 }
