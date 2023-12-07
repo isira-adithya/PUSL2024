@@ -24,7 +24,7 @@ public class CustomerLogin extends HttpServlet {
                     HttpSession session = req.getSession(true);
                     session.setAttribute("isLoggedIn", true);
                     session.setAttribute("email", username);
-                    session.setAttribute("role", "customer");
+                    session.setAttribute("role", "user");
                     resp.sendRedirect("/");
                 } else {
                     resp.sendRedirect("/login.jsp?err=Invalid Username or Password");
