@@ -18,19 +18,26 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) servletResponse;
         String requestPath = req.getRequestURI();
 
-        if (req.getSession().getAttribute("isLoggedIn") != null){
-            if(requestPath.contains("admin/") && !requestPath.contains("/login")){
-                if (!req.getSession().getAttribute("role").equals("admin")){
-                    res.sendRedirect("/admin/login.jsp?err=Unauthorized");
-                }
-            }
-            filterChain.doFilter(servletRequest, servletResponse);
-        } else {
+        if (requestPath.contains("/user/") || requestPath.contains("/admin/")){
             if (requestPath.contains("/login")){
                 filterChain.doFilter(servletRequest, servletResponse);
+                return;
+            }
+            if (req.getSession().getAttribute("isLoggedIn") != null){
+                if(requestPath.contains("/admin/")){
+                    if (!req.getSession().getAttribute("role").equals("admin")){
+                        res.sendRedirect("/login.jsp?err=Unauthorized");
+                    }
+                }
+                filterChain.doFilter(servletRequest, servletResponse);
+                return;
             } else {
                 res.sendRedirect("/login.jsp?err=Unauthorized");
             }
+        } else {
+            filterChain.doFilter(servletRequest, servletResponse);
+            return;
         }
+
     }
 }

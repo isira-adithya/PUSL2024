@@ -12,6 +12,9 @@
         <title>Home</title>
     </head>
     <body>
-        Add Content Here
+        <a href="/login.jsp">Customer Login</a> <br>
+        <a href="/signup.jsp">Customer Signup</a> <br>
+        <a href="/user/profile.jsp">Customer Profile</a> <br>
+        <a href="/logout.jsp">Logout</a> <br>
     </body>
 </html>

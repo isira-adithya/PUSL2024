@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.isiraadithya.greensupermarket.helpers.Database;
@@ -21,6 +20,7 @@ public class User {
     private int userId = 0;
     public String email;
     private String password;
+    private String role;
     public String firstname;
     public String lastname;
     public String phone;
@@ -30,7 +30,10 @@ public class User {
     public String country;
     public String postalcode;
 
-    public User(String _email, String _fname, String _lname, String _phone, String _street_address, String _city, String _state, String _country, String _postalcode) {
+    // Other variables
+    private boolean isPasswordSet = false;
+
+    public User(String _email, String _fname, String _lname, String _phone, String _street_address, String _city, String _state, String _country, String _postalcode, String _role) {
         email = _email;
         firstname = _fname;
         lastname = _lname;
@@ -40,10 +43,15 @@ public class User {
         state = _state;
         country = _country;
         postalcode = _postalcode;
+        role = _role;
     }
 
     public int getUserId(){
         return userId;
+    }
+
+    public String getRole() {
+        return role;
     }
 
     private void setUserId(int _uid){
@@ -52,6 +60,7 @@ public class User {
 
     public void setPassword(String _newpass){
         password = BCrypt.hashpw(_newpass, BCrypt.gensalt());
+        isPasswordSet = true;
     }
 
     public void setPasswordHash(String _pwhash){
@@ -67,6 +76,50 @@ public class User {
             isCorrect = BCrypt.checkpw(plainTextPassword, password);
         }
         return isCorrect;
+    }
+
+    public void saveUser(){
+        if (isPasswordSet && (userId == 0)) {
+            try {
+                Connection dbconn = Database.connect();
+                String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+                sqlStatement.setString(1, email);
+                sqlStatement.setString(2, password);
+                sqlStatement.setString(3, firstname);
+                sqlStatement.setString(4, lastname);
+                sqlStatement.setString(5, phone);
+                sqlStatement.setString(6, street_address);
+                sqlStatement.setString(7, city);
+                sqlStatement.setString(8, state);
+                sqlStatement.setString(9, country);
+                sqlStatement.setString(10, postalcode);
+                sqlStatement.setString(11, role);
+                sqlStatement.execute();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
+    public void updateUser(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=? WHERE email=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setString(1, firstname);
+            sqlStatement.setString(2, lastname);
+            sqlStatement.setString(3, phone);
+            sqlStatement.setString(4, street_address);
+            sqlStatement.setString(5, city);
+            sqlStatement.setString(6, state);
+            sqlStatement.setString(7, country);
+            sqlStatement.setString(8, postalcode);
+            sqlStatement.setString(9, email);
+            sqlStatement.execute();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static int getUserCount(){
@@ -110,6 +163,7 @@ public class User {
             String _state = "NULL";
             String _country = "NULL";
             String _postalcode = "NULL";
+            String _role = "NULL";
 
             while(resultSet.next()){
                 _userId = resultSet.getInt("userid");
@@ -123,8 +177,10 @@ public class User {
                 _state = resultSet.getString("state");
                 _country = resultSet.getString("country");
                 _postalcode = resultSet.getString("postalcode");
+                _role = resultSet.getString("role");
+                
 
-                User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode);
+                User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
                 _tmp.setPasswordHash(_passwordHash);
                 _tmp.setUserId(_userId);
                 users[arrayIndex] = _tmp;
@@ -156,7 +212,9 @@ public class User {
             String _city = "NULL";
             String _state = "NULL";
             String _country = "NULL";
-            String _postalcode = "NULL";
+            String _postalcode = "NULL";            
+            String _role = "NULL";
+
 
 
             // Process the result set
@@ -171,10 +229,12 @@ public class User {
                 _city = resultSet.getString("city");
                 _state = resultSet.getString("state");
                 _country = resultSet.getString("country");
-                _postalcode = resultSet.getString("postalcode");
+                _postalcode = resultSet.getString("postalcode");                
+                _role = resultSet.getString("role");
+
             }
 
-            User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode);
+            User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
             _tmp.setPasswordHash(_passwordHash);
             _tmp.setUserId(_userId);
             return _tmp;
@@ -182,6 +242,6 @@ public class User {
             System.out.println(e.getMessage());
         }
         Database.closeConnection();
-        return new User("NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL");
+        return new User("NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "USER");
     }
 }
