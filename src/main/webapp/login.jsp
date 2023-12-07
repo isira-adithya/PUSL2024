@@ -17,7 +17,7 @@
     <title>Login - GreenSuperMarket</title>
 </head>
 <body>
-    <form action="/api/customer/login" method="post">
+    <form action="/api/user/login" method="post">
         <input type="text" name="email" placeholder="Email Address Here"> <br>
         <input type="password" name="password" placeholder="Password"> <br>
         <input type="submit" value="Login"> <br>

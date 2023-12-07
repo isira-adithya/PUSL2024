@@ -17,7 +17,7 @@
     <title>Signup - GreenSuperMarket</title>
 </head>
 <body>
-    <form action="/api/customer/signup" method="post">
+    <form action="/api/user/signup" method="post">
         <h3>Personal Information</h3>
         <label>Email: </label>
         <input type="email" name="email"> <br>
