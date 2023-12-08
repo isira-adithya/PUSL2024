@@ -17,7 +17,7 @@
     <title>Signup - GreenSuperMarket</title>
 </head>
 <body>
-    <form action="/api/user/signup" method="post">
+    <form id="signupForm" action="/api/user/signup" method="post">
         <h3>Personal Information</h3>
         <label>Email: </label>
         <input type="email" name="email"> <br>
@@ -28,6 +28,14 @@
         <label>Phone: </label>
         <input type="tel" name="phone"> <br>
         <hr>
+
+        <h3>Password</h3>
+        <label>Enter your password: </label>
+        <input type="password" name="password"> <br>
+        <label>Repeat the same password: </label>
+        <input type="password" name="repeat_password"> <br>
+        <hr>
+
         <h3>Address</h3>
         <label>Street/No: </label>
         <input type="text" name="street_address"> <br>
@@ -40,7 +48,18 @@
         <label>Postal Code: </label>
         <input type="number" inputmode="numeric" name="postalcode"> <br>
 
-        <input type="submit" value="Submit">
+        <button onclick="submitForm()">Submit</button>
     </form>
+<script>
+    function submitForm(e){
+        if (document.getElementsByName("password")[0].value != document.getElementsByName("repeat_password")[0].value){
+            alert("Both passwords should be equal");
+            document.getElementsByName("password")[0].value = "";
+            document.getElementsByName("repeat_password")[0].value = "";
+        } else {
+            document.getElementById("signupForm").submit();
+        }
+    }
+</script>
 </body>
 </html>
