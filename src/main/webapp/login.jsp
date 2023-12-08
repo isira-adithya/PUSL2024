@@ -6,7 +6,12 @@
 <%
     boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
     if (isLoggedIn) {
-        response.sendRedirect("/user/profile.jsp");
+        String role = (String) session.getAttribute("role");
+        if (role.equals("ADMIN")){
+            response.sendRedirect("/admin/index.jsp");
+        } else {
+            response.sendRedirect("/user/profile.jsp");
+        }
     }
 %>
 <!DOCTYPE html>
@@ -17,7 +22,7 @@
     <title>Login - GreenSuperMarket</title>
 </head>
 <body>
-    <form action="/api/user/login" method="post">
+    <form action="/api/login" method="post">
         <input type="text" name="email" placeholder="Email Address Here"> <br>
         <input type="password" name="password" placeholder="Password"> <br>
         <input type="submit" value="Login"> <br>

@@ -7,6 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    String role = (String) session.getAttribute("role");
+    if (role.equals("ADMIN")){
+        response.sendRedirect("/admin/index.jsp");
+        return;
+    }
+
     String user_email = (String) session.getAttribute("email");
     User currentUser = User.FindUserByEmail(user_email);
 %>
