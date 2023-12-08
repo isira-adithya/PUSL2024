@@ -1,4 +1,4 @@
-package com.isiraadithya.greensupermarket.routes.user;
+package com.isiraadithya.greensupermarket.routes.common;
 
 import com.isiraadithya.greensupermarket.models.User;
 import jakarta.servlet.ServletException;
@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "userLogin", value = "/api/user/login")
-public class UserLogin extends HttpServlet {
+@WebServlet(name = "userLogin", value = "/api/login")
+public class LoginHandler extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
@@ -20,15 +20,15 @@ public class UserLogin extends HttpServlet {
             User userObj = User.FindUserByEmail(email);
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
-                    if (userObj.getRole().equals("ADMIN")){
-                        resp.sendRedirect("/admin/login.jsp");
-                        return;
-                    }
                     HttpSession session = req.getSession(true);
                     session.setAttribute("isLoggedIn", true);
                     session.setAttribute("email", email);
-                    session.setAttribute("role", "USER");
-                    resp.sendRedirect("/user/profile.jsp");
+                    session.setAttribute("role", userObj.getRole());
+                    if (userObj.getRole().equals("ADMIN")){
+                        resp.sendRedirect("/admin/index.jsp");
+                    } else {
+                        resp.sendRedirect("/user/profile.jsp");
+                    }
                 } else {
                     resp.sendRedirect("/login.jsp?err=Invalid Username or Password");
                 }
