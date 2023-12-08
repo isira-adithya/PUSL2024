@@ -122,6 +122,18 @@ public class User {
         }
     }
 
+    public void deleteUser(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "DELETE FROM Users WHERE email=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setString(1, email);
+            sqlStatement.execute();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     public static int getUserCount(){
         int count = -1;
         try {
