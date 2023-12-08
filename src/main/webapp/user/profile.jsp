@@ -40,6 +40,7 @@
         <hr>
     </form>
     <button id="editBtn" onclick="toggleEdit()">Edit</button>
+    <button id="deleteBtn" onclick="deleteAccount()">Delete</button>
     <script>
         var isEditMode = false;
         function toggleEdit(){
@@ -58,6 +59,21 @@
             } else {
                 document.getElementById("editBtn").innerText = "Edit";
                 document.getElementById("submitBtn").hidden = true;
+            }
+        }
+
+        function deleteAccount(){
+            response = confirm("Are you sure?");
+            if (response){
+                fetch("/api/user/delete", {
+                    method: "DELETE"
+                }).then(res => {
+                    if(res.status == 200){
+                        document.location.href = "/logout.jsp";
+                    }
+                }).catch(err => {
+                    alert("Something went wrong. Please try again later.")
+                })
             }
         }
     </script>
