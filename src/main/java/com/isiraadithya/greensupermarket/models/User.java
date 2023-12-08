@@ -105,7 +105,7 @@ public class User {
     public void updateUser(){
         try {
             Connection dbconn = Database.connect();
-            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=? WHERE email=?";
+            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=?, password=? WHERE email=?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setString(1, firstname);
             sqlStatement.setString(2, lastname);
@@ -115,7 +115,8 @@ public class User {
             sqlStatement.setString(6, state);
             sqlStatement.setString(7, country);
             sqlStatement.setString(8, postalcode);
-            sqlStatement.setString(9, email);
+            sqlStatement.setString(9, password);
+            sqlStatement.setString(10, email);
             sqlStatement.execute();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
