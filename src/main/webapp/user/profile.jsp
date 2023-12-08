@@ -14,7 +14,7 @@
     }
 
     String user_email = (String) session.getAttribute("email");
-    User currentUser = User.FindUserByEmail(user_email);
+    User currentUser = User.findUserByEmail(user_email);
 %>
 <html>
 <head>
