@@ -20,7 +20,7 @@ public class UserLogin extends HttpServlet {
             User userObj = User.FindUserByEmail(email);
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
-                    if (userObj.getRole() == "ADMIN"){
+                    if (userObj.getRole().equals("ADMIN")){
                         resp.sendRedirect("/admin/login.jsp");
                         return;
                     }
