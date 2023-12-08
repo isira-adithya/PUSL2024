@@ -22,7 +22,7 @@ public class UserChangePassword extends HttpServlet {
             resp.sendRedirect("/user/changepassword.jsp?err=Invalid Data");
         }
 
-        User userObj = User.FindUserByEmail(email);
+        User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() != -1){
             if (userObj.checkPassword(current_password)){
                 userObj.setPassword(new_password);
