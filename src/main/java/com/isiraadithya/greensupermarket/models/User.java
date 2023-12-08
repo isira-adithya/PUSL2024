@@ -4,10 +4,13 @@
  */
 package com.isiraadithya.greensupermarket.models;
 
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Base64;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.isiraadithya.greensupermarket.helpers.Database;
@@ -29,6 +32,7 @@ public class User {
     public String state;
     public String country;
     public String postalcode;
+    private String passwordResetToken;
 
     // Other variables
     private boolean isPasswordSet = false;
@@ -44,6 +48,7 @@ public class User {
         country = _country;
         postalcode = _postalcode;
         role = _role;
+        passwordResetToken = "NULL";
     }
 
     public int getUserId(){
@@ -67,6 +72,28 @@ public class User {
         password = _pwhash;
     }
 
+    private void setPasswordResetToken(String token){
+        passwordResetToken = token;
+    }
+
+    public void generatePasswordResetToken(){
+        SecureRandom secureRandom = new SecureRandom();
+        byte[] randomBytes = new byte[32];
+        secureRandom.nextBytes(randomBytes);
+        String _tmpToken = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes).substring(0, 32);
+        passwordResetToken = _tmpToken;
+        this.updateUser();
+        sendPasswordResetEmail();
+    }
+
+    private void sendPasswordResetEmail(){
+        System.out.println("[DEBUG] Visit http://localhost:9090/resetpassword.jsp?token=" + passwordResetToken + " to reset your password.");
+    }
+
+    public boolean checkPasswordResetToken(String token){
+        return (token.equals(passwordResetToken));
+    }
+
     public boolean checkPassword(String plainTextPassword){
         // TODO: Remove this part once the development is done. @isira_adithya
         boolean isCorrect = false;
@@ -82,7 +109,7 @@ public class User {
         if (isPasswordSet && (userId == 0)) {
             try {
                 Connection dbconn = Database.connect();
-                String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement sqlStatement = dbconn.prepareStatement(query);
                 sqlStatement.setString(1, email);
                 sqlStatement.setString(2, password);
@@ -95,6 +122,7 @@ public class User {
                 sqlStatement.setString(9, country);
                 sqlStatement.setString(10, postalcode);
                 sqlStatement.setString(11, role);
+                sqlStatement.setString(12, passwordResetToken);
                 sqlStatement.execute();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
@@ -105,7 +133,7 @@ public class User {
     public void updateUser(){
         try {
             Connection dbconn = Database.connect();
-            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=? WHERE email=?";
+            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=?, password=?, passwordresettoken=? WHERE email=?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setString(1, firstname);
             sqlStatement.setString(2, lastname);
@@ -115,7 +143,21 @@ public class User {
             sqlStatement.setString(6, state);
             sqlStatement.setString(7, country);
             sqlStatement.setString(8, postalcode);
-            sqlStatement.setString(9, email);
+            sqlStatement.setString(9, password);
+            sqlStatement.setString(10, passwordResetToken);
+            sqlStatement.setString(11, email);
+            sqlStatement.execute();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void deleteUser(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "DELETE FROM Users WHERE email=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setString(1, email);
             sqlStatement.execute();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -164,6 +206,7 @@ public class User {
             String _country = "NULL";
             String _postalcode = "NULL";
             String _role = "NULL";
+            String _prt = "NULL";
 
             while(resultSet.next()){
                 _userId = resultSet.getInt("userid");
@@ -178,11 +221,12 @@ public class User {
                 _country = resultSet.getString("country");
                 _postalcode = resultSet.getString("postalcode");
                 _role = resultSet.getString("role");
-                
+                _prt = resultSet.getString("passwordresettoken");
 
                 User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
                 _tmp.setPasswordHash(_passwordHash);
                 _tmp.setUserId(_userId);
+                _tmp.setPasswordResetToken(_prt);
                 users[arrayIndex] = _tmp;
                 arrayIndex++;
             }
@@ -193,7 +237,7 @@ public class User {
         return new User[0];
     }
 
-    public static User FindUserByEmail(String searchQueryEmail) {
+    public static User findUserByEmail(String searchQueryEmail) {
         try {
             Connection dbconn = Database.connect();
             String query = "SELECT * FROM Users WHERE email=?";
@@ -214,6 +258,7 @@ public class User {
             String _country = "NULL";
             String _postalcode = "NULL";            
             String _role = "NULL";
+            String _prt = "NULL";
 
 
 
@@ -231,11 +276,12 @@ public class User {
                 _country = resultSet.getString("country");
                 _postalcode = resultSet.getString("postalcode");                
                 _role = resultSet.getString("role");
-
+                _prt = resultSet.getString("passwordresettoken");
             }
 
             User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
             _tmp.setPasswordHash(_passwordHash);
+            _tmp.setPasswordResetToken(_prt);
             _tmp.setUserId(_userId);
             return _tmp;
         } catch (Exception e) {
@@ -243,5 +289,29 @@ public class User {
         }
         Database.closeConnection();
         return new User("NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "USER");
+    }
+
+    public static boolean resetPassword(String email, String token, String newPassword){
+
+//      DO NOT TOUCH THIS PART
+//      This check is mandatory,if not this could be exploitable
+        if (token.equals("NULL")){
+            return false;
+        }
+
+        User userObj = findUserByEmail(email);
+        if (userObj.getUserId() != -1){
+            if (userObj.checkPasswordResetToken(token)){
+                userObj.setPassword(newPassword);
+                userObj.setPasswordResetToken("NULL");
+                userObj.updateUser();
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
     }
 }

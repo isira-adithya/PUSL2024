@@ -9,7 +9,6 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         contextPath = filterConfig.getServletContext().getContextPath();
-        System.out.println("Context Path: " + contextPath);
     }
 
     @Override
@@ -19,13 +18,13 @@ public class AuthenticationFilter implements Filter {
         String requestPath = req.getRequestURI();
 
         if (requestPath.contains("/user/") || requestPath.contains("/admin/")){
-            if (requestPath.contains("/login")){
+            if (requestPath.contains("/login") || requestPath.contains("/signup") || requestPath.contains("/forgot-password") || requestPath.contains("/reset-password")){
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
             }
             if (req.getSession().getAttribute("isLoggedIn") != null){
                 if(requestPath.contains("/admin/")){
-                    if (!req.getSession().getAttribute("role").equals("admin")){
+                    if (!req.getSession().getAttribute("role").equals("ADMIN")){
                         res.sendRedirect("/login.jsp?err=Unauthorized");
                     }
                 }

@@ -6,7 +6,12 @@
 <%
     boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
     if (isLoggedIn) {
-        response.sendRedirect("/user/profile.jsp");
+        String role = (String) session.getAttribute("role");
+        if (role.equals("ADMIN")){
+            response.sendRedirect("/admin/index.jsp");
+        } else {
+            response.sendRedirect("/user/profile.jsp");
+        }
     }
 %>
 <!DOCTYPE html>
