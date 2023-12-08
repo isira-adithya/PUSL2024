@@ -72,7 +72,7 @@
         }
 
         function deleteAccount(){
-            response = confirm("Are you sure?");
+            let response = confirm("Are you sure?");
             if (response){
                 fetch("/api/user/delete", {
                     method: "DELETE"
