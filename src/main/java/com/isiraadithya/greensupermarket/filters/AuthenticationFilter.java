@@ -18,7 +18,7 @@ public class AuthenticationFilter implements Filter {
         String requestPath = req.getRequestURI();
 
         if (requestPath.contains("/user/") || requestPath.contains("/admin/")){
-            if (requestPath.contains("/login") || requestPath.contains("/signup") ){
+            if (requestPath.contains("/login") || requestPath.contains("/signup") || requestPath.contains("/forgot-password") || requestPath.contains("/reset-password")){
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
             }
