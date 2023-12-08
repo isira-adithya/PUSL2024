@@ -1,4 +1,4 @@
-package com.isiraadithya.greensupermarket.routes.common;
+package com.isiraadithya.greensupermarket.routes.user;
 
 import com.isiraadithya.greensupermarket.models.User;
 import jakarta.servlet.ServletException;
@@ -10,13 +10,13 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet(name = "userLogin", value = "/api/login")
-public class LoginHandler extends HttpServlet {
+@WebServlet(name = "userLogin", value = "/api/user/login")
+public class UserLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        if (email != "null"){
+        if (!email.equals("null")){
             User userObj = User.FindUserByEmail(email);
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
