@@ -47,6 +47,7 @@
         <hr>
     </form>
     <button id="editBtn" onclick="toggleEdit()">Edit</button>
+    <button id="changePassword" onclick="location.href = '/user/changepassword.jsp'">Change Password</button>
     <button id="logoutBtn" onclick="location.href = '/logout.jsp'">Logout</button>
     <button id="deleteBtn" onclick="deleteAccount()">Delete</button>
     <script>
