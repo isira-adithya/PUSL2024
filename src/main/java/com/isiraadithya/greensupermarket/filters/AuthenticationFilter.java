@@ -9,7 +9,6 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         contextPath = filterConfig.getServletContext().getContextPath();
-        System.out.println("Context Path: " + contextPath);
     }
 
     @Override
@@ -19,7 +18,7 @@ public class AuthenticationFilter implements Filter {
         String requestPath = req.getRequestURI();
 
         if (requestPath.contains("/user/") || requestPath.contains("/admin/")){
-            if (requestPath.contains("/login")){
+            if (requestPath.contains("/login") || requestPath.contains("/signup") ){
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
             }
