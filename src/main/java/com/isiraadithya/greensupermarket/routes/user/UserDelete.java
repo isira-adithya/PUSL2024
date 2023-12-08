@@ -15,7 +15,7 @@ public class UserDelete extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = (String) req.getSession().getAttribute("email");
 
-        User userObj = User.FindUserByEmail(email);
+        User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() != -1){
             userObj.deleteUser();
             resp.setStatus(200);

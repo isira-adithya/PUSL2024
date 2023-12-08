@@ -17,7 +17,7 @@ public class UserLogin extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         if (!email.equals("null")){
-            User userObj = User.FindUserByEmail(email);
+            User userObj = User.findUserByEmail(email);
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
                     HttpSession session = req.getSession(true);

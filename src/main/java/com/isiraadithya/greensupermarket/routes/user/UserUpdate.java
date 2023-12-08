@@ -28,7 +28,7 @@ public class UserUpdate extends HttpServlet {
             resp.sendRedirect("/user/profile.jsp?err=Invalid Data");
         }
 
-        User userObj = User.FindUserByEmail(email);
+        User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() != -1){
             userObj.firstname = firstname;
             userObj.lastname = lastname;

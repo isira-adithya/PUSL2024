@@ -30,7 +30,7 @@ public class UserSignup extends HttpServlet {
             resp.sendRedirect("/signup.jsp?err=Invalid Data");
         }
 
-        User userObj = User.FindUserByEmail(email);
+        User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() == -1){
             try {
                 User newUser = new User(email, firstname, lastname, phone, street_address, city, state, country, postalcode, role);
