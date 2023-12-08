@@ -20,10 +20,14 @@ public class UserLogin extends HttpServlet {
             User userObj = User.FindUserByEmail(email);
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
+                    if (userObj.getRole() == "ADMIN"){
+                        resp.sendRedirect("/admin/login.jsp");
+                        return;
+                    }
                     HttpSession session = req.getSession(true);
                     session.setAttribute("isLoggedIn", true);
                     session.setAttribute("email", email);
-                    session.setAttribute("role", "user");
+                    session.setAttribute("role", "USER");
                     resp.sendRedirect("/user/profile.jsp");
                 } else {
                     resp.sendRedirect("/login.jsp?err=Invalid Username or Password");

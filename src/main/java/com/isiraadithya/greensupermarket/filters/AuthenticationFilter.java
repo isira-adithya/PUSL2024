@@ -24,7 +24,7 @@ public class AuthenticationFilter implements Filter {
             }
             if (req.getSession().getAttribute("isLoggedIn") != null){
                 if(requestPath.contains("/admin/")){
-                    if (!req.getSession().getAttribute("role").equals("admin")){
+                    if (!req.getSession().getAttribute("role").equals("ADMIN")){
                         res.sendRedirect("/login.jsp?err=Unauthorized");
                     }
                 }
