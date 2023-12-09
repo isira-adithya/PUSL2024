@@ -53,14 +53,6 @@ CREATE TABLE OrderDetails (
     FOREIGN KEY (orderid) REFERENCES Orders(orderid) ON DELETE CASCADE,
     FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
 );
-CREATE TABLE ShoppingCart (
-    shoppingcartid INT PRIMARY KEY,
-    userid INT,
-    productid INT,
-    quantity INT NOT NULL,
-    FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE,
-    FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
-);
 
 -- Sample Data
 INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken) VALUES
@@ -112,15 +104,4 @@ INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal)
 (9, 9, 9, 3, 1499.97),
 (10, 10, 10, 2, 159.98);
 
-INSERT INTO ShoppingCart (shoppingcartid, userid, productid, quantity) VALUES
-(1, 1, 2, 1),
-(2, 2, 3, 2),
-(3, 3, 1, 3),
-(4, 4, 4, 1),
-(5, 5, 5, 2),
-(6, 6, 6, 1),
-(7, 7, 7, 4),
-(8, 8, 8, 2),
-(9, 9, 9, 1),
-(10, 10, 10, 3);
 
