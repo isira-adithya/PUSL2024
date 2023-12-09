@@ -17,4 +17,10 @@
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+            <taglib-location>tld/c-1_0.tld</taglib-location>
+        </taglib>
+    </jsp-config>
 </web-app>
