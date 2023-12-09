@@ -31,6 +31,29 @@ public class Product {
     public int getProductId(){
         return this.id;
     }
+    public double getPrice() {
+        return this.price;
+    }
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public String getImage(){
+        if (this.image.isBlank()){
+            return "/uploads/images/products/not-found.png";
+        } else {
+            return "/uploads/images/products/" + this.image;
+        }
+
+    }
 
     public void saveProduct(){
         try {
