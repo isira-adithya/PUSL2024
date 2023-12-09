@@ -1,7 +1,7 @@
 package com.isiraadithya.greensupermarket.helpers;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Safelist;
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class XSSPreventor {
     public static String sanitizeHtml(String html) {
