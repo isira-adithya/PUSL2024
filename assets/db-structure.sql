@@ -1,7 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
- */
 /**
  * Author:  @isira_adithya
  * Created: Dec 7, 2023
@@ -35,9 +31,11 @@ CREATE TABLE Users (
 );
 CREATE TABLE Products (
     productid INT PRIMARY KEY,
-    productname VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    description TEXT
+    quantity INT NOT NULL,
+    description VARCHAR(4096),
+    image VARCHAR(1024)
 );
 CREATE TABLE Orders (
     orderid INT PRIMARY KEY,
@@ -76,19 +74,19 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (8, 'susan.white@example.com', 'susan_pass', 'Susan', 'White', '+94123456796', 'Lane 23, Meadow View', 'Batticaloa', 'Eastern Province', 'Sri Lanka', '30000', 'USER', 'NULL'),
 (9, 'kevin.hill@example.com', 'kevin_pass', 'Kevin', 'Hill', '+94123456797', 'Flat 4B, Skyline Tower', 'Trincomalee', 'Eastern Province', 'Sri Lanka', '31000', 'USER', 'NULL'),
 (10, 'natalie.adams@example.com', 'natalie_pass', 'Natalie', 'Adams', '+94123456798', 'No 17, Golden Lane', 'Galle', 'Southern Province', 'Sri Lanka', '80000', 'USER', 'NULL'),
-(11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'USER', 'NULL');
+(11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL');
 
-INSERT INTO Products (productid, productname, price, description) VALUES
-(1, 'Laptop', 999.99, 'Powerful laptop for all your needs'),
-(2, 'Smartphone', 599.99, 'Latest smartphone with advanced features'),
-(3, 'Headphones', 79.99, 'High-quality over-ear headphones'),
-(4, 'Tablet', 399.99, 'Compact tablet for on-the-go use'),
-(5, 'Desktop Computer', 1499.99, 'High-performance desktop computer'),
-(6, 'Camera', 299.99, 'Professional-grade digital camera'),
-(7, 'Smartwatch', 199.99, 'Smartwatch with fitness tracking features'),
-(8, 'Bluetooth Speaker', 49.99, 'Portable Bluetooth speaker with crisp sound'),
-(9, 'Gaming Console', 499.99, 'Next-gen gaming console for immersive gaming'),
-(10, 'Wireless Router', 79.99, 'High-speed wireless router for seamless connectivity');
+INSERT INTO Products (productid, name, price, quantity, description, image) VALUES
+(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', ''),
+(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', ''),
+(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', ''),
+(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', ''),
+(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', ''),
+(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', ''),
+(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', ''),
+(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', ''),
+(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', ''),
+(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '');
 
 INSERT INTO Orders (orderid, userid, amount) VALUES
 (1, 1, 1249.98),
