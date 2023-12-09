@@ -5,11 +5,10 @@
 package com.isiraadithya.greensupermarket.models;
 
 import java.security.SecureRandom;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -163,31 +162,10 @@ public class User {
             System.out.println(ex.getMessage());
         }
     }
-
-    public static int getUserCount(){
-        int count = -1;
-        try {
-            Connection dbconn = Database.connect();
-            String query = "SELECT COUNT(userid) AS userCount FROM Users";
-            Statement sqlStatement = dbconn.createStatement();
-            ResultSet resultSet = sqlStatement.executeQuery(query);
-            while(resultSet.next()){
-                count = resultSet.getInt("userCount");
-            }
-            Database.closeConnection();
-            return count;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return count;
-    }
     
-    public static User[] getUsers(){
-        int userCount = getUserCount();
+    public static List<User> getUsers(){
         try {
-            User[] users = new User[userCount];
-            int arrayIndex  = 0;
-
+            List<User> users = new ArrayList<User>();
             Connection dbconn = Database.connect();
             String query = "SELECT * FROM Users";
             Statement sqlStatement = dbconn.createStatement();
@@ -227,14 +205,13 @@ public class User {
                 _tmp.setPasswordHash(_passwordHash);
                 _tmp.setUserId(_userId);
                 _tmp.setPasswordResetToken(_prt);
-                users[arrayIndex] = _tmp;
-                arrayIndex++;
+                users.add(_tmp);
             }
             Database.closeConnection();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return new User[0];
+        return new ArrayList<User>();
     }
 
     public static User findUserByEmail(String searchQueryEmail) {
