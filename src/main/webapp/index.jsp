@@ -17,5 +17,9 @@
         <a href="/user/profile.jsp">Customer Profile</a> <br>
         <a href="/forgotpassword.jsp">Customer Forgot Password</a> <br>
         <a href="/logout.jsp">Logout</a> <br>
+
+        <hr>
+
+        <a href="/products">Products</a> <br>
     </body>
 </html>
