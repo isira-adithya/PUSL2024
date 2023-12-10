@@ -5,11 +5,10 @@
 package com.isiraadithya.greensupermarket.models;
 
 import java.security.SecureRandom;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -57,6 +56,9 @@ public class User {
 
     public String getRole() {
         return role;
+    }
+    public String getFullName() {
+        return this.firstname + " " + this.lastname;
     }
 
     private void setUserId(int _uid){
@@ -163,31 +165,10 @@ public class User {
             System.out.println(ex.getMessage());
         }
     }
-
-    public static int getUserCount(){
-        int count = -1;
-        try {
-            Connection dbconn = Database.connect();
-            String query = "SELECT COUNT(userid) AS userCount FROM Users";
-            Statement sqlStatement = dbconn.createStatement();
-            ResultSet resultSet = sqlStatement.executeQuery(query);
-            while(resultSet.next()){
-                count = resultSet.getInt("userCount");
-            }
-            Database.closeConnection();
-            return count;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return count;
-    }
     
-    public static User[] getUsers(){
-        int userCount = getUserCount();
+    public static List<User> getUsers(){
         try {
-            User[] users = new User[userCount];
-            int arrayIndex  = 0;
-
+            List<User> users = new ArrayList<User>();
             Connection dbconn = Database.connect();
             String query = "SELECT * FROM Users";
             Statement sqlStatement = dbconn.createStatement();
@@ -227,14 +208,13 @@ public class User {
                 _tmp.setPasswordHash(_passwordHash);
                 _tmp.setUserId(_userId);
                 _tmp.setPasswordResetToken(_prt);
-                users[arrayIndex] = _tmp;
-                arrayIndex++;
+                users.add(_tmp);
             }
             Database.closeConnection();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return new User[0];
+        return new ArrayList<User>();
     }
 
     public static User findUserByEmail(String searchQueryEmail) {
@@ -275,6 +255,60 @@ public class User {
                 _state = resultSet.getString("state");
                 _country = resultSet.getString("country");
                 _postalcode = resultSet.getString("postalcode");                
+                _role = resultSet.getString("role");
+                _prt = resultSet.getString("passwordresettoken");
+            }
+
+            User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
+            _tmp.setPasswordHash(_passwordHash);
+            _tmp.setPasswordResetToken(_prt);
+            _tmp.setUserId(_userId);
+            return _tmp;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        Database.closeConnection();
+        return new User("NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "NULL", "USER");
+    }
+
+    public static User findUserById(int userId) {
+        try {
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM Users WHERE userid=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setInt(1, userId);
+            ResultSet resultSet = sqlStatement.executeQuery();
+
+            // Fields
+            int _userId = -1;
+            String _passwordHash = "NULL";
+            String _email = "NULL";
+            String _fname = "NULL";
+            String _lname = "NULL";
+            String _phone = "NULL";
+            String _street_address = "NULL";
+            String _city = "NULL";
+            String _state = "NULL";
+            String _country = "NULL";
+            String _postalcode = "NULL";
+            String _role = "NULL";
+            String _prt = "NULL";
+
+
+
+            // Process the result set
+            while (resultSet.next()) {
+                _userId = resultSet.getInt("userid");
+                _passwordHash = resultSet.getString("password");
+                _email = resultSet.getString("email");
+                _fname = resultSet.getString("firstname");
+                _lname = resultSet.getString("lastname");
+                _phone = resultSet.getString("phone");
+                _street_address = resultSet.getString("street_address");
+                _city = resultSet.getString("city");
+                _state = resultSet.getString("state");
+                _country = resultSet.getString("country");
+                _postalcode = resultSet.getString("postalcode");
                 _role = resultSet.getString("role");
                 _prt = resultSet.getString("passwordresettoken");
             }

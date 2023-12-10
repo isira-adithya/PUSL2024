@@ -1,5 +1,7 @@
 <%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
 <%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -10,10 +12,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%
-    Product[] products = Product.getProducts();
-    if (products.length <= 0){
-        response.setHeader("X-Debug", "No Products Available");
-        response.sendRedirect("/");
+    String searchQuery = "";
+    String msg = "";
+    List<Product> products = new ArrayList<Product>();
+
+    if (request.getParameterMap().containsKey("msg")){
+        msg = request.getParameter("msg");
+    }
+
+    if (request.getParameterMap().containsKey("searchQuery")){
+        searchQuery = request.getParameter("searchQuery");
+    }
+
+    if (searchQuery.isBlank()){
+        products = Product.getProducts();
+    } else {
+        products = Product.findProductsByName(searchQuery);
+    }
+
+    if (products.size() <= 0){
+        response.sendRedirect("/products/?msg=No Products Found");
         return;
     }
 %>
@@ -22,6 +40,14 @@
     <title>Products - GreenSuperMarket</title>
 </head>
 <body>
+    <form action="/products/" method="get">
+        <label>Search</label>
+        <input type="text" name="searchQuery" value="<% out.print(XSSPreventor.encodeToHtmlEntities(searchQuery)); %>">
+        <input type="submit" value="Submit">
+    </form>
+    <p><b><% out.print(XSSPreventor.encodeToHtmlEntities(msg)); %></b></p>
+    <br>
+    <br>
     <table border="1px">
         <thead>
         <tr>
@@ -35,15 +61,15 @@
         </thead>
         <tbody>
         <%
-            for (int i = 0; products.length > i; i++){
+            for (int i = 0; products.size() > i; i++){
         %>
             <tr>
-                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products[i].getName())); %></td>
-                <td><img width="200px" src="<% out.print(XSSPreventor.encodeToHtmlEntities(products[i].getImage())); %>"></td>
-                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products[i].getDescription())); %></td>
-                <td><% out.print(products[i].getQuantity()); %></td>
-                <td><% out.print(products[i].getPrice()); %></td>
-                <td><a href="/products/product.jsp?id=<% out.print(products[i].getProductId()); %>">Open</a></td>
+                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getName())); %></td>
+                <td><img width="200px" src="<% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getImage())); %>"></td>
+                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getDescription())); %></td>
+                <td><% out.print(products.get(i).getQuantity()); %></td>
+                <td><% out.print(products.get(i).getPrice()); %>$</td>
+                <td><a href="/products/product.jsp?id=<% out.print(products.get(i).getProductId()); %>">Open</a></td>
             </tr>
         <%
             }

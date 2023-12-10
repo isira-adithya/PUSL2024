@@ -10,12 +10,13 @@ USE greensupermarket;
 
 DROP TABLE IF EXISTS ShoppingCart;
 DROP TABLE IF EXISTS OrderDetails;
+DROP TABLE IF EXISTS Comments;
 DROP TABLE IF EXISTS Orders;
 DROP TABLE IF EXISTS Products;
 DROP TABLE IF EXISTS Users;
 
 CREATE TABLE Users (
-    userid INT PRIMARY KEY,
+    userid INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(128) NOT NULL,
     firstname VARCHAR(100),
@@ -30,7 +31,7 @@ CREATE TABLE Users (
     passwordresettoken VARCHAR(32) /* Default: NULL (Keep in mind, there should be a check in the backend if the value if NULL if not this would be exploitable to account takeovers) */
 );
 CREATE TABLE Products (
-    productid INT PRIMARY KEY,
+    productid INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
@@ -38,14 +39,14 @@ CREATE TABLE Products (
     image VARCHAR(1024)
 );
 CREATE TABLE Orders (
-    orderid INT PRIMARY KEY,
+    orderid INT AUTO_INCREMENT PRIMARY KEY,
     userid INT,
     orderdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     amount DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
-    orderdetailid INT PRIMARY KEY,
+    orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     orderid INT,
     productid INT,
     quantity INT NOT NULL,
@@ -53,13 +54,13 @@ CREATE TABLE OrderDetails (
     FOREIGN KEY (orderid) REFERENCES Orders(orderid) ON DELETE CASCADE,
     FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
 );
-CREATE TABLE ShoppingCart (
-    shoppingcartid INT PRIMARY KEY,
-    userid INT,
-    productid INT,
-    quantity INT NOT NULL,
-    FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE,
-    FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
+CREATE TABLE Comments (
+      commentid INT AUTO_INCREMENT PRIMARY KEY,
+      userid INT,
+      productid INT,
+      content VARCHAR(256),
+      FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE,
+      FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
 );
 
 -- Sample Data
@@ -77,7 +78,7 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL');
 
 INSERT INTO Products (productid, name, price, quantity, description, image) VALUES
-(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', ''),
+(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', 'laptop-image.jpg'),
 (2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', ''),
 (3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', ''),
 (4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', ''),
@@ -112,15 +113,12 @@ INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal)
 (9, 9, 9, 3, 1499.97),
 (10, 10, 10, 2, 159.98);
 
-INSERT INTO ShoppingCart (shoppingcartid, userid, productid, quantity) VALUES
-(1, 1, 2, 1),
-(2, 2, 3, 2),
-(3, 3, 1, 3),
-(4, 4, 4, 1),
-(5, 5, 5, 2),
-(6, 6, 6, 1),
-(7, 7, 7, 4),
-(8, 8, 8, 2),
-(9, 9, 9, 1),
-(10, 10, 10, 3);
+INSERT INTO Comments (commentid, userid, productid, content) VALUES
+    (1, 2, 1, "Outstanding product quality! The attention to detail and craftsmanship are truly impressive."),
+    (2, 3, 1, "Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable."),
+    (3, 5, 5, "Exceptional value for money. Comparable products on other sites are much more expensive"),
+    (4, 6, 4, "The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance."),
+    (5, 7, 3, "I love the design of this product. It''s not only functional but also aesthetically pleasing."),
+    (6, 1, 1, "Fast and reliable shipping. Received my order sooner than expected. Great service!")
+
 

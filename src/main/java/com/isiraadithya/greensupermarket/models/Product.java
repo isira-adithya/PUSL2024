@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -68,29 +70,9 @@ public class Product {
         this.id = id;
     }
 
-    private static int getProductCount(){
-        int productCount = -1;
+    public static List<Product> getProducts(){
         try {
-            Connection dbconn = Database.connect();
-            String query = "SELECT COUNT(productid) as productCount FROM products";
-            Statement sqlStatement = dbconn.createStatement();
-            ResultSet resultSet = sqlStatement.executeQuery(query);
-
-            while(resultSet.next()){
-                productCount = resultSet.getInt("productCount");
-            }
-            Database.closeConnection();
-        } catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        return productCount;
-    }
-
-    public static Product[] getProducts(){
-        int productCount = Product.getProductCount();
-        try {
-            Product[] products = new Product[productCount];
-            int arrayIndex  = 0;
+            List<Product> products = new ArrayList<Product>();
 
             Connection dbconn = Database.connect();
             String query = "SELECT * FROM Products";
@@ -115,28 +97,25 @@ public class Product {
 
                 Product _tmp = new Product(_name, _description, _image, _price, _quantity);
                 _tmp.setProductId(_productId);
-                products[arrayIndex] = _tmp;
-                arrayIndex++;
+                products.add(_tmp);
             }
             Database.closeConnection();
             return products;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return new Product[0];
+        return new ArrayList<Product>();
     }
 
-    public static Product[] findProductsByName(String searchQuery){
-        int productCount = Product.getProductCount();
+    public static List<Product> findProductsByName(String searchQuery){
         try {
-            Product[] products = new Product[productCount];
-            int arrayIndex  = 0;
+            List<Product> products = new ArrayList<Product>();
 
             Connection dbconn = Database.connect();
             String query = "SELECT * FROM Products WHERE name LIKE ?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setString(1, "%" + searchQuery.replaceAll("%", "") +  "%");
-            ResultSet resultSet = sqlStatement.executeQuery(query);
+            ResultSet resultSet = sqlStatement.executeQuery();
 
             // Fields
             int _productId = -1;
@@ -156,15 +135,14 @@ public class Product {
 
                 Product _tmp = new Product(_name, _description, _image, _price, _quantity);
                 _tmp.setProductId(_productId);
-                products[arrayIndex] = _tmp;
-                arrayIndex++;
+                products.add(_tmp);
             }
             Database.closeConnection();
             return products;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return new Product[0];
+        return new ArrayList<Product>();
     }
 
     public static Product findProductById(int searchId) {

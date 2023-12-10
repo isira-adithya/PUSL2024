@@ -1,4 +1,4 @@
-package com.isiraadithya.greensupermarket.routes.user;
+package com.isiraadithya.greensupermarket.routes.user.userprofile;
 
 import com.isiraadithya.greensupermarket.models.User;
 import jakarta.servlet.ServletException;
@@ -23,6 +23,7 @@ public class UserLogin extends HttpServlet {
                     HttpSession session = req.getSession(true);
                     session.setAttribute("isLoggedIn", true);
                     session.setAttribute("email", email);
+                    session.setAttribute("userId", userObj.getUserId());
                     session.setAttribute("role", userObj.getRole());
                     if (userObj.getRole().equals("ADMIN")){
                         resp.sendRedirect("/admin/index.jsp");
