@@ -102,6 +102,13 @@
                 <div class="comment">
                     <div class="commenter">${fn:escapeXml(comment.user.fullName)}</div>
                     <div class="comment-text">${fn:escapeXml(comment.content)}</div>
+                    <c:if test="${userId == comment.user.userId}">
+                        <form action="/api/user/comments/delete" method="post">
+                            <br>
+                            <input type="hidden" name="commentId" value="${comment.commentId}">
+                            <input type="submit" value="Delete Comment">
+                        </form>
+                    </c:if>
                 </div>
             </c:forEach>
         </div>
