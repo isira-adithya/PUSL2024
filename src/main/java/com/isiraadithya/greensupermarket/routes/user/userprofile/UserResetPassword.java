@@ -1,4 +1,4 @@
-package com.isiraadithya.greensupermarket.routes.user;
+package com.isiraadithya.greensupermarket.routes.user.userprofile;
 
 import com.isiraadithya.greensupermarket.models.User;
 import jakarta.servlet.ServletException;
