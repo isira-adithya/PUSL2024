@@ -29,15 +29,15 @@ public class CommentAdd extends HttpServlet {
         if (productId >= 0){
             product = Product.findProductById(productId);
             if (product.getName().equals("NULL")){
-                resp.sendRedirect("/products/");
+                resp.sendRedirect(req.getHeader("Referer"));
                 return;
             }
         } else {
-            resp.sendRedirect("/products/");
+            resp.sendRedirect(req.getHeader("Referer"));
             return;
         }
         if (!req.getParameterMap().containsKey("comment") || req.getParameter("comment").isBlank()){
-            resp.sendRedirect("/products/");
+            resp.sendRedirect(req.getHeader("Referer"));
             return;
         }
 
