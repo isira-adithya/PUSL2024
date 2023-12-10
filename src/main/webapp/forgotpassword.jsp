@@ -5,11 +5,9 @@
   Time: 10:58 PM
 --%>
 <%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){

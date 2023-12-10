@@ -4,11 +4,9 @@
   Date: 12/8/2023
   Time: 10:58 PM
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){
@@ -43,6 +41,7 @@
     <title>Reset Your Password</title>
 </head>
 <body>
+    <%@include file="includes/header.jsp"%>
     <h3>Reset your password</h3>
     <form method="post" action="/api/user/reset-password">
         <p>Enter your email address and a good password, then submit the form to reset your password.</p> <br>
@@ -57,5 +56,6 @@
     <br>
     <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
     <p id="info_msg" style="color: blue">${fn:escapeXml(infoMsg)}</p>
+    <%@include file="includes/footer.jsp"%>
 </body>
 </html>

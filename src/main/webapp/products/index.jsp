@@ -1,7 +1,3 @@
-<%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
-<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -9,8 +5,12 @@
   Time: 9:18 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
+<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%
     String searchQuery = "";
     String msg = "";
@@ -40,6 +40,7 @@
     <title>Products - GreenSuperMarket</title>
 </head>
 <body>
+    <%@include file="../includes/header.jsp"%>
     <form action="/products/" method="get">
         <label>Search</label>
         <input type="text" name="searchQuery" value="<% out.print(XSSPreventor.encodeToHtmlEntities(searchQuery)); %>">
@@ -76,5 +77,6 @@
         %>
         </tbody>
     </table>
+    <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

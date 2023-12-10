@@ -4,11 +4,10 @@
   Date: 12/9/2023
   Time: 11:58 PM
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Comment" %>
 <%@ page import="java.util.List" %>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int id = -1;
@@ -86,6 +85,7 @@
     </style>
 </head>
 <body>
+    <%@include file="../includes/header.jsp"%>
     <div>
         <img width="500px" src="${fn:escapeXml(product.image)}">
         <p><b>Product Name: </b>${fn:escapeXml(product.name)}</p>
@@ -120,5 +120,6 @@
             </form>
         </div>
     </c:if>
+    <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

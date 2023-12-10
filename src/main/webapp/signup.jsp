@@ -3,8 +3,8 @@
     Created on : Dec 7, 2023, 22:05:46 PM
     Author     : isira_adithya
 --%>
+<%@include file="/includes/variables.jsp"%>
 <%
-    boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){
@@ -22,6 +22,7 @@
     <title>Signup - GreenSuperMarket</title>
 </head>
 <body>
+    <%@include file="includes/header.jsp"%>
     <form id="signupForm" action="/api/user/signup" method="post">
         <h3>Personal Information</h3>
         <label>Email: </label>
@@ -55,6 +56,9 @@
 
         <button onclick="submitForm()">Submit</button>
     </form>
+    <%@include file="includes/footer.jsp"%>
+
+
 <script>
     function submitForm(e){
         if (document.getElementsByName("password")[0].value != document.getElementsByName("repeat_password")[0].value){
