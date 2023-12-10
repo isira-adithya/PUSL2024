@@ -1,7 +1,6 @@
 package com.isiraadithya.greensupermarket.routes.user.comments;
 
 import com.isiraadithya.greensupermarket.models.Comment;
-import com.isiraadithya.greensupermarket.models.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,25 +9,25 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "commentAdd", value = "/api/user/comments/add")
-public class CommentAdd extends HttpServlet {
+@WebServlet(name = "commentDelete", value = "/api/user/comments/delete")
+public class CommentDelete extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int productId = -1;
+        int commentId = -1;
         int userId = (int) req.getSession().getAttribute("userId");
-        Product product;
+        Comment comment;
 
-//        Product ID Validation
-        if (req.getParameterMap().containsKey("productId")){
+        // Product ID Validation
+        if (req.getParameterMap().containsKey("commentId")){
             try {
-                productId = Integer.parseInt(req.getParameter("productId"));
+                commentId = Integer.parseInt(req.getParameter("commentId"));
             } catch (NumberFormatException ex){
-                productId = -1;
+                commentId = -1;
             }
         }
-        if (productId >= 0){
-            product = Product.findProductById(productId);
-            if (product.getName().equals("NULL")){
+        if (commentId >= 0){
+            comment = Comment.findCommentById(commentId);
+            if (comment.getContent().equals("NULL")){
                 resp.sendRedirect(req.getHeader("Referer"));
                 return;
             }
@@ -36,16 +35,13 @@ public class CommentAdd extends HttpServlet {
             resp.sendRedirect(req.getHeader("Referer"));
             return;
         }
-        if (!req.getParameterMap().containsKey("comment") || req.getParameter("comment").isBlank()){
+
+        if (comment.getUser().getUserId() == userId){
+            // Deleting the comment only if the user owns the comment
+            comment.deleteComment(commentId);
             resp.sendRedirect(req.getHeader("Referer"));
-            return;
+        } else {
+            resp.sendRedirect(req.getHeader("Referer"));
         }
-
-
-//        Adding the comment
-        Comment newComment = new Comment(userId, productId, req.getParameter("comment"));
-        newComment.saveComment();
-        resp.sendRedirect("/products/product.jsp?id=" + String.valueOf(productId));
-
     }
 }

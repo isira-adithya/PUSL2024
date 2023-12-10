@@ -4,9 +4,8 @@
   Date: 12/8/2023
   Time: 10:11 PM
 --%>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
     String errMsg = "";
     String infoMsg = "";
@@ -26,6 +25,7 @@
     <title>Change Your Password</title>
 </head>
 <body>
+    <%@include file="../includes/header.jsp"%>
     <h3>Change your password</h3>
     <form method="post" action="/api/user/change-password">
         <label>Current Password</label> <br>
@@ -35,5 +35,6 @@
         <input type="submit" value="Submit"> <br>
     </form>
     <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
+    <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

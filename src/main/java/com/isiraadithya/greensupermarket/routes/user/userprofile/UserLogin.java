@@ -1,5 +1,6 @@
 package com.isiraadithya.greensupermarket.routes.user.userprofile;
 
+import com.isiraadithya.greensupermarket.models.Cart;
 import com.isiraadithya.greensupermarket.models.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,10 +22,12 @@ public class UserLogin extends HttpServlet {
             if (userObj.getUserId() != -1){
                 if (userObj.checkPassword(password)) {
                     HttpSession session = req.getSession(true);
+                    Cart userCart = new Cart(userObj.getUserId());
                     session.setAttribute("isLoggedIn", true);
                     session.setAttribute("email", email);
                     session.setAttribute("userId", userObj.getUserId());
                     session.setAttribute("role", userObj.getRole());
+                    session.setAttribute("cart", userCart);
                     if (userObj.getRole().equals("ADMIN")){
                         resp.sendRedirect("/admin/index.jsp");
                     } else {

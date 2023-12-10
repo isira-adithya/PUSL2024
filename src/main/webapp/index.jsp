@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/includes/variables.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,7 @@
         <title>Home</title>
     </head>
     <body>
+        <%@include file="includes/header.jsp"%>
         <a href="/login.jsp">Customer Login</a> <br>
         <a href="/signup.jsp">Customer Signup</a> <br>
         <a href="/user/profile.jsp">Customer Profile</a> <br>
@@ -21,5 +23,6 @@
         <hr>
 
         <a href="/products">Products</a> <br>
+        <%@include file="includes/footer.jsp"%>
     </body>
 </html>

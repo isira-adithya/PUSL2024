@@ -4,10 +4,8 @@
   Date: 12/7/2023
   Time: 9:47 PM
 --%>
+<%@include file="/includes/variables.jsp"%>
 <%@ page import="com.isiraadithya.greensupermarket.models.User" %>
-<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String role = (String) session.getAttribute("role");
@@ -25,6 +23,7 @@
     <title>Profile</title>
 </head>
 <body>
+    <%@include file="../includes/header.jsp"%>
     <form method="post" action="/api/user/update">
         <h3>Personal Information</h3>
         <label>Email: </label>
@@ -54,6 +53,9 @@
     <button id="changePassword" onclick="location.href = '/user/changepassword.jsp'">Change Password</button>
     <button id="logoutBtn" onclick="location.href = '/logout.jsp'">Logout</button>
     <button id="deleteBtn" onclick="deleteAccount()">Delete</button>
+
+    <%@include file="../includes/footer.jsp"%>
+
     <script>
         var isEditMode = false;
         function toggleEdit(){

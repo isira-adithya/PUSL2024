@@ -92,5 +92,50 @@ public class Comment {
         return new ArrayList<Comment>();
     }
 
+    public static Comment findCommentById(int commentId){
+        int _commentId = -1;
+        int _userId = -1;
+        int _productId = -1;
+        String _content = "NULL";
+        Comment _tmp = new Comment(-1, -1, "NULL");
 
+        try {
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM Comments WHERE commentid=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setInt(1, commentId);
+
+            ResultSet resultSet = sqlStatement.executeQuery();
+            while(resultSet.next()){
+                _commentId = resultSet.getInt("commentid");
+                _userId = resultSet.getInt("userid");
+                _productId = resultSet.getInt("productid");
+                _content = resultSet.getString("content");
+                _tmp = new Comment(_userId, _productId, _content);
+                _tmp.setCommentId(_commentId);
+            }
+            Database.closeConnection();
+            return _tmp;
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+        return _tmp;
+    }
+
+    public static void deleteComment(int commentId){
+
+        try {
+            Connection dbconn = Database.connect();
+            String query = "DELETE FROM Comments WHERE commentid=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setInt(1, commentId);
+            sqlStatement.execute();
+            Database.closeConnection();
+            return;
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+    }
 }

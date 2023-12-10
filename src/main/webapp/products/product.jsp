@@ -4,11 +4,10 @@
   Date: 12/9/2023
   Time: 11:58 PM
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Comment" %>
 <%@ page import="java.util.List" %>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int id = -1;
@@ -86,12 +85,22 @@
     </style>
 </head>
 <body>
+    <%@include file="../includes/header.jsp"%>
     <div>
         <img width="500px" src="${fn:escapeXml(product.image)}">
         <p><b>Product Name: </b>${fn:escapeXml(product.name)}</p>
         <p><b>Product Description: </b>${fn:escapeXml(product.description)}</p>
         <p><b>Product Price: </b>${product.price}$</p>
         <p><b>Product Quantity: </b>${product.quantity}</p>
+    </div>
+    <div>
+        <br>
+        <form action="/api/user/cart/addItem" method="post">
+            <label>Quantity:</label>
+            <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
+            <input type="hidden" name="productId" value="${product.productId}">
+            <input type="submit" value="Add to cart">
+        </form>
     </div>
     <br>
     <br>
@@ -102,6 +111,13 @@
                 <div class="comment">
                     <div class="commenter">${fn:escapeXml(comment.user.fullName)}</div>
                     <div class="comment-text">${fn:escapeXml(comment.content)}</div>
+                    <c:if test="${userId == comment.user.userId}">
+                        <form action="/api/user/comments/delete" method="post">
+                            <br>
+                            <input type="hidden" name="commentId" value="${comment.commentId}">
+                            <input type="submit" value="Delete Comment">
+                        </form>
+                    </c:if>
                 </div>
             </c:forEach>
         </div>
@@ -120,5 +136,6 @@
             </form>
         </div>
     </c:if>
+    <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
