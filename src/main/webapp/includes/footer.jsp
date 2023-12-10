@@ -5,5 +5,5 @@
   Time: 2:48 PM
 --%>
 <footer style="margin-top: 25px">
-    <p>&copy; 2023 GreenSuperMarket. All rights reserved.</p>
+    <center><p>&copy; 2023 GreenSuperMarket. All rights reserved.</p></center>
 </footer>
