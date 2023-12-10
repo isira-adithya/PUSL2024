@@ -5,11 +5,21 @@
   Time: 10:11 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
     String errMsg = "";
+    String infoMsg = "";
     if (request.getParameterMap().containsKey("err")){
         errMsg = request.getParameter("err");
     }
+    if (request.getParameterMap().containsKey("infoMsg")){
+        infoMsg = request.getParameter("infoMsg");
+    }
+
+//    Settng pageContext
+    pageContext.setAttribute("errMsg", errMsg);
+    pageContext.setAttribute("infoMsg", infoMsg);
 %>
 <html>
 <head>
@@ -24,6 +34,6 @@
         <input type="password" name="new_password"> <br>
         <input type="submit" value="Submit"> <br>
     </form>
-    <p id="err_msg" style="color: red"><% out.print(XSSPreventor.encodeToHtmlEntities(errMsg)); %></p>
+    <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
 </body>
 </html>

@@ -20,17 +20,17 @@ import com.isiraadithya.greensupermarket.helpers.Database;
  */
 public class User {
     private int userId = 0;
-    public String email;
+    private String email;
     private String password;
     private String role;
-    public String firstname;
-    public String lastname;
-    public String phone;
-    public String street_address;
-    public String city;
-    public String state;
-    public String country;
-    public String postalcode;
+    private String firstname;
+    private String lastname;
+    private String phone;
+    private String street_address;
+    private String city;
+    private String state;
+    private String country;
+    private String postalcode;
     private String passwordResetToken;
 
     // Other variables
@@ -57,8 +57,89 @@ public class User {
     public String getRole() {
         return role;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getStreetAddress() {
+        return street_address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getPostalcode() {
+        return postalcode;
+    }
+
+    public String getPasswordResetToken() {
+        return passwordResetToken;
+    }
+
     public String getFullName() {
         return this.firstname + " " + this.lastname;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setStreetAddress(String street_address) {
+        this.street_address = street_address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setPostalcode(String postalcode) {
+        this.postalcode = postalcode;
     }
 
     private void setUserId(int _uid){

@@ -4,6 +4,8 @@
   Date: 12/8/2023
   Time: 10:58 PM
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     boolean isLoggedIn = (session.getAttribute("isLoggedIn") != null);
@@ -30,7 +32,11 @@
         token = request.getParameter("token");
     } else {
         response.sendRedirect("/forgotpassword.jsp?err=Invalid or Expired Password Reset Link");
+        return;
     }
+    pageContext.setAttribute("errMsg", errMsg);
+    pageContext.setAttribute("infoMsg", infoMsg);
+    pageContext.setAttribute("token", token);
 %>
 <html>
 <head>
@@ -44,12 +50,12 @@
         <input type="email" name="email"> <br>
         <label>New Password: </label>
         <input type="password" name="new_password"> <br><br>
-        <input type="hidden" name="token" value="<% out.print(XSSPreventor.encodeToHtmlEntities(token)); %>">
+        <input type="hidden" name="token" value="${fn:escapeXml(token)}">
         <input type="submit" value="Submit"> <br>
     </form>
     <br>
     <br>
-    <p id="err_msg" style="color: red"><% out.print(XSSPreventor.encodeToHtmlEntities(errMsg)); %></p>
-    <p id="info_msg" style="color: blue"><% out.print(XSSPreventor.encodeToHtmlEntities(infoMsg)); %></p>
+    <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
+    <p id="info_msg" style="color: blue">${fn:escapeXml(infoMsg)}</p>
 </body>
 </html>
