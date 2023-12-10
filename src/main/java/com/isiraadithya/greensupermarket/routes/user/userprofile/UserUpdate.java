@@ -23,21 +23,16 @@ public class UserUpdate extends HttpServlet {
         String country = req.getParameter("country");
         String postalcode = req.getParameter("postalcode");
 
-//        Input Validation
-        if ((firstname == "null") || (lastname == "null") || (phone == "null") || (street_address == "null") || (city == "null") || (state == "null") || (country == "null") || (postalcode == "null") ){
-            resp.sendRedirect("/user/profile.jsp?err=Invalid Data");
-        }
-
         User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() != -1){
-            userObj.firstname = firstname;
-            userObj.lastname = lastname;
-            userObj.phone = phone;
-            userObj.street_address = street_address;
-            userObj.city = city;
-            userObj.state = state;
-            userObj.country = country;
-            userObj.postalcode = postalcode;
+            userObj.setFirstname(firstname);
+            userObj.setLastname(lastname);
+            userObj.setPhone(phone);
+            userObj.setStreetAddress(street_address);
+            userObj.setCity(city);
+            userObj.setState(state);
+            userObj.setCountry(country);
+            userObj.setPostalcode(postalcode);
             userObj.updateUser();
             resp.sendRedirect("/user/profile.jsp?msg=Successful");
         } else {
