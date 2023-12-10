@@ -93,6 +93,15 @@
         <p><b>Product Price: </b>${product.price}$</p>
         <p><b>Product Quantity: </b>${product.quantity}</p>
     </div>
+    <div>
+        <br>
+        <form action="/api/user/cart/addItem" method="post">
+            <label>Quantity:</label>
+            <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
+            <input type="hidden" name="productId" value="${product.productId}">
+            <input type="submit" value="Add to cart">
+        </form>
+    </div>
     <br>
     <br>
     <c:if test="${comments.size() > 0}">
