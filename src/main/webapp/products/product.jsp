@@ -95,12 +95,14 @@
     </div>
     <div>
         <br>
-        <form action="/api/user/cart/addItem" method="post">
-            <label>Quantity:</label>
-            <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
-            <input type="hidden" name="productId" value="${product.productId}">
-            <input type="submit" value="Add to cart">
-        </form>
+        <c:if test="${userId != null}">
+            <form action="/api/user/cart/addItem" method="post">
+                <label>Quantity:</label>
+                <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
+                <input type="hidden" name="productId" value="${product.productId}">
+                <input type="submit" value="Add to cart">
+            </form>
+        </c:if>
     </div>
     <br>
     <br>
