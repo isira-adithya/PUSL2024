@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Order {
@@ -80,7 +82,7 @@ public class Order {
         try {
             Connection dbconn = Database.connect();
             String query = "INSERT INTO Orders(userid, orderdate, amount) VALUES (?,?,?)";
-            String generatedColumns[] = {"orderid"};
+            String[] generatedColumns = {"orderid"};
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
             sqlStatement.setInt(1, this.userId);
             sqlStatement.setDate(2, this.dateTime);
@@ -140,6 +142,42 @@ public class Order {
         }
 
         return new Order(-1, -1);
+    }
+
+    public static List<Order> findOrdersByUserId(int searchUid){
+        List<Order> orderList = new ArrayList<Order>();
+        try {
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM orders WHERE userid = ?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setInt(1, searchUid);
+            ResultSet resultSet = sqlStatement.executeQuery();
+
+            // Fields
+            int orderId = -1;
+            int userId = -1;
+            Date orderDate = new Date(1L);
+            double amount = -1;
+            while(resultSet.next()){
+                orderId = resultSet.getInt("orderid");
+                userId = resultSet.getInt("userid");
+                orderDate = resultSet.getDate("orderdate");
+                amount = resultSet.getDouble("amount");
+
+                Order _tmp = new Order(userId, amount);
+                _tmp.setOrderId(orderId);
+                _tmp.setDateTime(orderDate);
+                orderList.add(_tmp);
+            }
+
+
+            Database.closeConnection();
+            return orderList;
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+        return orderList;
     }
 
 }
