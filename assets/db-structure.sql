@@ -91,7 +91,7 @@ INSERT INTO Products (productid, name, price, quantity, description, image) VALU
 
 INSERT INTO Orders (orderid, userid, amount) VALUES
 (1, 1, 1249.98),
-(2, 2, 1679.97),
+(2, 1, 1679.97),
 (3, 3, 359.98),
 (4, 4, 799.95),
 (5, 5, 299.99),
@@ -103,15 +103,15 @@ INSERT INTO Orders (orderid, userid, amount) VALUES
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),
-(2, 2, 2, 1, 599.99),
+(2, 1, 2, 1, 599.99),
 (3, 3, 3, 3, 239.97),
-(4, 4, 4, 1, 399.99),
+(4, 2, 4, 1, 399.99),
 (5, 5, 5, 1, 1499.99),
 (6, 6, 6, 2, 599.98),
-(7, 7, 7, 4, 799.96),
-(8, 8, 8, 1, 49.99),
-(9, 9, 9, 3, 1499.97),
-(10, 10, 10, 2, 159.98);
+(7, 1, 7, 4, 799.96),
+(8, 1, 8, 1, 49.99),
+(9, 2, 9, 3, 1499.97),
+(10, 2, 10, 2, 159.98);
 
 INSERT INTO Comments (commentid, userid, productid, content) VALUES
     (1, 2, 1, "Outstanding product quality! The attention to detail and craftsmanship are truly impressive."),
