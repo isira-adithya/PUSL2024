@@ -88,6 +88,9 @@
         <p>
             Total: $${userCart.totalCost}
         </p>
+        <form method="post" action="/api/user/orders/new">
+            <input type="submit" value="Place Order">
+        </form>
     </c:if>
 </div>
 
