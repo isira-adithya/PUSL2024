@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderDetail {
     private int orderDetailId;
     private int orderId;
-    private int productId;
+    private Product product;
     private int quantity;
     private double subTotal;
 
@@ -24,8 +24,8 @@ public class OrderDetail {
         return orderId;
     }
 
-    public int getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
     public int getQuantity() {
@@ -42,9 +42,15 @@ public class OrderDetail {
 
     public OrderDetail(int orderId, int productId, int quantity, double subTotal){
         this.orderId = orderId;
-        this.productId = productId;
         this.quantity = quantity;
         this.subTotal = subTotal;
+
+        try {
+            product = Product.findProductById(productId);
+        } catch (Exception ex){
+            product = new Product("NULL", "NULL", "NULL", 0, 0);
+            System.out.println(ex.getMessage());
+        }
     }
 
     public boolean saveOrderDetail(){
@@ -53,7 +59,7 @@ public class OrderDetail {
             String query = "INSERT INTO orderdetails(orderid, productid, quantity, subtotal) VALUES (?, ?, ?, ?)";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, this.orderId);
-            sqlStatement.setInt(2, this.productId);
+            sqlStatement.setInt(2, this.product.getProductId());
             sqlStatement.setInt(3, this.quantity);
             sqlStatement.setDouble(4, this.subTotal);
             int result = sqlStatement.executeUpdate();

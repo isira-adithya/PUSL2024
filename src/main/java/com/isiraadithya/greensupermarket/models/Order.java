@@ -2,10 +2,7 @@ package com.isiraadithya.greensupermarket.models;
 
 import com.isiraadithya.greensupermarket.helpers.Database;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,9 +10,9 @@ import java.util.Map;
 public class Order {
     private int orderId;
     private int userId;
-    private Date dateTime;
+    private Timestamp dateTime;
     private double amount;
-    private OrderDetail orderDetails;
+    private List<OrderDetail> orderDetails;
     private Cart cartObj; // Required when initializing an object
 
 
@@ -36,11 +33,11 @@ public class Order {
         this.userId = userId;
     }
 
-    public Date getDateTime() {
+    public Timestamp getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Date dateTime) {
+    public void setDateTime(Timestamp dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -52,8 +49,16 @@ public class Order {
         this.amount = amount;
     }
 
+    public List<OrderDetail> getOrderDetails(){
+        return this.orderDetails;
+    }
+
+    private void setOrderDetails(List<OrderDetail> orderDetail){
+        this.orderDetails = orderDetail;
+    }
+
     public Order(Cart cartObj){
-        this.dateTime = new Date(System.currentTimeMillis());
+        this.dateTime = new Timestamp(System.currentTimeMillis());
         this.amount = cartObj.getTotalCost();
         this.userId = cartObj.getUserId();
         this.cartObj = cartObj;
@@ -64,7 +69,6 @@ public class Order {
 
     // This specific constructor would be used to initialize the Order obj in find*() functions.
     private Order(int userId, double amount){
-        this.dateTime = new Date(System.currentTimeMillis());
         this.amount = amount;
         this.userId = userId;
     }
@@ -85,7 +89,7 @@ public class Order {
             String[] generatedColumns = {"orderid"};
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
             sqlStatement.setInt(1, this.userId);
-            sqlStatement.setDate(2, this.dateTime);
+            sqlStatement.setTimestamp(2, this.dateTime);
             sqlStatement.setDouble(3, this.amount);
             int affectedRows = sqlStatement.executeUpdate();
 
@@ -123,18 +127,20 @@ public class Order {
             // Fields
             int orderId = -1;
             int userId = -1;
-            Date orderDate = new Date(1L);
+            Timestamp orderDate = new Timestamp(1L);
             double amount = -1;
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
-                orderDate = resultSet.getDate("orderdate");
+                orderDate = resultSet.getTimestamp("orderdate");
                 amount = resultSet.getDouble("amount");
             }
 
             Order _tmp = new Order(userId, amount);
             _tmp.setOrderId(orderId);
             _tmp.setDateTime(orderDate);
+            List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
+            _tmp.setOrderDetails(_tmp2);
             Database.closeConnection();
             return _tmp;
         } catch (Exception ex){
@@ -156,17 +162,19 @@ public class Order {
             // Fields
             int orderId = -1;
             int userId = -1;
-            Date orderDate = new Date(1L);
+            Timestamp orderDate = new Timestamp(1L);
             double amount = -1;
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
-                orderDate = resultSet.getDate("orderdate");
+                orderDate = resultSet.getTimestamp("orderdate");
                 amount = resultSet.getDouble("amount");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
                 _tmp.setDateTime(orderDate);
+                List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
+                _tmp.setOrderDetails(_tmp2);
                 orderList.add(_tmp);
             }
 
