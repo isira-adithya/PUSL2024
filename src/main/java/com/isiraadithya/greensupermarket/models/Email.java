@@ -3,9 +3,12 @@ package com.isiraadithya.greensupermarket.models;
 import com.isiraadithya.greensupermarket.helpers.SMTP;
 
 import javax.mail.Message;
+import javax.mail.Multipart;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.util.Date;
 
 public class Email {
@@ -19,6 +22,9 @@ public class Email {
     public Email(String toEmail, String emailSubject, String emailBody){
         this.toEmail = toEmail;
         this.subject = emailSubject;
+        // For Debugging Purposes : Remove 2 lines below in production
+        this.toEmail = "lilla63@wireconnected.com";
+        this.subject = emailSubject + " (" + this.toEmail + ")";
         this.body = emailBody;
     }
 
@@ -34,7 +40,14 @@ public class Email {
             msg.setFrom(new InternetAddress(fromEmail, fromName));
             msg.setReplyTo(InternetAddress.parse(fromEmail, false));
             msg.setSubject(this.subject, "UTF-8");
-            msg.setText(this.body, "UTF-8");
+
+            // Adding HTML content
+            Multipart multipart = new MimeMultipart("alternative");
+            MimeBodyPart mimeBodyPart = new MimeBodyPart();
+            mimeBodyPart.setContent(body, "text/html");
+            multipart.addBodyPart(mimeBodyPart);
+            msg.setContent(multipart);
+
             msg.setSentDate(new Date());
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(this.toEmail, false));
             Transport.send(msg);
