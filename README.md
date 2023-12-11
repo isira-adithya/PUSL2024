@@ -11,3 +11,4 @@
   - [ ] Send order confirmation emails
   - [ ] Send email verification emails (optional at the moment, but would be better)
 - [ ] Add the PayPal sandbox integration
+- [ ] Add better Exceptional handling, Logging and Verbose Error messages for users to see.
