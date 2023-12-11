@@ -64,6 +64,7 @@
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Sub Total</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -73,6 +74,13 @@
                     <td>${_value.value}</td>
                     <td>$${_value.key.price} Each</td>
                     <td>$${_value.key.price * _value.value}</td>
+                    <td>
+                        <form action="/api/user/cart/deleteItem" method="post">
+                            <label>Quantity:</label>
+                            <input type="hidden" name="productId" value="${_value.key.productId}">
+                            <input type="submit" value="Remove">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -80,6 +88,9 @@
         <p>
             Total: $${userCart.totalCost}
         </p>
+        <form method="post" action="/api/user/orders/new">
+            <input type="submit" value="Place Order">
+        </form>
     </c:if>
 </div>
 

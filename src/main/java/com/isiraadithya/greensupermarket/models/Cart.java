@@ -45,9 +45,20 @@ public class Cart {
         return false;
     }
 
-    public boolean deleteProduct(Product product){
+    public boolean deleteProduct(int productId){
+        Product product = new Product("NULL", "NULL", "NULL", 0, 0);
+        int quantity = 0;
+        for(Map.Entry<Product, Integer> entry: this.productQuantities.entrySet()){
+            Product _product = entry.getKey();
+            int _quantity = entry.getValue();
+            if (_product.getProductId() == productId){
+                product = _product;
+                quantity = _quantity;
+                this.productQuantities.remove(entry.getKey());
+                break;
+            }
+        };
         try {
-            int quantity = this.productQuantities.get(product);
             this.totalCost -= (product.getPrice() * quantity);
             this.productQuantities.remove(product);
             return true;
