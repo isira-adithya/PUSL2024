@@ -23,7 +23,3 @@
   - Card Number (Mastercard): `5329 8797 8623 4393`
   - Expiry Date: `01/2025`
   - CVC: `123`
-- Paypal Account
-  - Email: `sb-utfid6956642@business.example.com`
-  - Password: `x#d7E$>C`
-  - Type: `Business`
