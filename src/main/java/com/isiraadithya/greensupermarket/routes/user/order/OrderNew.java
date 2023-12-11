@@ -1,5 +1,6 @@
 package com.isiraadithya.greensupermarket.routes.user.order;
 
+import com.isiraadithya.greensupermarket.helpers.Email;
 import com.isiraadithya.greensupermarket.models.Cart;
 import com.isiraadithya.greensupermarket.models.Order;
 import jakarta.servlet.ServletException;
@@ -18,7 +19,11 @@ public class OrderNew extends HttpServlet {
         try {
             Cart userCart = (Cart) req.getSession().getAttribute("cart");
             new Order(userCart);
-            resp.sendRedirect("/user/orders.jsp");
+
+            // Email Sending Part
+            //Email receiptMail = new Email("lilla63@wireconnected.com", "Hello This is a test mail", "<u>Hi How are you</u>");
+            //receiptMail.send();
+            resp.sendRedirect("/user/orders/");
         } catch (Exception ex){
             System.out.println(ex.getMessage());
             resp.setStatus(500);
