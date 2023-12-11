@@ -10,6 +10,7 @@
     <c:if test="${isLoggedIn}">
         <a href="/user/profile.jsp">Profile</a>
         <a href="/user/cart.jsp">Cart</a>
+        <a href="/user/orders/">Orders</a>
         <a href="/logout.jsp">Logout</a>
     </c:if>
     <c:if test="${!isLoggedIn}">
