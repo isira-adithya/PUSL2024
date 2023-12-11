@@ -12,3 +12,18 @@
   - [ ] Send email verification emails (optional at the moment, but would be better)
 - [ ] Add the PayPal sandbox integration
 - [ ] Add better Exceptional handling, Logging and Verbose Error messages for users to see.
+
+## Sample Credentials For Payments
+- Valid Card
+  - Card Number: `4032037377560418`
+  - Expiry Date: `Any`
+  - CVC: `Any`
+- 3DS Card
+  - Card Number (Visa): `4868 7194 6070 7704`
+  - Card Number (Mastercard): `5329 8797 8623 4393`
+  - Expiry Date: `01/2025`
+  - CVC: `123`
+- Paypal Account
+  - Email: `sb-utfid6956642@business.example.com`
+  - Password: `x#d7E$>C`
+  - Type: `Business`
