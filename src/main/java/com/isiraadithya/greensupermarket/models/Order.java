@@ -4,7 +4,6 @@ import com.isiraadithya.greensupermarket.helpers.Database;
 import com.isiraadithya.greensupermarket.helpers.PaymentServices;
 
 import java.sql.*;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +15,7 @@ public class Order {
     private double amount;
     private List<OrderDetail> orderDetails;
     private Cart cartObj; // Required when initializing an object
-    private String paymentState;
+    private String orderStatus;
     private double additionalCharges;
 
 
@@ -62,15 +61,22 @@ public class Order {
         this.orderDetails = orderDetail;
     }
 
-    public String getPaymentState() {
-        return paymentState;
+    public String getOrderStatus() {
+        boolean isExpired = (System.currentTimeMillis() - this.dateTime.getTime()) > (1000*60*60*24);
+        if (isExpired && (!this.orderStatus.equals("COMPLETED"))){
+            if (!this.orderStatus.equals("EXPIRED")){
+                this.setOrderStatus("EXPIRED");
+                this.updateOrder();
+            }
+        }
+        return orderStatus;
     }
 
-    public void setPaymentState(String state){
-        if (state.equals("PENDING") || state.equals("COMPLETED")){
-            this.paymentState = state;
+    public void setOrderStatus(String state){
+        if (state.equals("PENDING") || state.equals("COMPLETED") || state.equals("EXPIRED")){
+            this.orderStatus = state;
         } else {
-            this.paymentState = "PENDING";
+            this.orderStatus = "PENDING";
         }
     }
 
@@ -87,7 +93,7 @@ public class Order {
         this.amount = cartObj.getTotalCost();
         this.userId = cartObj.getUserId();
         this.cartObj = cartObj;
-        this.setPaymentState("PENDING");
+        this.setOrderStatus("PENDING");
         if (this.saveOrder()){
             this.saveOrderDetails();
         }
@@ -117,7 +123,7 @@ public class Order {
             sqlStatement.setInt(1, this.userId);
             sqlStatement.setTimestamp(2, this.dateTime);
             sqlStatement.setDouble(3, this.amount);
-            sqlStatement.setString(4, this.paymentState);
+            sqlStatement.setString(4, this.orderStatus);
             int affectedRows = sqlStatement.executeUpdate();
 
             // Taken from: https://stackoverflow.com/a/1915197/11670864, https://stackoverflow.com/a/40988131/11670864
@@ -152,7 +158,7 @@ public class Order {
             sqlStatement.setInt(1, this.userId);
             sqlStatement.setTimestamp(2, this.dateTime);
             sqlStatement.setDouble(3, this.amount);
-            sqlStatement.setString(4, this.paymentState);
+            sqlStatement.setString(4, this.orderStatus);
             sqlStatement.setDouble(5, this.additionalCharges);
             sqlStatement.setInt(6, this.orderId);
             sqlStatement.execute();
@@ -175,23 +181,23 @@ public class Order {
             // Fields
             int orderId = -1;
             int userId = -1;
-            Timestamp orderDate = new Timestamp(1L);
+            Timestamp createdAt = new Timestamp(1L);
             double amount = -1;
             double additionalCharges = 0;
-            String paymentState = "PENDING";
+            String orderStatus = "PENDING";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
-                orderDate = resultSet.getTimestamp("orderdate");
+                createdAt = resultSet.getTimestamp("createdAt");
                 amount = resultSet.getDouble("amount");
                 additionalCharges = resultSet.getDouble("additionalCharges");
-                paymentState = resultSet.getString("paymentstate");
+                orderStatus = resultSet.getString("status");
             }
 
             Order _tmp = new Order(userId, amount);
             _tmp.setOrderId(orderId);
-            _tmp.setDateTime(orderDate);
-            _tmp.setPaymentState(paymentState);
+            _tmp.setDateTime(createdAt);
+            _tmp.setOrderStatus(orderStatus);
             _tmp.setAdditionalCharges(additionalCharges);
             List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
             _tmp.setOrderDetails(_tmp2);
@@ -216,22 +222,22 @@ public class Order {
             // Fields
             int orderId = -1;
             int userId = -1;
-            Timestamp orderDate = new Timestamp(1L);
+            Timestamp createdAt = new Timestamp(1L);
             double amount = -1;
             double additionalCharges = 0;
-            String paymentState = "PENDING";
+            String orderStatus = "PENDING";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
-                orderDate = resultSet.getTimestamp("orderdate");
+                createdAt = resultSet.getTimestamp("createdAt");
                 amount = resultSet.getDouble("amount");
-                paymentState = resultSet.getString("paymentstate");
+                orderStatus = resultSet.getString("status");
                 additionalCharges = resultSet.getDouble("additionalCharges");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
-                _tmp.setDateTime(orderDate);
-                _tmp.setPaymentState(paymentState);
+                _tmp.setDateTime(createdAt);
+                _tmp.setOrderStatus(orderStatus);
                 _tmp.setAdditionalCharges(additionalCharges);
                 List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
                 _tmp.setOrderDetails(_tmp2);
@@ -287,9 +293,9 @@ public class Order {
 
         // Other Details
         emailBody.append("<p>Date & Time: " + this.getDateTime().toString() + "</p>");
-        emailBody.append("<p>Payment Status: " + this.getPaymentState() + "</p>");
+        emailBody.append("<p>Payment Status: " + this.getOrderStatus() + "</p>");
         emailBody.append("<small><b>Your order will be delivered to you as soon as possible.</b></small><br>");
-        emailBody.append("<small><b>If you have any question regarding this order, contact us by visiting <a href=\"https://www.greensupermarket.live/contact-us.jsp\">https://www.greensupermarket.live/contact-us.jsp</a></b></small>");
+        emailBody.append("<small><b>If you have any questions regarding this order, contact us by visiting <a href=\"https://www.greensupermarket.live/contact-us.jsp\">https://www.greensupermarket.live/contact-us.jsp</a></b></small>");
 
         // Footer
         emailBody.append("<br><br>");
@@ -297,6 +303,18 @@ public class Order {
 
         Email receiptEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
         receiptEmail.send();
+    }
+
+    public void markAsCompleted(){
+        this.setOrderStatus("COMPLETED");
+
+        for (int i = 0; i < this.orderDetails.size(); i++){
+            Product product = this.orderDetails.get(i).getProduct();
+            product.setProductQuantity(product.getQuantity() - this.orderDetails.get(i).getQuantity());
+            product.updateProduct();
+        }
+
+        this.updateOrder();
     }
 
 }

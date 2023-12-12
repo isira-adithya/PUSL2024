@@ -8,7 +8,12 @@
 <%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    int userId = (int) session.getAttribute("userId");
     Cart userCart = (Cart) session.getAttribute("cart");
+    if (userCart == null){
+        userCart = new Cart(userId);
+        session.setAttribute("cart", userCart);
+    }
     boolean isCartEmpty = userCart.isEmpty();
     pageContext.setAttribute("userCart", userCart);
     pageContext.setAttribute("isCartEmpty", isCartEmpty);

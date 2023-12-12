@@ -36,6 +36,7 @@
     <title>Forgot Password</title>
 </head>
 <body>
+    <%@include file="includes/header.jsp"%>
     <h3>Enter your account's email to reset your password.</h3>
     <form method="post" action="/api/user/forgot-password">
         <label>Email: </label>
@@ -46,5 +47,6 @@
     <br>
     <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
     <p id="info_msg" style="color: blue">${fn:escapeXml(infoMsg)}</p>
+    <%@include file="includes/footer.jsp"%>
 </body>
 </html>

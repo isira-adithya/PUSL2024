@@ -96,15 +96,15 @@
         <tr>
             <td></td>
             <td></td>
-            <c:if test="${order.paymentState.equals('COMPLETED')}">
+            <c:if test="${order.orderStatus.equals('COMPLETED')}">
                 <td><b>Sub Total:</b></td>
             </c:if>
-            <c:if test="${order.paymentState.equals('PENDING')}">
+            <c:if test="${order.orderStatus.equals('PENDING')}">
                 <td><b>Total:</b></td>
             </c:if>
             <td><b>$${order.amount}</b></td>
         </tr>
-        <c:if test="${order.paymentState.equals('COMPLETED')}">
+        <c:if test="${order.orderStatus.equals('COMPLETED')}">
             <tr>
                 <td></td>
                 <td></td>
@@ -122,8 +122,8 @@
     </table>
     <p>
         Date/Time: <i>${order.dateTime.toString()}</i><br><br>
-        Payment Status:
-        <c:if test="${order.paymentState.equals('PENDING')}">
+        Order Status:
+        <c:if test="${order.orderStatus.equals('PENDING')}">
             <i style="color: blue">PENDING</i><br><br>
             <b>
                 <small>
@@ -133,11 +133,19 @@
                 </small>
             </b>
         </c:if>
-        <c:if test="${order.paymentState.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+        <c:if test="${order.orderStatus.equals('EXPIRED')}">
+            <i style="color: red;">EXPIRED</i>
+            <b>
+                <small>
+                    Unfortunately, your order has been expired. Please reorder the items again by visiting <a href="/products/">here</a> .
+                </small>
+            </b>
+        </c:if>
     </p>
     <br>
 
-    <c:if test="${order.paymentState.equals('PENDING')}">
+    <c:if test="${order.orderStatus.equals('PENDING')}">
         <a href="/api/user/payments/authorize_payment?orderid=${order.orderId}">Pay</a>
         <br><br>
     </c:if>
