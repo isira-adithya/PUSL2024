@@ -34,6 +34,7 @@ public class Product {
         return this.id;
     }
     public double getPrice() {
+        this.price = Math.round(this.price * Math.pow(10, 2)) / Math.pow(10, 2);
         return this.price;
     }
     public int getQuantity() {
