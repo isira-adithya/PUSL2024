@@ -288,7 +288,7 @@ public class Order {
         // Other Details
         emailBody.append("<p>Date & Time: " + this.getDateTime().toString() + "</p>");
         emailBody.append("<p>Payment Status: " + this.getPaymentState() + "</p>");
-        emailBody.append("<small><b>Your order will be delivered to you as soon as possible.</b></small>");
+        emailBody.append("<small><b>Your order will be delivered to you as soon as possible.</b></small><br>");
         emailBody.append("<small><b>If you have any question regarding this order, contact us by visiting <a href=\"https://www.greensupermarket.live/contact-us.jsp\">https://www.greensupermarket.live/contact-us.jsp</a></b></small>");
 
         // Footer
