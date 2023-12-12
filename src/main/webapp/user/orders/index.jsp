@@ -40,11 +40,14 @@
                         <td>${order.orderId}</td>
                         <td>${order.dateTime.toString()}</td>
                         <td>${order.amount}</td>
-                        <c:if test="${order.paymentState.equals('PENDING')}">
-                            <td><p style="color:blue">PENDING</p></td>
+                        <c:if test="${order.orderStatus.equals('EXPIRED')}">
+                            <td><p style="color:red;">EXPIRED</p></td>
                         </c:if>
-                        <c:if test="${order.paymentState.equals('COMPLETED')}">
-                            <td><p style="color:green">COMPLETED</p></td>
+                        <c:if test="${order.orderStatus.equals('PENDING')}">
+                            <td><p style="color:blue;">PENDING</p></td>
+                        </c:if>
+                        <c:if test="${order.orderStatus.equals('COMPLETED')}">
+                            <td><p style="color:green;">COMPLETED</p></td>
                         </c:if>
                         <td><a href="/user/orders/order.jsp?id=${order.orderId}">View Order</a></td>
                     </tr>

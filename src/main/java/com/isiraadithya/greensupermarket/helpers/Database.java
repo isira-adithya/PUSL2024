@@ -28,11 +28,14 @@ public class Database {
             try {
                 // Load MariaDB JDBC driver
                 Class.forName("org.mariadb.jdbc.Driver");
+                if (System.getenv("PROD") != null && System.getenv("PROD").equals("TRUE")){
+                    Class.forName("com.mysql.jdbc.Driver");
+                }
 
                 // Establish a connection
                 connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
 
-            } catch (ClassNotFoundException | SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 throw new SQLException("Failed to connect to the database.");
             }

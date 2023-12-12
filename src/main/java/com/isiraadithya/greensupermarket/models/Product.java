@@ -61,7 +61,33 @@ public class Product {
     public void saveProduct(){
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT ";
+            String query = "INSERT INTO products(name, price, quantity, description, image) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = dbconn.prepareStatement(query);
+            preparedStatement.setString(1, this.name);
+            preparedStatement.setDouble(2, this.price);
+            preparedStatement.setInt(3, this.quantity);
+            preparedStatement.setString(4, this.description);
+            preparedStatement.setString(5, this.image);
+            preparedStatement.execute();
+            Database.closeConnection();
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void updateProduct(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "UPDATE products SET name=?, price=?, quantity=?, description=?, image=? WHERE productid = ?";
+            PreparedStatement preparedStatement = dbconn.prepareStatement(query);
+            preparedStatement.setString(1, this.name);
+            preparedStatement.setDouble(2, this.price);
+            preparedStatement.setInt(3, this.quantity);
+            preparedStatement.setString(4, this.description);
+            preparedStatement.setString(5, this.image);
+            preparedStatement.setInt(6, this.id);
+            preparedStatement.execute();
+            Database.closeConnection();
         } catch (Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -69,6 +95,10 @@ public class Product {
 
     private void setProductId(int id){
         this.id = id;
+    }
+
+    public void setProductQuantity(int quantity){
+        this.quantity = quantity;
     }
 
     public static List<Product> getProducts(){

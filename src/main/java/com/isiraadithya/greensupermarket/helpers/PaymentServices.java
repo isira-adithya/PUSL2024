@@ -18,8 +18,8 @@ import com.paypal.base.rest.*;
  */
 public class PaymentServices {
 
-    private static final String CLIENT_ID = "AcF-L_UVREaNlJjllF4j6j8U2MjwjnGYvbTPw8kmTyUSBoMl97Pe9RcSasv8tv4bg_T5ZJtbu_ur3Eaq";
-    private static final String CLIENT_SECRET = "EJ2Uyh5XdC_iLMh49hLKnfm_uwTPRfr5cZkmkw7I2e3cEnjRPHCn5bkiZIE9swiyZE0x9xNAcxRD-pca";
+    private static final String CLIENT_ID = System.getenv("PAYPAL_CLIENT_ID");
+    private static final String CLIENT_SECRET = System.getenv("PAYPAL_SECRET_KEY");
     private static final String MODE = "sandbox";
     public static final double shippingCost = 20;
     public static final double tax = 3.99;
