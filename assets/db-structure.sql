@@ -92,16 +92,16 @@ INSERT INTO Products (productid, name, price, quantity, description, image) VALU
 (10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '');
 
 INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, createdAt) VALUES
-(1, 1, 1249.98, 23.99, "PENDING", TIMESTAMP('2023-07-12', '10:10:10')),
-(2, 1, 1679.97, 23.99, "COMPLETED", TIMESTAMP('2023-08-22', '10:10:10')),
-(3, 3, 359.98, 23.99, "COMPLETED", TIMESTAMP('2023-05-16', '10:10:10')),
-(4, 4, 799.95, 23.99, "COMPLETED", TIMESTAMP('2022-03-01', '10:10:10')),
-(5, 5, 299.99, 23.99, "COMPLETED", TIMESTAMP('2022-04-12', '10:10:10')),
-(6, 6, 899.97, 23.99, "COMPLETED", TIMESTAMP('2023-01-16', '10:10:10')),
-(7, 7, 459.96, 23.99, "COMPLETED", TIMESTAMP('2022-08-14', '10:10:10')),
-(8, 8, 129.98, 23.99, "COMPLETED", TIMESTAMP('2023-03-11', '10:10:10')),
-(9, 9, 679.94, 23.99, "COMPLETED", TIMESTAMP('2021-07-06', '10:10:10')),
-(10, 10, 239.97, 23.99, "COMPLETED", TIMESTAMP('2021-01-01', '10:10:10'));
+(1, 1, 1249.98, 23.99, 'PENDING', TIMESTAMP('2023-07-12', '10:10:10')),
+(2, 1, 1679.97, 23.99, 'COMPLETED', TIMESTAMP('2023-08-22', '10:10:10')),
+(3, 3, 359.98, 23.99, 'COMPLETED', TIMESTAMP('2023-05-16', '10:10:10')),
+(4, 4, 799.95, 23.99, 'COMPLETED', TIMESTAMP('2022-03-01', '10:10:10')),
+(5, 5, 299.99, 23.99, 'COMPLETED', TIMESTAMP('2022-04-12', '10:10:10')),
+(6, 6, 899.97, 23.99, 'COMPLETED', TIMESTAMP('2023-01-16', '10:10:10')),
+(7, 7, 459.96, 23.99, 'COMPLETED', TIMESTAMP('2022-08-14', '10:10:10')),
+(8, 8, 129.98, 23.99, 'COMPLETED', TIMESTAMP('2023-03-11', '10:10:10')),
+(9, 9, 679.94, 23.99, 'COMPLETED', TIMESTAMP('2021-07-06', '10:10:10')),
+(10, 10, 239.97, 23.99, 'COMPLETED', TIMESTAMP('2021-01-01', '10:10:10'));
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),
@@ -116,11 +116,11 @@ INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal)
 (10, 2, 10, 2, 159.98);
 
 INSERT INTO Comments (commentid, userid, productid, content) VALUES
-    (1, 2, 1, "Outstanding product quality! The attention to detail and craftsmanship are truly impressive."),
-    (2, 3, 1, "Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable."),
-    (3, 5, 5, "Exceptional value for money. Comparable products on other sites are much more expensive"),
-    (4, 6, 4, "The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance."),
-    (5, 7, 3, "I love the design of this product. It''s not only functional but also aesthetically pleasing."),
-    (6, 1, 1, "Fast and reliable shipping. Received my order sooner than expected. Great service!")
+    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.'),
+    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.'),
+    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive'),
+    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.'),
+    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.'),
+    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!')
 
 
