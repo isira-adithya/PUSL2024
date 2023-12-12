@@ -43,6 +43,8 @@ CREATE TABLE Orders (
     userid INT,
     orderdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     amount DECIMAL(10, 2) NOT NULL,
+    additionalCharges DECIMAL(10, 2),
+    paymentstate VARCHAR(32), /* PENDING, COMPLETED */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
@@ -89,17 +91,17 @@ INSERT INTO Products (productid, name, price, quantity, description, image) VALU
 (9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', ''),
 (10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '');
 
-INSERT INTO Orders (orderid, userid, amount) VALUES
-(1, 1, 1249.98),
-(2, 1, 1679.97),
-(3, 3, 359.98),
-(4, 4, 799.95),
-(5, 5, 299.99),
-(6, 6, 899.97),
-(7, 7, 459.96),
-(8, 8, 129.98),
-(9, 9, 679.94),
-(10, 10, 239.97);
+INSERT INTO Orders (orderid, userid, amount, additionalCharges, paymentstate) VALUES
+(1, 1, 1249.98, 23.99, "COMPLETED"),
+(2, 1, 1679.97, 23.99, "COMPLETED"),
+(3, 3, 359.98, 23.99, "COMPLETED"),
+(4, 4, 799.95, 23.99, "COMPLETED"),
+(5, 5, 299.99, 23.99, "COMPLETED"),
+(6, 6, 899.97, 23.99, "COMPLETED"),
+(7, 7, 459.96, 23.99, "COMPLETED"),
+(8, 8, 129.98, 23.99, "COMPLETED"),
+(9, 9, 679.94, 23.99, "COMPLETED"),
+(10, 10, 239.97, 23.99, "COMPLETED");
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),

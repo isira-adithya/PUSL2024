@@ -166,11 +166,13 @@ public class User {
         String _tmpToken = Base64.getUrlEncoder().withoutPadding().encodeToString(randomBytes).substring(0, 32);
         passwordResetToken = _tmpToken;
         this.updateUser();
-        sendPasswordResetEmail();
     }
 
-    private void sendPasswordResetEmail(){
-        System.out.println("[DEBUG] Visit http://localhost:9090/resetpassword.jsp?token=" + passwordResetToken + " to reset your password.");
+    public void sendPasswordResetEmail(){
+        String passwordResetLink = "http://localhost:9090/resetpassword.jsp?token=" + passwordResetToken;
+        String emailBody = "Hello " + this.getFullName() + ",<br>Visit <a href=\"" + passwordResetLink + "\">" + passwordResetLink + "</a> to reset your password.";
+        Email passwordResetEmail = new Email(this.email, "Reset Your Password - GreenSuperMarket", emailBody);
+        passwordResetEmail.send();
     }
 
     public boolean checkPasswordResetToken(String token){
