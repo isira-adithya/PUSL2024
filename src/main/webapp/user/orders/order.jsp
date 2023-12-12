@@ -7,6 +7,7 @@
 <%@include file="/includes/variables.jsp"%>
 <%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Order" %>
+<%@ page import="java.sql.Timestamp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int orderId = -1;
@@ -20,6 +21,7 @@
     }
 
     Order order = Order.findOrderById(orderId);
+    Timestamp expireDateTime;
     // Checking if the order exists
     if (order.getAmount() <= 0){
         response.sendRedirect("/user/orders");
@@ -30,7 +32,9 @@
         response.sendRedirect("/user/orders");
         return;
     }
+    expireDateTime = new Timestamp(order.getDateTime().getTime() + (1000 * 60 * 60 * 24));
     pageContext.setAttribute("order", order);
+    pageContext.setAttribute("expireDateTime", expireDateTime);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,13 +93,39 @@
                 <td>$${_value.subTotal}</td>
             </tr>
         </c:forEach>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><b>Total:</b></td>
+            <td><b>$${order.amount}</b></td>
+        </tr>
         </tbody>
     </table>
     <p>
         Date/Time: <i>${order.dateTime.toLocaleString()}</i><br><br>
-        Total: <i>$${order.amount}</i>
+        <c:if test="${order.paymentState.equals('COMPLETED')}">
+            <b>Addional Charges <i>(Shipping costs, Tax, etc)</i>: <i>${order.additionalCharges}</i><br>
+        </c:if>
+        Total Payment Amount: <i>$${order.amount + order.additionalCharges}</i><br><br>
+        Payment Status:
+        <c:if test="${order.paymentState.equals('PENDING')}">
+            <i style="color: blue">PENDING</i><br><br>
+            <b>
+                <small>
+                    Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
+                    <br><br>
+                    We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
+                </small>
+            </b>
+        </c:if>
+        <c:if test="${order.paymentState.equals('COMPLETED')}"><i style="color: green"></i>COMPLETED</c:if>
     </p>
     <br>
+
+    <c:if test="${order.paymentState.equals('PENDING')}">
+        <a href="/api/user/payments/authorize_payment?orderid=${order.orderId}">Pay</a>
+        <br><br>
+    </c:if>
     <a href="/user/orders/">Go back</a>
 </div>
 
