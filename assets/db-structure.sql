@@ -41,10 +41,10 @@ CREATE TABLE Products (
 CREATE TABLE Orders (
     orderid INT AUTO_INCREMENT PRIMARY KEY,
     userid INT,
-    orderdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     amount DECIMAL(10, 2) NOT NULL,
     additionalCharges DECIMAL(10, 2),
-    paymentstate VARCHAR(32), /* PENDING, COMPLETED */
+    status VARCHAR(32), /* PENDING, COMPLETED */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
@@ -91,17 +91,17 @@ INSERT INTO Products (productid, name, price, quantity, description, image) VALU
 (9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', ''),
 (10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '');
 
-INSERT INTO Orders (orderid, userid, amount, additionalCharges, paymentstate) VALUES
-(1, 1, 1249.98, 23.99, "COMPLETED"),
-(2, 1, 1679.97, 23.99, "COMPLETED"),
-(3, 3, 359.98, 23.99, "COMPLETED"),
-(4, 4, 799.95, 23.99, "COMPLETED"),
-(5, 5, 299.99, 23.99, "COMPLETED"),
-(6, 6, 899.97, 23.99, "COMPLETED"),
-(7, 7, 459.96, 23.99, "COMPLETED"),
-(8, 8, 129.98, 23.99, "COMPLETED"),
-(9, 9, 679.94, 23.99, "COMPLETED"),
-(10, 10, 239.97, 23.99, "COMPLETED");
+INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, createdAt) VALUES
+(1, 1, 1249.98, 23.99, "PENDING", TIMESTAMP('2023-07-12', '10:10:10')),
+(2, 1, 1679.97, 23.99, "COMPLETED", TIMESTAMP('2023-08-22', '10:10:10')),
+(3, 3, 359.98, 23.99, "COMPLETED", TIMESTAMP('2023-05-16', '10:10:10')),
+(4, 4, 799.95, 23.99, "COMPLETED", TIMESTAMP('2022-03-01', '10:10:10')),
+(5, 5, 299.99, 23.99, "COMPLETED", TIMESTAMP('2022-04-12', '10:10:10')),
+(6, 6, 899.97, 23.99, "COMPLETED", TIMESTAMP('2023-01-16', '10:10:10')),
+(7, 7, 459.96, 23.99, "COMPLETED", TIMESTAMP('2022-08-14', '10:10:10')),
+(8, 8, 129.98, 23.99, "COMPLETED", TIMESTAMP('2023-03-11', '10:10:10')),
+(9, 9, 679.94, 23.99, "COMPLETED", TIMESTAMP('2021-07-06', '10:10:10')),
+(10, 10, 239.97, 23.99, "COMPLETED", TIMESTAMP('2021-01-01', '10:10:10'));
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),
