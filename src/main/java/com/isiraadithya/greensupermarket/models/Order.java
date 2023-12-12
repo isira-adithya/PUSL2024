@@ -3,6 +3,7 @@ package com.isiraadithya.greensupermarket.models;
 import com.isiraadithya.greensupermarket.helpers.Database;
 
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,8 @@ public class Order {
     private double amount;
     private List<OrderDetail> orderDetails;
     private Cart cartObj; // Required when initializing an object
+    private String paymentState;
+    private double additionalCharges;
 
 
     // Getter and Setters
@@ -42,6 +45,7 @@ public class Order {
     }
 
     public double getAmount() {
+        this.amount = Math.round(this.amount * Math.pow(10, 2)) / Math.pow(10, 2);
         return amount;
     }
 
@@ -57,11 +61,32 @@ public class Order {
         this.orderDetails = orderDetail;
     }
 
+    public String getPaymentState() {
+        return paymentState;
+    }
+
+    public void setPaymentState(String state){
+        if (state.equals("PENDING") || state.equals("COMPLETED")){
+            this.paymentState = state;
+        } else {
+            this.paymentState = "PENDING";
+        }
+    }
+
+    public double getAdditionalCharges() {
+        return additionalCharges;
+    }
+
+    public void setAdditionalCharges(double additionalCharges) {
+        this.additionalCharges = additionalCharges;
+    }
+
     public Order(Cart cartObj){
         this.dateTime = new Timestamp(System.currentTimeMillis());
         this.amount = cartObj.getTotalCost();
         this.userId = cartObj.getUserId();
         this.cartObj = cartObj;
+        this.setPaymentState("PENDING");
         if (this.saveOrder()){
             this.saveOrderDetails();
         }
@@ -85,12 +110,13 @@ public class Order {
     public boolean saveOrder(){
         try {
             Connection dbconn = Database.connect();
-            String query = "INSERT INTO Orders(userid, orderdate, amount) VALUES (?,?,?)";
+            String query = "INSERT INTO Orders(userid, orderdate, amount, additionalCharges, paymentstate) VALUES (?,?,?,0,?)";
             String[] generatedColumns = {"orderid"};
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
             sqlStatement.setInt(1, this.userId);
             sqlStatement.setTimestamp(2, this.dateTime);
             sqlStatement.setDouble(3, this.amount);
+            sqlStatement.setString(4, this.paymentState);
             int affectedRows = sqlStatement.executeUpdate();
 
             // Taken from: https://stackoverflow.com/a/1915197/11670864, https://stackoverflow.com/a/40988131/11670864
@@ -116,6 +142,27 @@ public class Order {
         }
     }
 
+    public boolean updateOrder(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "UPDATE Orders SET userid=?, orderdate=?, amount=?, paymentstate=?, additionalCharges=? WHERE orderid = ?";
+            String[] generatedColumns = {"orderid"};
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
+            sqlStatement.setInt(1, this.userId);
+            sqlStatement.setTimestamp(2, this.dateTime);
+            sqlStatement.setDouble(3, this.amount);
+            sqlStatement.setString(4, this.paymentState);
+            sqlStatement.setDouble(5, this.additionalCharges);
+            sqlStatement.setInt(6, this.orderId);
+            sqlStatement.execute();
+            Database.closeConnection();
+            return true;
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    }
+
     public static Order findOrderById(int searchId){
         try {
             Connection dbconn = Database.connect();
@@ -129,16 +176,22 @@ public class Order {
             int userId = -1;
             Timestamp orderDate = new Timestamp(1L);
             double amount = -1;
+            double additionalCharges = 0;
+            String paymentState = "PENDING";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
                 orderDate = resultSet.getTimestamp("orderdate");
                 amount = resultSet.getDouble("amount");
+                additionalCharges = resultSet.getDouble("additionalCharges");
+                paymentState = resultSet.getString("paymentstate");
             }
 
             Order _tmp = new Order(userId, amount);
             _tmp.setOrderId(orderId);
             _tmp.setDateTime(orderDate);
+            _tmp.setPaymentState(paymentState);
+            _tmp.setAdditionalCharges(additionalCharges);
             List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
             _tmp.setOrderDetails(_tmp2);
             Database.closeConnection();
@@ -164,15 +217,21 @@ public class Order {
             int userId = -1;
             Timestamp orderDate = new Timestamp(1L);
             double amount = -1;
+            double additionalCharges = 0;
+            String paymentState = "PENDING";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
                 orderDate = resultSet.getTimestamp("orderdate");
                 amount = resultSet.getDouble("amount");
+                paymentState = resultSet.getString("paymentstate");
+                additionalCharges = resultSet.getDouble("additionalCharges");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
                 _tmp.setDateTime(orderDate);
+                _tmp.setPaymentState(paymentState);
+                _tmp.setAdditionalCharges(additionalCharges);
                 List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
                 _tmp.setOrderDetails(_tmp2);
                 orderList.add(_tmp);
