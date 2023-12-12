@@ -117,7 +117,7 @@ public class Order {
     public boolean saveOrder(){
         try {
             Connection dbconn = Database.connect();
-            String query = "INSERT INTO Orders(userid, orderdate, amount, additionalCharges, paymentstate) VALUES (?,?,?,0,?)";
+            String query = "INSERT INTO Orders(userid, createdAt, amount, additionalCharges, status) VALUES (?,?,?,0,?)";
             String[] generatedColumns = {"orderid"};
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
             sqlStatement.setInt(1, this.userId);
@@ -152,7 +152,7 @@ public class Order {
     public boolean updateOrder(){
         try {
             Connection dbconn = Database.connect();
-            String query = "UPDATE Orders SET userid=?, orderdate=?, amount=?, paymentstate=?, additionalCharges=? WHERE orderid = ?";
+            String query = "UPDATE Orders SET userid=?, createdAt=?, amount=?, status=?, additionalCharges=? WHERE orderid = ?";
             String[] generatedColumns = {"orderid"};
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
             sqlStatement.setInt(1, this.userId);

@@ -43,6 +43,11 @@ public class AddItem extends HttpServlet {
             return;
         }
 
+        // Checking if there are enough products in our inventory
+        if (product.getQuantity() < quantity){
+            resp.sendRedirect(req.getHeader("Referer"));
+        }
+
         Cart userCart = (Cart) req.getSession().getAttribute("cart");
         userCart.addProduct(product, quantity);
         req.getSession().setAttribute("cart", userCart);

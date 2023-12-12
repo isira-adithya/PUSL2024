@@ -34,6 +34,10 @@
         response.sendRedirect("/products/?msg=No Products Found");
         return;
     }
+
+    pageContext.setAttribute("products", products);
+    pageContext.setAttribute("searchQuery", searchQuery);
+    pageContext.setAttribute("msg", msg);
 %>
 <html>
 <head>
