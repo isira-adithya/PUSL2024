@@ -1,6 +1,7 @@
 package com.isiraadithya.greensupermarket.models;
 
 import com.isiraadithya.greensupermarket.helpers.Database;
+import com.isiraadithya.greensupermarket.helpers.PaymentServices;
 
 import java.sql.*;
 import java.text.DecimalFormat;
@@ -245,6 +246,57 @@ public class Order {
         }
 
         return orderList;
+    }
+
+    public void sendReceiptEmail(){
+        User user = User.findUserById(this.userId);
+        String emailSubject = "Order ID " + this.getOrderId() +" Receipt";
+
+        // Header Part
+        StringBuilder emailBody = new StringBuilder("Hello " + user.getFullName() + ",<br>Here's your receipt for the Order ID " + this.getOrderId() + "<br><br>");
+
+        // Order Details Table
+        emailBody.append("<table border=\"1px\"><thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Sub Total</th></tr></thead><tbody>");
+        for (int i = 0; i < this.getOrderDetails().size(); i++){
+            emailBody.append("<tr>");
+            emailBody.append("<td>" + this.getOrderDetails().get(i).getProduct().getName() + "</td>");
+            emailBody.append("<td>" + (this.getOrderDetails().get(i).getSubTotal() / this.getOrderDetails().get(i).getQuantity()) + "</td>");
+            emailBody.append("<td>" + this.getOrderDetails().get(i).getQuantity() + "</td>");
+            emailBody.append("<td>" + this.getOrderDetails().get(i).getSubTotal() + "</td>");
+            emailBody.append("</tr>");
+        }
+        emailBody.append("<tr>");
+        emailBody.append("<td></td><td></td>");
+        emailBody.append("<td><b>Sub Total:</b></td>");
+        emailBody.append("<td><b>" + PaymentServices.formatPaymentValue(this.getAdditionalCharges() + this.getAmount()) + "</b></td>");
+        emailBody.append("</tr>");
+
+        emailBody.append("<tr>");
+        emailBody.append("<td></td><td></td>");
+        emailBody.append("<td><b>Addional Charges(Shipping costs, Tax, etc):</b></td>");
+        emailBody.append("<td><b>" + PaymentServices.formatPaymentValue(this.getAdditionalCharges() + this.getAmount()) + "</b></td>");
+        emailBody.append("</tr>");
+
+        emailBody.append("<tr>");
+        emailBody.append("<td></td><td></td>");
+        emailBody.append("<td><b>Total:</b></td>");
+        emailBody.append("<td><b>" + PaymentServices.formatPaymentValue(this.getAdditionalCharges() + this.getAmount()) + "</b></td>");
+        emailBody.append("</tr>");
+
+        emailBody.append("</tbody></table>");
+
+        // Other Details
+        emailBody.append("<p>Date & Time: " + this.getDateTime().toString() + "</p>");
+        emailBody.append("<p>Payment Status: " + this.getPaymentState() + "</p>");
+        emailBody.append("<small><b>Your order will be delivered to you as soon as possible.</b></small><br>");
+        emailBody.append("<small><b>If you have any question regarding this order, contact us by visiting <a href=\"https://www.greensupermarket.live/contact-us.jsp\">https://www.greensupermarket.live/contact-us.jsp</a></b></small>");
+
+        // Footer
+        emailBody.append("<br><br>");
+        emailBody.append("GreenSuperMarket - <a href=\"https://www.greensupermarket.live/\">https://www.greensupermarket.live/</a>");
+
+        Email receiptEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
+        receiptEmail.send();
     }
 
 }

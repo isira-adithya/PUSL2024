@@ -33,6 +33,7 @@ public class ValidatePayment extends HttpServlet {
                 order.setAdditionalCharges(PaymentServices.shippingCost + PaymentServices.tax);
                 order.setPaymentState("COMPLETED");
                 order.updateOrder();
+                order.sendReceiptEmail();
             }
 
             resp.sendRedirect("/user/orders/order.jsp?id=" + orderId);

@@ -30,7 +30,7 @@ public class PaymentServices {
         this.order = order;
     }
 
-    public String formatPaymentValue(double input){
+    public static String formatPaymentValue(double input){
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         return decimalFormat.format(input);
     }
@@ -85,8 +85,6 @@ public class PaymentServices {
         Amount amount = new Amount();
         amount.setCurrency("USD");
         amount.setTotal(this.formatPaymentValue(shippingCost + tax + order.getAmount()));
-        System.out.println("Order Cost: " + String.valueOf(order.getAmount()));
-        System.out.println("Total Cost: " + String.valueOf(order.getAmount() + shippingCost + tax));
         amount.setDetails(details);
 
         Transaction transaction = new Transaction();
@@ -104,7 +102,6 @@ public class PaymentServices {
             item.setName(orderDetail.getProduct().getName());
             item.setPrice(this.formatPaymentValue(itemPrice));
             item.setQuantity(String.valueOf(orderDetail.getQuantity()));
-            System.out.println("Item " + orderDetail.getProduct().getName() + " Cost: " + String.valueOf(itemPrice));
             items.add(item);
         }
 

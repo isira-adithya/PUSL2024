@@ -3,6 +3,7 @@
 ### *Todos*
 - [ ] Add Styles (CSS, Bootstrap, etc)
 - [ ] Add Contact Us Page (Not a static HTML page)
+- [ ] Add to WishList feature
 - [ ] Connect the Cart Model to the database (with minimal database calls)
 - [ ] Remove all the secrets / sensitive information from the code; Instead use environmental variables
 - [ ] Implement CSRF Protection *(Specially protect `/api/*`)*

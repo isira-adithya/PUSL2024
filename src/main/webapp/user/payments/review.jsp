@@ -79,7 +79,7 @@
     <center>
         <h4>Please review before confirming the payment.</h4>
         <table>
-            <tr><th colspan="2">Transaction Details</th></tr>
+            <tr><th colspan="2"><br>Transaction Details<br></th></tr>
             <tr>
                 <td>Description:</td>
                 <td>${fn:escapeXml(transaction.description)}</td>
@@ -100,7 +100,7 @@
                 <td>Total:</td>
                 <td>$${transaction.amount.total}</td>
             </tr>
-            <tr><th colspan="2">Payer Information</th></tr>
+            <tr><th colspan="2"><br>Payer Information<br></th></tr>
             <tr>
                 <td>First Name:</td>
                 <td>${fn:escapeXml(payerInfo.firstName)}</td>
@@ -113,7 +113,7 @@
                 <td>Email:</td>
                 <td>${fn:escapeXml(payerInfo.email)}</td>
             </tr>
-            <tr><th colspan="2">Shipping Address</th></tr>
+            <tr><th colspan="2"><br>Shipping Address<br></th></tr>
             <tr>
                 <td>Recipient Name:</td>
                 <td>${fn:escapeXml(payerInfo.email)}</td>
