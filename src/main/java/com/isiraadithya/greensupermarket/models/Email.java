@@ -18,13 +18,23 @@ public class Email {
     private String body;
     private final String fromEmail = "no_reply@em6718.greensupermarket.live";
     private final String fromName = "GreenSuperMarket";
+    private boolean isDevMode = false;
 
     public Email(String toEmail, String emailSubject, String emailBody){
         this.toEmail = toEmail;
         this.subject = emailSubject;
-        // For Debugging Purposes : Remove 2 lines below in production
-        this.toEmail = "lilla63@wireconnected.com";
-        this.subject = emailSubject + " (" + this.toEmail + ")";
+
+        // For debugging purposes
+        try {
+            if (System.getenv("JSP_DEV").equals("TRUE")){
+                this.toEmail = System.getenv("JSP_DEV_EMAIL");
+                this.isDevMode = true;
+                System.out.println("[DEV] Environment Detected; Using " + this.toEmail + " email for debugging.");
+            }
+        } catch (Exception ignored) {
+
+        }
+
         this.body = emailBody;
     }
 
