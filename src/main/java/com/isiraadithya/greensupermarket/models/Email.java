@@ -51,7 +51,6 @@ public class Email {
             msg.setSentDate(new Date());
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(this.toEmail, false));
             Transport.send(msg);
-            System.out.println("Email Sent Successfully!!");
         }
         catch (Exception e) {
             e.printStackTrace();

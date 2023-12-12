@@ -96,17 +96,32 @@
         <tr>
             <td></td>
             <td></td>
-            <td><b>Total:</b></td>
+            <c:if test="${order.paymentState.equals('COMPLETED')}">
+                <td><b>Sub Total:</b></td>
+            </c:if>
+            <c:if test="${order.paymentState.equals('PENDING')}">
+                <td><b>Total:</b></td>
+            </c:if>
             <td><b>$${order.amount}</b></td>
         </tr>
+        <c:if test="${order.paymentState.equals('COMPLETED')}">
+            <tr>
+                <td></td>
+                <td></td>
+                <td><b>Addional Charges<i>(Shipping costs, Tax, etc)</i>:</b></td>
+                <td><b>$${order.additionalCharges}</b></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><b>Total</i>:</b></td>
+                <td><b>$${order.amount + order.additionalCharges}</b></td>
+            </tr>
+        </c:if>
         </tbody>
     </table>
     <p>
-        Date/Time: <i>${order.dateTime.toLocaleString()}</i><br><br>
-        <c:if test="${order.paymentState.equals('COMPLETED')}">
-            <b>Addional Charges <i>(Shipping costs, Tax, etc)</i>: <i>${order.additionalCharges}</i><br>
-        </c:if>
-        Total Payment Amount: <i>$${order.amount + order.additionalCharges}</i><br><br>
+        Date/Time: <i>${order.dateTime.toString()}</i><br><br>
         Payment Status:
         <c:if test="${order.paymentState.equals('PENDING')}">
             <i style="color: blue">PENDING</i><br><br>
@@ -118,7 +133,7 @@
                 </small>
             </b>
         </c:if>
-        <c:if test="${order.paymentState.equals('COMPLETED')}"><i style="color: green"></i>COMPLETED</c:if>
+        <c:if test="${order.paymentState.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
     </p>
     <br>
 
