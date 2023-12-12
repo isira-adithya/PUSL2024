@@ -14,15 +14,12 @@ import java.io.IOException;
 public class OrderNew extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        int userId = (int) req.getSession().getAttribute("userId");
         try {
             Cart userCart = (Cart) req.getSession().getAttribute("cart");
-            new Order(userCart);
-
-            // Email Sending Part
-            // Email receiptMail = new Email("lilla63@wireconnected.com", "Hello This is a test mail", "<u>Hi How are you</u>");
-            // receiptMail.send();
-            resp.sendRedirect("/user/orders/");
+            Order newOrder = new Order(userCart);
+            req.setAttribute("cart", new Cart(userId));
+            resp.sendRedirect("/user/orders/order.jsp?id=" + newOrder.getOrderId());
         } catch (Exception ex){
             System.out.println(ex.getMessage());
             resp.setStatus(500);
