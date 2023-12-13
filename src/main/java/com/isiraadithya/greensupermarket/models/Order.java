@@ -214,7 +214,7 @@ public class Order {
         List<Order> orderList = new ArrayList<Order>();
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT * FROM orders WHERE userid = ?";
+            String query = "SELECT * FROM Orders WHERE userid = ?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, searchUid);
             ResultSet resultSet = sqlStatement.executeQuery();

@@ -61,7 +61,7 @@ public class Product {
     public void saveProduct(){
         try {
             Connection dbconn = Database.connect();
-            String query = "INSERT INTO products(name, price, quantity, description, image) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Products(name, price, quantity, description, image) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = dbconn.prepareStatement(query);
             preparedStatement.setString(1, this.name);
             preparedStatement.setDouble(2, this.price);
@@ -78,7 +78,7 @@ public class Product {
     public void updateProduct(){
         try {
             Connection dbconn = Database.connect();
-            String query = "UPDATE products SET name=?, price=?, quantity=?, description=?, image=? WHERE productid = ?";
+            String query = "UPDATE Products SET name=?, price=?, quantity=?, description=?, image=? WHERE productid = ?";
             PreparedStatement preparedStatement = dbconn.prepareStatement(query);
             preparedStatement.setString(1, this.name);
             preparedStatement.setDouble(2, this.price);
@@ -179,7 +179,7 @@ public class Product {
     public static Product findProductById(int searchId) {
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT * FROM products WHERE productid=?";
+            String query = "SELECT * FROM Products WHERE productid=?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, searchId);
             ResultSet resultSet = sqlStatement.executeQuery();
