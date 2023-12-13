@@ -28,6 +28,8 @@ public class Database {
             try {
                 // Load MariaDB JDBC driver
                 Class.forName("org.mariadb.jdbc.Driver");
+
+                // Load MySQL JDBC in Production Servers
                 if (System.getenv("PROD") != null && System.getenv("PROD").equals("TRUE")){
                     Class.forName("com.mysql.jdbc.Driver");
                 }
