@@ -118,8 +118,7 @@ public class Order {
         try {
             Connection dbconn = Database.connect();
             String query = "INSERT INTO Orders(userid, createdAt, amount, additionalCharges, status) VALUES (?,?,?,0,?)";
-            String[] generatedColumns = {"orderid"};
-            PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             sqlStatement.setInt(1, this.userId);
             sqlStatement.setTimestamp(2, this.dateTime);
             sqlStatement.setDouble(3, this.amount);
@@ -144,7 +143,7 @@ public class Order {
             Database.closeConnection();
             return true;
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println("ERR:saveOrders(): " +ex.getMessage());
             return false;
         }
     }
@@ -165,7 +164,7 @@ public class Order {
             Database.closeConnection();
             return true;
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println("ERR:updateOrder(): " + ex.getMessage());
             return false;
         }
     }
@@ -204,7 +203,7 @@ public class Order {
             Database.closeConnection();
             return _tmp;
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println("ERR:findOrderById(): " +ex.getMessage());
         }
 
         return new Order(-1, -1);
@@ -248,7 +247,7 @@ public class Order {
             Database.closeConnection();
             return orderList;
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println("ERR:findOrdersByUserId(): " +ex.getMessage());
         }
 
         return orderList;
