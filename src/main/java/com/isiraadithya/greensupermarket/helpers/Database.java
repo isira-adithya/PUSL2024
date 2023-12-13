@@ -31,8 +31,6 @@ public class Database {
 
                 // Load MySQL JDBC in Production Servers
                 if (System.getenv("PROD") != null && System.getenv("PROD").equals("TRUE")){
-                    Class.forName("com.mysql.jdbc.Driver");
-                    System.out.println("Using MySQL Drivers");
                     JDBC_URL = System.getenv("JDBC_URL");
                     USERNAME = System.getenv("JDBC_USERNAME");
                     PASSWORD = System.getenv("JDBC_PASSWORD");
