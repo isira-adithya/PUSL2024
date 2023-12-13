@@ -56,7 +56,7 @@ public class OrderDetail {
     public boolean saveOrderDetail(){
         try {
             Connection dbconn = Database.connect();
-            String query = "INSERT INTO orderdetails(orderid, productid, quantity, subtotal) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO OrderDetails(orderid, productid, quantity, subtotal) VALUES (?, ?, ?, ?)";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, this.orderId);
             sqlStatement.setInt(2, this.product.getProductId());
@@ -75,7 +75,7 @@ public class OrderDetail {
         List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT * FROM orderdetails WHERE orderid = ?";
+            String query = "SELECT * FROM OrderDetails WHERE orderid = ?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, searchId);
             ResultSet resultSet = sqlStatement.executeQuery();

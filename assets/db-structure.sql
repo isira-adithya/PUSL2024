@@ -6,14 +6,14 @@
 -- This is a very simple and minimal database structure, this should be modified in the future.
 -- As of 07/12/23, I am going to use the following structure to build the API
 -- @isira_adithya
-USE greensupermarket;
+USE defaultdb;
 
-DROP TABLE IF EXISTS ShoppingCart;
-DROP TABLE IF EXISTS OrderDetails;
-DROP TABLE IF EXISTS Comments;
-DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS Products;
-DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS ShoppingCart CASCADE;
+DROP TABLE IF EXISTS OrderDetails CASCADE;
+DROP TABLE IF EXISTS Comments CASCADE;
+DROP TABLE IF EXISTS Orders CASCADE;
+DROP TABLE IF EXISTS Products CASCADE;
+DROP TABLE IF EXISTS Users CASCADE;
 
 CREATE TABLE Users (
     userid INT AUTO_INCREMENT PRIMARY KEY,
