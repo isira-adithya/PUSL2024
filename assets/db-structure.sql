@@ -6,7 +6,9 @@
 -- This is a very simple and minimal database structure, this should be modified in the future.
 -- As of 07/12/23, I am going to use the following structure to build the API
 -- @isira_adithya
-USE defaultdb;
+DROP DATABASE IF EXISTS greensupermarket;
+CREATE DATABASE greensupermarket;
+USE greensupermarket;
 
 DROP TABLE IF EXISTS ShoppingCart CASCADE;
 DROP TABLE IF EXISTS OrderDetails CASCADE;

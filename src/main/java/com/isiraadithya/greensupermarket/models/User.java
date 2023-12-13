@@ -169,7 +169,7 @@ public class User {
     }
 
     public void sendPasswordResetEmail(){
-        String passwordResetLink = "http://localhost:9090/resetpassword.jsp?token=" + passwordResetToken;
+        String passwordResetLink = "https://www.greensupermarket.live/resetpassword.jsp?token=" + passwordResetToken;
         String emailBody = "Hello " + this.getFullName() + ",<br>Visit <a href=\"" + passwordResetLink + "\">" + passwordResetLink + "</a> to reset your password.<br><br>GreenSuperMarket - <a href=\"https://www.greensupermarket.live/\">https://www.greensupermarket.live/</a>";
         Email passwordResetEmail = new Email(this.email, "Reset Your Password - GreenSuperMarket", emailBody);
         passwordResetEmail.send();

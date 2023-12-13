@@ -20,9 +20,9 @@ public class Database {
 
     // Method to establish a database connection
     public static Connection connect() throws SQLException {
-        String JDBC_URL = System.getenv("JDBC_URL");
-        String USERNAME = System.getenv("JDBC_USERNAME");
-        String PASSWORD = System.getenv("JDBC_PASSWORD");
+        String JDBC_URL = "jdbc:mariadb://localhost:3306/greensupermarket";
+        String USERNAME = "greensupermarket";
+        String PASSWORD = "ezpass123";
 
         if (connection == null || connection.isClosed()) {
             try {
@@ -31,7 +31,9 @@ public class Database {
 
                 // Load MySQL JDBC in Production Servers
                 if (System.getenv("PROD") != null && System.getenv("PROD").equals("TRUE")){
-                    Class.forName("com.mysql.jdbc.Driver");
+                    JDBC_URL = System.getenv("JDBC_URL");
+                    USERNAME = System.getenv("JDBC_USERNAME");
+                    PASSWORD = System.getenv("JDBC_PASSWORD");
                 }
 
                 // Establish a connection
