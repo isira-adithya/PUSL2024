@@ -173,7 +173,7 @@ public class Order {
     public static Order findOrderById(int searchId){
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT * FROM orders WHERE orderid = ?";
+            String query = "SELECT * FROM Orders WHERE orderid = ?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, searchId);
             ResultSet resultSet = sqlStatement.executeQuery();
