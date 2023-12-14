@@ -94,7 +94,7 @@
                      <div class="col-md-3 col-lg-3  col-xl-4 mx-auto mt-4 align-self-center">
                         <div class="text-center">
                         <h3 class=" mb-4"><br>
-                            <img src="uploads\footer related jpg\GreenSuperMarket logo.jpg" alt="Icon" style="width: 30px; height: 30px; margin-right: 4px;"> GreenSuperMarket</h3>
+                            <img src="/uploads/footer/GreenSuperMarket_Logo.jpg" alt="Icon" style="width: 30px; height: 30px; margin-right: 4px;"> GreenSuperMarket</h3>
                          </div>
                         </div>
 
