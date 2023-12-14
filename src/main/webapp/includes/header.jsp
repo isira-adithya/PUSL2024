@@ -9,7 +9,7 @@
     
     <div class="container-fluid" style="justify-content: space-evenly;">
         <div class="navbar-brand d-flex align-items-center">
-            <img src="uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
+            <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
             <span>GreenSuperMarket</span>
         </div>
         <form class="d-flex">
@@ -19,9 +19,9 @@
             </div>
         </form>
         <div class="d-flex">
-            <a href="/user/cart.jsp" class="nav-icons"><img src="uploads/images/navbar/cart.jpg" alt="cart" class="small-image"></a>
-            <a href="/" class="nav-icons"><img src="uploads/images/navbar/user.jpg" alt="cart" class="small-image"></a>
-            <a href="/wishlist" class="nav-icons"><img src="uploads/images/navbar/wishlist.jpg" alt="cart" class="small-image"></a>
+            <a href="/user/cart.jsp" class="nav-icons"><img src="/uploads/images/navbar/cart.jpg" alt="cart" class="small-image"></a>
+            <a href="/" class="nav-icons"><img src="/uploads/images/navbar/user.jpg" alt="cart" class="small-image"></a>
+            <a href="/wishlist" class="nav-icons"><img src="/uploads/images/navbar/wishlist.jpg" alt="cart" class="small-image"></a>
         </div>
     </div>
     

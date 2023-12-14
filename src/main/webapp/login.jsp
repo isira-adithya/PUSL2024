@@ -62,7 +62,7 @@
         <div class="head">
             <h3><b>Sign In</b></h3>
         </div>
-        <form action="/login" method="post">
+        <form action="/api/user/login" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
@@ -74,19 +74,17 @@
             <div class="form-check mb-3">
                 <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
                 <label class="form-check-label" for="remember_me">Remember me</label>
-                <a href="/forgot-password" class="float-end" style="color: #000;">Forgot Password?</a>
+                <a href="/forgot-password.jsp" class="float-end" style="color: #000;">Forgot Password?</a>
             </div>
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" style="background-color:#00B207";> Login </button>
-                
+                <input type="submit" class="btn btn-primary" style="background-color:#00B207"; value="Login">
             </div>
             
         </form>
-        <p class="text-center mt-3">Don't have an account? <a href="/register"  style="color: #000;">Register</a></p>
+        <p class="text-center mt-3">Don't have an account? <a href="/signup.jsp"  style="color: #000;">Register</a></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
     <%@include file="includes/footer.jsp"%>
     
 </body>
