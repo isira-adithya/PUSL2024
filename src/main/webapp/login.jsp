@@ -28,6 +28,9 @@
         <input type="password" name="password" placeholder="Password"> <br>
         <input type="submit" value="Login"> <br>
     </form>
+    <br>
+    <a href="/signup.jsp">Create a new account</a><br>
+    <a href="/forgotpassword.jsp">Forgot your password?</a>
     <%@include file="includes/footer.jsp"%>
 </body>
 </html>
