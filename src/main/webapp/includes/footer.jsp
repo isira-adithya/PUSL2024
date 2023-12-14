@@ -6,4 +6,5 @@
 --%>
 <footer style="margin-top: 25px">
     <center><p>&copy; 2023 GreenSuperMarket. All rights reserved.</p></center>
+     
 </footer>
