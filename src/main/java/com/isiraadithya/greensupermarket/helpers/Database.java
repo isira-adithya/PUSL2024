@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.isiraadithya.greensupermarket.helpers;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,24 +14,32 @@ import java.sql.SQLException;
 public class Database {
     // JDBC URL, username, and password of MariaDB server
     // TODO: Use Environment Variable here; instead of hardcoding credentials.
-    private static final String JDBC_URL = "jdbc:mariadb://localhost:3306/greensupermarket";
-    private static final String USERNAME = "greensupermarket";
-    private static final String PASSWORD = "ezpass123";
 
     // JDBC variables for opening, closing, and managing connection
     private static Connection connection;
 
     // Method to establish a database connection
     public static Connection connect() throws SQLException {
+        String JDBC_URL = "jdbc:mariadb://localhost:3306/greensupermarket";
+        String USERNAME = "greensupermarket";
+        String PASSWORD = "ezpass123";
+
         if (connection == null || connection.isClosed()) {
             try {
                 // Load MariaDB JDBC driver
                 Class.forName("org.mariadb.jdbc.Driver");
 
+                // Load MySQL JDBC in Production Servers
+                if (System.getenv("PROD") != null && System.getenv("PROD").equals("TRUE")){
+                    JDBC_URL = System.getenv("JDBC_URL");
+                    USERNAME = System.getenv("JDBC_USERNAME");
+                    PASSWORD = System.getenv("JDBC_PASSWORD");
+                }
+
                 // Establish a connection
                 connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
 
-            } catch (ClassNotFoundException | SQLException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
                 throw new SQLException("Failed to connect to the database.");
             }

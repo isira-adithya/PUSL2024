@@ -57,7 +57,7 @@
     <%@include file="../includes/footer.jsp"%>
 
     <script>
-        var isEditMode = false;
+        let isEditMode = false;
         function toggleEdit(){
             isEditMode = !isEditMode;
             const inputTags = document.getElementsByTagName("input")

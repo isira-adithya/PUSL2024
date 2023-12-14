@@ -34,6 +34,7 @@ public class Product {
         return this.id;
     }
     public double getPrice() {
+        this.price = Math.round(this.price * Math.pow(10, 2)) / Math.pow(10, 2);
         return this.price;
     }
     public int getQuantity() {
@@ -60,7 +61,33 @@ public class Product {
     public void saveProduct(){
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT ";
+            String query = "INSERT INTO Products(name, price, quantity, description, image) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement preparedStatement = dbconn.prepareStatement(query);
+            preparedStatement.setString(1, this.name);
+            preparedStatement.setDouble(2, this.price);
+            preparedStatement.setInt(3, this.quantity);
+            preparedStatement.setString(4, this.description);
+            preparedStatement.setString(5, this.image);
+            preparedStatement.execute();
+            Database.closeConnection();
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void updateProduct(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "UPDATE Products SET name=?, price=?, quantity=?, description=?, image=? WHERE productid = ?";
+            PreparedStatement preparedStatement = dbconn.prepareStatement(query);
+            preparedStatement.setString(1, this.name);
+            preparedStatement.setDouble(2, this.price);
+            preparedStatement.setInt(3, this.quantity);
+            preparedStatement.setString(4, this.description);
+            preparedStatement.setString(5, this.image);
+            preparedStatement.setInt(6, this.id);
+            preparedStatement.execute();
+            Database.closeConnection();
         } catch (Exception ex){
             System.out.println(ex.getMessage());
         }
@@ -68,6 +95,10 @@ public class Product {
 
     private void setProductId(int id){
         this.id = id;
+    }
+
+    public void setProductQuantity(int quantity){
+        this.quantity = quantity;
     }
 
     public static List<Product> getProducts(){
@@ -148,7 +179,7 @@ public class Product {
     public static Product findProductById(int searchId) {
         try {
             Connection dbconn = Database.connect();
-            String query = "SELECT * FROM products WHERE productid=?";
+            String query = "SELECT * FROM Products WHERE productid=?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, searchId);
             ResultSet resultSet = sqlStatement.executeQuery();

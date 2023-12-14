@@ -8,7 +8,12 @@
 <%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    int userId = (int) session.getAttribute("userId");
     Cart userCart = (Cart) session.getAttribute("cart");
+    if (userCart == null){
+        userCart = new Cart(userId);
+        session.setAttribute("cart", userCart);
+    }
     boolean isCartEmpty = userCart.isEmpty();
     pageContext.setAttribute("userCart", userCart);
     pageContext.setAttribute("isCartEmpty", isCartEmpty);
@@ -64,6 +69,7 @@
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Sub Total</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -73,6 +79,13 @@
                     <td>${_value.value}</td>
                     <td>$${_value.key.price} Each</td>
                     <td>$${_value.key.price * _value.value}</td>
+                    <td>
+                        <form action="/api/user/cart/deleteItem" method="post">
+                            <label>Quantity:</label>
+                            <input type="hidden" name="productId" value="${_value.key.productId}">
+                            <input type="submit" value="Remove">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -80,6 +93,9 @@
         <p>
             Total: $${userCart.totalCost}
         </p>
+        <form method="post" action="/api/user/orders/new">
+            <input type="submit" value="Place Order">
+        </form>
     </c:if>
 </div>
 

@@ -1,21 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: @isira_adithya
-  Date: 12/10/2023
-  Time: 2:48 PM
+  Date: 12/12/2023
+  Time: 5:39 PM
 --%>
 <nav style="margin-bottom: 25px">
-    <a href="/">Home</a>
-    <a href="/products">Products</a>
-    <c:if test="${isLoggedIn}">
-        <a href="/user/profile.jsp">Profile</a>
-        <a href="/user/cart.jsp">Cart</a>
-        <a href="/user/orders/">Orders</a>
-        <a href="/logout.jsp">Logout</a>
-    </c:if>
-    <c:if test="${!isLoggedIn}">
-        <a href="/login.jsp">Sign in</a>
-    </c:if>
+    <a href="/">Home Page</a>
+    <a href="/admin/products/">Manage Products</a>
+    <a href="/admin/users/">Manage Users</a>
+    <a href="/admin/users/">Manage Orders</a>
+    <a href="/admin/users/">See Contact Requests</a>
 </nav>
 <style>
     nav {

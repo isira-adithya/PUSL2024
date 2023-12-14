@@ -6,14 +6,16 @@
 -- This is a very simple and minimal database structure, this should be modified in the future.
 -- As of 07/12/23, I am going to use the following structure to build the API
 -- @isira_adithya
+DROP DATABASE IF EXISTS greensupermarket;
+CREATE DATABASE greensupermarket;
 USE greensupermarket;
 
-DROP TABLE IF EXISTS ShoppingCart;
-DROP TABLE IF EXISTS OrderDetails;
-DROP TABLE IF EXISTS Comments;
-DROP TABLE IF EXISTS Orders;
-DROP TABLE IF EXISTS Products;
-DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS ShoppingCart CASCADE;
+DROP TABLE IF EXISTS OrderDetails CASCADE;
+DROP TABLE IF EXISTS Comments CASCADE;
+DROP TABLE IF EXISTS Orders CASCADE;
+DROP TABLE IF EXISTS Products CASCADE;
+DROP TABLE IF EXISTS Users CASCADE;
 
 CREATE TABLE Users (
     userid INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,8 +43,10 @@ CREATE TABLE Products (
 CREATE TABLE Orders (
     orderid INT AUTO_INCREMENT PRIMARY KEY,
     userid INT,
-    orderdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     amount DECIMAL(10, 2) NOT NULL,
+    additionalCharges DECIMAL(10, 2),
+    status VARCHAR(32), /* PENDING, COMPLETED */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
@@ -89,36 +93,36 @@ INSERT INTO Products (productid, name, price, quantity, description, image) VALU
 (9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', ''),
 (10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '');
 
-INSERT INTO Orders (orderid, userid, amount) VALUES
-(1, 1, 1249.98),
-(2, 2, 1679.97),
-(3, 3, 359.98),
-(4, 4, 799.95),
-(5, 5, 299.99),
-(6, 6, 899.97),
-(7, 7, 459.96),
-(8, 8, 129.98),
-(9, 9, 679.94),
-(10, 10, 239.97);
+INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, createdAt) VALUES
+(1, 1, 1249.98, 23.99, 'PENDING', TIMESTAMP('2023-07-12', '10:10:10')),
+(2, 1, 1679.97, 23.99, 'COMPLETED', TIMESTAMP('2023-08-22', '10:10:10')),
+(3, 3, 359.98, 23.99, 'COMPLETED', TIMESTAMP('2023-05-16', '10:10:10')),
+(4, 4, 799.95, 23.99, 'COMPLETED', TIMESTAMP('2022-03-01', '10:10:10')),
+(5, 5, 299.99, 23.99, 'COMPLETED', TIMESTAMP('2022-04-12', '10:10:10')),
+(6, 6, 899.97, 23.99, 'COMPLETED', TIMESTAMP('2023-01-16', '10:10:10')),
+(7, 7, 459.96, 23.99, 'COMPLETED', TIMESTAMP('2022-08-14', '10:10:10')),
+(8, 8, 129.98, 23.99, 'COMPLETED', TIMESTAMP('2023-03-11', '10:10:10')),
+(9, 9, 679.94, 23.99, 'COMPLETED', TIMESTAMP('2021-07-06', '10:10:10')),
+(10, 10, 239.97, 23.99, 'COMPLETED', TIMESTAMP('2021-01-01', '10:10:10'));
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),
-(2, 2, 2, 1, 599.99),
+(2, 1, 2, 1, 599.99),
 (3, 3, 3, 3, 239.97),
-(4, 4, 4, 1, 399.99),
+(4, 2, 4, 1, 399.99),
 (5, 5, 5, 1, 1499.99),
 (6, 6, 6, 2, 599.98),
-(7, 7, 7, 4, 799.96),
-(8, 8, 8, 1, 49.99),
-(9, 9, 9, 3, 1499.97),
-(10, 10, 10, 2, 159.98);
+(7, 1, 7, 4, 799.96),
+(8, 1, 8, 1, 49.99),
+(9, 2, 9, 3, 1499.97),
+(10, 2, 10, 2, 159.98);
 
 INSERT INTO Comments (commentid, userid, productid, content) VALUES
-    (1, 2, 1, "Outstanding product quality! The attention to detail and craftsmanship are truly impressive."),
-    (2, 3, 1, "Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable."),
-    (3, 5, 5, "Exceptional value for money. Comparable products on other sites are much more expensive"),
-    (4, 6, 4, "The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance."),
-    (5, 7, 3, "I love the design of this product. It''s not only functional but also aesthetically pleasing."),
-    (6, 1, 1, "Fast and reliable shipping. Received my order sooner than expected. Great service!")
+    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.'),
+    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.'),
+    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive'),
+    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.'),
+    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.'),
+    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!')
 
 

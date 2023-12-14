@@ -24,6 +24,11 @@ public class UserForgotPassword extends HttpServlet {
         User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() != -1){
             userObj.generatePasswordResetToken();
+            try {
+                userObj.sendPasswordResetEmail();
+            } catch (Exception ex){
+                System.out.println(ex.getMessage());
+            }
             resp.sendRedirect("/forgotpassword.jsp?msg=Check your email inbox");
         } else {
             resp.sendRedirect("/forgotpassword.jsp?err=Invalid Email");
