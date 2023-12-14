@@ -77,8 +77,7 @@
                 <a href="/forgot-password.jsp" class="float-end" style="color: #000;">Forgot Password?</a>
             </div>
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" style="background-color:#00B207";> Login </button>
-                
+                <input type="submit" class="btn btn-primary" style="background-color:#00B207"; value="Login">
             </div>
             
         </form>
