@@ -79,7 +79,8 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (8, 'susan.white@example.com', 'susan_pass', 'Susan', 'White', '+94123456796', 'Lane 23, Meadow View', 'Batticaloa', 'Eastern Province', 'Sri Lanka', '30000', 'USER', 'NULL'),
 (9, 'kevin.hill@example.com', 'kevin_pass', 'Kevin', 'Hill', '+94123456797', 'Flat 4B, Skyline Tower', 'Trincomalee', 'Eastern Province', 'Sri Lanka', '31000', 'USER', 'NULL'),
 (10, 'natalie.adams@example.com', 'natalie_pass', 'Natalie', 'Adams', '+94123456798', 'No 17, Golden Lane', 'Galle', 'Southern Province', 'Sri Lanka', '80000', 'USER', 'NULL'),
-(11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL');
+(11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL'),
+(12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL');
 
 INSERT INTO Products (productid, name, price, quantity, description, image) VALUES
 (1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', 'laptop-image.jpg'),
