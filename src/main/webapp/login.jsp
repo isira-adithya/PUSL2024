@@ -1,7 +1,7 @@
 <%--
     Document   : login
     Created on : Dec 7, 2023, 5:45:46 PM
-    Author     : isira-aditha, Hashen
+    Author     : isira-aditha, @hashen-ruwanpura
 --%>
 <%@include file="/includes/variables.jsp"%>
 <%
@@ -35,6 +35,7 @@
         }
         .login-form:hover{
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: box-shadow 0.5s ease;
         }
         .head {
             text-align: center;
