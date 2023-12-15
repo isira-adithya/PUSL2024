@@ -5,9 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/includes/variables.jsp"%>
 <!DOCTYPE html>
 
-<html>
+<html>   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
         
@@ -46,19 +47,19 @@
         .btn {
         height: 40px;
         width: 165px;
-        border-radius: 100px; /* Adjust the value to control the oval shape */
+        border-radius: 100px; 
         color: #ffffff;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         }
         textarea{
             margin-bottom: 20px;
         }
         
     </style>
-</head>
-<body>
-    
-    <%@include file="includes/header.jsp"%>
+
+    <body>
+        
+      
     
     <div >
         <img src="Breadcrumbs.jpg" alt="Vege Image" class="image">
@@ -90,10 +91,12 @@
             
         </form>
         
+        
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   
     
     
 </body>
+
 </html>
