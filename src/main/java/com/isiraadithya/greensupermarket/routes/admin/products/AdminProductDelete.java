@@ -37,8 +37,6 @@ public class AdminProductDelete extends HttpServlet {
             // Creating a new product
             Product product = Product.findProductById(productId);
 
-            System.out.println(product.getName());
-
             // Checking if the product is a valid product
             if (product.getProductId() != -1){
                 product.deleteProduct();
