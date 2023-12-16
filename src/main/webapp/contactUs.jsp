@@ -75,6 +75,22 @@
       
       margin-right: 30px; /* Add margin-right to create space */
     }
+    
+    .google-map {
+     padding-bottom: 30%;
+     position: relative;
+     padding-top: 0px
+    
+    }
+
+    .google-map iframe {
+     height: 80%;
+     width: 100%;
+     left: 10px;
+     top: 150px;
+     bottom: 100px;
+     position: absolute;
+    }
   </style>
 
 
@@ -83,7 +99,7 @@
   <div>
     <img src="uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image">
   </div>
-
+    <br><br><br><br>
   <div class="container login-form-container">
     <!-- Left Section -->
     <div class="col-md-4">
@@ -140,6 +156,11 @@
         </form>
       </div>
     </div>
+  </div>
+    
+    
+    <div class="google-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7265.530708148501!2d80.03573163662269!3d6.8234098956563365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2523b05555555%3A0x546c34cd99f6f488!2sNSBM%20Green%20University!5e0!3m2!1sen!2slk!4v1702651401888!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
