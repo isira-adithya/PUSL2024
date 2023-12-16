@@ -65,7 +65,6 @@
 </nav>
 --%>
 <style>
-    body
     .form-control,
     .btn {
         font-family: 'Arial', sans-serif;
