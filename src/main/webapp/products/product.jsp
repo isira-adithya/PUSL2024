@@ -69,7 +69,7 @@
             text-align: left;
             margin-top: 20px; /* Adjust as needed */
             margin-bottom: 20px; /* Adjust as needed */
-            max-height: 400px; /* Adjust the maximum height as needed */
+            max-height: 100%; /* Adjust the maximum height as needed */
             overflow-y: auto;
         }
 
@@ -88,7 +88,7 @@
 </head>
 <body>    
     
-    
+<%@include file="../includes/header.jsp"%>
 <div class="container mt-5">
   <div class="row">
     <!-- Image on the left -->   
@@ -156,7 +156,9 @@
             </form>
         </div>
     </c:if>
+  </div>
 </div>
+    <%@include file="../includes/footer.jsp"%>
 
       
 

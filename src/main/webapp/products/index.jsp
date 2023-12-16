@@ -48,10 +48,10 @@
     <center>
         <form action="/products/" method="get">
             <label>Search</label>
-            <input type="text" name="searchQuery" value="<% out.print(XSSPreventor.encodeToHtmlEntities(searchQuery)); %>">
+            <input type="text" name="searchQuery" value="${fn:escapeXml(searchQuery)}">
             <input type="submit" value="Submit">
         </form>
-        <p><b><% out.print(XSSPreventor.encodeToHtmlEntities(msg)); %></b></p>
+        <p><b>${fn:escapeXml(msg)}</b></p>
         <br>
         <br>
         <table border="1px">
@@ -66,20 +66,16 @@
             </tr>
             </thead>
             <tbody>
-            <%
-                for (int i = 0; products.size() > i; i++){
-            %>
-            <tr>
-                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getName())); %></td>
-                <td><img width="200px" src="<% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getImage())); %>"></td>
-                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getDescription())); %></td>
-                <td><% out.print(products.get(i).getQuantity()); %></td>
-                <td><% out.print(products.get(i).getPrice()); %>$</td>
-                <td><a href="/products/product.jsp?id=<% out.print(products.get(i).getProductId()); %>">Open</a></td>
-            </tr>
-            <%
-                }
-            %>
+            <c:forEach items="${products}" var="product">
+                <tr>
+                    <td>${fn:escapeXml(product.name)}</td>
+                    <td><img width="200px" src="${fn:escapeXml(product.image)}"></td>
+                    <td>${fn:escapeXml(product.description)}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.price}$</td>
+                    <td><a href="/products/product.jsp?id=${product.productId}">Open</a></td>
+                </tr>
+            </c:forEach>
             </tbody>
         </table>
     </center>
