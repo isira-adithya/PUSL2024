@@ -46,11 +46,6 @@
 <body>
     <%@include file="../includes/header.jsp"%>
     <center>
-        <form action="/products/" method="get">
-            <label>Search</label>
-            <input type="text" name="searchQuery" value="${fn:escapeXml(searchQuery)}">
-            <input type="submit" value="Submit">
-        </form>
         <p><b>${fn:escapeXml(msg)}</b></p>
         <br>
         <br>
