@@ -54,7 +54,7 @@
 <body>
 <%@include file="../includes/header.jsp"%>
 <div style="margin-left: 25px;">
-    <form method="post" action="/api/admin/products/update" enctype="multipart/form-data">
+    <form method="post" action="/api/admin/products/add" enctype="multipart/form-data">
         <p><b>Product Name: </b><input type="text" value="" name="productName"></p>
         <p>
             <b>Product Description: </b>
@@ -67,7 +67,7 @@
         <p>Select a product image</p>
         <input type="file" name="imageFile">
         <br><br>
-        <input type="submit" value="Update">
+        <input type="submit" value="Submit">
     </form>
 </div>
 <br>
