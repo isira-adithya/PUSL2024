@@ -86,7 +86,6 @@
     .google-map iframe {
      height: 80%;
      width: 100%;
-     left: 10px;
      top: 150px;
      bottom: 100px;
      position: absolute;
