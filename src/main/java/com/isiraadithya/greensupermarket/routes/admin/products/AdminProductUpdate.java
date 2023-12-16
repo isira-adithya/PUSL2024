@@ -8,6 +8,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+
+import java.io.File;
 import java.io.IOException;
 
 @WebServlet(name = "adminProductUpdate", value = "/api/admin/products/update")
@@ -38,6 +41,10 @@ public class AdminProductUpdate extends HttpServlet {
             productName = req.getParameter("productName");
             productDescription = req.getParameter("productDescription");
 
+            if (req.getPart("imageFile") != null){
+                shouldUpdateImage = true;
+            }
+
             // Checking if the product
             Product product = Product.findProductById(productId);
             if (product.getProductId() != -1){
@@ -45,6 +52,29 @@ public class AdminProductUpdate extends HttpServlet {
                 product.setDescription(productDescription);
                 product.setPrice(productPrice);
                 product.setProductQuantity(productQuantity);
+
+
+                // Image Upload Handling
+                if (shouldUpdateImage){
+                    // Let's make sure that the dir is accessible
+                    String productImageUploadDirPath = req.getServletContext().getRealPath("/uploads/images/products/");
+                    File productImageUploadDir = new File(productImageUploadDirPath);
+                    if (!productImageUploadDir.exists()){
+                        try {
+                            productImageUploadDir.mkdirs();
+                        } catch (SecurityException ex){
+                            System.out.println("Please fix directory permissions");
+                            return;
+                        }
+                    }
+
+                    // TODO: Check if this is not malicious, and verify that it is a Image
+                    Part imagePart = req.getPart("imageFile");
+                    String imageName = RandomStringGenerator.getRandomString(16) + "_" + imagePart.getSubmittedFileName();
+                    product.setImage(imageName);
+                    imagePart.write(productImageUploadDirPath + File.separator + imageName);
+                }
+
                 product.updateProduct();
                 resp.sendRedirect("/admin/products/");
                 return;
