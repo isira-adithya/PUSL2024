@@ -44,6 +44,7 @@
     
 </nav>
 
+<%--
 <nav style="margin-bottom: 25px">
     <a href="/">Home</a>
     <a href="/products">Products</a>
@@ -62,8 +63,8 @@
     </c:if>
     
 </nav>
+--%>
 <style>
-    body,
     .form-control,
     .header-btns {
         font-family: 'Arial', sans-serif;
@@ -71,6 +72,7 @@
         font-size: 15px; /* Adjust the font size as needed */
     }
     .navbar-brand span{
+      
         font-size: 22px;
         font-weight:600;
         color: #002603;
