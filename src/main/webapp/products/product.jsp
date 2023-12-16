@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: @isira_adithya
+  User: @isira_adithya,@sanuth
   Date: 12/9/2023
   Time: 11:58 PM
 --%>
@@ -42,80 +42,98 @@
     pageContext.setAttribute("comments", comments);
     pageContext.setAttribute("userId", session.getAttribute("userId"));
 %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>${fn:escapeXml(product.name)} - Green SuperMarket</title>
-    <style>
-        #comments {
-            max-width: 600px;
-            margin: 20px;
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+<style>
+     
+        h2 {
+            margin-bottom: 20px;
+        }
+        .btn {
+             height: 40px;
+             width: 400px;
+             border-radius: 100px;
+             color: #ffffff;
+             background-color: #00b207;
+             margin-left: 10px;
         }
 
-        .comment {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        /* Add style for the new comment container */
+        .comment-container {
+            
+            text-align: left;
+            margin-top: 20px; /* Adjust as needed */
+            margin-bottom: 20px; /* Adjust as needed */
+            max-height: 400px; /* Adjust the maximum height as needed */
+            overflow-y: auto;
         }
 
-        .commenter {
-            font-weight: bold;
+        .comment-heading {
+            text-align: center;
+            margin-bottom: 10px;
         }
+        hr{
+          border-color: #2C742F;
+        }
+      
 
-        #commentInput {
-            width: 100%;
-            padding: 8px;
-            margin-top: 10px;
-            box-sizing: border-box;
-        }
-
-        #submitBtn {
-            padding: 8px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        #submitBtn:hover {
-            background-color: #45a049;
-        }
+        
+    
     </style>
 </head>
-<body>
-    <%@include file="../includes/header.jsp"%>
-    <div>
-        <img width="500px" src="${fn:escapeXml(product.image)}">
-        <p><b>Product Name: </b>${fn:escapeXml(product.name)}</p>
-        <p><b>Product Description: </b>${fn:escapeXml(product.description)}</p>
-        <p><b>Product Price: </b>${product.price}$</p>
-        <p><b>Product Quantity: </b>${product.quantity}</p>
+<body>    
+    
+    
+<div class="container mt-5">
+  <div class="row">
+    <!-- Image on the left -->   
+   <div class="col-md-5">
+      <img src="${fn:escapeXml(product.image)}" alt="Product Image" class="img-fluid">
     </div>
-    <div>
-        <br>
+    
+    <!-- Description and prices on the right -->
+    <div class="col-md-7">
+      <h2>${fn:escapeXml(product.name)}</h2>
+      <h5 style="color:#2C742F;">${fn:escapeXml(product.price)}</h5>
+      
+      <hr>
+      <p>${fn:escapeXml(product.description)}</p>
+    
+      <hr>       
         <c:if test="${userId != null}">
             <form action="/api/user/cart/addItem" method="post">
-                <label>Quantity:</label>
                 <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
                 <input type="hidden" name="productId" value="${product.productId}">
-                <input type="submit" value="Add to cart">
+                 <input type="submit" class="btn btn-outline" value="Add to cart" style="position: relative;">
             </form>
         </c:if>
+    </div>              
+  </div>
+      <br>
+      
+   <div class="row">
+    <div class="col-md-12 comment-heading">
+      <h3>Comments Section</h3> <br>
     </div>
-    <br>
-    <br>
+  </div>        
+    
+      
+  <div class="row">
     <c:if test="${comments.size() > 0}">
-        <div id="comments">
-            <h3>Comments</h3>
+        <div id="comments" class="col-md-8 mx-auto comment-container">
             <c:forEach items="${comments}" var="comment">
-                <div class="comment">
-                    <div class="commenter">${fn:escapeXml(comment.user.fullName)}</div>
-                    <div class="comment-text">${fn:escapeXml(comment.content)}</div>
+                <div class="col-md-12">
+                    <div>
+                        <p><strong>${fn:escapeXml(comment.user.fullName)}<br><br><br></strong>${fn:escapeXml(comment.content)} .</p>
+                        <hr>
+                    </div>
                     <c:if test="${userId == comment.user.userId}">
                         <form action="/api/user/comments/delete" method="post">
-                            <br>
                             <input type="hidden" name="commentId" value="${comment.commentId}">
                             <input type="submit" value="Delete Comment">
                         </form>
@@ -125,12 +143,12 @@
         </div>
     </c:if>
     <c:if test="${comments.size() <= 0}">
-        <div id="comments">
+        <div id="comments" class="col-md-8 mx-auto comment-container">
             <p>No Comments Found.</p>
         </div>
     </c:if>
     <c:if test="${userId != null}">
-        <div>
+        <div class="col-md-8 mx-auto">
             <form method="post" action="/api/user/comments/add">
                 <input type="hidden" name="productId" value="${product.productId}">
                 <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea>
@@ -138,6 +156,14 @@
             </form>
         </div>
     </c:if>
-    <%@include file="../includes/footer.jsp"%>
+</div>
+
+      
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
