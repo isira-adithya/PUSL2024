@@ -11,12 +11,19 @@ public class RandomStringGenerator {
         return randomBytes;
     }
 
-    public static String convertBytesToString(byte[] bytes) {
-        // Using Base64 encoding for simplicity
-        return Base64.getEncoder().encodeToString(bytes);
+    public static String convertBytesToHex(byte[] bytes) {
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : bytes) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 
     public static String getRandomString(int length){
-        return convertBytesToString(generateRandomBytes(length));
+        return convertBytesToHex(generateRandomBytes(length));
     }
 }
