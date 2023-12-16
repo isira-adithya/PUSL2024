@@ -35,7 +35,7 @@
         <a class="nav-link" href="/products" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/contactus" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
+        <a class="nav-link" href="/contact-us.jsp" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/aboutus" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">About Us</a>
