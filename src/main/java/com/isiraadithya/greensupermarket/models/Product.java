@@ -117,6 +117,19 @@ public class Product {
         }
     }
 
+    public void deleteProduct(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "DELETE FROM Products WHERE productid = ?";
+            PreparedStatement preparedStatement = dbconn.prepareStatement(query);
+            preparedStatement.setInt(1, this.id);
+            preparedStatement.execute();
+            Database.closeConnection();
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
     public static List<Product> getProducts(){
         try {
             List<Product> products = new ArrayList<Product>();
