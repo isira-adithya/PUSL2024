@@ -85,7 +85,7 @@
                 <% for (int i = 0; i < Math.min(4, products.size()); i++) { %>
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="custom-card">
-                            <img src="<%= XSSPreventor.encodeToHtmlEntities(products.get(i).getImage()) %>" alt="Product Image" class="img-fluid mb-3">
+                            <img src="<%= XSSPreventor.encodeToHtmlEntities(products.get(i).getImage()) %>" alt="Product Image" class="img-fluid mb-3" style="width:100%">
                             <h5><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></h5>
                             <p><%= products.get(i).getPrice() %>$</p>
                             <a href="/products/product.jsp?id=<%= products.get(i).getProductId() %>" class="custom-btn" >Buy Now</a>                         
