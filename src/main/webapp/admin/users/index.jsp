@@ -55,8 +55,8 @@
                     <td>
                         <a href="/admin/users/user.jsp?id=${user.userId}"><button>Edit User</button></a>
                         <form method="post" action="/api/admin/users/delete">
-                            <input type="hidden" name="productId" value="${user.userId}">
-                            <input type="submit" value="Delete Product">
+                            <input type="hidden" name="userId" value="${user.userId}">
+                            <input type="submit" value="Delete">
                         </form>
                     </td>
                 </tr>
