@@ -99,7 +99,7 @@
             <c:if test="${order.orderStatus.equals('COMPLETED')}">
                 <td><b>Sub Total:</b></td>
             </c:if>
-            <c:if test="${order.orderStatus.equals('PENDING')}">
+            <c:if test="${order.orderStatus.equals('PENDING') || order.orderStatus.equals('EXPIRED')}">
                 <td><b>Total:</b></td>
             </c:if>
             <td><b>$${order.amount}</b></td>
@@ -108,7 +108,7 @@
             <tr>
                 <td></td>
                 <td></td>
-                <td><b>Addional Charges<i>(Shipping costs, Tax, etc)</i>:</b></td>
+                <td><b>Additional Charges<i>(Shipping costs, Tax, etc)</i>:</b></td>
                 <td><b>$${order.additionalCharges}</b></td>
             </tr>
             <tr>
@@ -136,6 +136,7 @@
         <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
         <c:if test="${order.orderStatus.equals('EXPIRED')}">
             <i style="color: red;">EXPIRED</i>
+            <br>
             <b>
                 <small>
                     Unfortunately, your order has been expired. Please reorder the items again by visiting <a href="/products/">here</a> .
