@@ -11,7 +11,7 @@
 %>
 <html>
 <head>
-    <title>Add new product- Green SuperMarket</title>
+    <title>Add New product- Green SuperMarket</title>
     <style>
         #comments {
             max-width: 600px;
