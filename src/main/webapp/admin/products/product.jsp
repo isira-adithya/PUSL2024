@@ -81,18 +81,24 @@
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
-<div>
-    <form method="post" action="/api/admin/products/update">
+<div style="margin-left: 25px;">
+    <form method="post" action="/api/admin/products/update" enctype="multipart/form-data">
         <img width="500px" src="${fn:escapeXml(product.image)}">
-
         <p><b>Product Name: </b><input type="text" value="${fn:escapeXml(product.name)}" name="productName"></p>
         <p>
             <b>Product Description: </b>
             <br>
             <textarea name="productDescription">${fn:escapeXml(product.description)}</textarea>
         </p>
-        <p><b>Product Price: </b><input type="number" value="${fn:escapeXml(product.price)}" name="productPrice"></p>
+        <p><b>Product Price: </b><input type="text" value="${fn:escapeXml(product.price)}" name="productPrice"></p>
         <p><b>Product Quantity: </b><input type="number" inputmode="numeric" value="${fn:escapeXml(product.quantity)}" name="productQuantity"></p>
+
+        <br>
+        <p>Select a image from your computer, if you need to replace the current image</p>
+        <input type="file" name="imageFile">
+        <input type="hidden" name="productId" value="${product.productId}">
+        <br><br>
+        <input type="submit" value="Update">
     </form>
 </div>
 <br>

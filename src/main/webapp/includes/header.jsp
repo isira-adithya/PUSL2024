@@ -12,10 +12,10 @@
             <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
             <span>GreenSuperMarket</span>
         </div>
-        <form class="d-flex">
+        <form class="d-flex" action="/products/">
             <div class="input-group" style="width: 400px;">
-                <input class="form-control custom-no-outline" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="font-family: 'Poppins', sans-serif; font-weight: 400;">
-                <button class="btn me-0" type="submit" style="background-color:#00B207; color:#FFFFFF;">Search</button>
+                <input name="searchQuery" class="form-control custom-no-outline" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="font-family: 'Poppins', sans-serif; font-weight: 400;">
+                <button class="header-btns me-0" type="submit" style="background-color:#00B207; color:#FFFFFF;">Search</button>
             </div>
         </form>
         <div class="d-flex">
@@ -35,7 +35,7 @@
         <a class="nav-link" href="/products" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/contactus" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
+        <a class="nav-link" href="/contact-us.jsp" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/aboutus" style="color: #666666; transition: color 0.3s;" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">About Us</a>
@@ -44,6 +44,7 @@
     
 </nav>
 
+<%--
 <nav style="margin-bottom: 25px">
     <a href="/">Home</a>
     <a href="/products">Products</a>
@@ -62,15 +63,16 @@
     </c:if>
     
 </nav>
+--%>
 <style>
-    body,
     .form-control,
-    .btn {
+    .header-btns {
         font-family: 'Arial', sans-serif;
         font-weight: bold;
         font-size: 15px; /* Adjust the font size as needed */
     }
     .navbar-brand span{
+      
         font-size: 22px;
         font-weight:600;
         color: #002603;

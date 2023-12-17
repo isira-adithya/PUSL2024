@@ -58,6 +58,30 @@ public class Product {
 
     }
 
+    private void setProductId(int id){
+        this.id = id;
+    }
+
+    public void setProductQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public void saveProduct(){
         try {
             Connection dbconn = Database.connect();
@@ -93,12 +117,17 @@ public class Product {
         }
     }
 
-    private void setProductId(int id){
-        this.id = id;
-    }
-
-    public void setProductQuantity(int quantity){
-        this.quantity = quantity;
+    public void deleteProduct(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "DELETE FROM Products WHERE productid = ?";
+            PreparedStatement preparedStatement = dbconn.prepareStatement(query);
+            preparedStatement.setInt(1, this.id);
+            preparedStatement.execute();
+            Database.closeConnection();
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static List<Product> getProducts(){

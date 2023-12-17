@@ -4,22 +4,11 @@
   Date: 12/10/2023
   Time: 2:48 PM
 --%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
+<style>
         /* Custom Styles */
         footer {
             background-color: #1A1A1A;
             color: white;
-        }
-
-        .footer-container {
-            width: 100%;
-            padding: 1rem;
         }
 
         .footer-section {
@@ -77,11 +66,8 @@
         }
        
         
-    </style>
-</head>
-<body>
-
-<div class="my-5">
+</style>
+<div class="mt-5">
     <!-- Footer -->
     <footer class="text-left text-lg-start">
         <!-- Grid container -->
@@ -133,23 +119,23 @@
 
                         <!-- Facebook -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\facebook_2.png" alt="facebook" width="20" height="20">
+                            <img src="uploads/footer/facebook_2.png" alt="facebook" width="20" height="20">
                         </a>
 
                         <!-- Twitter -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\twitter 1.svg" alt="Twitter" width="20" height="20">
+                            <img src="uploads/footer/twitter 1.svg" alt="Twitter" width="20" height="20">
                         </a>
 
                         <!-- pinterest -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\pinterest 1.svg" alt="pinterest" width="20" height="20">
+                            <img src="uploads/footer/pinterest 1.svg" alt="pinterest" width="20" height="20">
                         </a>
                         
 
                         <!-- instagram -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\instagram.svg" alt="instragram" width="20" height="20">
+                            <img src="uploads/footer/instagram.svg" alt="instagram" width="20" height="20">
                         </a>
 
                     </div>
@@ -163,7 +149,7 @@
         
         <!-- Copyright -->
         <div class="text-center p-3 copyright"><hr color="#999999" width="100%">
-            
+
             GreenSuperMarket 2023 All Rights Reserved
             
         </div>
@@ -176,5 +162,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-</body>
-</html>
