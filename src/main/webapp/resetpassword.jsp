@@ -77,7 +77,7 @@
     <h3>Reset your password</h3>
     
      <div >
-        <img src="uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image">
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
 
     <h3><center>Reset Password</center></h3><br>
@@ -100,7 +100,7 @@
 
             
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button" style="background-color:#00B207";> Submit </button>   
+                <input class="btn btn-primary" type="submit" style="background-color:#00B207";> Submit </input>
             </div>
             
         </form>

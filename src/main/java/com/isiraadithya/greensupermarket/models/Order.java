@@ -169,6 +169,19 @@ public class Order {
         }
     }
 
+    public void deleteOrder(){
+        try {
+            Connection dbconn = Database.connect();
+            String query = "DELETE FROM Orders WHERE orderid = ?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setInt(1, this.orderId);
+            sqlStatement.execute();
+            Database.closeConnection();
+        } catch (Exception ex){
+            System.out.println("ERR:updateOrder(): " + ex.getMessage());
+        }
+    }
+
     public static Order findOrderById(int searchId){
         try {
             Connection dbconn = Database.connect();
@@ -248,6 +261,48 @@ public class Order {
             return orderList;
         } catch (Exception ex){
             System.out.println("ERR:findOrdersByUserId(): " +ex.getMessage());
+        }
+
+        return orderList;
+    }
+
+    public static List<Order> getOrders(){
+        List<Order> orderList = new ArrayList<Order>();
+        try {
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM Orders";
+            Statement sqlStatement = dbconn.createStatement();
+            ResultSet resultSet = sqlStatement.executeQuery(query);
+
+            // Fields
+            int orderId = -1;
+            int userId = -1;
+            Timestamp createdAt = new Timestamp(1L);
+            double amount = -1;
+            double additionalCharges = 0;
+            String orderStatus = "PENDING";
+            while(resultSet.next()){
+                orderId = resultSet.getInt("orderid");
+                userId = resultSet.getInt("userid");
+                createdAt = resultSet.getTimestamp("createdAt");
+                amount = resultSet.getDouble("amount");
+                orderStatus = resultSet.getString("status");
+                additionalCharges = resultSet.getDouble("additionalCharges");
+
+                Order _tmp = new Order(userId, amount);
+                _tmp.setOrderId(orderId);
+                _tmp.setDateTime(createdAt);
+                _tmp.setOrderStatus(orderStatus);
+                _tmp.setAdditionalCharges(additionalCharges);
+                List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
+                _tmp.setOrderDetails(_tmp2);
+                orderList.add(_tmp);
+            }
+
+            Database.closeConnection();
+            return orderList;
+        } catch (Exception ex){
+            System.out.println("ERR:getOrders(): " +ex.getMessage());
         }
 
         return orderList;

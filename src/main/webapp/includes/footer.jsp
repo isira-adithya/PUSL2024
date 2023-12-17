@@ -104,10 +104,9 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
                         <h6 class=" mb-4 font-weight-bold"><br><br><br>Helps</h6>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Contact</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">About</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Product</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Product Details</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/contact-us.jsp">Contact</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/about-us.jsp">About</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/products">Products</a></p>
                     </div>
                     <!-- Grid column -->
 
@@ -119,23 +118,23 @@
 
                         <!-- Facebook -->
                         <a href="#!" class="social-link">
-                            <img src="uploads/footer/facebook_2.png" alt="facebook" width="20" height="20">
+                            <img src="/uploads/footer/facebook_2.png" alt="facebook" width="20" height="20">
                         </a>
 
                         <!-- Twitter -->
                         <a href="#!" class="social-link">
-                            <img src="uploads/footer/twitter 1.svg" alt="Twitter" width="20" height="20">
+                            <img src="/uploads/footer/twitter 1.svg" alt="Twitter" width="20" height="20">
                         </a>
 
                         <!-- pinterest -->
                         <a href="#!" class="social-link">
-                            <img src="uploads/footer/pinterest 1.svg" alt="pinterest" width="20" height="20">
+                            <img src="/uploads/footer/pinterest 1.svg" alt="pinterest" width="20" height="20">
                         </a>
                         
 
                         <!-- instagram -->
                         <a href="#!" class="social-link">
-                            <img src="uploads/footer/instagram.svg" alt="instagram" width="20" height="20">
+                            <img src="/uploads/footer/instagram.svg" alt="instagram" width="20" height="20">
                         </a>
 
                     </div>

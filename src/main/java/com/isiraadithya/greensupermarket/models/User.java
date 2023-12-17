@@ -294,6 +294,7 @@ public class User {
                 users.add(_tmp);
             }
             Database.closeConnection();
+            return users;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

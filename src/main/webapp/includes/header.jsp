@@ -9,8 +9,10 @@
     
     <div class="container-fluid" style="justify-content: space-evenly;">
         <div class="navbar-brand d-flex align-items-center">
-            <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
-            <span>GreenSuperMarket</span>
+            <a href="/" style="text-decoration: none;">
+                <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
+                <span>GreenSuperMarket</span>
+            </a>
         </div>
         <form class="d-flex" action="/products/">
             <div class="input-group" style="width: 400px;">
