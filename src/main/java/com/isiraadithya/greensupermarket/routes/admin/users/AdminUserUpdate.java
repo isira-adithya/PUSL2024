@@ -33,11 +33,6 @@ public class AdminUserUpdate extends HttpServlet {
                 break;
         }
 
-//        Input Validation
-        if ((email == "null") || (firstname == "null") || (lastname == "null") || (phone == "null") || (street_address == "null") || (city == "null") || (state == "null") || (country == "null") || (postalcode == "null") ){
-            resp.sendRedirect("/signup.jsp?err=Invalid Data");
-        }
-
         User userObj = User.findUserByEmail(email);
         if (userObj.getUserId() != -1){
             try {
@@ -53,11 +48,12 @@ public class AdminUserUpdate extends HttpServlet {
                 userObj.updateUser();
 
                 resp.sendRedirect("/admin/users/user.jsp?id=" + userObj.getUserId());
+                return;
             } catch (Exception ex) {
                 resp.sendRedirect("/admin/users/add.jsp?err=Something went wrong, please try again later");
                 System.out.println(ex.getMessage());
+                return;
             }
-            resp.sendRedirect("/admin/users/");
         } else {
             resp.sendRedirect("/admin/users/add.jsp?err=Account does not exists in our database");
         }

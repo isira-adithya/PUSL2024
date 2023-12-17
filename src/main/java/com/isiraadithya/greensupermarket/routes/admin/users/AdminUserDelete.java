@@ -16,7 +16,7 @@ public class AdminUserDelete extends HttpServlet {
         int userId = -1;
         try {
             userId = Integer.parseInt(req.getParameter("userId"));
-        } catch (NumberFormatException){
+        } catch (NumberFormatException exception){
             resp.setStatus(400);
             return;
         }
