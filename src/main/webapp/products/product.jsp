@@ -54,6 +54,7 @@
         h2 {
             margin-bottom: 20px;
         }
+        
         .btn {
              height: 40px;
              width: 450px;
@@ -75,7 +76,7 @@
              margin-top: 1px; /* Adjust as needed */
              margin-bottom: 30px;
              
-}   
+        }   
 
         /* Add style for the new comment container */
         .comment-container {
@@ -91,41 +92,43 @@
             text-align: center;
             margin-bottom: 10px;
         }
+        
         hr{
           border-color: #2C742F;
         }
+        
         .icon {
             width: 20px; /* Set the width of the icon */
              height: 20px; /* Set the height of the icon */
              margin-left: 5px; /* Adjust the margin as needed */
         }
         
-         #commentInput {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-        resize: vertical; /* Allow vertical resizing */
-    }
+        #commentInput {
+              width: 100%;
+              padding: 10px;
+              font-size: 16px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              margin-bottom: 10px;
+              box-sizing: border-box;
+              resize: vertical; /* Allow vertical resizing */
+        }
 
-    #submitBtn {
-        padding: 10px 15px;
-        font-size: 16px;
-        background-color: #4CAF50; /* Green background color */
-        color: white; /* White text color */
-        border: none;
-        border-radius: 100px;
-        cursor: pointer;
-        width: 100px;
-    }
+        #submitBtn {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            width: 100px;
+        }
 
-    #submitBtn:hover {
-        background-color: #45a049; /* Darker green on hover */
+        #submitBtn:hover {
+            background-color: #45a049; /* Darker green on hover */
 
-      
+         } 
 
         
     
