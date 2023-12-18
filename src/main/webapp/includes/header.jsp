@@ -77,7 +77,7 @@
 --%>
 <style>
     .form-control,
-    .header-btns {
+    .btns {
         font-family: 'Arial', sans-serif;
         font-weight: bold;
         font-size: 15px; /* Adjust the font size as needed */
