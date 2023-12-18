@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
+<style>
         /* Custom Styles */
         footer {
             background-color: #1A1A1A;
@@ -77,11 +77,10 @@
         }
        
         
-    </style>
+</style>
 </head>
 <body>
-
-<div class="my-5">
+<div class="mt-5">
     <!-- Footer -->
     <footer class="text-left text-lg-start">
         <!-- Grid container -->
@@ -118,38 +117,37 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
                         <h6 class=" mb-4 font-weight-bold"><br><br><br>Helps</h6>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Contact</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">About</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Product</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Product Details</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/contact-us.jsp">Contact Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/about-us.jsp">About Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/products">Products</a></p>
                     </div>
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2 col align-self-center ml-2 "><br>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2 col align-self-center ml-2 "><br><br>
                         
 
                         
 
                         <!-- Facebook -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\facebook_2.png" alt="facebook" width="20" height="20">
+                            <img src="/uploads/footer/facebook_2.png" alt="facebook" width="20" height="20">
                         </a>
 
                         <!-- Twitter -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\twitter 1.svg" alt="Twitter" width="20" height="20">
+                            <img src="/uploads/footer/twitter 1.svg" alt="Twitter" width="20" height="20">
                         </a>
 
                         <!-- pinterest -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\pinterest 1.svg" alt="pinterest" width="20" height="20">
+                            <img src="/uploads/footer/pinterest 1.svg" alt="pinterest" width="20" height="20">
                         </a>
                         
 
                         <!-- instagram -->
                         <a href="#!" class="social-link">
-                            <img src="uploads\footer related jpg\instagram.svg" alt="instragram" width="20" height="20">
+                            <img src="/uploads/footer/instagram.svg" alt="instagram" width="20" height="20">
                         </a>
 
                     </div>
@@ -163,7 +161,7 @@
         
         <!-- Copyright -->
         <div class="text-center p-3 copyright"><hr color="#999999" width="100%">
-            
+
             GreenSuperMarket 2023 All Rights Reserved
             
         </div>
