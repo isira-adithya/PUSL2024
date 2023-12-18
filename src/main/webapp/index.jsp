@@ -75,7 +75,7 @@
         </div>
         </section>
         
-        <section style="margin-top:100px;">
+        <section>
          <div class="container mt-4">
             <div class="row">
                 <div class="col-12 text-center text-md-left">
@@ -124,9 +124,9 @@
                 <div class="col-md-6">
                     <img src="uploads/images/userhome/Image.png" alt="farmer1" class="img-fluid">
                 </div>
-                <div class="col-md-6 "style="width:100%;">
-                    <p  style="font-size: 30px; font-weight: bold; width:100%;">
-                         "Savor the flavours of nature, where every bite is a commitment to your well-being and the planet's health."
+                <div class="col-md-6 ">
+                    <p  style="font-size: 30px; font-weight: bold;">
+                         "Savor the goodness of nature at GreenSuperMarket, where every bite is a commitment to your well-being and the planet's health."
                     </p>
                 </div>
             </div>
@@ -159,9 +159,8 @@
     }
     
     .home-land{
-       
+        width: 100%;
         background-color:#EDF2EE;
-        
     }
     .home-land-text{
         font-size: 40px;
