@@ -77,7 +77,7 @@
     <h3>Reset your password</h3>
     
      <div >
-        <img src="uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image">
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
 
     <h3><center>Reset Password</center></h3><br>
