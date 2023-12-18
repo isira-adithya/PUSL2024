@@ -4,12 +4,6 @@
   Date: 12/10/2023
   Time: 2:48 PM
 --%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <style>
         /* Custom Styles */
         footer {
@@ -62,7 +56,6 @@
             display: inline-block;
             margin: 10px;
             transition: background-color 0.3s ease; /* Smooth transition effect */
-            
         }
 
         .social-link img {
@@ -78,9 +71,8 @@
        
         
 </style>
-</head>
-<body>
-<div class="mt-5">
+
+<div>
     <!-- Footer -->
     <footer class="text-left text-lg-start">
         <!-- Grid container -->
@@ -105,9 +97,9 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center"> 
                         <h6 class=" mb-4 font-weight-bold"><br><br><br>My Account</h6>
-                        <p><a class="paracolor mb-3.5 d-block" a href="#"> Account</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Shopping Cart</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="#">Settings</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/user/profile.jsp"> Account</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/user/cart.jsp">Shopping Cart</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/user/wishlist/">Wish List</a></p>
                        
                     </div>
                     <!-- Grid column -->
@@ -117,9 +109,9 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
                         <h6 class=" mb-4 font-weight-bold"><br><br><br>Helps</h6>
-                        <p><a class="paracolor mb-3.5 d-block"a href="/contact-us.jsp">Contact Us</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="/about-us.jsp">About Us</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="/products">Products</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/contact-us.jsp">Contact Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/about-us.jsp">About Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/products/">Products</a></p>
                     </div>
                     <!-- Grid column -->
 
@@ -169,10 +161,3 @@
     </footer>
     <!-- Footer -->
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-</body>
-</html>
