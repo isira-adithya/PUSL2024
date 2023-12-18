@@ -37,6 +37,7 @@
     </div>
     
     <hr style="width: 100%; margin: 10px 0; border: 1px solid #666666">
+    
 
     <ul class="nav">
         <li class="nav-item">
@@ -73,6 +74,7 @@
         <a href="/signup.jsp">Sign up</a>
     </c:if>
     
+gg
 </nav>
 --%>
 <style>

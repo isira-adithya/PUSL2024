@@ -57,7 +57,7 @@
 
 
         
-        <section ">
+        <section>
         <div class="container" style="max-width: 600px;">
           <div class="row justify-content-center align-items-center contact-box">
             <div class="col-12 col-md-6 text-center">
@@ -132,7 +132,6 @@
             </div>
             </div>
         </section>
-
         <%@include file="includes/footer.jsp"%>
     </body>
 </html>
