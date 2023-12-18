@@ -99,7 +99,7 @@
 
             
             <div class="d-grid gap-2">
-                <input class="btn btn-primary" type="submit" style="background-color:#00B207";> 
+                <input class="btn btn-primary" type="submit" style="background-color:#00B207";>
             </div>
             
         </form>
