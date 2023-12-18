@@ -4,21 +4,24 @@
   Date: 12/10/2023
   Time: 2:48 PM
 --%>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<nav class="navbar --bs-light-rgb justify-content-center align-content-center text-center"style="padding: 30px 0px 30px 0px">
+<nav class="navbar --bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
     
 
     <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <div class="navbar-brand d-flex " style="margin: 0px;">
+        <div class="navbar-brand d-flex" style="margin: 0px;">
             <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
             <span>GreenSuperMarket</span>
         </div>
         
         
-        <form class="input-group " style="margin: 0px;">
+        <form class="input-group" style="margin: 0px;" action="/products/">
               
-                  <input class="form-control custom-no-outline" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="font-family: 'Poppins', sans-serif; font-weight: 400; ">
+                  <input class="form-control custom-no-outline" name="searchQuery" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="font-family: 'Poppins', sans-serif; font-weight: 400; ">
                   <button class="btn me-0" type="submit" style="background-color:#00B207; color:#FFFFFF;">Search</button>
                
           </form>
@@ -27,8 +30,8 @@
         <div >
             <c:if test="${isLoggedIn}">
             <a href="/user/cart.jsp" class="nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="small-image"></a>
-            <a href="/wishlist" class="nav-icons"><img src="/uploads/images/navbar/wish.png" alt="cart" class="small-image"></a>
-            <a href="/" class="nav-icons"><img src="/uploads/images/navbar/log.png" alt="cart" class="small-image"></a>
+            <a href="/user/wishlist/" class="nav-icons"><img src="/uploads/images/navbar/wish.png" alt="cart" class="small-image"></a>
+            <a href="/user/profile.jsp" class="nav-icons"><img src="/uploads/images/navbar/log.png" alt="cart" class="small-image"></a>
             </c:if>
             <c:if test="${!isLoggedIn}">
             <a href="/login.jsp" class="custom-btn" >Log In</a>   
@@ -44,48 +47,25 @@
             <a class="nav-link active" aria-current="page" href="/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/products" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
+            <a class="nav-link" href="/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/contactus" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
+            <a class="nav-link" href="/contact-us.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/aboutus" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">About Us</a>
+            <a class="nav-link" href="/about-us.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">About Us</a>
         </li>
     </ul>
     
 </nav>
 
-<%--
-<nav style="margin-bottom: 25px">
-    <a href="/">Home</a>
-    <a href="/products">Products</a>
-    
-    
-    <c:if test="${isLoggedIn}">
-        <a href="/user/profile.jsp">Profile</a>
-        <a href="/user/cart.jsp">Cart</a>
-        <a href="/user/orders/">Orders</a>
-        <a href="/logout.jsp">Logout</a>
-    </c:if>
-        
-    <c:if test="${!isLoggedIn}">
-        <a href="/login.jsp">Sign in</a>
-        <a href="/signup.jsp">Sign up</a>
-    </c:if>
-    
-gg
-</nav>
---%>
 <style>
-    .form-control,
-    .btns {
+    .form-control {
         font-family: 'Arial', sans-serif;
         font-weight: bold;
         font-size: 15px; /* Adjust the font size as needed */
     }
     .navbar-brand span{
-      
         font-size: 22px;
         font-weight:600;
         color: #002603;
@@ -102,7 +82,6 @@ gg
     }
     
     .small-image{
-        max-width:25px; 
         max-width:25px;
     }
     
