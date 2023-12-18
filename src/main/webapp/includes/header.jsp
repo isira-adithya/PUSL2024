@@ -8,6 +8,7 @@
 
 <nav class="navbar --bs-light-rgb justify-content-center align-content-center text-center"style="padding: 30px 0px 30px 0px">
     
+
     <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
         <div class="navbar-brand d-flex " style="margin: 0px;">
             <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
@@ -36,7 +37,7 @@
     </div>
     
     <hr style="width: 100%; margin: 10px 0; border: 1px solid #666666">
-    
+
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
@@ -76,7 +77,7 @@
 --%>
 <style>
     .form-control,
-    .btn {
+    .header-btns {
         font-family: 'Arial', sans-serif;
         font-weight: bold;
         font-size: 15px; /* Adjust the font size as needed */

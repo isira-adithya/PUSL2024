@@ -18,6 +18,8 @@
 <body>
 <%@include file="../includes/header.jsp"%>
     <div>
+        <a href="/admin/products/add.jsp">Add New Product</a>
+        <br><br>
         <table border="1px">
             <thead>
             <tr>
