@@ -27,11 +27,7 @@
         response.sendRedirect("/user/orders");
         return;
     }
-    // Checking if the user owns this Order
-    if (order.getUserId() != userId){
-        response.sendRedirect("/user/orders");
-        return;
-    }
+
     expireDateTime = new Timestamp(order.getDateTime().getTime() + (1000 * 60 * 60 * 24));
     pageContext.setAttribute("order", order);
     pageContext.setAttribute("expireDateTime", expireDateTime);
@@ -42,7 +38,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenSuperMarket - Shopping Cart</title>
+    <title>Order ID ${order.orderId} - GreenSuperMarket</title>
     <style>
         .cart-container {
             max-width: 800px;
@@ -136,21 +132,11 @@
         <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
         <c:if test="${order.orderStatus.equals('EXPIRED')}">
             <i style="color: red;">EXPIRED</i>
-            <br>
-            <b>
-                <small>
-                    Unfortunately, your order has been expired. Please reorder the items again by visiting <a href="/products/">here</a> .
-                </small>
-            </b>
         </c:if>
     </p>
     <br>
 
-    <c:if test="${order.orderStatus.equals('PENDING')}">
-        <a href="/api/user/payments/authorize_payment?orderid=${order.orderId}">Pay</a>
-        <br><br>
-    </c:if>
-    <a href="/user/orders/">Go back</a>
+    <a href="/admin/orders/">Go back</a>
 </div>
 
 <%@include file="../../includes/footer.jsp"%>
