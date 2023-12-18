@@ -74,7 +74,6 @@
 <body>
     <%@include file="includes/header.jsp"%>
     
-    <h3>Reset your password</h3>
     
      <div >
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
@@ -100,7 +99,7 @@
 
             
             <div class="d-grid gap-2">
-                <input class="btn btn-primary" type="submit" style="background-color:#00B207";> Submit </input>
+                <input class="btn btn-primary" type="submit" style="background-color:#00B207";> 
             </div>
             
         </form>
