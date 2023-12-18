@@ -104,14 +104,14 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
                         <h6 class=" mb-4 font-weight-bold"><br><br><br>Helps</h6>
-                        <p><a class="paracolor mb-3.5 d-block"a href="/contact-us.jsp">Contact</a></p>
-                        <p><a class="paracolor mb-3.5 d-block"a href="/about-us.jsp">About</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/contact-us.jsp">Contact Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block"a href="/about-us.jsp">About Us</a></p>
                         <p><a class="paracolor mb-3.5 d-block"a href="/products">Products</a></p>
                     </div>
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2 col align-self-center ml-2 "><br>
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-2 col align-self-center ml-2 "><br><br>
                         
 
                         
