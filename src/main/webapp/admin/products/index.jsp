@@ -22,18 +22,23 @@ body {
 table {
     width: 80%;
     margin: 20px auto; /* Center the table */
-    border-collapse: collapse;
+    border-collapse: collapse;  
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    
 }
 
 th {
     background-color: #f2f2f2;
+    font-weight: normal;
+    font-size: 17px;
+    
 }
+
 
 img {
     max-width: 100%;
@@ -45,23 +50,49 @@ button {
     cursor: pointer;
 }
 #submitBtn {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #4CAF50; /* Green background color */
-            color: white; /* White text color */
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            width: 150px;
-        }
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 150px;
+ }
+ 
+.submitBtn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 150px;
+}
+.Add-new-button{
+    padding: 10px 15px;
+    font-size: 23px;
+    background-color: #00B207; /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 800px;
+}
+.icon{
+    width:30px;
+    height:30px;
+}
+
 </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
     <div>
-        <a href="/admin/products/add.jsp">Add New Product</a>
-        <br><br>
-        <table border="1px">
+        
+        <br><br><br><br>
+        <table>
             <thead>
             <tr>
                 <th>Product Name</th>
@@ -69,7 +100,7 @@ button {
                 <th>Product Description</th>
                 <th>Product Quantity</th>
                 <th>Product Price</th>
-                <th>Operations</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -80,8 +111,8 @@ button {
                     <td>${fn:escapeXml(product.description)}</td>
                     <td>${fn:escapeXml(product.quantity)}</td>
                     <td>${fn:escapeXml(product.price)}</td>
-                    <td>
-                        <a href="/admin/products/product.jsp?id=${product.productId}"><button>Edit Product</button></a>
+                    <td><center>
+                        <a href="/admin/products/product.jsp?id=${product.productId}"><button class="submitBtn">Edit Product</button></a>
                         <form method="post" action="/api/admin/products/delete"><br>
                             
                             <input type="hidden" name="productId" value="${product.productId}">
@@ -92,8 +123,12 @@ button {
                 </tr>
             </c:forEach>
             </tbody>
-        </table>
+        </table><br><br><br><br>
+        <form method="post" action="/admin/products/add.jsp">
+            <button class="Add-new-button">Add New Product</button>
     </div>
+    
+<br><br><br><br><br><br><br>
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
