@@ -34,6 +34,10 @@
         response.sendRedirect("/products/?msg=No Products Found");
         return;
     }
+
+    pageContext.setAttribute("products", products);
+    pageContext.setAttribute("searchQuery", searchQuery);
+    pageContext.setAttribute("msg", msg);
 %>
 <html>
 <head>
@@ -41,42 +45,35 @@
 </head>
 <body>
     <%@include file="../includes/header.jsp"%>
-    <form action="/products/" method="get">
-        <label>Search</label>
-        <input type="text" name="searchQuery" value="<% out.print(XSSPreventor.encodeToHtmlEntities(searchQuery)); %>">
-        <input type="submit" value="Submit">
-    </form>
-    <p><b><% out.print(XSSPreventor.encodeToHtmlEntities(msg)); %></b></p>
-    <br>
-    <br>
-    <table border="1px">
-        <thead>
-        <tr>
-            <th>Product Name</th>
-            <th>Product Image</th>
-            <th>Product Description</th>
-            <th>Product Quantity</th>
-            <th>Product Price</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <%
-            for (int i = 0; products.size() > i; i++){
-        %>
+    <center>
+        <p><b>${fn:escapeXml(msg)}</b></p>
+        <br>
+        <br>
+        <table border="1px">
+            <thead>
             <tr>
-                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getName())); %></td>
-                <td><img width="200px" src="<% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getImage())); %>"></td>
-                <td><% out.print(XSSPreventor.encodeToHtmlEntities(products.get(i).getDescription())); %></td>
-                <td><% out.print(products.get(i).getQuantity()); %></td>
-                <td><% out.print(products.get(i).getPrice()); %>$</td>
-                <td><a href="/products/product.jsp?id=<% out.print(products.get(i).getProductId()); %>">Open</a></td>
+                <th>Product Name</th>
+                <th>Product Image</th>
+                <th>Product Description</th>
+                <th>Product Quantity</th>
+                <th>Product Price</th>
+                <th></th>
             </tr>
-        <%
-            }
-        %>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <c:forEach items="${products}" var="product">
+                <tr>
+                    <td>${fn:escapeXml(product.name)}</td>
+                    <td><img width="200px" src="${fn:escapeXml(product.image)}"></td>
+                    <td>${fn:escapeXml(product.description)}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.price}$</td>
+                    <td><a href="/products/product.jsp?id=${product.productId}">Open</a></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </center>
     <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@include file="includes/variables.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
     <title>Admin Page</title>
 </head>
 <body>
+<%@include file="includes/header.jsp"%>
     Admin Content Here
+<%@include file="includes/footer.jsp"%>
 </body>
 </html>

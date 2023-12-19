@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "itemDelete", value = "/api/user/cart/deteleItem")
+@WebServlet(name = "itemDelete", value = "/api/user/cart/deleteItem")
 public class DeleteItem extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,7 +37,9 @@ public class DeleteItem extends HttpServlet {
         }
 
         Cart userCart = (Cart) req.getSession().getAttribute("cart");
-        userCart.deleteProduct(product);
+        userCart.deleteProduct(product.getProductId());
         req.getSession().setAttribute("cart", userCart);
+        resp.sendRedirect(req.getHeader("Referer"));
+        return;
     }
 }
