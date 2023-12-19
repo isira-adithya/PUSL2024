@@ -13,14 +13,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <style>
-      
+
     .login-form-container {
       display: flex;
       align-items: center;
-      justify-content: center;     
-      
+      justify-content: center;
+
     }
-    
+
 
     .login-form {
       max-width: 800px;
@@ -59,7 +59,6 @@
       width: 165px;
       border-radius: 100px;
       color: #ffffff;
-      
       margin-bottom: 20px;
     }
 
@@ -72,7 +71,6 @@
     }
 
     .spacer {
-      
       margin-right: 30px; /* Add margin-right to create space */
     }
     
@@ -96,18 +94,18 @@
 <body>
 <%@include file="includes/header.jsp"%>
   <div>
-    <img src="uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image">
+    <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
   </div>
     <br><br><br><br>
   <div class="container login-form-container">
     <!-- Left Section -->
     <div class="col-md-4">
       <div class="login-form mb-4">
-        <center><img src="uploads\images\contactus\Email.png" alt="Email image">
+        <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
           <p><a href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
             <a href="mailto:support@greensupermarket.live">support@greensupermarket.live</a></p>
                 <hr>
-                <img src="uploads\images\contactus\PhoneCall.jpg" alt="Email image">
+                <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
                 <p>
                   <a href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
                   <a href="tel:+94701234562"> (+94) 70 123 4562 </a>
