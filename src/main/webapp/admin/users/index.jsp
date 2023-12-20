@@ -109,7 +109,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Country</th>
-            <th>Operations</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
