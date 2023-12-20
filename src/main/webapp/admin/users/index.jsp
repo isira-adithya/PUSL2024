@@ -126,12 +126,16 @@
         </tbody>
     </table>
     
-     <a href="/admin/users/add.jsp">Add New User / Administrator</a> <br><br>
+     <button class="Add-new-button" onclick="window.location.href='/admin/users/add.jsp'">Add New User / Administrator</button>
+        <br><br>
+        
     <c:if test="${selectedRole.equals('ADMIN')}">
-        <a href="/admin/users/">See all customers</a>
+        
+        <button class="Add-new-button" onclick="window.location.href='/admin/users/'">See all customers</button>
+
     </c:if>
     <c:if test="${selectedRole.equals('USER')}">
-        <a href="/admin/users/?role=ADMIN">See all administrators</a>
+        <button class="Add-new-button" onclick="window.location.href='/admin/users/?role=ADMIN'">See all administrators</button>
     </c:if>
         
 </div>
