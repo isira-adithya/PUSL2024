@@ -93,13 +93,6 @@
 <body>
 <%@include file="../includes/header.jsp"%>
 <div>
-    <a href="/admin/users/add.jsp">Add New User / Administrator</a> <br><br>
-    <c:if test="${selectedRole.equals('ADMIN')}">
-        <a href="/admin/users/">See all customers</a>
-    </c:if>
-    <c:if test="${selectedRole.equals('USER')}">
-        <a href="/admin/users/?role=ADMIN">See all administrators</a>
-    </c:if>
 
     <br><br>
     <table>
@@ -132,6 +125,15 @@
         </c:forEach>
         </tbody>
     </table>
+    
+     <a href="/admin/users/add.jsp">Add New User / Administrator</a> <br><br>
+    <c:if test="${selectedRole.equals('ADMIN')}">
+        <a href="/admin/users/">See all customers</a>
+    </c:if>
+    <c:if test="${selectedRole.equals('USER')}">
+        <a href="/admin/users/?role=ADMIN">See all administrators</a>
+    </c:if>
+        
 </div>
 <%@include file="../includes/footer.jsp"%>
 </body>
