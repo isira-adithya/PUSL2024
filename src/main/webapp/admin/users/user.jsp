@@ -45,7 +45,54 @@
     <title>${fn:escapeXml(user.fullName)} - Green SuperMarket</title>
 <style>
 
+    .form-box{
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 15px;
+        border: 1px solid #e9e9e9;
+        border-radius: 5px;
+        
+        
+    }
+    .form-box:hover{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: box-shadow 0.5s ease;
+    }
+    .form-group{
+        margin: 20px 0px 20px 0px;
+        text-align: left;
+    }
+    .form-group label{
+        font-weight: bold;
+    }
+     h3 {
+            margin: 30px; 
+            font-weight: bold;
+        }
+    
+        .ad-custom-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #00B207;
+            border: none;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
 
+        .ad-custom-btn:hover {
+            background-color: #666666;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+         @media (max-width: 576px) {
+            .form-group.role {
+                text-align: center;
+            }
 </style>
 </head>
 <body>
@@ -54,7 +101,7 @@
     <div class="container">
         <div class="row text-center justify-content-center align-items-center">
             <div class="col-md-8">
-                <div style="margin-top: 25px;" class="mx-auto col-md-8">
+                <div style="margin-top: 25px;" class="mx-auto col-md-8 form-box">
                     <h3 class="text-center">Personal Information</h3>
                     <form id="signupForm" action="/api/admin/users/update" method="post">
                         
@@ -114,7 +161,7 @@
                         
 
                         <div class="d-grid gap-2">
-                            <input type="submit" class="btn btn-primary" style="background-color: #00B207;" value="Submit">
+                            <input type="submit" class="ad-custom-btn"  value="Submit">
                         </div>
 
                         <p class="text-center mt-3">Already Have An Account? <a href="/login.jsp" style="color: #000;">Log In</a></p>
