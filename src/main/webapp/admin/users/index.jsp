@@ -81,7 +81,7 @@
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            width: 800px;
+            width: 700px;
         }
 
         .icon {
@@ -125,7 +125,7 @@
         </c:forEach>
         </tbody>
     </table>
-    
+    <br><br><br>
      <button class="Add-new-button" onclick="window.location.href='/admin/users/add.jsp'">Add New User / Administrator</button>
         <br><br>
         
@@ -133,7 +133,7 @@
         
         <button class="Add-new-button" onclick="window.location.href='/admin/users/'">See all customers</button>
 
-    </c:if>
+    </c:if><br>
     <c:if test="${selectedRole.equals('USER')}">
         <button class="Add-new-button" onclick="window.location.href='/admin/users/?role=ADMIN'">See all administrators</button>
     </c:if>
