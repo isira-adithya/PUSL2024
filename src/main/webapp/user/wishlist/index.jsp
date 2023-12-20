@@ -7,9 +7,88 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
-</head>
-<body>
+  <title> Wish List</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 15px ;
+            text-align: left;
+        }
+        button.addToCart {
+            background-color: #00B207;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 2px;
+            cursor: pointer;
+        }
+    </style>
 
+</head>
+<%@include file="../../includes/footer.jsp"%>
+
+<body>
+   
+    
+<center><br>
+                <h3>Wish List</h3>
+                <table border="1" width ="70%" >
+            <thead>
+            <tr>
+                <th>PRODUCT  </th>
+                <th>PRICE  </th>
+                <th><center>ADD TO CART  </center></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Green Capsicum</td>
+                <td>$10.99</td>
+                <td><center><button style="background-color: green; color: white; border: none; padding: 5px 10px;
+              text-align: center; text-decoration: none; display: inline-block;
+                                  font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Green Capsicum')">Add to Cart</button></center></td>
+            </tr>
+            <tr>
+                <td>Chinese Cabbage</td>
+                <td>$40.00</td>
+                <td><center><button style="background-color: green; color: white; border: none; padding: 5px 10px;
+              text-align: center; text-decoration: none; display: inline-block;
+                                  font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Chinise Cabbage')">Add to Cart</button></center></td>
+            </tr>
+            <tr>
+                <td>Fresh Mango</td>
+                <td>$10.00</td>
+                <td><center><button style="background-color: green; color: white; border: none; padding: 5px 10px;
+              text-align: center; text-decoration: none; display: inline-block;
+                                  font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Fresh Mango')">Add to Cart</button></center></td>
+            </tr>
+        </tbody>
+                </table>
+
+    
+              
+       <script>
+        function addToCart(product) {
+            // You can add your cart functionality here
+            alert(product + " added to cart!");
+        }
+    </script>
+    
+   
+                </center>
+<br>
 </body>
+<br>
+<%@include file="../../includes/header.jsp"%>
+
 </html>
