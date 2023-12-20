@@ -16,51 +16,82 @@
 %>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/includes/styles.css" rel="stylesheet">
     <title>Your Orders</title>
+    <style>
+         .account-info {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 15px;
+            border: 1px solid #e9e9e9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .account-info:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: box-shadow 0.5s ease;
+        }
+
+    </style>
 </head>
 <body>
 <%@include file="../../includes/header.jsp"%>
 
-<div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+        
+    </div>
+  </div>
+    <div class="account-info">
     <c:if test="${orderList.size() > 0}">
-        <center>
-            <table border="1px">
-                <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Order Date/Time</th>
-                    <th>Total</th>
-                    <th>Payment Status</th>
-                    <th></th>
-                </tr>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead style="background-color: #F2F2F2;">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Order Date/Time</th>
+                        <th>Total</th>
+                        <th>Payment Status</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${orderList}" var="order">
-                    <tr>
-                        <td>${order.orderId}</td>
-                        <td>${order.dateTime.toString()}</td>
-                        <td>${order.amount}</td>
-                        <c:if test="${order.orderStatus.equals('EXPIRED')}">
-                            <td><p style="color:red;">EXPIRED</p></td>
-                        </c:if>
-                        <c:if test="${order.orderStatus.equals('PENDING')}">
-                            <td><p style="color:blue;">PENDING</p></td>
-                        </c:if>
-                        <c:if test="${order.orderStatus.equals('COMPLETED')}">
-                            <td><p style="color:green;">COMPLETED</p></td>
-                        </c:if>
-                        <td><a href="/user/orders/order.jsp?id=${order.orderId}">View Order</a></td>
-                    </tr>
-                </c:forEach>
+                    <c:forEach items="${orderList}" var="order">
+                        <tr>
+                            <td>${order.orderId}</td>
+                            <td>${order.dateTime}</td>
+                            <td>${order.amount}</td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${order.orderStatus.equals('EXPIRED')}">
+                                        <p style="color:red;">EXPIRED</p>
+                                    </c:when>
+                                    <c:when test="${order.orderStatus.equals('PENDING')}">
+                                        <p style="color:blue;">PENDING</p>
+                                    </c:when>
+                                    <c:when test="${order.orderStatus.equals('COMPLETED')}">
+                                        <p style="color:green;">COMPLETED</p>
+                                    </c:when>
+                                </c:choose>
+                            </td>
+                            <td><a href="/user/orders/order.jsp?id=${order.orderId}" class="custom-btn" style=" margin: 0;">View Order</a></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
-        </center>
+        </div>
     </c:if>
     <c:if test="${orderList.size() <= 0}">
-        <u>You have no orders.</u>
+        <div class="alert alert-info">You have no orders.</div>
     </c:if>
+         </div>
 </div>
-
 <%@include file="../../includes/footer.jsp"%>
 </body>
 </html>
