@@ -15,17 +15,62 @@
 <html>
 <head>
     <title>Manage Orders</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        td {
-            padding: 10px;
+        body {
+    text-align: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse;  
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: normal;
+    font-size: 17px;
+    
+}
+.custom-btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #00B207;
+            border: none;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
         }
+
+        .custom-btn:hover {
+            background-color: #666666;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
-    <div>
-        <br><br>
-        <table border="1px">
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-12">
+        <table>
             <thead>
             <tr>
                 <th>Order ID</th>
@@ -50,10 +95,10 @@
                     <td>${fn:escapeXml(order.amount)} USD</td>
                     <td>${fn:escapeXml(order.orderStatus)}</td>
                     <td>
-                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button>View Order</button></a>
-                        <form method="post" action="/api/admin/orders/delete">
+                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="custom-btn">View Order</button></a>
+                         <form method="post" action="/api/admin/orders/delete">
                             <input type="hidden" name="orderId" value="${order.orderId}">
-                            <input type="submit" value="Delete Order">
+                            <input type="submit" value="Delete Order"class="custom-btn">
                         </form>
                     </td>
                 </tr>
@@ -61,6 +106,9 @@
             </tbody>
         </table>
     </div>
+    </div>
+</div>
+    
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
