@@ -9,41 +9,39 @@
 <%
     pageContext.setAttribute("userId", session.getAttribute("userId"));
 %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Add New product- Green SuperMarket</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Add New Product - Green SuperMarket</title>
     <style>
-        #comments {
+        #addProductForm {
             max-width: 600px;
-            margin: 20px;
-        }
-
-        .comment {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #e9e9e9;
             border-radius: 5px;
         }
 
-        .commenter {
-            font-weight: bold;
-        }
-
-        #commentInput {
-            width: 100%;
-            padding: 8px;
-            margin-top: 10px;
-            box-sizing: border-box;
+        #addProductForm:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: box-shadow 0.6s ease;
         }
 
         #submitBtn {
-            padding: 8px;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #ffffff;
             background-color: #4caf50;
-            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
         }
 
         #submitBtn:hover {
@@ -52,25 +50,34 @@
     </style>
 </head>
 <body>
-<%@include file="../includes/header.jsp"%>
-<div style="margin-left: 25px;">
-    <form method="post" action="/api/admin/products/add" enctype="multipart/form-data">
-        <p><b>Product Name: </b><input type="text" value="" name="productName"></p>
-        <p>
-            <b>Product Description: </b>
-            <br>
-            <textarea name="productDescription"></textarea>
-        </p>
-        <p><b>Product Price: </b><input type="text" value="" name="productPrice"></p>
-        <p><b>Product Quantity: </b><input type="number" inputmode="numeric" value="" name="productQuantity"></p>
-        <br>
-        <p>Select a product image</p>
-        <input type="file" name="imageFile">
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
-</div>
-<br>
-<%@include file="../includes/footer.jsp"%>
+    <%@include file="../includes/header.jsp"%>
+<center><h2>Add New Product</h2></center><br><br><br>
+    <div class="container">
+        <form id="addProductForm" method="post" action="/api/admin/products/add" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="productName" class="form-label"><b>Product Name:</b></label>
+                <input type="text" class="form-control" id="productName" name="productName">
+            </div>
+            <div class="mb-3">
+                <label for="productDescription" class="form-label"><b>Product Description:</b></label>
+                <textarea class="form-control" id="productDescription" name="productDescription"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="productPrice" class="form-label"><b>Product Price:</b></label>
+                <input type="text" class="form-control" id="productPrice" name="productPrice">
+            </div>
+            <div class="mb-3">
+                <label for="productQuantity" class="form-label"><b>Product Quantity:</b></label>
+                <input type="number" class="form-control" inputmode="numeric" id="productQuantity" name="productQuantity">
+            </div>
+            <div class="mb-3">
+                <label for="imageFile" class="form-label"><b>Select a product image:</b></label>
+                <input type="file" class="form-control" id="imageFile" name="imageFile">
+            </div>
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div><br><br><br>
+    <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
+
