@@ -73,7 +73,7 @@
                 <label for="imageFile" class="form-label"><b>Select a product image:</b></label>
                 <input type="file" class="form-control" id="imageFile" name="imageFile">
             </div>
-            
+            <button type="submit" id="submitBtn">Submit</button>
         </form>
     </div>
     <%@include file="../includes/footer.jsp"%>
