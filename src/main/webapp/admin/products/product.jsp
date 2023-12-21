@@ -107,10 +107,11 @@
             color: #ffffff;
             background-color: #4caf50;
             border: none;
-            border-radius: 4px;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-size: 14px;
+            width: 100px;
         }
 
         #submitBtn:hover {
@@ -122,23 +123,23 @@
     <%@include file="../includes/header.jsp"%><br>
     
     <div class="container">
-        <center><h1>Edit Product</h1></center><br><br>
+        <center><h1>Edit Product</h1></center><br>
         <form id="updateProductForm" method="post" action="/api/admin/products/update" enctype="multipart/form-data">
             <center><img width="400px" src="${fn:escapeXml(product.image)}"></center>
             <div class="mb-3">
-                <label for="productName" class="form-label"><b>Product Name:</b></label>
+                <label for="productName" class="form-label"><b>Name:</b></label>
                 <input type="text" class="form-control" id="productName" name="productName" value="${fn:escapeXml(product.name)}">
             </div>
             <div class="mb-3">
-                <label for="productDescription" class="form-label"><b>Product Description:</b></label>
+                <label for="productDescription" class="form-label"><b>Description:</b></label>
                 <textarea class="form-control" id="productDescription" name="productDescription">${fn:escapeXml(product.description)}</textarea>
             </div>
             <div class="mb-3">
-                <label for="productPrice" class="form-label"><b>Product Price:</b></label>
+                <label for="productPrice" class="form-label"><b>Price:</b></label>
                 <input type="text" class="form-control" id="productPrice" name="productPrice" value="${fn:escapeXml(product.price)}">
             </div>
             <div class="mb-3">
-                <label for="productQuantity" class="form-label"><b>Product Quantity:</b></label>
+                <label for="productQuantity" class="form-label"><b>Quantity:</b></label>
                 <input type="number" class="form-control" inputmode="numeric" id="productQuantity" name="productQuantity" value="${fn:escapeXml(product.quantity)}">
             </div>
             <div class="mb-3">
@@ -146,7 +147,7 @@
                 <input type="file" class="form-control" id="imageFile" name="imageFile">
             </div>
             <input type="hidden" name="productId" value="${product.productId}">
-            <button type="submit" id="submitBtn">Update</button>
+            <center><button type="submit" id="submitBtn">Update</button></center>
         </form>
     </div>
     <%@include file="../includes/footer.jsp"%>
