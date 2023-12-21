@@ -119,9 +119,10 @@
     </style>
 </head>
 <body>
-    <%@include file="../includes/header.jsp"%><br><br><br>
+    <%@include file="../includes/header.jsp"%><br>
     
     <div class="container">
+        <center><h1>Edit Product</h1></center><br><br>
         <form id="updateProductForm" method="post" action="/api/admin/products/update" enctype="multipart/form-data">
             <center><img width="400px" src="${fn:escapeXml(product.image)}"></center>
             <div class="mb-3">
