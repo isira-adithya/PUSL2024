@@ -119,7 +119,8 @@
     </style>
 </head>
 <body>
-    <%@include file="../includes/header.jsp"%>
+    <%@include file="../includes/header.jsp"%><br><br><br>
+    
     <div class="container">
         <form id="updateProductForm" method="post" action="/api/admin/products/update" enctype="multipart/form-data">
             <img width="500px" src="${fn:escapeXml(product.image)}">
