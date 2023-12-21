@@ -70,7 +70,8 @@ th {
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-lg-12">
-        <table>
+            <div class="table-responsive">
+                <table class="table table-bordered">
             <thead>
             <tr>
                 <th>Order ID</th>
@@ -107,6 +108,7 @@ th {
         </table>
     </div>
     </div>
+</div>
 </div>
     
 <%@include file="../includes/footer.jsp"%>
