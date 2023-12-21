@@ -28,7 +28,7 @@
           </form>
             
       
-        <div >
+        <div>
             <c:if test="${isLoggedIn}">
                 <a href="/user/cart.jsp" class="nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="small-image"></a>
                 <a href="/user/wishlist/" class="nav-icons"><img src="/uploads/images/navbar/wish.png" alt="cart" class="small-image"></a>
