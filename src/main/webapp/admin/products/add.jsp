@@ -27,7 +27,7 @@
 
         #addProductForm:hover {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            transition: box-shadow 0.5s ease;
+            transition: box-shadow 0.6s ease;
         }
 
         #submitBtn {
@@ -51,6 +51,7 @@
 </head>
 <body>
     <%@include file="../includes/header.jsp"%>
+<center><h2>Add New Product</h2></center><br><br><br>
     <div class="container">
         <form id="addProductForm" method="post" action="/api/admin/products/add" enctype="multipart/form-data">
             <div class="mb-3">
@@ -75,7 +76,7 @@
             </div>
             <button type="submit" id="submitBtn">Submit</button>
         </form>
-    </div>
+    </div><br><br><br>
     <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
