@@ -24,7 +24,8 @@
 }
 
 table {
-    width: 80%;
+    table-layout: fixed;
+    width: 100%;
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;  
 }
