@@ -126,7 +126,7 @@
 
                     </div>
                     <div
-                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;">
+                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;"  onclick="location.href = '/user/profile.jsp'" >
                         Edit Profile</div>
                 </div>
                 <div
