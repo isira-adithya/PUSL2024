@@ -16,16 +16,14 @@
 <head>
     <title>Manage Orders</title>
     <style>
-        td {
-            padding: 10px;
-        }
+
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
+
     <div>
-        <br><br>
-        <table border="1px">
+        <table>
             <thead>
             <tr>
                 <th>Order ID</th>
@@ -51,7 +49,7 @@
                     <td>${fn:escapeXml(order.orderStatus)}</td>
                     <td>
                         <a href="/admin/orders/order.jsp?id=${order.orderId}"><button>View Order</button></a>
-                        <form method="post" action="/api/admin/orders/delete">
+                         <form method="post" action="/api/admin/orders/delete">
                             <input type="hidden" name="orderId" value="${order.orderId}">
                             <input type="submit" value="Delete Order">
                         </form>
@@ -61,6 +59,7 @@
             </tbody>
         </table>
     </div>
+    
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
