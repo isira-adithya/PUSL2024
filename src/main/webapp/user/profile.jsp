@@ -120,7 +120,7 @@
                             Navigation</div>
                     </div>
                     <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; box-shadow: 3px 0px 0px #20B526 inset; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; box-shadow: 3px 0px 0px #20B526 inset; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                         <div
                             style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
                             
@@ -128,11 +128,11 @@
 
                         </div>
                         <div
-                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="toggleEdit()">
+                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;">
                             Edit Profile</div>
                     </div>
                     <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                         <div
                             style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex">
 
@@ -144,7 +144,7 @@
                             Order History</div>
                     </div>
                     <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                         <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
                             
                             <img src="/uploads/images/profile/shoppingcart.jpg" style="width:20px; height:20px;">
@@ -155,7 +155,7 @@
                             Shopping Cart</div>
                     </div>
                     <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
 
                         <div
                             style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex">
@@ -172,114 +172,87 @@
             </div>
 
             <div class="col-md-9">
-                <div class="account-info">
-                    <h3>Account</h3>
-                    <hr>
-                    <form method="post" action="/api/user/update">
-
-                        <div class="mb-3 ">
-                            <label for="email" class="form-label">Email address:</label>
-                            <input type="email" class="form-control" disabled name="email"
-                                value="${fn:escapeXml(currentUser.email)}">
-                        </div>
-
-
-                        <div class="mb-3 ">
-                            <label for="firstName">First Name:</label>
-                            <input type="text" class="form-control" disabled name="firstname"
-                                value="${fn:escapeXml(currentUser.firstname)}">
-                        </div>
-                        <div class="mb-3">
-                            <label for="lastName">Last Name:</label>
-                            <input type="text" class="form-control" disabled name="lastname"
-                                value="${fn:escapeXml(currentUser.lastname)}">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label for="phone">Phone Number:</label>
-                            <input type="text" class="form-control" disabled name="phone"
-                                value="${fn:escapeXml(currentUser.phone)}">
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="billing-address">
-                    <h3>Billing Address</h3>
-                    <hr>
-                    <form method="post" action="/api/user/update">
-                        <div class="form-group">
-                            <label for="address">Street Address:</label>
-                            <input type="text" class="form-control" disabled name="street_address"
-                                value="${fn:escapeXml(currentUser.streetAddress)}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="address">City</label>
-                            <input type="text" class="form-control" disabled name="city"
-                                value="${fn:escapeXml(currentUser.city)}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="state">State/Province:</label>
-                            <input type="text" disabled name="state" class="form-control"
-                                value="${fn:escapeXml(currentUser.state)}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="country">Country/Region:</label>
-                            <input type="text" class="form-control" disabled name="country"
-                                value="${fn:escapeXml(currentUser.country)}">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="zipCode">Postal Code:</label>
-                            <input type="text" class="form-control" disabled name="postalcode"
-                                value="${fn:escapeXml(currentUser.postalcode)}">
-                        </div>
-
-                        <div class="d-grid gap-2">
-                            <input type="submit" class="btn btn-primary" style="background-color:#00B207" ;
-                                value="Submit" hidden>
-                        </div>
+                <form method="post" action="/api/user/update">
+                    <div class="account-info">
+                        <h3>Account</h3>
                         <hr>
-                    </form>
-                </div>
+
+
+                            <div class="mb-3 ">
+                                <label for="email" class="form-label">Email address:</label>
+                                <input type="email" class="form-control" disabled name="email" value="${fn:escapeXml(currentUser.email)}">
+                            </div>
+
+
+                            <div class="mb-3 ">
+                                <label for="firstName">First Name:</label>
+                                <input type="text" class="form-control" disabled name="firstname" value="${fn:escapeXml(currentUser.firstname)}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" class="form-control" disabled name="lastname" value="${fn:escapeXml(currentUser.lastname)}">
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="phone">Phone Number:</label>
+                                <input type="text" class="form-control" disabled name="phone" value="${fn:escapeXml(currentUser.phone)}">
+                            </div>
+
+                    </div>
+
+                    <div class="billing-address">
+                        <h3>Billing Address</h3>
+                        <hr>
+
+                            <div class="form-group">
+                                <label for="address">Street Address:</label>
+                                <input type="text" class="form-control" disabled name="street_address" value="${fn:escapeXml(currentUser.streetAddress)}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">City</label>
+                                <input type="text" class="form-control" disabled name="city" value="${fn:escapeXml(currentUser.city)}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="state">State/Province:</label>
+                                <input type="text" disabled name="state" class="form-control" value="${fn:escapeXml(currentUser.state)}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country/Region:</label>
+                                <input type="text" class="form-control" disabled name="country" value="${fn:escapeXml(currentUser.country)}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zipCode">Postal Code:</label>
+                                <input type="text" class="form-control" disabled name="postalcode" value="${fn:escapeXml(currentUser.postalcode)}">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden>
+                                    Submit
+                                </button>
+                            </div>
+                            <hr>
+
+                    </div>
+                </form>
 
                 <div class="buttons">
-                    <hr>
-                    <form method="post" action="/api/user/update">
-                        <div class="row">
-
-                            <div class="col">
-                                <div class="button">
-                                    <input type="submit" button id="editBtn" class="btn btn-primary custom-button" onclick="toggleEdit()"
-                                        style="background-color:#00B207" ; value="Edit">
-                                </div>
-                            </div>
-        
-        
-                            <div class="col">
-                                <input type="submit" button id="changePassword" class="btn btn-primary custom-button" 
-                                    onclick="location.href = '/user/changepassword.jsp'" style="background-color:#00B207" ;
-                                    value="Change password">
-                            </div>
-        
-                            <div class="col">
-                                <input type="submit" button id="logoutBtn" class="btn btn-primary custom-button"
-                                    onclick="location.href = '/logout.jsp'" style="background-color:#00B207" ; value="Log-out">
-                            </div>
-        
-                            <div class="col">
-                                <input type="submit" button id="deleteBtn" class="btn btn-primary custom-button" onclick="deleteAccount()"
-                                    style="background-color:#00B207" ; value="Delete">
-                            </div>
-        
-                        </div>
-                        <hr>
-                    </form>
+                    <div class="row">
+                        <button class="btn btn-primary col mx-2" id="editBtn" onclick="toggleEdit()">
+                            Edit
+                        </button>
+                        <a href="/user/changepassword.jsp" class="btn btn-primary col mx-2">Change password</a>
+                        <a class="btn btn-primary col mx-2" href="/logout.jsp">Log-out</a>
+                        <button class="btn btn-danger col mx-2" onclick="deleteAccount()">
+                            Delete Account
+                        </button>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
