@@ -163,7 +163,7 @@
                             <input type="submit" class="ad-custom-btn"  value="Submit">
                         </div>
 
-                        <p class="text-center mt-3">Already Have An Account? <a href="/login.jsp" style="color: #000;">Log In</a></p>
+                        
                     </form>
                 </div>
             </div>
