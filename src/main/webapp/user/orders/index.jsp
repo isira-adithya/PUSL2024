@@ -108,36 +108,65 @@
     </div>
 <div class="container">
     <div class="row">
- <div class="col-md-12 col-lg-3 menu-container">
-            <div class="menu-title text-center">Navigation</div>
-            
-            <a href="/user/profile.jsp" class="menu-text">
-                <div class="menu-item">
-                    <img src="/uploads/images/profile/Edit.png" alt="Edit Profile" class="mr-2">
-                    <p class="text-center menu-text">Edit Profile</p>
+        <div class="col-md-3">
+            <div
+                    style="width: 312px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                <div
+                        style="padding-top: 24px; padding-bottom: 16px; padding-left: 20px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <div
+                            style="color: #1A1A1A; font-size: 20px; font-family: Poppins; font-weight: 500; line-height: 30px; word-wrap: break-word">
+                        Navigation</div>
                 </div>
-            </a>
-            
-            <a href="/user/orders/index.jsp" class="menu-text">
-                <div class="menu-item">
-                    <img src="/uploads/images/profile/orderhistory.jpg" alt="Order History" class="mr-2">
-                    <p class="text-center menu-text">Order History</p>
+                <div
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+                    <div
+                            style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
+
+                        <img src="/uploads/images/profile/editprofile.jpg" style="width:20px; height:20px;">
+
+                    </div>
+                    <div
+                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;">
+                        Edit Profile</div>
                 </div>
-            </a>
-            
-            <a href="/user/cart.jsp" class="menu-text">
-                <div class="menu-item">
-                    <img src="/uploads/images/profile/shoppingcart.jpg" alt="Shopping Cart" class="mr-2">
-                    <p class="text-center menu-text">Shopping Cart</p>
+                <div
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer; box-shadow: 3px 0px 0px #20B526 inset;">
+                    <div
+                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
+
+                        <img src="/uploads/images/profile/orderhistory.jpg" style="width:20px; height:20px;">
+
+                    </div>
+                    <div
+                            style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
+                        Order History</div>
                 </div>
-            </a>
-            
-            <a href="/logout.jsp" class="menu-text">
-                <div class="menu-item">
-                    <img src="/uploads/images/profile/logout.jpg" alt="Log-out" class="mr-2">
-                    <p class="text-center menu-text">Log-out</p>
+                <div
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+                    <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
+
+                        <img src="/uploads/images/profile/shoppingcart.jpg" style="width:20px; height:20px;">
+
+                    </div>
+                    <div a href="/cart.jsp"
+                         style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
+                        Shopping Cart</div>
                 </div>
-            </a>
+                <div
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+
+                    <div
+                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex">
+                        <img src="/uploads/images/profile/logout.jpg" style="width:20px; height:20px;">
+
+                    </div>
+
+                    <div
+                            style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/logout.jsp'">
+                        Log-out</div>
+                </div>
+            </div>
+
         </div>
 
         <div class="col-md-9">
