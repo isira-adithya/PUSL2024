@@ -19,12 +19,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        body {
-    text-align: center;
-}
 
 table {
-    table-layout: fixed;
     width: 100%;
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;  
@@ -67,23 +63,24 @@ th {
 <body>
 <%@include file="../includes/header.jsp"%>
 
+    
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-lg-12">
             <div class="table-responsive">
                 <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Customer</th>
-                <th>Placed at</th>
-                <th>Total</th>
-                <th>Order Status</th>
-                <th>Operations</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${orders}" var="order">
+                    <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Placed at</th>
+                        <th>Total</th>
+                        <th>Order Status</th>
+                        <th>Operations</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                     <c:forEach items="${orders}" var="order">
                 <tr>
                     <%
                         Order order = (Order) pageContext.getAttribute("order");
@@ -104,13 +101,12 @@ th {
                     </td>
                 </tr>
             </c:forEach>
-            </tbody>
-        </table>
-    </div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-</div>
-    
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
