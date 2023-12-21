@@ -123,7 +123,7 @@
     
     <div class="container">
         <form id="updateProductForm" method="post" action="/api/admin/products/update" enctype="multipart/form-data">
-            <img width="500px" src="${fn:escapeXml(product.image)}">
+            <center><img width="400px" src="${fn:escapeXml(product.image)}"></center>
             <div class="mb-3">
                 <label for="productName" class="form-label"><b>Product Name:</b></label>
                 <input type="text" class="form-control" id="productName" name="productName" value="${fn:escapeXml(product.name)}">
