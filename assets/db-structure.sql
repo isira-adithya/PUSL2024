@@ -78,11 +78,11 @@ CREATE TABLE Comments (
 INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken, createdAt) VALUES
 (1, 'john.doe@example.com', 'password123', 'John', 'Doe', '+94123456789', 'No 74, Sundara Mawatha', 'Gampaha', 'Western Province', 'Sri Lanka', '11870', 'USER', 'NULL', TIMESTAMP('2023-07-12', '12:10:48')),
 (2, 'alice.smith@example.com', 'securepass', 'Alice', 'Smith', '+94123456790', 'Apt 12, Rose Gardens', 'Colombo', 'Western Province', 'Sri Lanka', '10100', 'USER', 'NULL', TIMESTAMP('2023-12-20', '10:20:34')),
-(3, 'bob.jones@example.com', 'pass123', 'Bob', 'Jones', '+94123456791', 'Lot 5, Green Avenue', 'Kandy', 'Central Province', 'Sri Lanka', '20000', 'USER', 'NULL', TIMESTAMP('2023-07-16', '10:08:45')),
+(3, 'bob.jones@example.com', 'pass123', 'Bob', 'Jones', '+94123456791', 'Lot 5, Green Avenue', 'Kandy', 'Central Province', 'Sri Lanka', '20000', 'USER', 'NULL', TIMESTAMP('2023-07-16', '11:08:45')),
 (4, 'emma.wilson@example.com', 'emma_pass', 'Emma', 'Wilson', '+94123456792', 'House 8, Blue Street', 'Negombo', 'Western Province', 'Sri Lanka', '11500', 'USER', 'NULL', TIMESTAMP('2023-08-01', '13:12:50')),
 (5, 'mike.brown@example.com', 'mike_pass', 'Mike', 'Brown', '+94123456793', 'Villa 3, Palm Lane', 'Jaffna', 'Northern Province', 'Sri Lanka', '40000', 'USER', 'NULL', TIMESTAMP('2023-08-12', '11:12:00')),
 (6, 'linda.jackson@example.com', 'linda_pass', 'Linda', 'Jackson', '+94123456794', 'Block C, Sun City Apartments', 'Matara', 'Southern Province', 'Sri Lanka', '81000', 'USER', 'NULL', TIMESTAMP('2023-07-16', '09:13:40')),
-(7, 'alex.martin@example.com', 'alex_pass', 'Alex', 'Martin', '+94123456795', 'Unit 6, Hillside Residency', 'Anuradhapura', 'North Central Province', 'Sri Lanka', '50000', 'USER', 'NULL', TIMESTAMP('2022-08-14', '18:10:50')),
+(7, 'alex.martin@example.com', 'alex_pass', 'Alex', 'Martin', '+94123456795', 'Unit 6, Hillside Residency', 'Anuradhapura', 'North Central Province', 'Sri Lanka', '50000', 'USER', 'NULL', TIMESTAMP('2023-08-14', '18:10:50')),
 (8, 'susan.white@example.com', 'susan_pass', 'Susan', 'White', '+94123456796', 'Lane 23, Meadow View', 'Batticaloa', 'Eastern Province', 'Sri Lanka', '30000', 'USER', 'NULL', TIMESTAMP('2023-12-28', '14:10:20')),
 (9, 'kevin.hill@example.com', 'kevin_pass', 'Kevin', 'Hill', '+94123456797', 'Flat 4B, Skyline Tower', 'Trincomalee', 'Eastern Province', 'Sri Lanka', '31000', 'USER', 'NULL', TIMESTAMP('2023-07-06', '13:11:24')),
 (10, 'natalie.adams@example.com', 'natalie_pass', 'Natalie', 'Adams', '+94123456798', 'No 17, Golden Lane', 'Galle', 'Southern Province', 'Sri Lanka', '80000', 'USER', 'NULL', TIMESTAMP('2023-09-01', '12:14:54')),
@@ -102,16 +102,16 @@ INSERT INTO Products (productid, name, price, quantity, short_description, descr
 (10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', false, '',TIMESTAMP('2023-06-14', '19:25:52'));
 
 INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery_status, createdAt) VALUES
-(1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '10:10:10')),
-(2, 1, 1679.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-22', '10:10:10')),
-(3, 3, 359.98, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-05-16', '10:10:10')),
-(4, 4, 799.95, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2022-03-01', '10:10:10')),
-(5, 5, 299.99, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2022-04-12', '10:10:10')),
-(6, 6, 899.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-01-16', '10:10:10')),
-(7, 7, 459.96, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2022-08-14', '10:10:10')),
-(8, 8, 129.98, 23.99, 'COMPLETED', 'PENDING', TIMESTAMP('2023-12-28', '10:10:10')),
-(9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2021-07-06', '10:10:10')),
-(10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2021-01-01', '10:10:10'));
+(1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '12:15:55')),
+(2, 1, 1679.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-15', '13:11:44')),
+(3, 3, 359.98, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-16', '11:20:15')),
+(4, 4, 799.95, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-01', '13:18:40')),
+(5, 5, 299.99, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-12', '11:19:30')),
+(6, 6, 899.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-16', '09:20:43')),
+(7, 7, 459.96, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-14', '18:19:12')),
+(8, 8, 129.98, 23.99, 'COMPLETED', 'PENDING', TIMESTAMP('2023-12-28', '15:11:21')),
+(9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-06', '13:19:23')),
+(10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),
