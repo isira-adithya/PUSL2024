@@ -75,43 +75,43 @@ CREATE TABLE Comments (
 );
 
 -- Sample Data
-INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken) VALUES
-(1, 'john.doe@example.com', 'password123', 'John', 'Doe', '+94123456789', 'No 74, Sundara Mawatha', 'Gampaha', 'Western Province', 'Sri Lanka', '11870', 'USER', 'NULL'),
-(2, 'alice.smith@example.com', 'securepass', 'Alice', 'Smith', '+94123456790', 'Apt 12, Rose Gardens', 'Colombo', 'Western Province', 'Sri Lanka', '10100', 'USER', 'NULL'),
-(3, 'bob.jones@example.com', 'pass123', 'Bob', 'Jones', '+94123456791', 'Lot 5, Green Avenue', 'Kandy', 'Central Province', 'Sri Lanka', '20000', 'USER', 'NULL'),
-(4, 'emma.wilson@example.com', 'emma_pass', 'Emma', 'Wilson', '+94123456792', 'House 8, Blue Street', 'Negombo', 'Western Province', 'Sri Lanka', '11500', 'USER', 'NULL'),
-(5, 'mike.brown@example.com', 'mike_pass', 'Mike', 'Brown', '+94123456793', 'Villa 3, Palm Lane', 'Jaffna', 'Northern Province', 'Sri Lanka', '40000', 'USER', 'NULL'),
-(6, 'linda.jackson@example.com', 'linda_pass', 'Linda', 'Jackson', '+94123456794', 'Block C, Sun City Apartments', 'Matara', 'Southern Province', 'Sri Lanka', '81000', 'USER', 'NULL'),
-(7, 'alex.martin@example.com', 'alex_pass', 'Alex', 'Martin', '+94123456795', 'Unit 6, Hillside Residency', 'Anuradhapura', 'North Central Province', 'Sri Lanka', '50000', 'USER', 'NULL'),
-(8, 'susan.white@example.com', 'susan_pass', 'Susan', 'White', '+94123456796', 'Lane 23, Meadow View', 'Batticaloa', 'Eastern Province', 'Sri Lanka', '30000', 'USER', 'NULL'),
-(9, 'kevin.hill@example.com', 'kevin_pass', 'Kevin', 'Hill', '+94123456797', 'Flat 4B, Skyline Tower', 'Trincomalee', 'Eastern Province', 'Sri Lanka', '31000', 'USER', 'NULL'),
-(10, 'natalie.adams@example.com', 'natalie_pass', 'Natalie', 'Adams', '+94123456798', 'No 17, Golden Lane', 'Galle', 'Southern Province', 'Sri Lanka', '80000', 'USER', 'NULL'),
-(11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL'),
-(12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL');
+INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken, createdAt) VALUES
+(1, 'john.doe@example.com', 'password123', 'John', 'Doe', '+94123456789', 'No 74, Sundara Mawatha', 'Gampaha', 'Western Province', 'Sri Lanka', '11870', 'USER', 'NULL', TIMESTAMP('2023-07-12', '12:10:48')),
+(2, 'alice.smith@example.com', 'securepass', 'Alice', 'Smith', '+94123456790', 'Apt 12, Rose Gardens', 'Colombo', 'Western Province', 'Sri Lanka', '10100', 'USER', 'NULL', TIMESTAMP('2023-12-20', '10:20:34')),
+(3, 'bob.jones@example.com', 'pass123', 'Bob', 'Jones', '+94123456791', 'Lot 5, Green Avenue', 'Kandy', 'Central Province', 'Sri Lanka', '20000', 'USER', 'NULL', TIMESTAMP('2023-07-16', '11:08:45')),
+(4, 'emma.wilson@example.com', 'emma_pass', 'Emma', 'Wilson', '+94123456792', 'House 8, Blue Street', 'Negombo', 'Western Province', 'Sri Lanka', '11500', 'USER', 'NULL', TIMESTAMP('2023-08-01', '13:12:50')),
+(5, 'mike.brown@example.com', 'mike_pass', 'Mike', 'Brown', '+94123456793', 'Villa 3, Palm Lane', 'Jaffna', 'Northern Province', 'Sri Lanka', '40000', 'USER', 'NULL', TIMESTAMP('2023-08-12', '11:12:00')),
+(6, 'linda.jackson@example.com', 'linda_pass', 'Linda', 'Jackson', '+94123456794', 'Block C, Sun City Apartments', 'Matara', 'Southern Province', 'Sri Lanka', '81000', 'USER', 'NULL', TIMESTAMP('2023-07-16', '09:13:40')),
+(7, 'alex.martin@example.com', 'alex_pass', 'Alex', 'Martin', '+94123456795', 'Unit 6, Hillside Residency', 'Anuradhapura', 'North Central Province', 'Sri Lanka', '50000', 'USER', 'NULL', TIMESTAMP('2023-08-14', '18:10:50')),
+(8, 'susan.white@example.com', 'susan_pass', 'Susan', 'White', '+94123456796', 'Lane 23, Meadow View', 'Batticaloa', 'Eastern Province', 'Sri Lanka', '30000', 'USER', 'NULL', TIMESTAMP('2023-12-28', '14:10:20')),
+(9, 'kevin.hill@example.com', 'kevin_pass', 'Kevin', 'Hill', '+94123456797', 'Flat 4B, Skyline Tower', 'Trincomalee', 'Eastern Province', 'Sri Lanka', '31000', 'USER', 'NULL', TIMESTAMP('2023-07-06', '13:11:24')),
+(10, 'natalie.adams@example.com', 'natalie_pass', 'Natalie', 'Adams', '+94123456798', 'No 17, Golden Lane', 'Galle', 'Southern Province', 'Sri Lanka', '80000', 'USER', 'NULL', TIMESTAMP('2023-09-01', '12:14:54')),
+(11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL', TIMESTAMP('2023-06-15', '11:24:51')),
+(12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL', TIMESTAMP('2023-07-15', '09:12:55'));
 
-INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image) VALUES
-(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', false, 'laptop-image.jpg'),
-(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', false, ''),
-(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', false, ''),
-(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', false, ''),
-(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', false, ''),
-(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', false, ''),
-(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', false, ''),
-(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', false, ''),
-(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', false, ''),
-(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', false, '');
+INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
+(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', false, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
+(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', false, '',TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', false, '',TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', false, '',TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', false, '',TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', false, '',TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', false, '',TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', false, '',TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', false, '',TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', false, '',TIMESTAMP('2023-06-14', '19:25:52'));
 
 INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery_status, createdAt) VALUES
-(1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '10:10:10')),
-(2, 1, 1679.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-22', '10:10:10')),
-(3, 3, 359.98, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-05-16', '10:10:10')),
-(4, 4, 799.95, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2022-03-01', '10:10:10')),
-(5, 5, 299.99, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2022-04-12', '10:10:10')),
-(6, 6, 899.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-01-16', '10:10:10')),
-(7, 7, 459.96, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2022-08-14', '10:10:10')),
-(8, 8, 129.98, 23.99, 'COMPLETED', 'PENDING', TIMESTAMP('2023-12-28', '10:10:10')),
-(9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2021-07-06', '10:10:10')),
-(10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2021-01-01', '10:10:10'));
+(1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '12:15:55')),
+(2, 1, 1679.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-15', '13:11:44')),
+(3, 3, 359.98, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-16', '11:20:15')),
+(4, 4, 799.95, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-01', '13:18:40')),
+(5, 5, 299.99, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-12', '11:19:30')),
+(6, 6, 899.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-16', '09:20:43')),
+(7, 7, 459.96, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-14', '18:19:12')),
+(8, 8, 129.98, 23.99, 'COMPLETED', 'PENDING', TIMESTAMP('2023-12-28', '15:11:21')),
+(9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-06', '13:19:23')),
+(10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
 (1, 1, 1, 2, 1999.98),
@@ -125,12 +125,12 @@ INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal)
 (9, 2, 9, 3, 1499.97),
 (10, 2, 10, 2, 159.98);
 
-INSERT INTO Comments (commentid, userid, productid, content) VALUES
-    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.'),
-    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.'),
-    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive'),
-    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.'),
-    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.'),
-    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!')
+INSERT INTO Comments (commentid, userid, productid, content, createdAt) VALUES
+    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', TIMESTAMP('2023-07-17', '12:13:41')),
+    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.',TIMESTAMP('2023-07-17', '11:23:42')),
+    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive', TIMESTAMP('2023-08-15', '12:23:45')),
+    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.', TIMESTAMP('2023-07-19', '12:30:52')),
+    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.', TIMESTAMP('2023-08-15', '14:29:42')),
+    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!', TIMESTAMP('2023-07-13', '10:25:22'))
 
 
