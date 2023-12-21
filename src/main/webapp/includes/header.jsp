@@ -13,11 +13,12 @@
     
 
     <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <div class="navbar-brand d-flex" style="margin: 0px;">
-            <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
-            <span>GreenSuperMarket</span>
-        </div>
-        
+        <a href="/">
+            <div class="navbar-brand d-flex" style="margin: 0px;">
+                <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
+                <span>GreenSuperMarket</span>
+            </div>
+        </a>
         
         <form class="input-group" style="margin: 0px;" action="/products/">
               
@@ -29,12 +30,15 @@
       
         <div >
             <c:if test="${isLoggedIn}">
-            <a href="/user/cart.jsp" class="nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="small-image"></a>
-            <a href="/user/wishlist/" class="nav-icons"><img src="/uploads/images/navbar/wish.png" alt="cart" class="small-image"></a>
-            <a href="/user/profile.jsp" class="nav-icons"><img src="/uploads/images/navbar/log.png" alt="cart" class="small-image"></a>
+                <a href="/user/cart.jsp" class="nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="small-image"></a>
+                <a href="/user/wishlist/" class="nav-icons"><img src="/uploads/images/navbar/wish.png" alt="cart" class="small-image"></a>
+                <a href="/user/profile.jsp" class="nav-icons"><img src="/uploads/images/navbar/log.png" alt="cart" class="small-image"></a>
+                <c:if test="${isAdmin}">
+                    <a href="/admin/" class="nav-icons"><img src="/uploads/images/navbar/admin.png" alt="cart" class="small-image"></a>
+                </c:if>
             </c:if>
             <c:if test="${!isLoggedIn}">
-            <a href="/login.jsp" class="custom-btn" >Log In</a>   
+                <a href="/login.jsp" class="custom-btn" >Log In</a>
             </c:if>
         </div>
     </div>
