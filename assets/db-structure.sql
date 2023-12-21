@@ -89,17 +89,17 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (11, 'isira@greensupermarket.io', 'AdminPass123', 'Isira', 'Adithya', '+94123456798', 'No 17, Golden Lane', 'Colombo', 'Western Province', 'Sri Lanka', '42369', 'ADMIN', 'NULL'),
 (12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL');
 
-INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image) VALUES
-(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', false, 'laptop-image.jpg'),
-(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', false, ''),
-(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', false, ''),
-(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', false, ''),
-(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', false, ''),
-(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', false, ''),
-(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', false, ''),
-(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', false, ''),
-(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', false, ''),
-(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', false, '');
+INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
+(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', false, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
+(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', false, '',TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', false, '',TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', false, '',TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', false, '',TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', false, '',TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', false, '',TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', false, '',TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', false, '',TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', false, '',TIMESTAMP('2023-06-14', '19:25:52'));
 
 INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery_status, createdAt) VALUES
 (1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '10:10:10')),
