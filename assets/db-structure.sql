@@ -125,12 +125,12 @@ INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal)
 (9, 2, 9, 3, 1499.97),
 (10, 2, 10, 2, 159.98);
 
-INSERT INTO Comments (commentid, userid, productid, content) VALUES
-    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.'),
-    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.'),
-    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive'),
-    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.'),
-    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.'),
-    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!')
+INSERT INTO Comments (commentid, userid, productid, content, createdAt) VALUES
+    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', TIMESTAMP('2023-07-17', '12:13:41')),
+    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.',TIMESTAMP('2023-07-17', '11:23:42')),
+    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive', TIMESTAMP('2023-08-15', '12:23:45')),
+    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.', TIMESTAMP('2023-07-19', '12:30:52')),
+    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.', TIMESTAMP('2023-08-15', '14:29:42')),
+    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!', TIMESTAMP('2023-07-13', '10:25:22'))
 
 
