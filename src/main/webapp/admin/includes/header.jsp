@@ -37,3 +37,27 @@
     
     <hr style="width: 100%; margin: 10px 0; border: 1px solid #666666">
     
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Analytics</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Logout</a>
+        </li>
+        
+    </ul>
+    
+</nav>
+    
