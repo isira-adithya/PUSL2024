@@ -42,19 +42,19 @@
             <a class="nav-link active" aria-current="page" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Products</a>
+            <a class="nav-link" href="/admin/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Users</a>
+            <a class="nav-link" href="/admin/users/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Users</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Orders</a>
+            <a class="nav-link" href="/admin/orders/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Orders</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Analytics</a>
+            <a class="nav-link" href="/admin/analytics/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Analytics</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Logout</a>
+            <a class="nav-link" href="/logout.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Logout</a>
         </li>
         
     </ul>
