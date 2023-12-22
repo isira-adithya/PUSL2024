@@ -9,7 +9,7 @@
     <a href="/admin/products/">Manage Products</a>
     <a href="/admin/users/">Manage Users</a>
     <a href="/admin/orders/">Manage Orders</a>
-    <a href="/admin/users/">See Contact Requests</a>
+    <a href="/admin/analytics/">Analytics</a>
     <a href="/logout.jsp">Logout</a>
 </nav>
 <style>
