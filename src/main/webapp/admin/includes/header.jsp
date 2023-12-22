@@ -85,5 +85,38 @@
         max-width: 500px;
     }
 
-   
+    @media (max-width: 768px) {
+    .input-group {
+       width: 100%;
+        }
+    }
+        
+    .nav {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        }
+
+    .nav-item {
+        margin-right: 15px;
+    }
+
+    .nav-link {
+        color: #666666;
+        transition: color 0.3s;
+    }
+
+        
+    @media (max-width: 768px) {
+    .nav {
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+
+     .nav-item {
+        margin: 0 10px 10px 0; 
+        }
+    }
+        
 </style>
