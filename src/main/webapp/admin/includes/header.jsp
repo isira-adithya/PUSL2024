@@ -60,4 +60,30 @@
     </ul>
     
 </nav>
+<style>
+    .navbar-brand span{
+        font-size: 22px;
+        font-weight:600;
+        color: #002603;
+    }
+    .custom-no-outline:focus,
+    .custom-no-outline:active {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color:#00B207 ;
+    }
     
+    .nav-icons{
+        margin-right: 2.5rem;
+    }
+    
+    .small-image{
+        max-width:25px;
+    }
+    
+    .input-group {
+        max-width: 500px;
+    }
+
+   
+</style>
