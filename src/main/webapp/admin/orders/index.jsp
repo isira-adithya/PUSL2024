@@ -121,10 +121,10 @@ button {
                     <td>${fn:escapeXml(order.amount)} USD</td>
                     <td>${fn:escapeXml(order.orderStatus)}</td>
                     <td>
-                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="custom-btn">View Order</button></a>
-                         <form method="post" action="/api/admin/orders/delete">
+                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="submitBtn">View Order</button></a>
+                        <form method="post" action="/api/admin/orders/delete"><br>
                             <input type="hidden" name="orderId" value="${order.orderId}">
-                            <input type="submit" value="Delete Order"class="custom-btn">
+                            <input id="submitBtn" type="submit" value="Delete Order">
                         </form>
                     </td>
                 </tr>
