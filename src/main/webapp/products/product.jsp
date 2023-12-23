@@ -160,6 +160,24 @@
 
         }
 
+        label.star-small {
+            float: right;
+
+            padding: 3px;
+
+            font-size: 15px;
+
+            color: black;
+        }
+
+        label.star-small:before {
+
+            content: '\f006';
+
+            font-family: FontAwesome;
+
+        }
+
 
 
         input.star:checked ~ label.star:before {
@@ -253,6 +271,11 @@
             <c:forEach items="${comments}" var="comment">
                 <div class="col-md-12">
                     <div>
+                        <c:if test="${comment.starCount > 0}">
+                            <c:forEach var="i" begin="1" end="${comment.starCount}">
+                                <label class="star-small"></label>
+                            </c:forEach>
+                        </c:if>
                         <p><strong>${fn:escapeXml(comment.user.fullName)}<br><br></strong>${fn:escapeXml(comment.content)} .</p>
                         <hr>
                     </div>
@@ -310,7 +333,12 @@
                             <label class="star star-1" for="star-1"></label>
                         </div>
                     </div>
-                    <input id="submitBtn" type="submit" class="mb-4" value="Submit">
+
+                </div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-4 text-right"><input id="submitBtn" type="submit" class="mb-4" value="Submit"></div>
                 </div>
             </form>
         </div>
