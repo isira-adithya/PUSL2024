@@ -151,7 +151,7 @@ public class Comment {
 
         try {
             Connection dbconn = Database.connect();
-            String sqlQuery = "SELECT COUNT(commentid) AS commentCount FROM comments WHERE productid = ?";
+            String sqlQuery = "SELECT COUNT(commentid) AS commentCount FROM Comments WHERE productid = ?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
             sqlStatement.setInt(1, productId);
             ResultSet resultSet = sqlStatement.executeQuery();
