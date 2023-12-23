@@ -69,6 +69,21 @@
             background-color: #01c707; /* Change to green on hover */
             border-radius: 100%;
         }
+        .green-supermarket-text {
+        position: relative;
+        display: inline-block;
+    }
+
+    .green-supermarket-text::after {
+        content: "";
+        display: block;
+        width: 50%; /* Adjust the width as needed */
+        height: 2px; /* Adjust the height as needed */
+        background-color: #fff; /* White color for the underline */
+        position: absolute;
+        bottom: 0;
+        left: 25%; /* Adjust the left position to center the underline */
+    }
        
         
 </style>
@@ -85,8 +100,8 @@
                     <!-- Grid column -->
                      <div class="col-md-3 col-lg-3  col-xl-4 mx-auto mt-4 align-self-center">
                         <div class="text-center">
-                        <h3 class=" mb-4"><br>
-                            <img src="/uploads/footer/GreenSuperMarket_Logo.jpg" alt="Icon" style="width: 30px; height: 30px; margin-right: 4px;"> GreenSuperMarket</h3>
+                            <h3 class=" mb-4"><br><br>
+                                <img src="/uploads/footer/GreenSuperMarket_Logo.jpg" alt="Icon" style="width: 30px; height: 30px; margin-right: 4px;"> GreenSuperMarket<br>Admin</h3>
                          </div>
                         </div>
 
@@ -145,6 +160,7 @@
         <div class="text-center p-3 copyright"><hr color="#999999" width="100%">
 
             GreenSuperMarket 2023 All Rights Reserved
+          
             
         </div>
         
