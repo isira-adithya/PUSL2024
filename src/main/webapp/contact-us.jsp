@@ -3,11 +3,15 @@
     Created on : 15 Dec 2023, 12:29:18
     Author     : @sanuth
 --%>
-
+<%@ page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/includes/variables.jsp"%>
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
