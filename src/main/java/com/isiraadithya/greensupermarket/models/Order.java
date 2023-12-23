@@ -266,6 +266,50 @@ public class Order {
         return orderList;
     }
 
+    public static List<Order> findOrdersAfterTimestamp(Timestamp timestamp){
+        List<Order> orderList = new ArrayList<Order>();
+        try {
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM Orders WHERE createdAt > ?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setTimestamp(1, timestamp);
+            ResultSet resultSet = sqlStatement.executeQuery();
+
+            // Fields
+            int orderId = -1;
+            int userId = -1;
+            Timestamp createdAt = new Timestamp(1L);
+            double amount = -1;
+            double additionalCharges = 0;
+            String orderStatus = "PENDING";
+            while(resultSet.next()){
+                orderId = resultSet.getInt("orderid");
+                userId = resultSet.getInt("userid");
+                createdAt = resultSet.getTimestamp("createdAt");
+                amount = resultSet.getDouble("amount");
+                orderStatus = resultSet.getString("status");
+                additionalCharges = resultSet.getDouble("additionalCharges");
+
+                Order _tmp = new Order(userId, amount);
+                _tmp.setOrderId(orderId);
+                _tmp.setDateTime(createdAt);
+                _tmp.setOrderStatus(orderStatus);
+                _tmp.setAdditionalCharges(additionalCharges);
+                List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
+                _tmp.setOrderDetails(_tmp2);
+                orderList.add(_tmp);
+            }
+
+
+            Database.closeConnection();
+            return orderList;
+        } catch (Exception ex){
+            System.out.println("ERR:findOrdersByUserId(): " +ex.getMessage());
+        }
+
+        return orderList;
+    }
+
     public static List<Order> getOrders(){
         List<Order> orderList = new ArrayList<Order>();
         try {
