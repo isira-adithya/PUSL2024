@@ -49,7 +49,11 @@
             margin: 20px auto;
             padding: 20px;
             border: 1px solid #ccc;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: box-shadow 0.5s ease; 
         }
+    
+        
 
         table {
             width: 100%;
@@ -67,14 +71,35 @@
             background-color: #4CAF50;
             color: white;
         }
+        
+        .image{
+            margin-bottom: 50px;
+            width: 100%;
+            height: 120px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+            
+            .custom-button{
+            width:150px;
+            border-radius: 100px;
+            
+            .buttons{
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
     </style>
 </head>
 
 <body>
 <%@include file="../../includes/header.jsp"%>
 
-<div class="cart-container">
-    <h2>Order ID ${order.orderId}</h2>
+ <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+    </div>
+  <div class="cart-container">
+    <center><h2>Order ID ${order.orderId}</h2></center>
     <table>
         <thead>
         <tr>
@@ -124,7 +149,7 @@
         Date/Time: <i>${order.dateTime.toString()}</i><br><br>
         Order Status:
         <c:if test="${order.orderStatus.equals('PENDING')}">
-            <i style="color: blue">PENDING</i><br><br>
+            <i style="color: #00B207">PENDING</i><br><br>
             <b>
                 <small>
                     Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
@@ -147,10 +172,19 @@
     <br>
 
     <c:if test="${order.orderStatus.equals('PENDING')}">
-        <a href="/api/user/payments/authorize_payment?orderid=${order.orderId}">Pay</a>
+        
+        <div class="buttons">
+        <div class="row text-center">
+                <div class="col-sm-5 col-md-6">
+                    <input type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207" value="Pay">
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-">
+                    <input type="button" class="btn btn-primary custom-button" onclick="location.href ='/user/orders/'" style="background-color:#00B207" value="Go Back">
+                </div>
+            </div>
         <br><br>
     </c:if>
-    <a href="/user/orders/">Go back</a>
+        </div>
 </div>
 
 <%@include file="../../includes/footer.jsp"%>

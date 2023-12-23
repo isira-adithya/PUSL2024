@@ -35,7 +35,7 @@ CREATE TABLE Users (
 );
 CREATE TABLE Products (
     productid INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(256) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
     description VARCHAR(8196),
@@ -58,6 +58,7 @@ CREATE TABLE OrderDetails (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     orderid INT,
     productid INT,
+    productname VARCHAR(256) NOT NULL,
     quantity INT NOT NULL,
     subtotal DECIMAL(10, 2) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -69,6 +70,7 @@ CREATE TABLE Comments (
       userid INT,
       productid INT,
       content VARCHAR(256),
+      starcount INT,
       createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE,
       FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
@@ -113,24 +115,24 @@ INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery
 (9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-06', '13:19:23')),
 (10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
 
-INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
-(1, 1, 1, 2, 1999.98),
-(2, 1, 2, 1, 599.99),
-(3, 3, 3, 3, 239.97),
-(4, 2, 4, 1, 399.99),
-(5, 5, 5, 1, 1499.99),
-(6, 6, 6, 2, 599.98),
-(7, 1, 7, 4, 799.96),
-(8, 1, 8, 1, 49.99),
-(9, 2, 9, 3, 1499.97),
-(10, 2, 10, 2, 159.98);
+INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
+(1, 1, 1, 2, 'Smartphone', 1999.98),
+(2, 1, 2, 1, 'Laptop', 599.99),
+(3, 3, 3, 3, 'Headphones', 239.97),
+(4, 2, 4, 1, 'Laptop', 399.99),
+(5, 5, 5, 1, 'Laptop', 1499.99),
+(6, 6, 6, 2, 'Smartphone', 599.98),
+(7, 1, 7, 4, 'Tablet', 799.96),
+(8, 1, 8, 1, 'Laptop', 49.99),
+(9, 2, 9, 3, 'Headphones', 1499.97),
+(10, 2, 10, 2, 'Smartphone', 159.98);
 
-INSERT INTO Comments (commentid, userid, productid, content, createdAt) VALUES
-    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', TIMESTAMP('2023-07-17', '12:13:41')),
-    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.',TIMESTAMP('2023-07-17', '11:23:42')),
-    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive', TIMESTAMP('2023-08-15', '12:23:45')),
-    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.', TIMESTAMP('2023-07-19', '12:30:52')),
-    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.', TIMESTAMP('2023-08-15', '14:29:42')),
-    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!', TIMESTAMP('2023-07-13', '10:25:22'))
+INSERT INTO Comments (commentid, userid, productid, content, starcount, createdAt) VALUES
+    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', 4, TIMESTAMP('2023-07-17', '12:13:41')),
+    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.', 5,  TIMESTAMP('2023-07-17', '11:23:42')),
+    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive', 3, TIMESTAMP('2023-08-15', '12:23:45')),
+    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.', 4, TIMESTAMP('2023-07-19', '12:30:52')),
+    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.', 2, TIMESTAMP('2023-08-15', '14:29:42')),
+    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!', 3, TIMESTAMP('2023-07-13', '10:25:22'))
 
 

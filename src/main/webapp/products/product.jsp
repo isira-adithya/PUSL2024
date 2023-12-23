@@ -48,6 +48,10 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
 <style>
      
@@ -140,6 +144,86 @@
         
     
     </style>
+
+    <!-- For Rating Stars -->
+    <style>
+        div.stars {
+            width: 180px;
+        }
+
+        input.star { display: none; }
+
+        label.star {
+
+            float: right;
+
+            padding: 5px;
+
+            font-size: 24px;
+
+            color: #4CAF50;
+
+            transition: all .2s;
+
+        }
+
+        label.star-small {
+            float: right;
+
+            padding: 3px;
+
+            font-size: 15px;
+
+            color: black;
+        }
+
+        label.star-small:before {
+
+            content: '\f006';
+
+            font-family: FontAwesome;
+
+        }
+
+
+
+        input.star:checked ~ label.star:before {
+
+            content: '\f005';
+
+            color: #4CAF50;
+
+            transition: all .25s;
+
+        }
+
+
+        input.star-5:checked ~ label.star:before {
+
+            color: #4CAF50;
+
+            text-shadow: 0 0 20px #952;
+
+        }
+
+
+
+        input.star-1:checked ~ label.star:before { color: #F62; }
+
+
+
+        label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+
+
+        label.star:before {
+
+            content: '\f006';
+
+            font-family: FontAwesome;
+
+        }
+    </style>
     
 </head>
 <body>
@@ -160,7 +244,7 @@
     <!-- Description and prices on the right -->
     <div class="col-md-7">
       <h2>${fn:escapeXml(product.name)}</h2>
-      <h5 style="color:#2C742F;">${fn:escapeXml(product.price)}</h5>
+      <h5 style="color:#00b207;">${fn:escapeXml(product.price)}</h5>
       
       <hr>
       <p>${fn:escapeXml(product.description)}</p>
@@ -170,7 +254,7 @@
             <form action="/api/user/cart/addItem" method="post">
                 <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
                 <input type="hidden" name="productId" value="${product.productId}">
-                 <button type="submit" class="btn btn-outline" style="position: relative;">
+                 <button type="submit" class="btn btn-outline" style="position: relative; color: #00b207">
                     Add to Cart
                 </button>
 
@@ -194,6 +278,11 @@
             <c:forEach items="${comments}" var="comment">
                 <div class="col-md-12">
                     <div>
+                        <c:if test="${comment.starCount > 0}">
+                            <c:forEach var="i" begin="1" end="${comment.starCount}">
+                                <label class="star-small"></label>
+                            </c:forEach>
+                        </c:if>
                         <p><strong>${fn:escapeXml(comment.user.fullName)}<br><br></strong>${fn:escapeXml(comment.content)} .</p>
                         <hr>
                     </div>
@@ -218,22 +307,51 @@
     <c:if test="${userId != null}">
         <div class="col-md-8 mx-auto">
             <form method="post" action="/api/user/comments/add">
-                <input type="hidden" name="productId" value="${product.productId}"><br><br><br><br><h3>Add a comment!<h3> <br>              
+                <input type="hidden" name="productId" value="${product.productId}"><br><br><br><br><h4>Give us your feedback</h4> <br>
                 <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea>
-                    <input id="submitBtn" type="submit" value="Submit">
+
+                <div class="row">
+                    <div class="col-4">
+
+                    </div>
+                    <div class="col-4 text-right mt-2">
+                        <h5>Give us a rating</h5>
+                    </div>
+                    <div class="col-4">
+                        <div class="stars">
+                            <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+
+                            <label class="star star-5" for="star-5"></label>
+
+                            <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+
+                            <label class="star star-4" for="star-4"></label>
+
+                            <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+
+                            <label class="star star-3" for="star-3"></label>
+
+                            <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+
+                            <label class="star star-2" for="star-2"></label>
+
+                            <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+
+                            <label class="star star-1" for="star-1"></label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4"></div>
+                    <div class="col-4 text-right"><input id="submitBtn" type="submit" class="mb-4" value="Submit"></div>
+                </div>
             </form>
         </div>
     </c:if>
   </div>
 </div>
     <%@include file="../includes/footer.jsp"%>
-
-      
-
-    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
