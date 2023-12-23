@@ -62,7 +62,7 @@ public class Analytics {
         double rating = -1;
         try {
             Connection dbconn = Database.connect();
-            String sqlQuery = "SELECT AVG(starcount) AS averageRating from comments WHERE productId = ?";
+            String sqlQuery = "SELECT AVG(starcount) AS averageRating from Comments WHERE productid = ?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
             sqlStatement.setInt(1, productId);
             ResultSet resultSet = sqlStatement.executeQuery();
