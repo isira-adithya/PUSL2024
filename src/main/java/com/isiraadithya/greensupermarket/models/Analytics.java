@@ -2,6 +2,7 @@ package com.isiraadithya.greensupermarket.models;
 
 import com.isiraadithya.greensupermarket.helpers.Database;
 
+import javax.xml.crypto.Data;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -55,5 +56,24 @@ public class Analytics {
         }
 
         return results;
+    }
+
+    public static double getAverageRatingOfAProduct(int productId){
+        double rating = -1;
+        try {
+            Connection dbconn = Database.connect();
+            String sqlQuery = "SELECT AVG(starcount) AS averageRating from comments WHERE productId = ?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
+            sqlStatement.setInt(1, productId);
+            ResultSet resultSet = sqlStatement.executeQuery();
+            while(resultSet.next()){
+                rating = resultSet.getDouble("averageRating");
+            }
+            Database.closeConnection();
+        } catch (SQLException err){
+            err.printStackTrace();
+        }
+
+        return rating;
     }
 }

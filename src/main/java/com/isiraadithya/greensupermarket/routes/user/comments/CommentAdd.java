@@ -15,7 +15,7 @@ public class CommentAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int productId = -1;
-        int starCount = -1;
+        int starCount = 0;
         int userId = (int) req.getSession().getAttribute("userId");
         Product product;
 
@@ -24,13 +24,8 @@ public class CommentAdd extends HttpServlet {
             try {
                 starCount = Integer.parseInt(req.getParameter("star"));
             } catch (NumberFormatException ex){
-                starCount = -1;
+                starCount = 0;
             }
-        }
-
-        if (starCount > 5 || starCount < 1){
-            resp.sendRedirect("/products/");
-            return;
         }
 
 //        Product ID Validation
