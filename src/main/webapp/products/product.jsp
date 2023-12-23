@@ -153,7 +153,7 @@
     <!-- Description and prices on the right -->
     <div class="col-md-7">
       <h2>${fn:escapeXml(product.name)}</h2>
-      <h5 style="color:#2C742F;">${fn:escapeXml(product.price)}</h5>
+      <h5 style="color:#00b207;">${fn:escapeXml(product.price)}</h5>
       
       <hr>
       <p>${fn:escapeXml(product.description)}</p>
@@ -163,7 +163,7 @@
             <form action="/api/user/cart/addItem" method="post">
                 <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
                 <input type="hidden" name="productId" value="${product.productId}">
-                 <button type="submit" class="btn btn-outline" style="position: relative;">
+                 <button type="submit" class="btn btn-outline" style="position: relative; color: #00b207">
                     Add to Cart
                 </button>
 
