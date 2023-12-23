@@ -115,7 +115,7 @@ INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery
 (9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-06', '13:19:23')),
 (10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
 
-INSERT INTO OrderDetails (orderdetailid, orderid, productid, productname, quantity, subtotal) VALUES
+INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
 (1, 1, 1, 2, 'Smartphone', 1999.98),
 (2, 1, 2, 1, 'Laptop', 599.99),
 (3, 3, 3, 3, 'Headphones', 239.97),
