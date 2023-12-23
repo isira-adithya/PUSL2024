@@ -75,18 +75,18 @@
     }
     
     .google-map {
-  position: relative;
-  overflow: hidden;
-  height:10px;
+      position: relative;
+        overflow: hidden;
+        height:10px;
 }
 
-.google-map iframe {
-  width: 100%;
-  height: 70%;
-  position: absolute;
-  top: 300px;
-  left: 0;
-  border: 0;
+    .google-map iframe {
+         width: 100%;
+         height: 70%;
+         position: absolute;
+         top: 300px;
+         left: 0;
+         border: 0;
 }
 
 /* Responsive padding for the container */
