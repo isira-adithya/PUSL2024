@@ -75,19 +75,26 @@
     }
     
     .google-map {
-     padding-bottom: 30%;
-     position: relative;
-     padding-top: 0px
-    
-    }
+  position: relative;
+  overflow: hidden;
+  height:10px;
+}
 
-    .google-map iframe {
-     height: 80%;
-     width: 100%;
-     top: 150px;
-     bottom: 100px;
-     position: absolute;
-    }
+.google-map iframe {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  top: 300px;
+  left: 0;
+  border: 0;
+}
+
+/* Responsive padding for the container */
+@media (min-width: 576px) {
+  .google-map {
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  }
+}
   </style>
 
 
@@ -156,13 +163,16 @@
   </div>
     
     
+    
     <div class="google-map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7265.530708148501!2d80.03573163662269!3d6.8234098956563365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2523b05555555%3A0x546c34cd99f6f488!2sNSBM%20Green%20University!5e0!3m2!1sen!2slk!4v1702651401888!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  <%@include file="includes/footer.jsp"%>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <%@include file="includes/footer.jsp"%>
 </body>
+
 
 
 </html>
