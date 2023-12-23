@@ -5,6 +5,7 @@
   Time: 11:12 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/includes/variables.jsp"%>
 <html>
 <head>
     <title>Analytics - GreenSuperMarket</title>

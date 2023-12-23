@@ -43,7 +43,7 @@
         </div>
     </div>
     
-    <hr style="width: 100%; margin: 10px 0; border: 1px solid #666666">
+    <hr class="nav-hr">
     
 
     <ul class="nav">
@@ -65,9 +65,9 @@
 
 <style>
     .form-control {
-        font-family: 'Arial', sans-serif;
+       
         font-weight: bold;
-        font-size: 15px; /* Adjust the font size as needed */
+        font-size: 15px; 
     }
     .navbar-brand span{
         font-size: 22px;
@@ -92,14 +92,17 @@
     .input-group {
         max-width: 500px;
     }
-
-        
-    @media (max-width: 768px) {
+    
+    .nav-hr{
+        width: 100%; 
+        margin: 10px 0; 
+        border: 1px solid #666666;
+    }
+   
     .input-group {
        width: 100%;
         }
-        }
-        
+       
     .nav {
             display: flex;
             align-items: center;
@@ -116,7 +119,7 @@
             transition: color 0.3s;
         }
 
-        /* Responsive styles */
+ 
         @media (max-width: 768px) {
             .nav {
                 flex-wrap: wrap; /* Allow items to wrap to the next line */
@@ -127,27 +130,6 @@
                 margin: 0 10px 10px 0; /* Adjust margin for better spacing */
             }
         }
-            .custom-btn {
-       
-        margin: 20px;
-        padding: 8px 15px; 
-        text-decoration: none;
-        color: #ffffff;
-        background-color: #00B207;
-        border: none;
-        box-shadow: none;
-        cursor: pointer;
-        border-radius: 20px; 
-        transition: background-color 0.3s ease; 
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-    .custom-btn:hover {
-        background-color: #666666;
-        color: #ffffff; 
-        text-decoration: none; 
-    }
 
   
 

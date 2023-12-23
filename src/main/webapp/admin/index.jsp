@@ -1,4 +1,4 @@
-<%@include file="includes/variables.jsp"%>
+<%@include file="/includes/variables.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

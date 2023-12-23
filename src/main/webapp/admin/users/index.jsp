@@ -6,7 +6,7 @@
   Time: 5:39 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../includes/variables.jsp"%>
+<%@include file="/includes/variables.jsp"%>
 <%
     List<User> users = User.getUsers();
     pageContext.setAttribute("users", users);

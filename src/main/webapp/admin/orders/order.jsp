@@ -67,7 +67,7 @@
 </head>
 
 <body>
-<%@include file="../../includes/header.jsp"%>
+<%@include file="../includes/header.jsp"%>
 
 <div class="cart-container">
     <h2>Order ID ${order.orderId}</h2>
