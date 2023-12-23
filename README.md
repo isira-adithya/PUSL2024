@@ -3,6 +3,7 @@
 ### *Todos*
 - [ ] Add Styles (CSS, Bootstrap, etc)
   - [ ] Add Styles to the order confirmation email
+- [ ] Make File Uploads More Secure
 - [ ] Add / Load sample data to the database
 - [X] Add Contact Us Page (Not a static HTML page)
   - [ ] Finish the backend part

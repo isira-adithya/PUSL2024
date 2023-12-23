@@ -83,13 +83,13 @@ public class PaymentServices {
     private List<Transaction> getTransactionInformation(Order order) {
 
         Details details = new Details();
-        details.setShipping(this.formatPaymentValue(shippingCost));
-        details.setSubtotal(this.formatPaymentValue(order.getAmount()));
-        details.setTax(this.formatPaymentValue(tax));
+        details.setShipping(formatPaymentValue(shippingCost));
+        details.setSubtotal(formatPaymentValue(order.getAmount()));
+        details.setTax(formatPaymentValue(tax));
 
         Amount amount = new Amount();
         amount.setCurrency("USD");
-        amount.setTotal(this.formatPaymentValue(shippingCost + tax + order.getAmount()));
+        amount.setTotal(formatPaymentValue(shippingCost + tax + order.getAmount()));
         amount.setDetails(details);
 
         Transaction transaction = new Transaction();
@@ -105,7 +105,7 @@ public class PaymentServices {
             double itemPrice = orderDetail.getSubTotal() / orderDetail.getQuantity();
             item.setCurrency("USD");
             item.setName(orderDetail.getProduct().getName());
-            item.setPrice(this.formatPaymentValue(itemPrice));
+            item.setPrice(formatPaymentValue(itemPrice));
             item.setQuantity(String.valueOf(orderDetail.getQuantity()));
             items.add(item);
         }
