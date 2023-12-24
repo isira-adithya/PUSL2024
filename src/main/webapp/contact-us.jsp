@@ -3,7 +3,7 @@
     Created on : 15 Dec 2023, 12:29:18
     Author     : @sanuth
 --%>
-<%@ page import="java.util.List" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/includes/variables.jsp"%>
 <!DOCTYPE html>
