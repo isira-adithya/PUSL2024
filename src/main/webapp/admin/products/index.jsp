@@ -11,8 +11,11 @@
     List<Product> products = Product.getProducts();
     pageContext.setAttribute("products", products);
 %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Products</title>
     <style>
 body {
@@ -125,7 +128,7 @@ button {
             </tbody>
         </table><br><br><br><br>
         <form method="post" action="/admin/products/add.jsp">
-            <button class="Add-new-button">Add New Product</button>
+            <center><button class="Add-new-button">Add New Product</button></center>
     </div>
     
 <br><br><br><br><br><br><br>

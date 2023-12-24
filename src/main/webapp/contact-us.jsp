@@ -7,7 +7,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/includes/variables.jsp"%>
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -54,7 +58,7 @@
       color: #808080;
     }
 
-    .btn {
+    .sendmsg-button {
       height: 40px;
       width: 165px;
       border-radius: 100px;
@@ -75,18 +79,18 @@
     }
     
     .google-map {
-  position: relative;
-  overflow: hidden;
-  height:10px;
+      position: relative;
+        overflow: hidden;
+        height:10px;
 }
 
-.google-map iframe {
-  width: 100%;
-  height: 70%;
-  position: absolute;
-  top: 300px;
-  left: 0;
-  border: 0;
+    .google-map iframe {
+         width: 100%;
+         height: 70%;
+         position: absolute;
+         top: 300px;
+         left: 0;
+         border: 0;
 }
 
 /* Responsive padding for the container */
@@ -155,7 +159,7 @@
 
           <div>
             <br>
-            <input type="submit" class="btn btn-outline" style="background-color: #00b207" value="Send Message">
+            <input type="submit" class="btn btn-outline sendmsg-button " style="background-color: #00b207" value="Send Message">
           </div>
         </form>
       </div>
