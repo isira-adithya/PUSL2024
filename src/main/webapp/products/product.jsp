@@ -66,7 +66,7 @@
             margin-bottom: 20px;
         }
         
-        .btn {
+        .addToCart-button {
              height: 40px;
              width: 450px;
              border-radius: 100px;
@@ -254,7 +254,7 @@
             <form action="/api/user/cart/addItem" method="post">
                 <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
                 <input type="hidden" name="productId" value="${product.productId}">
-                 <button type="submit" class="btn btn-outline" style="position: relative;">
+                 <button type="submit" class="btn btn-outline addToCart-button" style="position: relative;">
                     Add to Cart
                 </button>
 
