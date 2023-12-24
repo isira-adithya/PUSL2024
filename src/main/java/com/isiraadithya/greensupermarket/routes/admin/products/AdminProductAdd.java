@@ -20,8 +20,10 @@ public class AdminProductAdd extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productName = "";
         String productDescription = "";
+        String productShortDescription = "";
         double productPrice = -1;
         int productQuantity = -1;
+        boolean productVisibility = false;
 
         try {
             String[] verifyThese = {"productName","productDescription","productPrice","productQuantity"};
@@ -38,13 +40,14 @@ public class AdminProductAdd extends HttpServlet {
             productName = req.getParameter("productName");
             productDescription = req.getParameter("productDescription");
 
+
             if (req.getPart("imageFile") == null){
                 resp.setStatus(400);
                 resp.sendRedirect("/admin/products/");
             }
 
             // Creating a new product
-            Product product = new Product(productName, productDescription, "",productPrice, productQuantity);
+            Product product = new Product(productName, productDescription, productShortDescription, "NULL", productPrice, productQuantity, productVisibility);
 
             // Let's make sure that the dir is accessible
             String productImageUploadDirPath = req.getServletContext().getRealPath("/uploads/images/products/");

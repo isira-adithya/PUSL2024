@@ -131,7 +131,7 @@
         
     <c:if test="${selectedRole.equals('ADMIN')}">
         
-        <button class="Add-new-button" onclick="window.location.href='/admin/users/'">See all customers</button>
+        <center><button class="Add-new-button" onclick="window.location.href='/admin/users/'">See all customers</button></center>
 
     </c:if><br>
     <c:if test="${selectedRole.equals('USER')}">

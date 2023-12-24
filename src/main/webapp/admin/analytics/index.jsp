@@ -34,7 +34,7 @@
 <div class="container">
     <h1 class="text-center mt-4">Online Shopping Platform Data</h1>
 
-    <div class="row mt-4">
+    <div class="row my-4">
 
         <!-- Container for Bar Chart -->
         <div class="col-md-6">

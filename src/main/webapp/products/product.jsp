@@ -45,7 +45,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@
             margin-bottom: 20px;
         }
         
-        .btn {
+        .addToCart-button {
              height: 40px;
              width: 450px;
              border-radius: 100px;
@@ -254,7 +254,7 @@
             <form action="/api/user/cart/addItem" method="post">
                 <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
                 <input type="hidden" name="productId" value="${product.productId}">
-                 <button type="submit" class="btn btn-outline" style="position: relative; color: #00b207">
+                 <button type="submit" class="btn btn-outline addToCart-button" style="position: relative;">
                     Add to Cart
                 </button>
 
