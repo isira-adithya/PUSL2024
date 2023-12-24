@@ -56,7 +56,7 @@
     <%@include file="includes/header.jsp"%>
     
      <div>
-        <img src="uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image">
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
     <h2><center><b>Create Account</b></center></h2>
 

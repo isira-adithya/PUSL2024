@@ -2,9 +2,11 @@ package com.isiraadithya.greensupermarket.models;
 
 import com.isiraadithya.greensupermarket.helpers.Database;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,5 +144,25 @@ public class Comment {
             System.out.println(ex.getMessage());
         }
 
+    }
+
+    public static int getCommentCountByProductId(int productId){
+        int count = -1;
+
+        try {
+            Connection dbconn = Database.connect();
+            String sqlQuery = "SELECT COUNT(commentid) AS commentCount FROM Comments WHERE productid = ?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
+            sqlStatement.setInt(1, productId);
+            ResultSet resultSet = sqlStatement.executeQuery();
+            while(resultSet.next()){
+                count = resultSet.getInt("commentCount");
+            }
+            Database.closeConnection();
+        } catch (SQLException err){
+            err.printStackTrace();
+        }
+
+        return count;
     }
 }

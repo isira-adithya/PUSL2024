@@ -244,7 +244,7 @@
     <!-- Description and prices on the right -->
     <div class="col-md-7">
       <h2>${fn:escapeXml(product.name)}</h2>
-      <h5 style="color:#2C742F;">${fn:escapeXml(product.price)}</h5>
+      <h5 style="color:#00b207;">${fn:escapeXml(product.price)}</h5>
       
       <hr>
       <p>${fn:escapeXml(product.description)}</p>
