@@ -58,7 +58,7 @@
       color: #808080;
     }
 
-    .btn {
+    .sendmsg-button {
       height: 40px;
       width: 165px;
       border-radius: 100px;
@@ -159,7 +159,7 @@
 
           <div>
             <br>
-            <input type="submit" class="btn btn-outline" style="background-color: #00b207" value="Send Message">
+            <input type="submit" class="btn btn-outline sendmsg-button " style="background-color: #00b207" value="Send Message">
           </div>
         </form>
       </div>
