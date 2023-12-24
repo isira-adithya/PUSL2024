@@ -8,7 +8,9 @@
 </head>
 <body>
 <%@include file="includes/header.jsp"%>
-    Admin Content Here
 <%@include file="includes/footer.jsp"%>
+<%
+    response.sendRedirect("/admin/products");
+%>
 </body>
 </html>
