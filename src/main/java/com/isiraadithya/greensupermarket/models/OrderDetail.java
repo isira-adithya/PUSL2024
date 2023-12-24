@@ -48,7 +48,7 @@ public class OrderDetail {
         try {
             product = Product.findProductById(productId);
         } catch (Exception ex){
-            product = new Product("NULL", "NULL", "NULL", 0, 0);
+            product = new Product("NULL", "NULL", "NULL", "NULL", 0, 0, false);
             System.out.println(ex.getMessage());
         }
     }

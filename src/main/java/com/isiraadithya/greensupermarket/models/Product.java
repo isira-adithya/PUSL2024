@@ -269,6 +269,6 @@ public class Product {
             System.out.println(e.getMessage());
         }
         Database.closeConnection();
-        return new Product("NULL", "NULL", "NULL", 0, 0);
+        return new Product("NULL", "NULL", "NULL", "NULL", 0, 0, false);
     }
 }
