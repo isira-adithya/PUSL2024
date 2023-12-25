@@ -176,7 +176,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="theman1.jpg" alt="Card Image" class="card-img-right img-fluid">
+                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="card-img-right img-fluid">
                 </div>
             </div>
         </div>
@@ -185,7 +185,7 @@
         <div class="card custom-card mb-4" style="background-image: url('background.jpg'); background-size: 680px; background-position: left; background-repeat: no-repeat;">
             <div class="row">
                 <div class="col-md-4 col-sm-50">
-                    <img src="theman2.png" style="max-height: 365px; margin-top: 115px;">
+                    <img src="/uploads/about us/theman2.png" style="max-height: 365px; margin-top: 115px;">
                 </div>
                 <div class="col-md-8">
                     <div class="card-text">
@@ -196,42 +196,42 @@
                         <!-- List with images on both sides -->
                         <ul class="list-unstyled product-list">
                             <li>
-                                <img src="leave.jpg" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/leave.jpg" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food</strong>
                                     <p>100% healthy and fresh food.</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="headphone.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/headphone.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Great Support 24/7</strong>
                                     <p>Instant access to Contact</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="star.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/star.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Customer Feedback</strong>
                                     <p>Our Happy Customer</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Secure Payment</strong>
                                     <p>We ensure your money is safe</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Free Shipping</strong>
                                     <p>Free shipping with Discount.</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food </strong>
                                     <p>100% healthy & Fresh Food.</p>
@@ -254,9 +254,9 @@
 
                         <!-- List with green tick images -->
                         <ul class="list-unstyled check-list">
-                            <li><img src="check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
-                            <li><img src="check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
-                            <li style="position: relative;"><img src="check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
+                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
+                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
+                            <li style="position: relative;"><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
                                 <!-- Shop Now button -->
                                 <div class="shop-now-container">
                                     <a href="#" class="shop-now-btn">Shop Now <span>&rarr;</span></a>
@@ -267,7 +267,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
+                    <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
                 </div>
             </div>
         </div>
@@ -284,21 +284,21 @@
         <div class="carousel-item active">
             <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top" src="person.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="/uploads/about us/person.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">ISIRA ADITHYA</h5>
                         <p class="card-text">This is the content for card 1 in the first slide.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="person.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="/uploads/about us/person.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">NESITH</h5>
                         <p class="card-text">This is the content for card 2 in the first slide.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="person.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="/uploads/about us/person.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">HASHEN</h5>
                         <p class="card-text">This is the content for card 3 in the first slide.</p>
@@ -311,21 +311,21 @@
         <div class="carousel-item">
             <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top" src="person.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="/uploads/about us/person.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">SANUTH</h5>
                         <p class="card-text">This is the content for card 4 in the second slide.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="person.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="/uploads/about us/person.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">CHANDESH</h5>
                         <p class="card-text">This is the content for card 5 in the second slide.</p>
                     </div>
                 </div>
                 <div class="card">
-                    <img class="card-img-top" src="person.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="/uploads/about us/person.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">THIYARA</h5>
                         <p class="card-text">This is the content for card 6 in the second slide.</p>
@@ -340,10 +340,10 @@
 
         <!-- Carousel Controls with Arrow Images -->
         <a class="carousel-control-prev" href="#myCustomCarousel" role="button" data-slide="prev">
-            <img src="left arrow.png" alt="Left Arrow">
+            <img src="/uploads/about us/left arrow.png" alt="Left Arrow">
         </a>
         <a class="carousel-control-next" href="#myCustomCarousel" role="button" data-slide="next">
-            <img src="right arrow.png" alt="Right Arrow">
+            <img src="/uploads/about us/right arrow.png" alt="Right Arrow">
         </a>
     </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
