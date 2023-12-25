@@ -138,6 +138,19 @@
         #submitBtn:hover {
             background-color: #45a049;
         }
+        .visibility-message-container {
+        max-width: 600px; /* Adjust the width as needed */
+        margin: 20px auto;
+        padding: 15px;
+        border: 1.5px solid #000000;
+        border-radius: 5px;
+        background-color: transparent; /* Set background color to transparent */
+    }
+
+    .visibility-message-container:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: box-shadow 0.5s ease;
+    }
     </style>
 </head>
 <body>
@@ -198,17 +211,22 @@
             <center><button type="submit" id="submitBtn">Update</button></center>
         </form>
         <div class="alert <%if (product.getVisibility()) {out.print("alert-info");} else {out.print("alert-warning");}%> text-center" role="alert">
-            <form method="post" action="/api/admin/products/change-visibility">
-                <input type="hidden" name="productId" value="${product.productId}">
-                <c:if test="${product.visibility}">
-                    <p>Do you want to <b>hide</b> this product from your customers?</p>
-                    <input type="submit" class="btn btn-danger" value="Hide">
-                </c:if>
-                <c:if test="${!product.visibility}">
-                    <p>Do you want to <b>show</b> this product to your customers?</p>
-                    <input type="submit" class="btn btn-primary" value="Show">
-                </c:if>
-            </form>
+            
+        <form method="post" action="/api/admin/products/change-visibility">
+            <input type="hidden" name="productId" value="${product.productId}">
+             <div class="visibility-message-container">
+             <c:if test="${product.visibility}">
+                <p>Do you want to <b>hide</b> this product from your customers?</p>
+                <input type="submit" class="btn btn-danger" value="Hide">
+             </c:if>
+            <c:if test="${!product.visibility}">
+             <p>Do you want to <b>show</b> this product to your customers?</p>
+             <input type="submit" class="btn btn-primary" value="Show">
+        </c:if>
+    </div>
+</form>
+<!-- ... your existing code ... -->
+
         </div>
 
     </div>
