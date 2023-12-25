@@ -47,11 +47,13 @@ public class Product {
     public String getName(){
         return this.name;
     }
-
     public String getDescription(){
         return this.description;
     }
-
+    public String getShortDescription(){
+        return this.short_description;
+    }
+    public boolean getVisibility(){return this.visibility;}
     public String getImage(){
         if (this.image.isBlank()){
             return "/uploads/images/products/not-found.png";
@@ -68,25 +70,25 @@ public class Product {
     public void setProductQuantity(int quantity){
         this.quantity = quantity;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
+    public void setShortDescription(String sdescription) {
+        this.short_description = sdescription;
+    }
     public void setImage(String image) {
         this.image = image;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
     private void setCreatedAt(Timestamp _tmsp){
         this.createdAt = _tmsp;
     }
+    public void setVisibility(boolean visibility){this.visibility = visibility;}
 
     public void saveProduct(){
         try {
