@@ -142,7 +142,7 @@
         max-width: 600px; /* Adjust the width as needed */
         margin: 20px auto;
         padding: 15px;
-        border: 1px solid #e9e9e9;
+        border: 1.5px solid #000000;
         border-radius: 5px;
         background-color: transparent; /* Set background color to transparent */
     }
