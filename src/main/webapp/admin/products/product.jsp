@@ -144,7 +144,7 @@
     <%@include file="../includes/header.jsp"%><br>
     
     <div class="container">
-        <center><h1>Manage Product</h1></center><br>
+        <center><h3>Manage Product - ${fn:escapeXml(product.name)}</h3></center><br>
         <div id="analyticsContainer">
             <div class="d-flex justify-content-center">
                 <div class="content text-center">
@@ -175,6 +175,10 @@
                 <input type="text" class="form-control" id="productName" name="productName" value="${fn:escapeXml(product.name)}">
             </div>
             <div class="mb-3">
+                <label for="productDescription" class="form-label"><b>Product Short Description:</b></label>
+                <textarea class="form-control" id="productShortDescription" name="productShortDescription"></textarea>
+            </div>
+            <div class="mb-3">
                 <label for="productDescription" class="form-label"><b>Description:</b></label>
                 <textarea class="form-control" id="productDescription" name="productDescription">${fn:escapeXml(product.description)}</textarea>
             </div>
@@ -193,6 +197,20 @@
             <input type="hidden" name="productId" value="${product.productId}">
             <center><button type="submit" id="submitBtn">Update</button></center>
         </form>
+        <div class="alert <%if (product.getVisibility()) {out.print("alert-info");} else {out.print("alert-warning");}%> text-center" role="alert">
+            <form method="post" action="/api/admin/products/change-visibility">
+                <input type="hidden" name="productId" value="${product.productId}">
+                <c:if test="${product.visibility}">
+                    <p>Do you want to <b>hide</b> this product from your customers?</p>
+                    <input type="submit" class="btn btn-danger" value="Hide">
+                </c:if>
+                <c:if test="${!product.visibility}">
+                    <p>Do you want to <b>show</b> this product to your customers?</p>
+                    <input type="submit" class="btn btn-primary" value="Show">
+                </c:if>
+            </form>
+        </div>
+
     </div>
     <%@include file="../includes/footer.jsp"%>
 </body>
