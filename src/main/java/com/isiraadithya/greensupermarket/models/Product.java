@@ -47,9 +47,11 @@ public class Product {
     public String getName(){
         return this.name;
     }
-
     public String getDescription(){
         return this.description;
+    }
+    public String getShortDescription(){
+        return this.short_description;
     }
     public boolean getVisibility(){return this.visibility;}
     public String getImage(){
