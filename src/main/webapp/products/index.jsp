@@ -70,7 +70,7 @@
                   <div class="custom-card">
                       <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
                       <h5>${fn:escapeXml(product.name)}</h5>
-                      <p class="card-text">${fn:escapeXml(product.description)}</p>
+                      <p class="card-text">${fn:escapeXml(product.shortDescription)}</p>
                       <p>${product.price}$</p>
                       <a href="/products/product.jsp?id=${product.productId}" class="custom-btn">Buy Now</a>
                   </div>
