@@ -65,15 +65,17 @@
   <div class="container mt-4"> 
     <div class="row">
       <c:forEach items="${products}" var="product">
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="custom-card">
-            <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
-            <h5>${fn:escapeXml(product.name)}</h5>
-            <p class="card-text">${fn:escapeXml(product.description)}</p>
-            <p>${product.price}$</p>
-            <a href="/products/product.jsp?id=${product.productId}" class="custom-btn">Buy Now</a>
-          </div>
-        </div>
+          <c:if test="${product.visibility}">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="custom-card">
+                      <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
+                      <h5>${fn:escapeXml(product.name)}</h5>
+                      <p class="card-text">${fn:escapeXml(product.description)}</p>
+                      <p>${product.price}$</p>
+                      <a href="/products/product.jsp?id=${product.productId}" class="custom-btn">Buy Now</a>
+                  </div>
+              </div>
+          </c:if>
       </c:forEach>
     </div>
   </div>
