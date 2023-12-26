@@ -7,7 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : nesit
 */
 
-.custom-btn {
+.card-button {
   display: inline-block;
   margin: 10px;
   padding: 8px 15px;
@@ -20,7 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   font-size: 14px;
 }
 
-.custom-btn:hover {
+.card-button:hover {
   background-color: #666666;
   color: #ffffff;
   text-decoration: none;
