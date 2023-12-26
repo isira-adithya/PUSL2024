@@ -272,7 +272,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="/upload/about us/theman1.jpg" alt="Card Image" class="card-img-right img-fluid">
+                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="card-img-right img-fluid">
                 </div>
             </div>
         </div>
@@ -320,7 +320,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="uploads/about us/lorry.jpg alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="uploads/about us/lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Free Shipping</strong>
                                     <p>Free shipping with Discount.</p>
@@ -355,7 +355,7 @@
                             <li style="position: relative;"><img src="uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
                                 <!-- Shop Now button -->
                                 <div class="shop-now-container">
-                                    <a href="#" class="shop-now-btn">Shop Now <span>&rarr;</span></a>
+                                    <a href="/products/product.jsp" class="shop-now-btn">Shop Now <span>&rarr;</span></a>
                                 </div>
                             </li>
                             <!-- Add more list items as needed -->
@@ -363,7 +363,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="uploads/about us/theman3" alt="Card Image" class="card-img-right img-fluid">
+                    <img src="uploads/about us/theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
                 </div>
             </div>
         </div>
