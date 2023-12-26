@@ -41,39 +41,45 @@
 %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Products - GreenSuperMarket</title>
+    <link href="/includes/styles.css" rel="stylesheet">
+    <style>
+        .banner-image{
+            max-width: 100%;
+        }
+        
+    </style>
 </head>
 <body>
     <%@include file="../includes/header.jsp"%>
-    <center>
-        <p><b>${fn:escapeXml(msg)}</b></p>
-        <br>
-        <br>
-        <table border="1px">
-            <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Product Image</th>
-                <th>Product Description</th>
-                <th>Product Quantity</th>
-                <th>Product Price</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${products}" var="product">
-                <tr>
-                    <td>${fn:escapeXml(product.name)}</td>
-                    <td><img width="200px" src="${fn:escapeXml(product.image)}"></td>
-                    <td>${fn:escapeXml(product.description)}</td>
-                    <td>${product.quantity}</td>
-                    <td>${product.price}$</td>
-                    <td><a href="/products/product.jsp?id=${product.productId}">Open</a></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </center>
+    
+<section class="d-flex justify-content-center align-items-center">
+    <div>
+        <img src="/uploads/images/products/vegBanner.png" alt="veg banner" class="banner-image">
+    </div>
+</section>
+
+<section >  
+  <div class="container mt-4"> 
+    <div class="row">
+      <c:forEach items="${products}" var="product">
+          <c:if test="${product.visibility}">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                  <div class="custom-card">
+                      <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
+                      <h5>${fn:escapeXml(product.name)}</h5>
+                      <p class="card-text">${fn:escapeXml(product.shortDescription)}</p>
+                      <p>${product.price}$</p>
+                      <a href="/products/product.jsp?id=${product.productId}" class="custom-btn">Buy Now</a>
+                  </div>
+              </div>
+          </c:if>
+      </c:forEach>
+    </div>
+  </div>
+</section>
     <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

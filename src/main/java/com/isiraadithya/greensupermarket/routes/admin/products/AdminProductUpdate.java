@@ -20,13 +20,14 @@ public class AdminProductUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productName = "";
         String productDescription = "";
+        String productShortDescription = "";
         double productPrice = -1;
         int productQuantity = -1;
         int productId = -1;
         boolean shouldUpdateImage = false;
 
         try {
-            String[] verifyThese = {"productName","productDescription","productPrice","productQuantity","productId"};
+            String[] verifyThese = {"productName","productDescription","productPrice","productQuantity","productId","productShortDescription"};
             for (int i = 0; i < verifyThese.length; i++){
                 if (req.getParameter(verifyThese[i]) == null){
                     resp.setStatus(400);
@@ -40,6 +41,7 @@ public class AdminProductUpdate extends HttpServlet {
             productPrice = Double.parseDouble(req.getParameter("productPrice"));
             productName = req.getParameter("productName");
             productDescription = req.getParameter("productDescription");
+            productShortDescription = req.getParameter("productShortDescription");
 
             if (req.getPart("imageFile") != null){
                 shouldUpdateImage = true;
@@ -50,6 +52,7 @@ public class AdminProductUpdate extends HttpServlet {
             if (product.getProductId() != -1){
                 product.setName(productName);
                 product.setDescription(productDescription);
+                product.setShortDescription(productShortDescription);
                 product.setPrice(productPrice);
                 product.setProductQuantity(productQuantity);
 

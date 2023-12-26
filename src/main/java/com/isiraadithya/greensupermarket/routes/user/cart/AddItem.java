@@ -43,6 +43,12 @@ public class AddItem extends HttpServlet {
             return;
         }
 
+        // Checking if the product is visible to public
+        if (!product.getVisibility()){
+            resp.setStatus(400);
+            return;
+        }
+
         // Checking if there are enough products in our inventory
         if (product.getQuantity() < quantity){
             resp.sendRedirect(req.getHeader("Referer"));

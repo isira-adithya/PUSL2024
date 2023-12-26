@@ -69,8 +69,13 @@ public class PaymentServices {
 
     private RedirectUrls getRedirectURLs() {
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
-        redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
+        if (System.getenv("JSP_DEV").equals("TRUE")){
+            redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
+            redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
+            System.out.println("[DEV] Environment Detected; Using http://localhost:9090/user/ for Paypal Payment Handling.");
+        }
+        redirectUrls.setCancelUrl("https://www.greensupermarket.live/user/orders/");
+        redirectUrls.setReturnUrl("https://www.greensupermarket.live/user/payments/review.jsp?orderid="+order.getOrderId());
 
         return redirectUrls;
     }
@@ -78,13 +83,13 @@ public class PaymentServices {
     private List<Transaction> getTransactionInformation(Order order) {
 
         Details details = new Details();
-        details.setShipping(this.formatPaymentValue(shippingCost));
-        details.setSubtotal(this.formatPaymentValue(order.getAmount()));
-        details.setTax(this.formatPaymentValue(tax));
+        details.setShipping(formatPaymentValue(shippingCost));
+        details.setSubtotal(formatPaymentValue(order.getAmount()));
+        details.setTax(formatPaymentValue(tax));
 
         Amount amount = new Amount();
         amount.setCurrency("USD");
-        amount.setTotal(this.formatPaymentValue(shippingCost + tax + order.getAmount()));
+        amount.setTotal(formatPaymentValue(shippingCost + tax + order.getAmount()));
         amount.setDetails(details);
 
         Transaction transaction = new Transaction();
@@ -100,7 +105,7 @@ public class PaymentServices {
             double itemPrice = orderDetail.getSubTotal() / orderDetail.getQuantity();
             item.setCurrency("USD");
             item.setName(orderDetail.getProduct().getName());
-            item.setPrice(this.formatPaymentValue(itemPrice));
+            item.setPrice(formatPaymentValue(itemPrice));
             item.setQuantity(String.valueOf(orderDetail.getQuantity()));
             items.add(item);
         }
