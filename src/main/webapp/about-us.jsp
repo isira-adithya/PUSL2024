@@ -13,6 +13,15 @@
     <title>About Us</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        
+        .image {
+             margin-bottom: 60px;
+             width: 100%;
+             height: 130px;
+              position: relative;
+             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+    
         body {
             background-color: #ffffff;
         }
@@ -161,6 +170,9 @@
 </head>
 <body>
     <meta charset="UTF-8">
+    <div>
+        <img src="\uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image" >
+    </div>
 
 
     <div class="container-fluid mt-10">
