@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-    <%@include file="../includes/header.jsp"%>
+<%@include file="/includes/header.jsp"%>
     
 <section class="d-flex justify-content-center align-items-center">
     <div>
@@ -71,7 +71,7 @@
             <h5>${fn:escapeXml(product.name)}</h5>
             <p class="card-text">${fn:escapeXml(product.description)}</p>
             <p>${product.price}$</p>
-            <a href="/products/product.jsp?id=${product.productId}" class="custom-btn">Buy Now</a>
+            <a href="/products/product.jsp?id=${product.productId}" class="card-button">Buy Now</a>
           </div>
         </div>
       </c:forEach>
