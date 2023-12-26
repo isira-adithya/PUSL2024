@@ -78,15 +78,12 @@
     
 
     <main>
-        <h1>Help And Support</h1>
-        <p>Contact Info</p>
+        <h3>Contact Info</h3>
         <br>
         
-         <img src ="/uploads/images/contactus/PhoneCall.jpg" width="40px" style="margin-right:20px;"> <b>Phone:</b> +94701234561 , +94701234562 <br>
-         <img src ="/uploads/images/contactus/Email.png" width="40px" style="margin-right:20px;"> <b>Email:</b> support@greensupermarket.com
+         <img src ="/uploads/images/contactus/PhoneCall.jpg" width="32px" style="margin-right:15px; margin-bottom: 10px;"> <b>Phone:</b> <a href="tel:+94701234561">+94701234561</a> , <a href="tel:+94701234562">+94701234562</a> <br>
+         <img src ="/uploads/images/contactus/Email.png" width="32px" style="margin-right:15px;"> <b>Email:</b> <a href="mailto:support@greensupermarket.com">support@greensupermarket.com</a>
         <br>
-        <br>
-        <h4><i>Welcome to Green Supermarket's Help & Support page.</i></h4>
         <br>
         <br>
         <h3>Frequently Asked Questions (FAQs)</h3>
