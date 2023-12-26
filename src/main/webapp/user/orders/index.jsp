@@ -134,7 +134,7 @@
                     <div
                             style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
 
-                        <img src="/uploads/images/profile/orderhistory.jpg" style="width:20px; height:20px;">
+                        <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
 
                     </div>
                     <div
