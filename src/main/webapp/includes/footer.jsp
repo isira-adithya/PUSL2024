@@ -108,10 +108,10 @@
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
-                        <h6 class=" mb-4 font-weight-bold"><br><br><br>Helps</h6>
+                        <h6 class=" mb-4 font-weight-bold"><br><br><br>Help and Support</h6>
                         <p><a class="paracolor mb-3.5 d-block" href="/contact-us.jsp">Contact Us</a></p>
                         <p><a class="paracolor mb-3.5 d-block" href="/about-us.jsp">About Us</a></p>
-                        <p><a class="paracolor mb-3.5 d-block" href="/products/">Products</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/support.jsp">FAQ & Support</a></p>
                     </div>
                     <!-- Grid column -->
 
