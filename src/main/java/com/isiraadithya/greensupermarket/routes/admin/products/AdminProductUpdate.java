@@ -43,7 +43,7 @@ public class AdminProductUpdate extends HttpServlet {
             productDescription = req.getParameter("productDescription");
             productShortDescription = req.getParameter("productShortDescription");
 
-            if (req.getPart("imageFile") != null){
+            if (req.getPart("imageFile").getSize() != 0){
                 shouldUpdateImage = true;
             }
 

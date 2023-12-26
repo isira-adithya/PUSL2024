@@ -120,6 +120,10 @@
             height: 32px;
         }
 
+        .not-found-img {
+            width: 500px;
+        }
+
         @media (max-width: 768px) {
             .main-container {
                 flex-direction: column;
@@ -129,6 +133,10 @@
             .cart-container {
                 margin: 10px;
                 height: auto; /* Set auto height for smaller screens */
+            }
+
+            .not-found-img {
+                width: 300px;
             }
         }
 
@@ -171,8 +179,11 @@
     
     <center><h1 style="font-size:50px">My Shopping Cart</h1></center>
     <c:if test="${isCartEmpty}">
-        <p>Your cart is empty</p>
-        <a href="/products">Visit Our Products</a>
+        <div class="align-items-center text-center justify-content-center my-5">
+            <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
+            <h3>Your cart is empty</h3>
+            <a href="/products">Visit Our Products</a>
+        </div>
     </c:if>
     <c:if test="${!isCartEmpty}">
     <div class="main-container">
