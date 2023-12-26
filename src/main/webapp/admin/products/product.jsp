@@ -5,6 +5,7 @@
   Time: 11:58 PM
 --%>
 <%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Analytics" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Comment" %>
 <%@include file="../includes/variables.jsp"%>

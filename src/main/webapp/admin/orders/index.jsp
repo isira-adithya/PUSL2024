@@ -7,7 +7,7 @@
   Time: 5:39 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../includes/variables.jsp"%>
+<%@include file="/includes/variables.jsp"%>
 <%
     List<Order> orders = Order.getOrders();
     pageContext.setAttribute("orders", orders);
@@ -17,11 +17,14 @@
     <title>Manage Orders</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
+body {
+    text-align: center;
+}
 
 table {
-    width: 100%;
+    width: 80%;
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;  
 }
@@ -39,48 +42,73 @@ th {
     font-size: 17px;
     
 }
-.custom-btn {
-            display: inline-block;
-            margin: 10px;
-            padding: 8px 15px;
-            text-decoration: none;
-            color: #ffffff;
-            background-color: #00B207;
-            border: none;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
-            font-size: 14px;
-        }
 
-        .custom-btn:hover {
-            background-color: #666666;
-            color: #ffffff;
-            text-decoration: none;
-        }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+#submitBtn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 150px;
+ }
+ 
+.submitBtn {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 150px;
+}
+.Add-new-button{
+    padding: 10px 15px;
+    font-size: 23px;
+    background-color: #00B207; /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 800px;
+}
+.icon{
+    width:30px;
+    height:30px;
+}
 
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
-
-    
-<div class="container">
-    <div class="row justify-content-center mt-5">
-        <div class="col-lg-12">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Placed at</th>
-                        <th>Total</th>
-                        <th>Order Status</th>
-                        <th>Operations</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                     <c:forEach items="${orders}" var="order">
+    <div>
+        
+        <br><br><br><br>
+        <table>
+            <thead>
+            <tr>
+                 <th>Order ID</th>
+                 <th>Customer</th>
+                 <th>Placed at</th>
+                 <th>Total</th>
+                 <th>Order Status</th>
+                 <th>Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+             <c:forEach items="${orders}" var="order">
                 <tr>
                     <%
                         Order order = (Order) pageContext.getAttribute("order");
@@ -93,20 +121,18 @@ th {
                     <td>${fn:escapeXml(order.amount)} USD</td>
                     <td>${fn:escapeXml(order.orderStatus)}</td>
                     <td>
-                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="custom-btn">View Order</button></a>
-                         <form method="post" action="/api/admin/orders/delete">
+                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="submitBtn">View Order</button></a>
+                        <form method="post" action="/api/admin/orders/delete"><br>
                             <input type="hidden" name="orderId" value="${order.orderId}">
-                            <input type="submit" value="Delete Order"class="custom-btn">
+                            <input id="submitBtn" type="submit" value="Delete Order">
                         </form>
                     </td>
                 </tr>
             </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            </tbody>
+        </table><br><br><br><br>
     </div>
-</div>
+    
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

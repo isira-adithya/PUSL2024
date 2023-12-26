@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-    <%@include file="../includes/header.jsp"%>
+<%@include file="/includes/header.jsp"%>
     
 <section class="d-flex justify-content-center align-items-center">
     <div>

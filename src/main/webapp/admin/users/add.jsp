@@ -4,7 +4,7 @@
   Date: 12/9/2023
   Time: 11:58 PM
 --%>
-<%@include file="../includes/variables.jsp"%>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     pageContext.setAttribute("userId", session.getAttribute("userId"));

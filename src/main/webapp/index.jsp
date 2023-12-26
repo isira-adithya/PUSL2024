@@ -86,7 +86,7 @@
                 <div class="col-md-6 home-land-text">
                     Fresh & Healthy <br> Organic Food
                     <br>
-                    <a href="/products" class="custom-btn">Shop Now</a>
+                    <a href="/products" class="card-button">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
                             <img src="<%= XSSPreventor.encodeToHtmlEntities(products.get(i).getImage()) %>" alt="Product Image" class="img-fluid mb-3 card-img" style="height: 191px;width: 191px;">
                             <h5><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></h5>
                             <p><%= products.get(i).getPrice() %>$</p>
-                            <a href="/products/product.jsp?id=<%= products.get(i).getProductId() %>" class="custom-btn">Buy Now</a>
+                            <a href="/products/product.jsp?id=<%= products.get(i).getProductId() %>" class="card-button">Buy Now</a>
                         </div>
                     </div>
                 <% } %>
