@@ -3,58 +3,46 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : Dec 26, 2023, 9:12:19 AM
+    Created on : Dec 19, 2023, 2:54:38 PM
     Author     : nesit
 */
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Card styling */
-.custom-card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Image styling */
-.custom-card img {
-  border-radius: 8px;
-}
-
-/* Title styling */
-.custom-card h5 {
-  font-size: 1.2em;
-  margin-top: 10px;
-}
-
-/* Description styling */
-.custom-card p.card-text {
-  color: #555;
-}
-
-/* Price styling */
-.custom-card p {
-  font-weight: bold;
-  color: #007bff; /* Change color as needed */
-}
-
-/* Button styling */
-.card-button {
+.custom-btn {
   display: inline-block;
-  padding: 8px 16px;
-  margin-top: 10px;
+  margin: 10px;
+  padding: 8px 15px;
   text-decoration: none;
-  color: #fff;
-  background-color: #007bff; /* Change color as needed */
-  border-radius: 4px;
+  color: #ffffff;
+  background-color: #00B207;
+  border: none;
+  border-radius: 20px;
   transition: background-color 0.3s ease;
+  font-size: 14px;
 }
 
-.card-button:hover {
-  background-color: #0056b3; /* Change color as needed */
+.custom-btn:hover {
+  background-color: #666666;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-box {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0px;
+}
+
+.custom-card {
+  border: 2px solid #00B207;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 10px;
+  text-align: center;
+}
+
+.card-img{
+  height: 191px;
+  width: 191px;
 }
