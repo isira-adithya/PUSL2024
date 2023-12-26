@@ -34,6 +34,7 @@
             border: 1px solid #e9e9e9;
             border-radius: 5px;
             margin-top: 20px;
+            margin-bottom: 35px;
             
            
         }
@@ -56,7 +57,7 @@
     <%@include file="includes/header.jsp"%>
     
      <div>
-        <img src="uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image">
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
     <h2><center><b>Create Account</b></center></h2>
 

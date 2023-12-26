@@ -1,3 +1,6 @@
+<%@ page import="com.isiraadithya.greensupermarket.models.Analytics" %>
+<%@ page import="java.util.Map" %>
+<%@include file="../includes/variables.jsp"%>
 <%--
   Created by IntelliJ IDEA.
   User: @isira_adithya
@@ -5,7 +8,11 @@
   Time: 11:12 PM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/includes/variables.jsp"%>
+<%
+    Analytics analyticsObj = new Analytics(150);
+    Map<String, Double> analytics = analyticsObj.getSalesByProduct();
+    pageContext.setAttribute("analytics", analytics);
+%>
 <html>
 <head>
     <title>Analytics - GreenSuperMarket</title>
@@ -16,10 +23,18 @@
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
+<code>
+    <c:forEach var="analyticObj" items="${analytics}">
+        <pre>
+            Key is ${analyticObj.key}
+            Value is ${analyticObj.value}
+        </pre>
+    </c:forEach>
+</code>
 <div class="container">
     <h1 class="text-center mt-4">Online Shopping Platform Data</h1>
 
-    <div class="row mt-4">
+    <div class="row my-4">
 
         <!-- Container for Bar Chart -->
         <div class="col-md-6">

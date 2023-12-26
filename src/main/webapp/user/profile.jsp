@@ -9,11 +9,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String role = (String) session.getAttribute("role");
-    if (role.equals("ADMIN")){
-        response.sendRedirect("/admin/index.jsp");
-        return;
-    }
-
     String user_email = (String) session.getAttribute("email");
     User currentUser = User.findUserByEmail(user_email);
     pageContext.setAttribute("currentUser", currentUser);
@@ -266,7 +261,7 @@
             const inputTags = document.getElementsByTagName("input")
             for (let i = 0; i < inputTags.length; i++) {
                 const inputTag = inputTags[i];
-                if (inputTag.name == "email"){
+                if (inputTag.name === "email"){
                     continue
                 }
                 inputTag.disabled = !isEditMode;
@@ -286,7 +281,7 @@
                 fetch("/api/user/delete", {
                     method: "DELETE"
                 }).then(res => {
-                    if(res.status == 200){
+                    if(res.status === 200){
                         document.location.href = "/logout.jsp";
                     }
                 }).catch(err => {

@@ -15,8 +15,18 @@ public class CommentAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int productId = -1;
+        int starCount = 0;
         int userId = (int) req.getSession().getAttribute("userId");
         Product product;
+
+        // Star Validation
+        if (req.getParameterMap().containsKey("star")){
+            try {
+                starCount = Integer.parseInt(req.getParameter("star"));
+            } catch (NumberFormatException ex){
+                starCount = 0;
+            }
+        }
 
 //        Product ID Validation
         if (req.getParameterMap().containsKey("productId")){
@@ -43,7 +53,7 @@ public class CommentAdd extends HttpServlet {
 
 
 //        Adding the comment
-        Comment newComment = new Comment(userId, productId, req.getParameter("comment"));
+        Comment newComment = new Comment(userId, productId, req.getParameter("comment"), starCount);
         newComment.saveComment();
         resp.sendRedirect("/products/product.jsp?id=" + String.valueOf(productId));
 

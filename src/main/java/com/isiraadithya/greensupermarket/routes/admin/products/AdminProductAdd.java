@@ -20,11 +20,13 @@ public class AdminProductAdd extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productName = "";
         String productDescription = "";
+        String productShortDescription = "";
         double productPrice = -1;
         int productQuantity = -1;
+        boolean productVisibility = false;
 
         try {
-            String[] verifyThese = {"productName","productDescription","productPrice","productQuantity"};
+            String[] verifyThese = {"productName","productDescription","productPrice","productQuantity","productShortDescription"};
             for (int i = 0; i < verifyThese.length; i++){
                 if (req.getParameter(verifyThese[i]) == null){
                     resp.setStatus(400);
@@ -37,6 +39,8 @@ public class AdminProductAdd extends HttpServlet {
             productPrice = Double.parseDouble(req.getParameter("productPrice"));
             productName = req.getParameter("productName");
             productDescription = req.getParameter("productDescription");
+            productShortDescription = req.getParameter("productShortDescription");
+
 
             if (req.getPart("imageFile") == null){
                 resp.setStatus(400);
@@ -44,7 +48,7 @@ public class AdminProductAdd extends HttpServlet {
             }
 
             // Creating a new product
-            Product product = new Product(productName, productDescription, "",productPrice, productQuantity);
+            Product product = new Product(productName, productDescription, productShortDescription, "NULL", productPrice, productQuantity, productVisibility);
 
             // Let's make sure that the dir is accessible
             String productImageUploadDirPath = req.getServletContext().getRealPath("/uploads/images/products/");

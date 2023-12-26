@@ -5,13 +5,11 @@
   Time: 6:34 PM
 --%>
 <%@include file="/includes/variables.jsp"%>
-<%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Order" %>
 <%@ page import="java.sql.Timestamp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int orderId = -1;
-    int userId = (int) session.getAttribute("userId");
     if (request.getParameterMap().containsKey("id")){
         try {
             orderId = Integer.parseInt(request.getParameter("id"));

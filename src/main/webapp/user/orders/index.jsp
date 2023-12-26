@@ -110,23 +110,23 @@
     <div class="row">
         <div class="col-md-3">
             <div
-                    style="width: 312px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    style="width: 220px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                 <div
                         style="padding-top: 24px; padding-bottom: 16px; padding-left: 20px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                     <div
                             style="color: #1A1A1A; font-size: 20px; font-family: Poppins; font-weight: 500; line-height: 30px; word-wrap: break-word">
-                        Navigation</div>
+                        <b>Navigation</b></div>
                 </div>
                 <div
                         style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                     <div
                             style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
 
-                        <img src="/uploads/images/profile/editprofile.jpg" style="width:20px; height:20px;">
+                        <img src="/uploads/images/profile/Edit.png" style="width:20px; height:20px;">
 
                     </div>
                     <div
-                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;"  onclick="location.href = '/user/profile.jsp'" >
+                            style="width: 238px; color:#666666 ; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;"  onclick="location.href = '/user/profile.jsp'" >
                         Edit Profile</div>
                 </div>
                 <div
@@ -134,11 +134,11 @@
                     <div
                             style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
 
-                        <img src="/uploads/images/profile/orderhistory.jpg" style="width:20px; height:20px;">
+                        <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
 
                     </div>
                     <div
-                            style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
+                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
                         Order History</div>
                 </div>
                 <div

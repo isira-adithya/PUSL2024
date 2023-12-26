@@ -46,7 +46,7 @@ public class Cart {
     }
 
     public boolean deleteProduct(int productId){
-        Product product = new Product("NULL", "NULL", "NULL", 0, 0);
+        Product product = new Product("NULL", "NULL", "NULL", "NULL", 0, 0, false);
         int quantity = 0;
         for(Map.Entry<Product, Integer> entry: this.productQuantities.entrySet()){
             Product _product = entry.getKey();

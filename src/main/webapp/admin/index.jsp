@@ -1,4 +1,4 @@
-<%@include file="/includes/variables.jsp"%>
+<%@include file="includes/variables.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,9 @@
 </head>
 <body>
 <%@include file="includes/header.jsp"%>
-    Admin Content Here
 <%@include file="includes/footer.jsp"%>
+<%
+    response.sendRedirect("/admin/products");
+%>
 </body>
 </html>

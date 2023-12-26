@@ -35,7 +35,7 @@ CREATE TABLE Users (
 );
 CREATE TABLE Products (
     productid INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    name VARCHAR(256) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     quantity INT NOT NULL,
     description VARCHAR(8196),
@@ -58,6 +58,7 @@ CREATE TABLE OrderDetails (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
     orderid INT,
     productid INT,
+    productname VARCHAR(256) NOT NULL,
     quantity INT NOT NULL,
     subtotal DECIMAL(10, 2) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -69,6 +70,7 @@ CREATE TABLE Comments (
       userid INT,
       productid INT,
       content VARCHAR(256),
+      starcount INT,
       createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE,
       FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
@@ -90,16 +92,16 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL', TIMESTAMP('2023-07-15', '09:12:55'));
 
 INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
-(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', false, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
-(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', false, '',TIMESTAMP('2023-06-16', '12:05:30')),
-(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', false, '',TIMESTAMP('2023-06-16', '13:06:09')),
-(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', false, '',TIMESTAMP('2023-06-17', '08:10:11')),
-(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', false, '',TIMESTAMP('2023-06-17', '14:10:30')),
-(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', false, '',TIMESTAMP('2023-06-19', '15:02:24')),
-(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', false, '',TIMESTAMP('2023-06-21', '13:38:19')),
-(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', false, '',TIMESTAMP('2023-06-21', '11:07:27')),
-(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', false, '',TIMESTAMP('2023-06-22', '12:05:12')),
-(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', false, '',TIMESTAMP('2023-06-14', '19:25:52'));
+(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', true, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
+(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', true, '',TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', true, '',TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', true, '',TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', true, '',TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '',TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
 
 INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery_status, createdAt) VALUES
 (1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '12:15:55')),
@@ -113,24 +115,24 @@ INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery
 (9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-06', '13:19:23')),
 (10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
 
-INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, subtotal) VALUES
-(1, 1, 1, 2, 1999.98),
-(2, 1, 2, 1, 599.99),
-(3, 3, 3, 3, 239.97),
-(4, 2, 4, 1, 399.99),
-(5, 5, 5, 1, 1499.99),
-(6, 6, 6, 2, 599.98),
-(7, 1, 7, 4, 799.96),
-(8, 1, 8, 1, 49.99),
-(9, 2, 9, 3, 1499.97),
-(10, 2, 10, 2, 159.98);
+INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
+(1, 1, 1, 2, 'Smartphone', 1999.98),
+(2, 1, 2, 1, 'Laptop', 599.99),
+(3, 3, 3, 3, 'Headphones', 239.97),
+(4, 2, 4, 1, 'Laptop', 399.99),
+(5, 5, 5, 1, 'Laptop', 1499.99),
+(6, 6, 6, 2, 'Smartphone', 599.98),
+(7, 1, 7, 4, 'Tablet', 799.96),
+(8, 1, 8, 1, 'Laptop', 49.99),
+(9, 2, 9, 3, 'Headphones', 1499.97),
+(10, 2, 10, 2, 'Smartphone', 159.98);
 
-INSERT INTO Comments (commentid, userid, productid, content, createdAt) VALUES
-    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', TIMESTAMP('2023-07-17', '12:13:41')),
-    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.',TIMESTAMP('2023-07-17', '11:23:42')),
-    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive', TIMESTAMP('2023-08-15', '12:23:45')),
-    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.', TIMESTAMP('2023-07-19', '12:30:52')),
-    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.', TIMESTAMP('2023-08-15', '14:29:42')),
-    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!', TIMESTAMP('2023-07-13', '10:25:22'))
+INSERT INTO Comments (commentid, userid, productid, content, starcount, createdAt) VALUES
+    (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', 4, TIMESTAMP('2023-07-17', '12:13:41')),
+    (2, 3, 1, 'Highly recommend this store! The user interface is intuitive, making the shopping experience enjoyable.', 5,  TIMESTAMP('2023-07-17', '11:23:42')),
+    (3, 5, 5, 'Exceptional value for money. Comparable products on other sites are much more expensive', 3, TIMESTAMP('2023-08-15', '12:23:45')),
+    (4, 6, 4, 'The customer support team is fantastic. They promptly addressed my queries and provided helpful assistance.', 4, TIMESTAMP('2023-07-19', '12:30:52')),
+    (5, 7, 3, 'I love the design of this product. It''s not only functional but also aesthetically pleasing.', 2, TIMESTAMP('2023-08-15', '14:29:42')),
+    (6, 1, 1, 'Fast and reliable shipping. Received my order sooner than expected. Great service!', 3, TIMESTAMP('2023-07-13', '10:25:22'))
 
 

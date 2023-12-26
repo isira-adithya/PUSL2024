@@ -59,6 +59,10 @@
                 <input type="text" class="form-control" id="productName" name="productName">
             </div>
             <div class="mb-3">
+                <label for="productDescription" class="form-label"><b>Product Short Description:</b></label>
+                <textarea class="form-control" id="productShortDescription" name="productShortDescription"></textarea>
+            </div>
+            <div class="mb-3">
                 <label for="productDescription" class="form-label"><b>Product Description:</b></label>
                 <textarea class="form-control" id="productDescription" name="productDescription"></textarea>
             </div>
