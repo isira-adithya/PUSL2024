@@ -98,7 +98,7 @@
  <div>
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
-  <div class="cart-container">
+  <div class="cart-container my-5">
     <center><h2>Order ID ${order.orderId}</h2></center>
     <table>
         <thead>
@@ -175,11 +175,17 @@
         
         <div class="buttons">
         <div class="row text-center">
-                <div class="col-sm-5 col-md-6">
-                    <input type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207" value="Pay">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207">Pay 💵</button>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-">
-                    <input type="button" class="btn btn-primary custom-button" onclick="location.href ='/user/orders/'" style="background-color:#00B207" value="Go Back">
+                <div class="col-4">
+                    <form id="cancelForm" method="post" action="/api/user/orders/cancel">
+                        <input type="hidden" name="orderId" value="${order.orderId}">
+                    </form>
+                    <button onclick="if (confirm('Are you sure?')) {document.getElementById('cancelForm').submit()}" class="btn btn-danger">Cancel</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-primary custom-button" onclick="location.href ='/user/orders/'">Go Back</button>
                 </div>
             </div>
         <br><br>
