@@ -191,8 +191,8 @@
                                         <td>${order.amount}</td>
                                         <td>
                                             <c:choose>
-                                                <c:when test="${order.orderStatus.equals('EXPIRED')}">
-                                                    <p style="color:red;">EXPIRED</p>
+                                                <c:when test="${order.orderStatus.equals('CANCELLED')}">
+                                                    <p style="color:red;">CANCELLED</p>
                                                 </c:when>
                                                 <c:when test="${order.orderStatus.equals('PENDING')}">
                                                     <p style="color:blue;">PENDING</p>

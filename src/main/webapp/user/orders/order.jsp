@@ -124,7 +124,7 @@
             <c:if test="${order.orderStatus.equals('COMPLETED')}">
                 <td><b>Sub Total:</b></td>
             </c:if>
-            <c:if test="${order.orderStatus.equals('PENDING') || order.orderStatus.equals('EXPIRED')}">
+            <c:if test="${order.orderStatus.equals('PENDING') || order.orderStatus.equals('CANCELLED')}">
                 <td><b>Total:</b></td>
             </c:if>
             <td><b>$${order.amount}</b></td>
@@ -159,12 +159,12 @@
             </b>
         </c:if>
         <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
-        <c:if test="${order.orderStatus.equals('EXPIRED')}">
-            <i style="color: red;">EXPIRED</i>
+        <c:if test="${order.orderStatus.equals('CANCELLED')}">
+            <i style="color: red;">CANCELLED</i>
             <br>
             <b>
                 <small>
-                    Unfortunately, your order has been expired. Please reorder the items again by visiting <a href="/products/">here</a> .
+                    Unfortunately, your order has been cancelled. Please reorder the items again by visiting <a href="/products/">here</a> .
                 </small>
             </b>
         </c:if>

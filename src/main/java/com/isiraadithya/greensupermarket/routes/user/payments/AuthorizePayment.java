@@ -30,8 +30,8 @@ public class AuthorizePayment extends HttpServlet {
             return;
         }
 
-        // Checking if the order is expired
-        if (order.getOrderStatus().equals("EXPIRED")){
+        // Checking if the order is cancelled
+        if (order.getOrderStatus().equals("CANCELLED")){
             resp.sendRedirect("/user/orders/");
             return;
         }
