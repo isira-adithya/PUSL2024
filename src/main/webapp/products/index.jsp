@@ -59,7 +59,7 @@
 <section >  
   <div class="container mt-4"> 
     <div class="row">
-        <c:if test="${products.size() > 0}">
+      <c:if test="${products.size() > 0}">
             <c:forEach items="${products}" var="product">
                 <c:if test="${product.visibility}">
                     <div class="col-lg-3 col-md-4 col-sm-6">
