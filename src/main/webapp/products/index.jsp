@@ -72,7 +72,8 @@
                       <h5>${fn:escapeXml(product.name)}</h5>
                       <p class="card-text">${fn:escapeXml(product.shortDescription)}</p>
                       <p>${product.price}$</p>
-                      <a href="/products/product.jsp?id=${product.productId}" class="card-button">Buy Now</a>
+                      <a href="/products/product.jsp?id=${product.productId}" class="btn btn-primary" style="background-color:#00B207">Buy</a>
+                       
                   </div>
               </div>
           </c:if>
