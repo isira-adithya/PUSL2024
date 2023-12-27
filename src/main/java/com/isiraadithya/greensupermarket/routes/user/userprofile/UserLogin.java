@@ -32,7 +32,11 @@ public class UserLogin extends HttpServlet {
                     if (userObj.getRole().equals("ADMIN")){
                         resp.sendRedirect("/admin/index.jsp");
                     } else {
-                        resp.sendRedirect("/");
+                        if (userObj.isEmailVerified()){
+                            resp.sendRedirect("/");
+                        } else {
+                            resp.sendRedirect("/user/email-verification.jsp");
+                        }
                     }
                 } else {
                     resp.sendRedirect("/login.jsp?err=Invalid Username or Password");
