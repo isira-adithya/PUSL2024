@@ -13,7 +13,7 @@
     
 
     <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <a href="/">
+        <a href="/" style="text-decoration:none">
             <div class="navbar-brand d-flex" style="margin: 0px;">
                 <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
                 <span>GreenSuperMarket</span>
@@ -64,6 +64,9 @@
 </nav>
 
 <style>
+    a:hover {
+        text-decoration: none;
+}
     .form-control {
        
         font-weight: bold;
@@ -130,7 +133,7 @@
                 margin: 0 10px 10px 0; /* Adjust margin for better spacing */
             }
         }
-
+        
   
 
 </style>
