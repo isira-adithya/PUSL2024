@@ -109,7 +109,7 @@ public class Order {
         for(Map.Entry<Product, Integer> entry: this.cartObj.getProductQuantities().entrySet()){
             Product _product = entry.getKey();
             int _quantity = entry.getValue();
-            OrderDetail orderDetail = new OrderDetail(this.orderId, _product.getProductId(), _quantity, (_product.getPrice() * _quantity));
+            OrderDetail orderDetail = new OrderDetail(this.orderId, _product.getProductId(), _product.getName(), _quantity, (_product.getPrice() * _quantity));
             orderDetail.saveOrderDetail();
         };
     }
