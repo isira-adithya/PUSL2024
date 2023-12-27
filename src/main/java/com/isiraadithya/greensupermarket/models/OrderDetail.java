@@ -73,7 +73,7 @@ public class OrderDetail {
     public boolean saveOrderDetail(){
         try {
             Connection dbconn = Database.connect();
-            String query = "INSERT INTO OrderDetails(orderid, productid, productname, quantity, subtotal) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO OrderDetails(orderid, productid, productname, quantity, subtotal) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setInt(1, this.orderId);
             sqlStatement.setInt(2, this.product.getProductId());

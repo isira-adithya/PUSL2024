@@ -73,9 +73,10 @@ public class PaymentServices {
             redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
             redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
             System.out.println("[DEV] Environment Detected; Using http://localhost:9090/user/ for Paypal Payment Handling.");
+        } else {
+            redirectUrls.setCancelUrl("https://www.greensupermarket.live/user/orders/");
+            redirectUrls.setReturnUrl("https://www.greensupermarket.live/user/payments/review.jsp?orderid="+order.getOrderId());
         }
-        redirectUrls.setCancelUrl("https://www.greensupermarket.live/user/orders/");
-        redirectUrls.setReturnUrl("https://www.greensupermarket.live/user/payments/review.jsp?orderid="+order.getOrderId());
 
         return redirectUrls;
     }
