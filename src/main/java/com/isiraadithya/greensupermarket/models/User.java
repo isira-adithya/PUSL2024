@@ -185,7 +185,12 @@ public class User {
         if (plainTextPassword.equals(password)){
             isCorrect = true;
         } else {
-            isCorrect = BCrypt.checkpw(plainTextPassword, password);
+            try {
+                isCorrect = BCrypt.checkpw(plainTextPassword, password);
+            } catch (IllegalArgumentException ex){
+                isCorrect = false;
+            }
+
         }
         return isCorrect;
     }
