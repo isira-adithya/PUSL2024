@@ -12,13 +12,14 @@
 <nav class="navbar --bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
     
 
-    <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <a href="/" style="text-decoration:none;">
-            <div class="navbar-brand d-flex" style="margin: 0px;">
-                <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
-                <span>GreenSuperMarket</span>
-            </div>
-        </a>
+   <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
+  <a href="/" style="text-decoration: none;"> <div class="navbar-brand d-flex" style="margin: 0px;">
+      <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
+      <span>GreenSuperMarket</span>
+    </div>
+  </a>
+</div>
+
           
         <div>
             <c:if test="${isLoggedIn}">
@@ -115,5 +116,8 @@
         margin: 0 10px 10px 0; 
         }
     }
+    a:hover {
+  text-decoration: none;
+}
         
 </style>
