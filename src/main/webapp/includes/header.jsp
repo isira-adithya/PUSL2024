@@ -14,9 +14,13 @@
                 <span>GreenSuperMarket</span>
             </div>
         </a>
-        <form class="custom-input-group" style="margin: 0px;" action="/products/">
-            <input class="form-control custom-no-outline" name="searchQuery" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
-            <button class="me-0 custom-search-button" type="submit">Search</button>
+        <form class="custom-input-group d-flex" style="margin: 0px;" action="/products/">
+            <div class="input-group">
+                <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                <div class="input-group-append">
+                    <button class="btn custom-search-button" type="submit">Search</button>
+                </div>
+            </div>
         </form>
         <div>
             <c:if test="${isLoggedIn}">
@@ -50,6 +54,7 @@
 </nav>
 
 <style>
+    
     .custom-form-control {
         font-weight: bold;
         font-size: 15px;
@@ -83,7 +88,10 @@
         border: none;
         padding: 8px;
     }
-    
+    .custom-search-button:hover{
+        background-color: #666666;
+        color:#ffffff;
+    }
     .custom-nav-icons {
         margin-right: 2.5rem;
     }
@@ -112,7 +120,7 @@
     }
     
     .custom-nav-item {
-        margin-right: 15px;
+        margin-right: 55px;
     }
     
     .custom-nav-link {
@@ -127,6 +135,7 @@
         }
 
         .custom-nav-item {
+            display: flex;
             margin: 0 10px 10px 0;
         }
     }
