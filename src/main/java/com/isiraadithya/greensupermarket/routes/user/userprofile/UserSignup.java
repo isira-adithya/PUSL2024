@@ -42,7 +42,7 @@ public class UserSignup extends HttpServlet {
                 System.out.println(ex.getMessage());
                 return;
             }
-            resp.sendRedirect("/login.jsp?msg=Successful");
+            resp.sendRedirect("/login.jsp?msg=Your account is created!");
             return;
         } else {
             resp.sendRedirect("/login.jsp?err=Email Exists in our database");
