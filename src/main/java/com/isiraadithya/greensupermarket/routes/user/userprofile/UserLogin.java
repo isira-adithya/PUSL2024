@@ -28,6 +28,7 @@ public class UserLogin extends HttpServlet {
                     session.setAttribute("userId", userObj.getUserId());
                     session.setAttribute("role", userObj.getRole());
                     session.setAttribute("cart", userCart);
+                    session.setAttribute("isEmailVerified", userObj.isEmailVerified());
                     if (userObj.getRole().equals("ADMIN")){
                         resp.sendRedirect("/admin/index.jsp");
                     } else {
