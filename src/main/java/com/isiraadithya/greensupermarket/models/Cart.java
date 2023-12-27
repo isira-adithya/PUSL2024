@@ -33,6 +33,7 @@ public class Cart {
     }
 
     public boolean addProduct(Product product, int quantity){
+        // FIXME
         try {
             this.productQuantities.put(product, quantity);
             this.totalCost += (product.getPrice() * quantity);
