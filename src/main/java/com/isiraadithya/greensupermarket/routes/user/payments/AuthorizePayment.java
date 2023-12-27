@@ -38,11 +38,9 @@ public class AuthorizePayment extends HttpServlet {
 
         try {
             PaymentServices paymentServices = new PaymentServices();
-            System.out.println("[DEBUG] /api/user/payments/authorize_payment D1");
             paymentServices.setOrder(order);
-            System.out.println("[DEBUG] /api/user/payments/authorize_payment D2");
+            // DEBUG
             String approvalLink = paymentServices.authorizePayment();
-            System.out.println("[DEBUG] /api/user/payments/authorize_payment D3");
             resp.sendRedirect(approvalLink);
         } catch (Exception ex){
             System.out.println("[ERR] /api/user/payments/authorize_payment " + ex.getMessage());

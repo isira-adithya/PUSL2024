@@ -38,18 +38,22 @@ public class PaymentServices {
     public String authorizePayment()
             throws PayPalRESTException {
 
+        System.out.println("[DEBUG] PaymentServices.authorizePayment: D1");
         Payer payer = getPayerInformation();
         RedirectUrls redirectUrls = getRedirectURLs();
-
+        System.out.println("[DEBUG] PaymentServices.authorizePayment: D2");
         List<Transaction> listTransaction = getTransactionInformation(this.order);
-
         Payment requestPayment = new Payment();
+        System.out.println("[DEBUG] PaymentServices.authorizePayment: D3");
         requestPayment.setTransactions(listTransaction);
         requestPayment.setRedirectUrls(redirectUrls);
+        System.out.println("[DEBUG] PaymentServices.authorizePayment: D4");
         requestPayment.setPayer(payer);
         requestPayment.setIntent("authorize");
+        System.out.println("[DEBUG] PaymentServices.authorizePayment: D5");
         APIContext apiContext = new APIContext(CLIENT_ID, CLIENT_SECRET, MODE);
         Payment approvedPayment = requestPayment.create(apiContext);
+        System.out.println("[DEBUG] PaymentServices.authorizePayment: D6");
         return getApprovalLink(approvedPayment);
     }
 
@@ -69,7 +73,13 @@ public class PaymentServices {
 
     private RedirectUrls getRedirectURLs() {
         RedirectUrls redirectUrls = new RedirectUrls();
-        if (System.getenv("JSP_DEV").equals("TRUE")){
+        boolean isDev = false;
+        try {
+            System.getenv("JSP_DEV").equals("TRUE")
+        } catch (Exception err){
+            isDev = false;
+        }
+        if (isDev){
             redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
             redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
             System.out.println("[DEV] Environment Detected; Using http://localhost:9090/user/ for Paypal Payment Handling.");
