@@ -5,6 +5,7 @@
   Time: 3:01 AM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/includes/variables.jsp"%>
 <html>
 <head>
     <title>Title</title>
@@ -258,7 +259,7 @@
 </head>
 <body>
     <meta charset="UTF-8">
-
+    <%@include file="includes/header.jsp"%>
       <div class="container-fluid mt-10">
         <!-- First Card (Image on the Right, Text on the Left) -->
         <div class="card custom-card mb-4">
@@ -463,6 +464,7 @@
            </a>
         </div>
     </div>
+    <%@include file="includes/footer.jsp"%>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
