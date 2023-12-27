@@ -122,10 +122,10 @@ button {
                     <td>${fn:escapeXml(order.orderStatus)}</td>
                     <td>
                         <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="submitBtn">View Order</button></a>
-                        <form method="post" action="/api/admin/orders/delete"><br>
+                        <form id="deleteOrder${order.orderId}Form" method="post" action="/api/admin/orders/delete"><br>
                             <input type="hidden" name="orderId" value="${order.orderId}">
-                            <input id="submitBtn" type="submit" value="Delete Order">
                         </form>
+                        <button onclick="if(confirm('Are you sure?')){document.getElementById('deleteOrder${order.orderId}Form').submit()}" id="submitBtn">Delete Order</button>
                     </td>
                 </tr>
             </c:forEach>
