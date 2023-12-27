@@ -39,7 +39,6 @@ public class AuthorizePayment extends HttpServlet {
         try {
             PaymentServices paymentServices = new PaymentServices();
             paymentServices.setOrder(order);
-            // DEBUG
             String approvalLink = paymentServices.authorizePayment();
             resp.sendRedirect(approvalLink);
         } catch (Exception ex){
