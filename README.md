@@ -1,15 +1,23 @@
 # GreenSuperMarket - Online E-Commerce Website
 
 ### *Todos*
-- [ ] Add Styles (CSS, Bootstrap, etc)
+- [X] Add Styles (CSS, Bootstrap, etc)
   - [ ] Add Styles to the order confirmation email
 - [ ] Make File Uploads More Secure
-- [ ] Add / Load sample data to the database
+- [X] Add / Load sample data to the database
+  - [ ] Add realistic product information
 - [X] Add Contact Us Page (Not a static HTML page)
+  - [ ] Create database tables
+  - [ ] Create a Model
+  - [ ] Create API routes
   - [ ] Finish the backend part
 - [X] Add to WishList feature
+  - [ ] Create database tables
+  - [ ] Create a Model
+  - [ ] Create API routes
   - [ ] Finish the backend part
 - [ ] Connect the Cart Model to the database (with minimal database calls)
+  - [X] Abandoned
 - [X] Remove all the secrets / sensitive information from the code; Instead use environmental variables
 - [X] Implement CSRF Protection *(Specially protect `/api/*`)*
 - [X] Connect the system to a SMTP Server
