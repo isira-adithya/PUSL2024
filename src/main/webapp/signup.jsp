@@ -7,6 +7,19 @@
 --%>
 <%@include file="/includes/variables.jsp"%>
 <%
+    String errMsg = null;
+    if (request.getParameterMap().containsKey("err")){
+        errMsg = request.getParameter("err");
+    }
+
+    String infoMsg = null;
+    if (request.getParameterMap().containsKey("msg")){
+        infoMsg = request.getParameter("msg");
+    }
+
+    pageContext.setAttribute("errMsg", errMsg);
+    pageContext.setAttribute("infoMsg", infoMsg);
+
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){
@@ -61,7 +74,7 @@
     </div>
     <h2><center><b>Create Account</b></center></h2>
 
-  <div class="sign-up">
+  <div class="sign-up my-5">
     
     <h3><center>Personal Information</center></h3>
    
@@ -140,6 +153,18 @@
         <p class="text-center mt-3">Already Have An Account? <a href="/login.jsp"  style="color: #000;">LogIn</a></p>
         
     </form>
+
+      <c:if test="${errMsg != null}">
+          <div class="alert alert-danger my-2" role="alert">
+                  ${fn:escapeXml(errMsg)}
+          </div>
+      </c:if>
+
+      <c:if test="${infoMsg != null}">
+          <div class="alert alert-success my-2" role="alert">
+                  ${fn:escapeXml(infoMsg)}
+          </div>
+      </c:if>
   </div>
     
     <%@include file="includes/footer.jsp"%>

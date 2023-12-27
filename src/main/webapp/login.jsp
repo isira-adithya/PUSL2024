@@ -10,6 +10,14 @@
         errMsg = request.getParameter("err");
     }
 
+    String infoMsg = null;
+    if (request.getParameterMap().containsKey("msg")){
+        infoMsg = request.getParameter("msg");
+    }
+
+    pageContext.setAttribute("errMsg", errMsg);
+    pageContext.setAttribute("infoMsg", infoMsg);
+
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){
@@ -18,8 +26,6 @@
             response.sendRedirect("/user/profile.jsp");
         }
     }
-
-    pageContext.setAttribute("errMsg", errMsg);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,6 +97,12 @@
             <c:if test="${errMsg != null}">
                 <div class="alert alert-danger my-2" role="alert">
                     ${fn:escapeXml(errMsg)}
+                </div>
+            </c:if>
+
+            <c:if test="${infoMsg != null}">
+                <div class="alert alert-success my-2" role="alert">
+                        ${fn:escapeXml(infoMsg)}
                 </div>
             </c:if>
             
