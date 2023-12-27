@@ -11,11 +11,11 @@
   - [ ] Finish the backend part
 - [ ] Connect the Cart Model to the database (with minimal database calls)
 - [X] Remove all the secrets / sensitive information from the code; Instead use environmental variables
-- [ ] Implement CSRF Protection *(Specially protect `/api/*`)*
+- [X] Implement CSRF Protection *(Specially protect `/api/*`)*
 - [X] Connect the system to a SMTP Server
   - [X] Send password reset emails
   - [X] Send order confirmation emails
-  - [ ] Send email verification emails (optional at the moment, but would be better)
+  - [X] Send email verification emails (optional at the moment, but would be better)
 - [X] Add the PayPal sandbox integration
 - [ ] Add better Exceptional handling, Logging and Verbose Error messages for users to see.
 - [ ] Show random featured products for every user (should check the visibility of products)

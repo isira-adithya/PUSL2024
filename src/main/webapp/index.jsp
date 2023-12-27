@@ -23,7 +23,7 @@
 
     products = Product.getProducts();
     if (products.size() <= 0){
-        response.sendRedirect("/?msg=No Products Found");
+        response.sendRedirect("/404.jsp");
         return;
     }
     pageContext.setAttribute("products", products);

@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
+import java.util.Random;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -32,22 +33,23 @@ public class User {
     private String country;
     private String postalcode;
     private String passwordResetToken;
-
+    private boolean is_email_verified;
     // Other variables
     private boolean isPasswordSet = false;
 
     public User(String _email, String _fname, String _lname, String _phone, String _street_address, String _city, String _state, String _country, String _postalcode, String _role) {
-        email = _email;
-        firstname = _fname;
-        lastname = _lname;
-        phone = _phone;
-        street_address = _street_address;
-        city = _city;
-        state = _state;
-        country = _country;
-        postalcode = _postalcode;
-        role = _role;
-        passwordResetToken = "NULL";
+        this.email = _email;
+        this.firstname = _fname;
+        this.lastname = _lname;
+        this.phone = _phone;
+        this.street_address = _street_address;
+        this.city = _city;
+        this.state = _state;
+        this.country = _country;
+        this.postalcode = _postalcode;
+        this.role = _role;
+        this.passwordResetToken = "NULL";
+        this.is_email_verified = false;
     }
 
     public int getUserId(){
@@ -105,6 +107,7 @@ public class User {
     public String getFullName() {
         return this.firstname + " " + this.lastname;
     }
+    public boolean isEmailVerified() {return this.is_email_verified;}
 
     public void setRole(String role) {
         this.role = role;
@@ -145,6 +148,9 @@ public class User {
     private void setUserId(int _uid){
         userId = _uid;
     }
+    public void setIsEmailVerified(boolean _val){
+        this.is_email_verified = _val;
+    }
 
     public void setPassword(String _newpass){
         password = BCrypt.hashpw(_newpass, BCrypt.gensalt());
@@ -175,6 +181,22 @@ public class User {
         passwordResetEmail.send();
     }
 
+    public int sendVerificationCodeEmail(){
+        Random random = new Random();
+
+        // Generate a random 6-digit number
+        int min = 100000; // Minimum value for a 6-digit number
+        int max = 999999; // Maximum value for a 6-digit number
+        int verificationCode = random.nextInt((max - min) + 1) + min;
+
+
+        String emailBody = "Hello " + this.getFullName() + ",<br>Your Email Verification Code is <b>" + verificationCode + "</b>.<br><br>GreenSuperMarket - <a href=\"https://www.greensupermarket.live/\">https://www.greensupermarket.live/</a>";
+        Email verificationCodeEmail = new Email(this.email, "Verify Your Account - GreenSuperMarket", emailBody);
+        verificationCodeEmail.send();
+
+        return verificationCode;
+    }
+
     public boolean checkPasswordResetToken(String token){
         return (token.equals(passwordResetToken));
     }
@@ -185,7 +207,12 @@ public class User {
         if (plainTextPassword.equals(password)){
             isCorrect = true;
         } else {
-            isCorrect = BCrypt.checkpw(plainTextPassword, password);
+            try {
+                isCorrect = BCrypt.checkpw(plainTextPassword, password);
+            } catch (IllegalArgumentException ex){
+                isCorrect = false;
+            }
+
         }
         return isCorrect;
     }
@@ -194,23 +221,24 @@ public class User {
         if (isPasswordSet && (userId == 0)) {
             try {
                 Connection dbconn = Database.connect();
-                String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken, is_email_verified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement sqlStatement = dbconn.prepareStatement(query);
-                sqlStatement.setString(1, email);
-                sqlStatement.setString(2, password);
-                sqlStatement.setString(3, firstname);
-                sqlStatement.setString(4, lastname);
-                sqlStatement.setString(5, phone);
-                sqlStatement.setString(6, street_address);
-                sqlStatement.setString(7, city);
-                sqlStatement.setString(8, state);
-                sqlStatement.setString(9, country);
-                sqlStatement.setString(10, postalcode);
-                sqlStatement.setString(11, role);
-                sqlStatement.setString(12, passwordResetToken);
+                sqlStatement.setString(1, this.email);
+                sqlStatement.setString(2, this.password);
+                sqlStatement.setString(3, this.firstname);
+                sqlStatement.setString(4, this.lastname);
+                sqlStatement.setString(5, this.phone);
+                sqlStatement.setString(6, this.street_address);
+                sqlStatement.setString(7, this.city);
+                sqlStatement.setString(8, this.state);
+                sqlStatement.setString(9, this.country);
+                sqlStatement.setString(10, this.postalcode);
+                sqlStatement.setString(11, this.role);
+                sqlStatement.setString(12, this.passwordResetToken);
+                sqlStatement.setBoolean(13, this.is_email_verified);
                 sqlStatement.execute();
             } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+                System.out.println("[ERR] User.saveUser(): " + ex.getMessage());
             }
         }
     }
@@ -218,7 +246,7 @@ public class User {
     public void updateUser(){
         try {
             Connection dbconn = Database.connect();
-            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=?, password=?, passwordresettoken=? WHERE email=?";
+            String query = "UPDATE Users SET firstname=?, lastname=?, phone=?, street_address=?, city=?, state=?, country=?, postalcode=?, password=?, passwordresettoken=?, is_email_verified=? WHERE email=?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query);
             sqlStatement.setString(1, firstname);
             sqlStatement.setString(2, lastname);
@@ -230,7 +258,8 @@ public class User {
             sqlStatement.setString(8, postalcode);
             sqlStatement.setString(9, password);
             sqlStatement.setString(10, passwordResetToken);
-            sqlStatement.setString(11, email);
+            sqlStatement.setBoolean(11, is_email_verified);
+            sqlStatement.setString(12, email);
             sqlStatement.execute();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -271,6 +300,7 @@ public class User {
             String _postalcode = "NULL";
             String _role = "NULL";
             String _prt = "NULL";
+            boolean _isEverified = false;
 
             while(resultSet.next()){
                 _userId = resultSet.getInt("userid");
@@ -286,11 +316,13 @@ public class User {
                 _postalcode = resultSet.getString("postalcode");
                 _role = resultSet.getString("role");
                 _prt = resultSet.getString("passwordresettoken");
+                _isEverified = resultSet.getBoolean("is_email_verified");
 
                 User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
                 _tmp.setPasswordHash(_passwordHash);
                 _tmp.setUserId(_userId);
                 _tmp.setPasswordResetToken(_prt);
+                _tmp.setIsEmailVerified(_isEverified);
                 users.add(_tmp);
             }
             Database.closeConnection();
@@ -323,7 +355,7 @@ public class User {
             String _postalcode = "NULL";            
             String _role = "NULL";
             String _prt = "NULL";
-
+            boolean _isEverified = false;
 
 
             // Process the result set
@@ -341,12 +373,14 @@ public class User {
                 _postalcode = resultSet.getString("postalcode");                
                 _role = resultSet.getString("role");
                 _prt = resultSet.getString("passwordresettoken");
+                _isEverified = resultSet.getBoolean("is_email_verified");
             }
 
             User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
             _tmp.setPasswordHash(_passwordHash);
             _tmp.setPasswordResetToken(_prt);
             _tmp.setUserId(_userId);
+            _tmp.setIsEmailVerified(_isEverified);
             return _tmp;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -377,6 +411,7 @@ public class User {
             String _postalcode = "NULL";
             String _role = "NULL";
             String _prt = "NULL";
+            boolean _isEverified = false;
 
 
 
@@ -395,12 +430,14 @@ public class User {
                 _postalcode = resultSet.getString("postalcode");
                 _role = resultSet.getString("role");
                 _prt = resultSet.getString("passwordresettoken");
+                _isEverified = resultSet.getBoolean("is_email_verified");
             }
 
             User _tmp = new User(_email, _fname, _lname, _phone, _street_address, _city, _state, _country, _postalcode, _role);
             _tmp.setPasswordHash(_passwordHash);
             _tmp.setPasswordResetToken(_prt);
             _tmp.setUserId(_userId);
+            _tmp.setIsEmailVerified(_isEverified);
             return _tmp;
         } catch (Exception e) {
             System.out.println(e.getMessage());

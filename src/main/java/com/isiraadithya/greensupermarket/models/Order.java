@@ -62,10 +62,10 @@ public class Order {
     }
 
     public String getOrderStatus() {
-        boolean isExpired = (System.currentTimeMillis() - this.dateTime.getTime()) > (1000*60*60*24);
-        if (isExpired && (!this.orderStatus.equals("COMPLETED"))){
-            if (!this.orderStatus.equals("EXPIRED")){
-                this.setOrderStatus("EXPIRED");
+        boolean isCancelled = (System.currentTimeMillis() - this.dateTime.getTime()) > (1000*60*60*24);
+        if (isCancelled && (!this.orderStatus.equals("COMPLETED"))){
+            if (!this.orderStatus.equals("CANCELLED")){
+                this.setOrderStatus("CANCELLED");
                 this.updateOrder();
             }
         }
@@ -73,7 +73,7 @@ public class Order {
     }
 
     public void setOrderStatus(String state){
-        if (state.equals("PENDING") || state.equals("COMPLETED") || state.equals("EXPIRED")){
+        if (state.equals("PENDING") || state.equals("COMPLETED") || state.equals("CANCELLED")){
             this.orderStatus = state;
         } else {
             this.orderStatus = "PENDING";
@@ -109,7 +109,7 @@ public class Order {
         for(Map.Entry<Product, Integer> entry: this.cartObj.getProductQuantities().entrySet()){
             Product _product = entry.getKey();
             int _quantity = entry.getValue();
-            OrderDetail orderDetail = new OrderDetail(this.orderId, _product.getProductId(), _quantity, (_product.getPrice() * _quantity));
+            OrderDetail orderDetail = new OrderDetail(this.orderId, _product.getProductId(), _product.getName(), _quantity, (_product.getPrice() * _quantity));
             orderDetail.saveOrderDetail();
         };
     }

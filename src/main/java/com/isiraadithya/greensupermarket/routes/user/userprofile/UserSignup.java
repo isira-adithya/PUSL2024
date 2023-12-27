@@ -26,8 +26,9 @@ public class UserSignup extends HttpServlet {
         String role = "USER";
 
 //        Input Validation
-        if ((email == "null") || (firstname == "null") || (lastname == "null") || (phone == "null") || (street_address == "null") || (city == "null") || (state == "null") || (country == "null") || (postalcode == "null") ){
+        if ((email == null) || (firstname == null) || (lastname == null) || (phone == null) || (street_address == null) || (city == null) || (state == null) || (country == null) || (postalcode == null) ){
             resp.sendRedirect("/signup.jsp?err=Invalid Data");
+            return;
         }
 
         User userObj = User.findUserByEmail(email);
@@ -39,10 +40,13 @@ public class UserSignup extends HttpServlet {
             } catch (Exception ex) {
                 resp.sendRedirect("/signup.jsp?err=Something went wrong, please try again later");
                 System.out.println(ex.getMessage());
+                return;
             }
-            resp.sendRedirect("/login.jsp?msg=Successful");
+            resp.sendRedirect("/login.jsp?msg=Your account is created!");
+            return;
         } else {
             resp.sendRedirect("/login.jsp?err=Email Exists in our database");
+            return;
         }
     }
 }

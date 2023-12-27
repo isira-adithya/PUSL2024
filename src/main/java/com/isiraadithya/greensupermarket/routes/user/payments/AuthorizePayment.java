@@ -30,8 +30,8 @@ public class AuthorizePayment extends HttpServlet {
             return;
         }
 
-        // Checking if the order is expired
-        if (order.getOrderStatus().equals("EXPIRED")){
+        // Checking if the order is cancelled
+        if (order.getOrderStatus().equals("CANCELLED")){
             resp.sendRedirect("/user/orders/");
             return;
         }
@@ -42,7 +42,7 @@ public class AuthorizePayment extends HttpServlet {
             String approvalLink = paymentServices.authorizePayment();
             resp.sendRedirect(approvalLink);
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println("[ERR] /api/user/payments/authorize_payment " + ex.getMessage());
             resp.setStatus(500);
         }
     }

@@ -23,13 +23,21 @@ public class AuthenticationFilter implements Filter {
                 return;
             }
             if (req.getSession().getAttribute("isLoggedIn") != null){
-                if(requestPath.contains("/admin/")){
-                    if (!req.getSession().getAttribute("role").equals("ADMIN")){
-                        res.sendRedirect("/login.jsp?err=Unauthorized");
+                // Checking Email Verification Status
+                if ((boolean) req.getSession().getAttribute("isEmailVerified")){
+                    if(requestPath.contains("/admin/")){
+                        if (!req.getSession().getAttribute("role").equals("ADMIN")){
+                            res.sendRedirect("/login.jsp?err=Unauthorized");
+                        }
+                    }
+                    filterChain.doFilter(servletRequest, servletResponse);
+                } else {
+                    if (requestPath.contains("/user/email-verification.jsp")){
+                        filterChain.doFilter(servletRequest, servletResponse);
+                    } else {
+                        res.sendRedirect("/user/email-verification.jsp");
                     }
                 }
-                filterChain.doFilter(servletRequest, servletResponse);
-                return;
             } else {
                 res.sendRedirect("/login.jsp?err=Unauthorized");
             }

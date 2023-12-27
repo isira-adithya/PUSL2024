@@ -116,12 +116,10 @@ button {
                     <td>${fn:escapeXml(product.price)}</td>
                     <td><center>
                         <a href="/admin/products/product.jsp?id=${product.productId}"><button class="submitBtn">Edit Product</button></a>
-                        <form method="post" action="/api/admin/products/delete"><br>
-                            
+                        <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
                             <input type="hidden" name="productId" value="${product.productId}">
-                            
-                            <input id="submitBtn" type="submit" value="Delete Product">
                         </form>
+                        <button id="submitBtn" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product</button>
                     </td>
                 </tr>
             </c:forEach>

@@ -55,6 +55,10 @@ public class AddItem extends HttpServlet {
         }
 
         Cart userCart = (Cart) req.getSession().getAttribute("cart");
+        if (userCart == null){
+            System.out.println("[WARN] Unexpected user session found without a cart. Creating a new cart with user id " + (int) req.getSession().getAttribute("userId"));
+            userCart = new Cart((int) req.getSession().getAttribute("userId"));
+        }
         userCart.addProduct(product, quantity);
         req.getSession().setAttribute("cart", userCart);
 

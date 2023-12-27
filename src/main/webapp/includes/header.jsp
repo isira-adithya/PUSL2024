@@ -56,7 +56,6 @@
 </nav>
 
 <style>
-    
     .custom-form-control {
         font-weight: bold;
         font-size: 15px;
