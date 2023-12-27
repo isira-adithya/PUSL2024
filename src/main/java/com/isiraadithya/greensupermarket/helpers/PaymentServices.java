@@ -75,10 +75,11 @@ public class PaymentServices {
         RedirectUrls redirectUrls = new RedirectUrls();
         boolean isDev = false;
         try {
-            System.getenv("JSP_DEV").equals("TRUE")
+            System.getenv("JSP_DEV").equals("TRUE");
         } catch (Exception err){
             isDev = false;
         }
+
         if (isDev){
             redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
             redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
