@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/includes/variables.jsp"%>
+<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
 <!DOCTYPE html>
 
 <html lang="en">

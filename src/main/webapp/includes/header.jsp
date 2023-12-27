@@ -4,136 +4,158 @@
   Date: 12/10/2023
   Time: 2:48 PM
 --%>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<nav class="navbar --bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
-    
-
-    <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <a href="/" style="text-decoration:none">
-            <div class="navbar-brand d-flex" style="margin: 0px;">
-                <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
+<link href="styles.css" rel="stylesheet">
+<nav class="navbar custom-bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
+    <div class="container-fluid custom-align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
+        <a href="/" class="custom-nav-home-link">
+            <div class="custom-navbar-brand d-flex" style="margin: 0px;">
+                <img src="/uploads/images/navbar/plant_1.jpg" alt="plant img" class="custom-logo-img">
                 <span>GreenSuperMarket</span>
             </div>
         </a>
-        
-        <form class="input-group" style="margin: 0px;" action="/products/">
-              
-                  <input class="form-control custom-no-outline" name="searchQuery" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="font-family: 'Poppins', sans-serif; font-weight: 400; ">
-                  <button class="btn me-0" type="submit" style="background-color:#00B207; color:#FFFFFF;">Search</button>
-               
-          </form>
-            
-      
-        <div>
+        <form class="custom-input-group d-flex" style="margin: 0px;" action="/products/">
+            <div class="input-group">
+                <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                <div class="input-group-append">
+                    <button class="btn custom-search-button" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="nav-icon-container">
             <c:if test="${isLoggedIn}">
-                <a href="/user/cart.jsp" class="nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="small-image"></a>
-                <a href="/user/wishlist/" class="nav-icons"><img src="/uploads/images/navbar/wish.png" alt="cart" class="small-image"></a>
-                <a href="/user/profile.jsp" class="nav-icons"><img src="/uploads/images/navbar/log.png" alt="cart" class="small-image"></a>
+                <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
+                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
+                <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
                 <c:if test="${isAdmin}">
-                    <a href="/admin/" class="nav-icons"><img src="/uploads/images/navbar/admin.png" alt="cart" class="small-image"></a>
+                    <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
                 </c:if>
             </c:if>
             <c:if test="${!isLoggedIn}">
-                <a href="/login.jsp" class="card-button" >Log In</a>
+                <a href="/login.jsp" class="custom-card-button">Log In</a>
             </c:if>
         </div>
     </div>
-    
-    <hr class="nav-hr">
-    
 
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
+    <ul class="custom-link-list">
+        <li class="custom-nav-item">
+            <a class="custom-nav-link " aria-current="page" href="/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" href="/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact-us.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" href="/contact-us.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Contact Us</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/about-us.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">About Us</a>
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" href="/about-us.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">About Us</a>
         </li>
     </ul>
-    
 </nav>
 
 <style>
-    a:hover {
-        text-decoration: none;
-}
-    .form-control {
-       
+    .custom-form-control {
         font-weight: bold;
-        font-size: 15px; 
+        font-size: 15px;
     }
-    .navbar-brand span{
+    
+    .custom-navbar-brand span {
         font-size: 22px;
-        font-weight:600;
+        font-weight: 600;
         color: #002603;
     }
+    
+    .custom-navbar-brand span:hover {
+        text-decoration: none;
+    }
+    
+    .custom-nav-home-link:hover {
+        text-decoration: none;
+    }
+    
     .custom-no-outline:focus,
     .custom-no-outline:active {
         outline: none !important;
         box-shadow: none !important;
-        border-color:#00B207 ;
+        border-color: #00B207;
     }
     
-    .nav-icons{
+    .custom-search-button {
+        background-color: #00B207;
+        color: #FFFFFF;
+        border-radius: 0 5px 5px 0;
+        border: none;
+        padding: 8px;
+    }
+    .custom-search-button:hover{
+        background-color: #666666;
+        color:#ffffff;
+    }
+    .custom-nav-icons {
         margin-right: 2.5rem;
     }
     
-    .small-image{
-        max-width:25px;
+    .custom-small-image {
+        max-width: 25px;
     }
     
-    .input-group {
+    .custom-hr-line {
+        border: 1px solid #000000;
+        margin: 10px 0;
+        width: 100%;
+    }
+    
+    .custom-input-group {
+        width: 100%;
         max-width: 500px;
     }
     
-    .nav-hr{
-        width: 100%; 
-        margin: 10px 0; 
-        border: 1px solid #666666;
+    .custom-link-list {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 40px 0px 0px 0px;
     }
-   
-    .input-group {
-       width: 100%;
+    
+    .custom-nav-item {
+        margin-right: 55px;
+    }
+    
+    .custom-nav-link {
+        color: #666666;
+        transition: color 0.3s;
+    }
+    
+    @media (max-width: 768px) {
+
+        .nav-icon-container{
+           margin-top:30px;
+           
         }
-       
-    .nav {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            padding: 0;
+        .custom-nav {
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .nav-item {
+        .custom-nav-item {
+            flex: 1 0 calc(50% - 15px);
+            max-width: calc(50% - 15px);
             margin-right: 15px;
         }
-
-        .nav-link {
-            color: #666666;
-            transition: color 0.3s;
-        }
-
- 
-        @media (max-width: 768px) {
-            .nav {
-                flex-wrap: wrap; /* Allow items to wrap to the next line */
-                justify-content: center; /* Center items horizontally */
-            }
-
-            .nav-item {
-                margin: 0 10px 10px 0; /* Adjust margin for better spacing */
-            }
-        }
         
-  
+        .custom-link-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0px 0px 0px;
+            display: flex;
+            flex-wrap: wrap; 
+        }
 
+        .custom-nav-item {
+            margin: 10px 0;
+        }
+    }
 </style>
