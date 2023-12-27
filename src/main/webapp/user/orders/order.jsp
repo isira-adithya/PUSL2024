@@ -112,7 +112,16 @@
         <tbody>
         <c:forEach items="${order.orderDetails}" var="_value">
             <tr>
-                <td>${_value.product.name}</td>
+                <td>
+                        <c:if test="${_value.productAvailable}">
+                            <a href="/products/product.jsp?id=${_value.product.productId}">${_value.productName}</a>
+                        </c:if>
+                        <c:if test="${!_value.productAvailable}">
+                            ${_value.productName}
+                            <br>
+                            <i><small>Currently, this product is expired or removed from the store.</small></i>
+                        </c:if>
+                </td>
                 <td>$${(_value.subTotal / _value.quantity)} Each</td>
                 <td>${_value.quantity}</td>
                 <td>$${_value.subTotal}</td>
