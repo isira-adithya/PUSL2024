@@ -30,7 +30,7 @@
                 </c:if>
             </c:if>
             <c:if test="${!isLoggedIn}">
-                <a href="/login.jsp" class="custom-btn" >Log In</a>
+                <a href="/login.jsp" class="card-button" >Log In</a>
             </c:if>
         </div>
     </div>

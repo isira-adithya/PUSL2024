@@ -13,19 +13,21 @@
     
 
     <div class="container-fluid align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <a href="/">
+        <a href="/" class="nav-home-link">
             <div class="navbar-brand d-flex" style="margin: 0px;">
                 <img src="/uploads/images/navbar/plant 1.jpg" alt="plant img" style="width: 30px; height: 30px; margin-right: 5px">
                 <span>GreenSuperMarket</span>
             </div>
         </a>
         
+
         <form class="input-group" style="margin: 0px;" action="/products/">
               
                   <input class="form-control custom-no-outline" name="searchQuery" type="" placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="font-family: 'Poppins', sans-serif; font-weight: 400; ">
-                  <button class="btn me-0" type="submit" style="background-color:#00B207; color:#FFFFFF;">Search</button>
+                  <button class=" me-0 search-button" type="submit" style="background-color:#00B207; color:#FFFFFF;">Search</button>
                
           </form>
+
             
       
         <div>
@@ -73,12 +75,27 @@
         font-size: 22px;
         font-weight:600;
         color: #002603;
+        
     }
+    .navbar-brand span:hover{
+        text-decoration: none;
+    }
+    
+    .nav-home-link:hover{
+        text-decoration: none;
+        }
     .custom-no-outline:focus,
     .custom-no-outline:active {
         outline: none !important;
         box-shadow: none !important;
         border-color:#00B207 ;
+        
+    }
+    .search-button{
+        background-color:#00B207; 
+        color:#FFFFFF;
+        border-radius: 0 5px 5px 0;
+        border:none;
     }
     
     .nav-icons{
@@ -89,10 +106,7 @@
         max-width:25px;
     }
     
-    .input-group {
-        max-width: 500px;
-    }
-    
+
     .nav-hr{
         width: 100%; 
         margin: 10px 0; 
@@ -101,6 +115,7 @@
    
     .input-group {
        width: 100%;
+       max-width: 500px;
         }
        
     .nav {
@@ -118,8 +133,7 @@
             color: #666666;
             transition: color 0.3s;
         }
-
- 
+    
         @media (max-width: 768px) {
             .nav {
                 flex-wrap: wrap; /* Allow items to wrap to the next line */
@@ -132,5 +146,6 @@
         }
 
   
+
 
 </style>
