@@ -356,8 +356,58 @@ public class Order {
         User user = User.findUserById(this.userId);
         String emailSubject = "Order ID " + this.getOrderId() +" Receipt";
 
+        // Styles
+        String styles = "<style>\n" +
+                "        body {\n" +
+                "            font-family: Arial, sans-serif;\n" +
+                "            background-color: #E8F4E5; /* Light green background */\n" +
+                "            margin: 0;\n" +
+                "            padding: 20px;\n" +
+                "        }\n" +
+                "\n" +
+                "        table {\n" +
+                "            border-collapse: collapse;\n" +
+                "            width: 100%;\n" +
+                "            margin-top: 20px;\n" +
+                "        }\n" +
+                "\n" +
+                "        th, td {\n" +
+                "            border: 1px solid #4CAF50; /* Green borders for table */\n" +
+                "            padding: 8px;\n" +
+                "            text-align: left;\n" +
+                "        }\n" +
+                "\n" +
+                "        th {\n" +
+                "            background-color: #4CAF50; /* Green header background */\n" +
+                "            color: white;\n" +
+                "        }\n" +
+                "\n" +
+                "        td:nth-child(2),\n" +
+                "        td:nth-child(4) {\n" +
+                "            text-align: right;\n" +
+                "        }\n" +
+                "\n" +
+                "        td:nth-child(3) {\n" +
+                "            text-align: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        p {\n" +
+                "            margin-bottom: 10px;\n" +
+                "        }\n" +
+                "\n" +
+                "        a {\n" +
+                "            color: #4CAF50; /* Green link color */\n" +
+                "            text-decoration: none;\n" +
+                "            font-weight: bold;\n" +
+                "        }\n" +
+                "\n" +
+                "        a:hover {\n" +
+                "            text-decoration: underline;\n" +
+                "        }\n" +
+                "    </style>";
+
         // Header Part
-        StringBuilder emailBody = new StringBuilder("Hello " + user.getFullName() + ",<br>Here's your receipt for the Order ID " + this.getOrderId() + "<br><br>");
+        StringBuilder emailBody = new StringBuilder("<body>" + styles + "Hello " + user.getFullName() + ",<br>Here's your receipt for the Order ID " + this.getOrderId() + "<br><br>");
 
         // Order Details Table
         emailBody.append("<table border=\"1px\"><thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Sub Total</th></tr></thead><tbody>");
@@ -398,6 +448,7 @@ public class Order {
         // Footer
         emailBody.append("<br><br>");
         emailBody.append("GreenSuperMarket - <a href=\"https://www.greensupermarket.live/\">https://www.greensupermarket.live/</a>");
+        emailBody.append("</body>");
 
         Email receiptEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
         receiptEmail.send();

@@ -18,7 +18,7 @@ public class CSRFFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
         String requestPath = req.getRequestURI();
-        String HOST_URL = "http://localhost:9090";
+        String HOST_URL = "http://localhost";
 
 //        In production servers, HOST_URL should be loaded through Environment variables
         try {
