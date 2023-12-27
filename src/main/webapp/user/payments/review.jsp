@@ -104,7 +104,7 @@
 <div>
     <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
 </div>
-        <div class="transaction-details">
+        <div class="transaction-details mb-5">
         <h4>Please review before confirming the payment.</h4>
         <div class="row">
             <div class="mb-3 ">
