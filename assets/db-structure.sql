@@ -63,7 +63,7 @@ CREATE TABLE OrderDetails (
     subtotal DECIMAL(10, 2) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (orderid) REFERENCES Orders(orderid) ON DELETE CASCADE,
-    FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
+    FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE SET NULL
 );
 CREATE TABLE Comments (
       commentid INT AUTO_INCREMENT PRIMARY KEY,
@@ -119,13 +119,13 @@ INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productna
 (1, 1, 1, 2, 'Smartphone', 1999.98),
 (2, 1, 2, 1, 'Laptop', 599.99),
 (3, 3, 3, 3, 'Headphones', 239.97),
-(4, 2, 4, 1, 'Laptop', 399.99),
+(4, 2, 4, 1, 'Tablet', 399.99),
 (5, 5, 5, 1, 'Laptop', 1499.99),
 (6, 6, 6, 2, 'Smartphone', 599.98),
 (7, 1, 7, 4, 'Tablet', 799.96),
 (8, 1, 8, 1, 'Laptop', 49.99),
-(9, 2, 9, 3, 'Headphones', 1499.97),
-(10, 2, 10, 2, 'Smartphone', 159.98);
+(9, 2, 9, 3, 'Gaming Console', 1499.97),
+(10, 2, 10, 2, 'Wireless Router', 159.98);
 
 INSERT INTO Comments (commentid, userid, productid, content, starcount, createdAt) VALUES
     (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', 4, TIMESTAMP('2023-07-17', '12:13:41')),
