@@ -90,8 +90,8 @@
                             <button type="submit" class="btn btn-primary btn-sm mt-3">Verify</button>
                         </form>
                         <c:if test="${isCodeWrong == true}">
-                                <div class="alert alert-warning my-3" role="alert">
-                                    <p>Code you entered is invalid. Please try again.</p>
+                                <div class="alert alert-danger my-3" role="alert">
+                                    <p>Invalid Verification Code. Please try again.</p>
                                 </div>
                         </c:if>
                         <i>Haven't received any emails from us? Try refreshing this page after 3 minutes</i>

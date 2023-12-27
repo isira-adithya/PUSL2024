@@ -1,6 +1,7 @@
 package com.isiraadithya.greensupermarket.routes.user.payments;
 
 import com.isiraadithya.greensupermarket.helpers.PaymentServices;
+import com.isiraadithya.greensupermarket.models.Cart;
 import com.isiraadithya.greensupermarket.models.Order;
 import com.paypal.api.payments.PayerInfo;
 import com.paypal.api.payments.Payment;
@@ -10,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -33,6 +35,11 @@ public class ValidatePayment extends HttpServlet {
                 order.setAdditionalCharges(PaymentServices.shippingCost + PaymentServices.tax);
                 order.markAsCompleted();
                 order.sendReceiptEmail();
+
+                // Resetting the cart
+                HttpSession session = req.getSession(true);
+                Cart userCart = new Cart((int) session.getAttribute("userId"));
+                session.setAttribute("cart", userCart);
             }
 
             resp.sendRedirect("/user/orders/order.jsp?id=" + orderId);

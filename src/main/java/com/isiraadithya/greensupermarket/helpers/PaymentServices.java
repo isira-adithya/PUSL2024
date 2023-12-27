@@ -40,9 +40,7 @@ public class PaymentServices {
 
         Payer payer = getPayerInformation();
         RedirectUrls redirectUrls = getRedirectURLs();
-
         List<Transaction> listTransaction = getTransactionInformation(this.order);
-
         Payment requestPayment = new Payment();
         requestPayment.setTransactions(listTransaction);
         requestPayment.setRedirectUrls(redirectUrls);
@@ -69,7 +67,14 @@ public class PaymentServices {
 
     private RedirectUrls getRedirectURLs() {
         RedirectUrls redirectUrls = new RedirectUrls();
-        if (System.getenv("JSP_DEV").equals("TRUE")){
+        boolean isDev = false;
+        try {
+            System.getenv("JSP_DEV").equals("TRUE");
+        } catch (Exception err){
+            isDev = false;
+        }
+
+        if (isDev){
             redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
             redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
             System.out.println("[DEV] Environment Detected; Using http://localhost:9090/user/ for Paypal Payment Handling.");

@@ -42,7 +42,7 @@ public class AuthorizePayment extends HttpServlet {
             String approvalLink = paymentServices.authorizePayment();
             resp.sendRedirect(approvalLink);
         } catch (Exception ex){
-            System.out.println(ex.getMessage());
+            System.out.println("[ERR] /api/user/payments/authorize_payment " + ex.getMessage());
             resp.setStatus(500);
         }
     }
