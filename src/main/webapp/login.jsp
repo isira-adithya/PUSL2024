@@ -5,6 +5,11 @@
 --%>
 <%@include file="/includes/variables.jsp"%>
 <%
+    String errMsg = null;
+    if (request.getParameterMap().containsKey("err")){
+        errMsg = request.getParameter("err");
+    }
+
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){
@@ -13,6 +18,8 @@
             response.sendRedirect("/user/profile.jsp");
         }
     }
+
+    pageContext.setAttribute("errMsg", errMsg);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +66,7 @@
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
     
-    <div class="login-form">
+    <div class="login-form my-5">
         <div class="head">
             <h3><b>Sign In</b></h3>
         </div>
@@ -80,6 +87,12 @@
             <div class="d-grid gap-2">
                 <input type="submit" class="btn btn-primary" style="background-color:#00B207"; value="Login">
             </div>
+
+            <c:if test="${errMsg != null}">
+                <div class="alert alert-danger my-2" role="alert">
+                    ${fn:escapeXml(errMsg)}
+                </div>
+            </c:if>
             
         </form>
         <p class="text-center mt-3">Don't have an account? <a href="/signup.jsp"  style="color: #000;">Register</a></p>
