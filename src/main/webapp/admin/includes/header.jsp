@@ -15,14 +15,6 @@
                 <span>GreenSuperMarket</span>
             </div>
         </a>
-        <form class="custom-input-group d-flex" style="margin: 0px;" action="/products/">
-            <div class="input-group">
-                <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
-                <div class="input-group-append">
-                    <button class="btn custom-search-button" type="submit">Search</button>
-                </div>
-            </div>
-        </form>
         <div class="nav-icon-container">
             <c:if test="${isLoggedIn}">
                 <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
