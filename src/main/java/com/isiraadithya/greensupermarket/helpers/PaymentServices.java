@@ -14,6 +14,7 @@ import com.paypal.base.rest.*;
 /**
  *
  * @author sanid
+ * @modifed_by isira_adithya
  * Taken and modified from https://www.codejava.net/coding/how-to-integrate-paypal-payment-into-java-web-application
  */
 public class PaymentServices {
@@ -69,7 +70,9 @@ public class PaymentServices {
         RedirectUrls redirectUrls = new RedirectUrls();
         boolean isDev = false;
         try {
-            System.getenv("JSP_DEV").equals("TRUE");
+            if (System.getenv("JSP_DEV").equals("TRUE")){
+                isDev = true;
+            };
         } catch (Exception err){
             isDev = false;
         }
