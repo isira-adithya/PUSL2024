@@ -38,17 +38,17 @@ public class User {
     private boolean isPasswordSet = false;
 
     public User(String _email, String _fname, String _lname, String _phone, String _street_address, String _city, String _state, String _country, String _postalcode, String _role) {
-        email = _email;
-        firstname = _fname;
-        lastname = _lname;
-        phone = _phone;
-        street_address = _street_address;
-        city = _city;
-        state = _state;
-        country = _country;
-        postalcode = _postalcode;
-        role = _role;
-        passwordResetToken = "NULL";
+        this.email = _email;
+        this.firstname = _fname;
+        this.lastname = _lname;
+        this.phone = _phone;
+        this.street_address = _street_address;
+        this.city = _city;
+        this.state = _state;
+        this.country = _country;
+        this.postalcode = _postalcode;
+        this.role = _role;
+        this.passwordResetToken = "NULL";
         this.is_email_verified = false;
     }
 
@@ -223,22 +223,22 @@ public class User {
                 Connection dbconn = Database.connect();
                 String query = "INSERT INTO Users (email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken, is_email_verified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement sqlStatement = dbconn.prepareStatement(query);
-                sqlStatement.setString(1, email);
-                sqlStatement.setString(2, password);
-                sqlStatement.setString(3, firstname);
-                sqlStatement.setString(4, lastname);
-                sqlStatement.setString(5, phone);
-                sqlStatement.setString(6, street_address);
-                sqlStatement.setString(7, city);
-                sqlStatement.setString(8, state);
-                sqlStatement.setString(9, country);
-                sqlStatement.setString(10, postalcode);
-                sqlStatement.setString(11, role);
-                sqlStatement.setString(12, passwordResetToken);
-                sqlStatement.setBoolean(13, is_email_verified);
+                sqlStatement.setString(1, this.email);
+                sqlStatement.setString(2, this.password);
+                sqlStatement.setString(3, this.firstname);
+                sqlStatement.setString(4, this.lastname);
+                sqlStatement.setString(5, this.phone);
+                sqlStatement.setString(6, this.street_address);
+                sqlStatement.setString(7, this.city);
+                sqlStatement.setString(8, this.state);
+                sqlStatement.setString(9, this.country);
+                sqlStatement.setString(10, this.postalcode);
+                sqlStatement.setString(11, this.role);
+                sqlStatement.setString(12, this.passwordResetToken);
+                sqlStatement.setBoolean(13, this.is_email_verified);
                 sqlStatement.execute();
             } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+                System.out.println("[ERR] User.saveUser(): " + ex.getMessage());
             }
         }
     }

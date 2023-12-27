@@ -7,6 +7,19 @@
 --%>
 <%@include file="/includes/variables.jsp"%>
 <%
+    String errMsg = null;
+    if (request.getParameterMap().containsKey("err")){
+        errMsg = request.getParameter("err");
+    }
+
+    String infoMsg = null;
+    if (request.getParameterMap().containsKey("msg")){
+        infoMsg = request.getParameter("msg");
+    }
+
+    pageContext.setAttribute("errMsg", errMsg);
+    pageContext.setAttribute("infoMsg", infoMsg);
+
     if (isLoggedIn) {
         String role = (String) session.getAttribute("role");
         if (role.equals("ADMIN")){
@@ -61,7 +74,7 @@
     </div>
     <h2><center><b>Create Account</b></center></h2>
 
-  <div class="sign-up">
+  <div class="sign-up my-5">
     
     <h3><center>Personal Information</center></h3>
    
@@ -69,67 +82,67 @@
 
       <div class="row">
       <div class="mb-3 ">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter email">
       </div>
     
 
       <div class="mb-3 col-sm-5 col-md-6">
-        <label for="firstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstname" placeholder="Enter first name">
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastname" placeholder="Enter last name">
       </div>
 
       <div class="mb-3">
-        <label for="phone" class="form-label">Phone Number</label>
-        <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" name="phone" placeholder="Enter phone number">
       </div>
 
       <div class="mb-3">
         <h3><center>Password</center></h3>
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Enter password">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter password">
       </div>
 
       <div class="mb-3">
-        <label for="repeatPassword" class="form-label">Repeat Password</label>
-        <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat password">
+        <label class="form-label">Repeat Password</label>
+        <input type="password" class="form-control" name="repeatPassword" placeholder="Repeat password">
       </div>
 
       <h3><center>Address</center></h3>
       <br><br>
       <div class="mb-3 col-sm-5 col-md-6">
-        <label for="address" class="form-label">Address</label>
-        <input type="text" class="form-control" id="address" placeholder="Enter address">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" name="street_address" placeholder="Enter address">
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <label for="streetNo" class="form-label">Street/No</label>
-        <input type="text" class="form-control" id="streetNo" placeholder="Enter street/number">
+        <label class="form-label">Street/No</label>
+        <input type="text" class="form-control" name="streetno" placeholder="Enter street/number">
       </div>
 
       <div class="mb-3 col-sm-5 col-md-6">
-        <label for="city" class="form-label">City</label>
-        <input type="text" class="form-control" id="city" placeholder="Enter city">
+        <label class="form-label">City</label>
+        <input type="text" class="form-control" name="city" placeholder="Enter city">
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <label for="state" class="form-label">State</label>
-        <input type="text" class="form-control" id="state" placeholder="Enter state">
+        <label class="form-label">State</label>
+        <input type="text" class="form-control" name="state" placeholder="Enter state">
       </div>
 
       <div class="mb-3 col-sm-5 col-md-6">
-        <label for="country" class="form-label">Country</label>
-        <input type="text" class="form-control" id="country" placeholder="Enter country">
+        <label class="form-label">Country</label>
+        <input type="text" class="form-control" name="country" placeholder="Enter country">
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
-        <label for="postalCode" class="form-label">Postal Code</label>
-        <input type="text" class="form-control" id="postalCode" placeholder="Enter postal code">
+        <label class="form-label">Postal Code</label>
+        <input type="text" class="form-control" name="postalcode" placeholder="Enter postal code">
       </div>
     </div>
         <br>
@@ -140,6 +153,18 @@
         <p class="text-center mt-3">Already Have An Account? <a href="/login.jsp"  style="color: #000;">LogIn</a></p>
         
     </form>
+
+      <c:if test="${errMsg != null}">
+          <div class="alert alert-danger my-2" role="alert">
+                  ${fn:escapeXml(errMsg)}
+          </div>
+      </c:if>
+
+      <c:if test="${infoMsg != null}">
+          <div class="alert alert-success my-2" role="alert">
+                  ${fn:escapeXml(infoMsg)}
+          </div>
+      </c:if>
   </div>
     
     <%@include file="includes/footer.jsp"%>
