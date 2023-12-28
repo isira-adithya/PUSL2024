@@ -127,6 +127,7 @@
     .custom-link-list {
         display: flex;
         align-items: center;
+        justify-content: center;
         list-style: none;
         padding: 0;
         margin: 40px 0px 0px 0px;
