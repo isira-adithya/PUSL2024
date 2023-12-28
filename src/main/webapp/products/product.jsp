@@ -316,7 +316,7 @@
                     
                     
                      <!-- wishlist icon -->  
-                    <a href="/user/wishlist/"><img src="/uploads/images/navbar/wish.png" alt="wishlist" width="33px"></a>
+                    <a href="#"><img src="/uploads/images/navbar/wish.png" alt="wishlist" width="33px"></a>
 
                     
                 </form>
