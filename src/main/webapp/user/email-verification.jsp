@@ -72,20 +72,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        
+        .image{
+            margin-bottom: 5px;
+            width: 100%;
+            height: 120px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        
+    </style>
+    
+    
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
+
+    <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+    </div>
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card mb-5">
+                <div class="card mb-5" style="width:600px;">
                     <div class="card-header">
-                        <h4>Email Verification</h4>
+                        <h4><center>Email Verification</center></h4>
                     </div>
                     <div class="card-body">
                         <form action="/user/email-verification.jsp" method="get">
                             <p>We're excited to have you get started. First, you need to confirm your account.</p>
-                            <p>You should have received a <b>6 digit code</b> to your email inbox, enter it to verify your account.</p>
+                            <p>We have sent a <b>6 digit code</b> to your email inbox, enter it to verify your account.</p>
                             <input type="text" name="code" placeholder="******"><br>
                             <button type="submit" class="btn btn-primary btn-sm mt-3">Verify</button>
                         </form>
