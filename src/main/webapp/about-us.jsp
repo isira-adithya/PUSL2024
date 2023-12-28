@@ -113,13 +113,13 @@
         }
 
 
-    .card {
-    flex: 1 0 100%;
-    margin: 0 15px 15px 0;
-    border: 1px solid #ccc; /* Add border properties */
-    border-radius: 15px; /* Add border-radius for rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-}
+        .card {
+            flex: 1 0 100%;
+            margin: 0 15px 15px 0;
+            border: 1px solid #ccc; /* Add border properties */
+            border-radius: 15px; /* Add border-radius for rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+        }
 
         .centered-text {
             text-align: center;
@@ -393,8 +393,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                         <li><a href="https://www.instagram.com/isira_adithya/" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="https://www.linkedin.com/in/isiraadithya/" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Isira Adithya</h2>
@@ -406,8 +406,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                         <li><a href="https://www.instagram.com/___nesith_perera___/" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="https://lk.linkedin.com/in/nesithperera" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Nesith Perera</h2>
@@ -418,8 +418,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                        <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="https://www.instagram.com/_.hashh.r_?igsh=ZGNjOWZkYTE3MQ%3D%3D&utm_source=qr" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/hashen-ruwanpura-184a1b283/?originalSubdomain=lk" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Hashen Ruwanpura</h2>
@@ -443,8 +443,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                        <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="https://www.instagram.com/sanuth.karunagoda/" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://lk.linkedin.com/in/sanuth-karungoda-403001257" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Sanuth Karunagoda</h2>
