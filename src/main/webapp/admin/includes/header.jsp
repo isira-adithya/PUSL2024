@@ -110,6 +110,7 @@
     
     .custom-link-list {
         display: flex;
+        justify-content: center;
         align-items: center;
         list-style: none;
         padding: 0;

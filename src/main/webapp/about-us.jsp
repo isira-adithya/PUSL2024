@@ -113,13 +113,13 @@
         }
 
 
-    .card {
-    flex: 1 0 100%;
-    margin: 0 15px 15px 0;
-    border: 1px solid #ccc; /* Add border properties */
-    border-radius: 15px; /* Add border-radius for rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-}
+        .card {
+            flex: 1 0 100%;
+            margin: 0 15px 15px 0;
+            border: 1px solid #ccc; /* Add border properties */
+            border-radius: 15px; /* Add border-radius for rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+        }
 
         .centered-text {
             text-align: center;
@@ -156,88 +156,106 @@
             width: 150px;
             margin: 10px auto;
         }
-.profile
-{
-    margin-top: 25px;
-}
-.profile .img-box
-{
-    opacity:1;
-    display: block;
-    position: relative;
-}
-.profile h2
-{
-  font-size: 22px;
-  font-size: bold;
-  margin-top: 15px;  
-}
-.profile h3
-{
-  font-size: 15px;
-  font-weight: bold;
-  margin-top: 15px;
-}
-.img-box:after {
-    content: '';
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-.img-box ul
-{
-    margin:0;
-    padding:20px 0;
-    position: absolute;
-    z-index: 1;
-    bottom:0;
-    display:block;
-    left:50%;
-    transform:translateX(-50px);
-    opacity:0;
-}
-.img-box ul li
-{
-    width: 40px;
-    height: 40px;
-    border: 1px solid #fff;
-    border-radius:50%;
-    margin:3px;
-    padding:7px;
-    display: inline-block;
-}
-.img-box a
-{
-  color: #fff;  
-}
-.img-box:hover:after,
-.img-box:hover ul {
-    opacity: 1;
-}
-.img-box:hover a li {
-    color: #007bff;
-    border: 1px solid #007bff;
-}
-.img-box:after,
-.img-box ul,
-.img-box ul li {
-    transition: all 0.5s ease-in-out 0s, opacity 0.5s ease-in-out 0s;
-}
-.custom-arrow {
-    max-width: 30px; /* Set the maximum width of your arrow images */
-    max-height: 30px; /* Set the maximum height of your arrow images */
-}
+        .profile
+        {
+            margin-top: 25px;
+        }
+        .profile .img-box
+        {
+            opacity:1;
+            display: block;
+            position: relative;
+        }
+        .profile h2
+        {
+          font-size: 22px;
+          font-size: bold;
+          margin-top: 15px;  
+        }
+        .profile h3
+        {
+          font-size: 15px;
+          font-weight: bold;
+          margin-top: 15px;
+        }
+        .img-box:after {
+            content: '';
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .img-box ul
+        {
+            margin:0;
+            padding:20px 0;
+            position: absolute;
+            z-index: 1;
+            bottom:0;
+            display:block;
+            left:50%;
+            transform:translateX(-50px);
+            opacity:0;
+        }
+        .img-box ul li
+        {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #fff;
+            border-radius:50%;
+            margin:3px;
+            padding:7px;
+            display: inline-block;
+        }
+        .img-box a
+        {
+          color: #fff;  
+        }
+        .img-box:hover:after,
+        .img-box:hover ul {
+            opacity: 1;
+        }
+        .img-box:hover a li {
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+        .img-box:after,
+        .img-box ul,
+        .img-box ul li {
+            transition: all 0.5s ease-in-out 0s, opacity 0.5s ease-in-out 0s;
+        }
+        .custom-arrow {
+            max-width: 30px; /* Set the maximum width of your arrow images */
+            max-height: 30px; /* Set the maximum height of your arrow images */
+        }
 
-.social-square i {
-    font-size: 25px; /* Adjust the size as needed */
-    line-height: 24px; 
-    color: #01b206; 
-}
+        .social-square i {
+            font-size: 25px; /* Adjust the size as needed */
+            line-height: 24px; 
+            color: #01b206; 
+        }
+         .image {
+                     margin-bottom: 60px;
+                     width: 100%;
+                     height: 130px;
+                     position: relative;
+                     background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+                     background-image: url("/uploads/images/products/Breadcrumbs.png");
+                     background-size: cover;
+                     background-position: center; /* Default position */
+        }
 
+        /* Adjust background position for mobile view */
+            @media screen and (max-width: 600px) {
+                .image {
+                    height: 120px; /* Adjust the height as needed */
+                    background-position: left center; /* Adjust position for left cropping */
+                    object-fit: cover;
+            }
+        }
 </style>
 </head>
 <body>
@@ -357,7 +375,7 @@
 
     <div class="centered-text">
         <h1><center>Our Awesome Team</center></h1>
-        <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innoative solutions and exceptional service"</p>
+        <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innovative solutions and exceptional service"</p>
     </div>
 
     <div id="teamCarousel" class="carousel slide" data-ride="carousel">
@@ -375,8 +393,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                         <li><a href="https://www.instagram.com/isira_adithya/" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="https://www.linkedin.com/in/isiraadithya/" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Isira Adithya</h2>
@@ -388,8 +406,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                         <li><a href="https://www.instagram.com/___nesith_perera___/" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="https://lk.linkedin.com/in/nesithperera" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Nesith Perera</h2>
@@ -400,8 +418,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                        <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="https://www.instagram.com/_.hashh.r_?igsh=ZGNjOWZkYTE3MQ%3D%3D&utm_source=qr" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/hashen-ruwanpura-184a1b283/?originalSubdomain=lk" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Hashen Ruwanpura</h2>
@@ -425,8 +443,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                        <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                        <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="https://www.instagram.com/sanuth.karunagoda/" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://lk.linkedin.com/in/sanuth-karungoda-403001257" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <h2>Sanuth Karunagoda</h2>

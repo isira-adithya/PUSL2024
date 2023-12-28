@@ -47,12 +47,14 @@ table {
     width: 80%;
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;  
+    text-align: center;
+    
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
     
 }
 
@@ -130,7 +132,7 @@ button {
     <div class="container">
 
         <div class="my-4 mx-2">
-            <h4>Filter by Order Status</h4>
+            <h4><b>Filter by Order Status</b></h4>
             <a class="btn btn-success btn-sm" href="/admin/orders/?orderStatus=cp">Completed Orders</a>
             <a class="btn btn-primary btn-sm" href="/admin/orders/?orderStatus=pd">Pending Orders</a>
             <a class="btn btn-danger btn-sm" href="/admin/orders/?orderStatus=cl">Cancelled Orders</a>
