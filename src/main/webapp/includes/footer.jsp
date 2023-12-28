@@ -133,7 +133,7 @@
 
                     <!-- Grid column -->
 
-                    <hr class="w-100 clearfix d-md-none" />
+                    
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center"> 
@@ -145,7 +145,7 @@
                     </div>
                     <!-- Grid column -->
 
-                    <hr class="w-100 clearfix d-md-none" />
+                    
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
