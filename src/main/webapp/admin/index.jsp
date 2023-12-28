@@ -28,7 +28,7 @@
 <%@include file="includes/header.jsp"%>
 <section>
 <div class="container">
-    <h1 class="text-center mt-4">Last 5 Months Anallytics</h1>
+    <h2 class="text-center mt-4" style="font-weight: bold;">Last 5 Months Anallytics</h2>
 
     <div class="row my-4">
 
