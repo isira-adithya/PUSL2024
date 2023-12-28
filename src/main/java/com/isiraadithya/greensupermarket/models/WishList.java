@@ -125,4 +125,8 @@ public class WishList {
         }
     }
 
+    public boolean doesProductExist(Product product){
+        return WishlistDetail.doesProductExistsInUserWishlist(this.wishListId, product.getProductId());
+    }
+
 }
