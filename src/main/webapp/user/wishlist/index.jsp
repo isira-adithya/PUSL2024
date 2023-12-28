@@ -72,6 +72,10 @@
 </head>
 <body>
     <%@include file="/includes/header.jsp"%>
+    <div>
+    <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+    </div>
+    
     <c:if test="${wishlistDetailList.size() <= 0}">
         <div class="align-items-center text-center justify-content-center my-5">
             <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
