@@ -100,21 +100,6 @@
             margin-bottom: 20px;
         }
         
-        .addToCart-button {
-            height: 38px;
-            width: 60%;
-            border-radius: 100px;
-            color: #ffffff;
-            background-color: #00b207;
-            margin-left: 20px;
-            margin-right: 25px; /* Add margin-right to create space */
-            border: none;
-        }
-        .addToCart-button:hover {
-            background-color: #45a049; /* Darker green on hover */
-
-         } 
-        
         .Deletebutton {
              height: 40px;
              width: 80px;
@@ -263,6 +248,30 @@
             font-family: FontAwesome;
 
         }
+
+        .wishlist-button {
+            display: inline-block;
+        }
+
+        .wishlist-button img {
+            cursor: pointer;
+        }
+
+        .addToCart-button {
+            height: 38px;
+            width: 60%;
+            border-radius: 100px;
+            color: #ffffff;
+            background-color: #00b207;
+            margin-left: 20px;
+            margin-right: 25px; /* Add margin-right to create space */
+            border: none;
+            display: inline-block;
+        }
+        .addToCart-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+
+        }
     </style>
     
 </head>
@@ -313,12 +322,15 @@
                     <button type="submit" class="addToCart-button" style="position: relative;">
                         Add to Cart                        
                     </button>
-                    
-                    
-                     <!-- wishlist icon -->  
-                    <a href="#"><img src="/uploads/images/navbar/wish.png" alt="wishlist" width="33px"></a>
 
-                    
+                    <!-- wishlist icon -->
+                    <div onclick="document.getElementById('addToWishlistForm').submit()" class="wishlist-button">
+                        <img src="/uploads/images/navbar/wish.png" width="33px">
+                    </div>
+                </form>
+
+                <form id="addToWishlistForm" method="post" action="/api/user/wishlist/addProduct" style="display: inline-block;">
+                    <input type="hidden" name="productId" value="${product.productId}">
                 </form>
             </c:if>
         </c:if>
