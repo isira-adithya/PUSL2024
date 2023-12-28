@@ -57,7 +57,8 @@
         .image{
             margin-bottom: 50px;
             width: 100%;
-            height: 120px;
+            height: 110px;
+            
             position: relative;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
         }
