@@ -10,6 +10,7 @@
     footer {
         background-color: #1A1A1A;
         color: white;
+        width: 100
         
     }
 
