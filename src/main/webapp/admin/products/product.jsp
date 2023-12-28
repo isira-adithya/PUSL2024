@@ -5,6 +5,7 @@
   Time: 11:58 PM
 --%>
 <%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Analytics" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Comment" %>
 <%@include file="../includes/variables.jsp"%>
@@ -189,7 +190,7 @@
             </div>
             <div class="mb-3">
                 <label for="productDescription" class="form-label"><b>Product Short Description:</b></label>
-                <textarea class="form-control" id="productShortDescription" name="productShortDescription"></textarea>
+                <textarea class="form-control" id="productShortDescription" name="productShortDescription">${fn:escapeXml(product.shortDescription)}</textarea>
             </div>
             <div class="mb-3">
                 <label for="productDescription" class="form-label"><b>Description:</b></label>
@@ -210,18 +211,18 @@
             <input type="hidden" name="productId" value="${product.productId}">
             <center><button type="submit" id="submitBtn">Update</button></center>
         </form>
-        <div class="alert <%if (product.getVisibility()) {out.print("alert-info");} else {out.print("alert-warning");}%> text-center" role="alert">
+        <div class="alert <%if (product.getVisibility()) {out.print("alert-info");} else {out.print("alert-warning");}%> text-center visibility-message-container" role="alert">
             
         <form method="post" action="/api/admin/products/change-visibility">
             <input type="hidden" name="productId" value="${product.productId}">
-             <div class="visibility-message-container">
+             <div>
              <c:if test="${product.visibility}">
-                <p>Do you want to <b>hide</b> this product from your customers?</p>
-                <input type="submit" class="btn btn-danger" value="Hide">
+                <p>Do you want to <i><b>hide</b></i> this product from your customers?</p>
+                <input type="submit" class="btn btn-danger btn-sm" value="Hide">
              </c:if>
             <c:if test="${!product.visibility}">
-             <p>Do you want to <b>show</b> this product to your customers?</p>
-             <input type="submit" class="btn btn-primary" value="Show">
+             <p>Do you want to <i><b>show</b></i> this product to your customers?</p>
+             <input type="submit" class="btn btn-primary btn-sm" value="Show">
         </c:if>
     </div>
 </form>

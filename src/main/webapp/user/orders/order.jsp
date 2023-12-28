@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: @isira_adithya
+  User: @isira_adithya, @hashen-ruwanpura
   Date: 12/10/2023
   Time: 6:34 PM
 --%>
@@ -98,7 +98,7 @@
  <div>
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
-  <div class="cart-container">
+  <div class="cart-container my-5">
     <center><h2>Order ID ${order.orderId}</h2></center>
     <table>
         <thead>
@@ -112,7 +112,16 @@
         <tbody>
         <c:forEach items="${order.orderDetails}" var="_value">
             <tr>
-                <td>${_value.product.name}</td>
+                <td>
+                        <c:if test="${_value.productAvailable}">
+                            <a href="/products/product.jsp?id=${_value.product.productId}">${_value.productName}</a>
+                        </c:if>
+                        <c:if test="${!_value.productAvailable}">
+                            ${_value.productName}
+                            <br>
+                            <i><small>Currently, this product is expired or removed from the store.</small></i>
+                        </c:if>
+                </td>
                 <td>$${(_value.subTotal / _value.quantity)} Each</td>
                 <td>${_value.quantity}</td>
                 <td>$${_value.subTotal}</td>
@@ -124,7 +133,7 @@
             <c:if test="${order.orderStatus.equals('COMPLETED')}">
                 <td><b>Sub Total:</b></td>
             </c:if>
-            <c:if test="${order.orderStatus.equals('PENDING') || order.orderStatus.equals('EXPIRED')}">
+            <c:if test="${order.orderStatus.equals('PENDING') || order.orderStatus.equals('CANCELLED')}">
                 <td><b>Total:</b></td>
             </c:if>
             <td><b>$${order.amount}</b></td>
@@ -159,12 +168,12 @@
             </b>
         </c:if>
         <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
-        <c:if test="${order.orderStatus.equals('EXPIRED')}">
-            <i style="color: red;">EXPIRED</i>
+        <c:if test="${order.orderStatus.equals('CANCELLED')}">
+            <i style="color: red;">CANCELLED</i>
             <br>
             <b>
                 <small>
-                    Unfortunately, your order has been expired. Please reorder the items again by visiting <a href="/products/">here</a> .
+                    Unfortunately, your order has been cancelled. Please reorder the items again by visiting <a href="/products/">here</a> .
                 </small>
             </b>
         </c:if>
@@ -175,11 +184,17 @@
         
         <div class="buttons">
         <div class="row text-center">
-                <div class="col-sm-5 col-md-6">
-                    <input type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207" value="Pay">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207">Pay 💵</button>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-">
-                    <input type="button" class="btn btn-primary custom-button" onclick="location.href ='/user/orders/'" style="background-color:#00B207" value="Go Back">
+                <div class="col-4">
+                    <form id="cancelForm" method="post" action="/api/user/orders/cancel">
+                        <input type="hidden" name="orderId" value="${order.orderId}">
+                    </form>
+                    <button onclick="if (confirm('Are you sure?')) {document.getElementById('cancelForm').submit()}" class="btn btn-danger">Cancel</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-primary custom-button" onclick="location.href ='/user/orders/'">Go Back</button>
                 </div>
             </div>
         <br><br>

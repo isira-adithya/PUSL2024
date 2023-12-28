@@ -6,7 +6,7 @@
 --%>
 <%@ page import="com.isiraadithya.greensupermarket.models.User" %>
 <%@ page import="java.util.List" %>
-<%@include file="../includes/variables.jsp"%>
+<%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int id = -1;

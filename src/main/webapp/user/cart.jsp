@@ -120,6 +120,10 @@
             height: 32px;
         }
 
+        .not-found-img {
+            width: 500px;
+        }
+
         @media (max-width: 768px) {
             .main-container {
                 flex-direction: column;
@@ -129,6 +133,10 @@
             .cart-container {
                 margin: 10px;
                 height: auto; /* Set auto height for smaller screens */
+            }
+
+            .not-found-img {
+                width: 300px;
             }
         }
 
@@ -171,8 +179,11 @@
     
     <center><h1 style="font-size:50px">My Shopping Cart</h1></center>
     <c:if test="${isCartEmpty}">
-        <p>Your cart is empty</p>
-        <a href="/products">Visit Our Products</a>
+        <div class="align-items-center text-center justify-content-center my-5">
+            <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
+            <h3>Your cart is empty</h3>
+            <a href="/products">Visit Our Products</a>
+        </div>
     </c:if>
     <c:if test="${!isCartEmpty}">
     <div class="main-container">
@@ -193,10 +204,10 @@
                         <tr>
                             <td style="vertical-align: middle; text-align:center;"><img src="${_value.key.image}"
                                     alt="product img" class="product-img"></td>
-                            <td style="vertical-align: middle;">${_value.key.name}</td>
-                            <td style="vertical-align: middle;">${_value.value}</td>
-                            <td style="vertical-align: middle;">$${_value.key.price} Each</td>
-                            <td style="vertical-align: middle;">$${_value.key.price * _value.value}</td>
+                            <td style="vertical-align: middle;"><a href="/products/product.jsp?id=${_value.key.productId}">${fn:escapeXml(_value.key.name)}</a></td>
+                            <td style="vertical-align: middle;">${fn:escapeXml(_value.value)}</td>
+                            <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price)} Each</td>
+                            <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price * _value.value)}</td>
                             <td style="vertical-align: middle;">
                                 <form action="/api/user/cart/deleteItem" method="post">
                                     <input type="hidden" name="productId" value="${_value.key.productId}">
@@ -220,14 +231,12 @@
                 <tr>
                     <td colspan="2">
                         <p>Subtotal:</p>
-                        <p>Shipping:</p>
-                        
+                        <p><small>Shipping and additional costs:</small></p>
                     </td>
                     
                     <td class="pricing">
-                        
                         <p style="color: #000000;">$${userCart.totalCost}</p>
-                        <p style="color: #000000;">Free</p>                        
+                        <p style="color: #000000;"><small><i>will be applied during PayPal checkout.</i></small></p>
                     </td>
                     
                 </tr>

@@ -62,10 +62,10 @@ public class Order {
     }
 
     public String getOrderStatus() {
-        boolean isExpired = (System.currentTimeMillis() - this.dateTime.getTime()) > (1000*60*60*24);
-        if (isExpired && (!this.orderStatus.equals("COMPLETED"))){
-            if (!this.orderStatus.equals("EXPIRED")){
-                this.setOrderStatus("EXPIRED");
+        boolean isCancelled = (System.currentTimeMillis() - this.dateTime.getTime()) > (1000*60*60*24);
+        if (isCancelled && (!this.orderStatus.equals("COMPLETED"))){
+            if (!this.orderStatus.equals("CANCELLED")){
+                this.setOrderStatus("CANCELLED");
                 this.updateOrder();
             }
         }
@@ -73,7 +73,7 @@ public class Order {
     }
 
     public void setOrderStatus(String state){
-        if (state.equals("PENDING") || state.equals("COMPLETED") || state.equals("EXPIRED")){
+        if (state.equals("PENDING") || state.equals("COMPLETED") || state.equals("CANCELLED")){
             this.orderStatus = state;
         } else {
             this.orderStatus = "PENDING";
@@ -109,7 +109,7 @@ public class Order {
         for(Map.Entry<Product, Integer> entry: this.cartObj.getProductQuantities().entrySet()){
             Product _product = entry.getKey();
             int _quantity = entry.getValue();
-            OrderDetail orderDetail = new OrderDetail(this.orderId, _product.getProductId(), _quantity, (_product.getPrice() * _quantity));
+            OrderDetail orderDetail = new OrderDetail(this.orderId, _product.getProductId(), _product.getName(), _quantity, (_product.getPrice() * _quantity));
             orderDetail.saveOrderDetail();
         };
     }
@@ -266,6 +266,50 @@ public class Order {
         return orderList;
     }
 
+    public static List<Order> findOrdersByStatus(String searchOrderStatus){
+        List<Order> orderList = new ArrayList<Order>();
+        try {
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM Orders WHERE status = ?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(query);
+            sqlStatement.setString(1, searchOrderStatus);
+            ResultSet resultSet = sqlStatement.executeQuery();
+
+            // Fields
+            int orderId = -1;
+            int userId = -1;
+            Timestamp createdAt = new Timestamp(1L);
+            double amount = -1;
+            double additionalCharges = 0;
+            String orderStatus = "CANCELLED";
+            while(resultSet.next()){
+                orderId = resultSet.getInt("orderid");
+                userId = resultSet.getInt("userid");
+                createdAt = resultSet.getTimestamp("createdAt");
+                amount = resultSet.getDouble("amount");
+                orderStatus = resultSet.getString("status");
+                additionalCharges = resultSet.getDouble("additionalCharges");
+
+                Order _tmp = new Order(userId, amount);
+                _tmp.setOrderId(orderId);
+                _tmp.setDateTime(createdAt);
+                _tmp.setOrderStatus(orderStatus);
+                _tmp.setAdditionalCharges(additionalCharges);
+                List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
+                _tmp.setOrderDetails(_tmp2);
+                orderList.add(_tmp);
+            }
+
+
+            Database.closeConnection();
+            return orderList;
+        } catch (Exception ex){
+            System.out.println("ERR:findOrdersByUserId(): " +ex.getMessage());
+        }
+
+        return orderList;
+    }
+
     public static List<Order> findOrdersAfterTimestamp(Timestamp timestamp){
         List<Order> orderList = new ArrayList<Order>();
         try {
@@ -356,8 +400,58 @@ public class Order {
         User user = User.findUserById(this.userId);
         String emailSubject = "Order ID " + this.getOrderId() +" Receipt";
 
+        // Styles
+        String styles = "<style>\n" +
+                "        body {\n" +
+                "            font-family: Arial, sans-serif;\n" +
+                "            background-color: #E8F4E5; /* Light green background */\n" +
+                "            margin: 0;\n" +
+                "            padding: 20px;\n" +
+                "        }\n" +
+                "\n" +
+                "        table {\n" +
+                "            border-collapse: collapse;\n" +
+                "            width: 100%;\n" +
+                "            margin-top: 20px;\n" +
+                "        }\n" +
+                "\n" +
+                "        th, td {\n" +
+                "            border: 1px solid #4CAF50; /* Green borders for table */\n" +
+                "            padding: 8px;\n" +
+                "            text-align: left;\n" +
+                "        }\n" +
+                "\n" +
+                "        th {\n" +
+                "            background-color: #4CAF50; /* Green header background */\n" +
+                "            color: white;\n" +
+                "        }\n" +
+                "\n" +
+                "        td:nth-child(2),\n" +
+                "        td:nth-child(4) {\n" +
+                "            text-align: right;\n" +
+                "        }\n" +
+                "\n" +
+                "        td:nth-child(3) {\n" +
+                "            text-align: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        p {\n" +
+                "            margin-bottom: 10px;\n" +
+                "        }\n" +
+                "\n" +
+                "        a {\n" +
+                "            color: #4CAF50; /* Green link color */\n" +
+                "            text-decoration: none;\n" +
+                "            font-weight: bold;\n" +
+                "        }\n" +
+                "\n" +
+                "        a:hover {\n" +
+                "            text-decoration: underline;\n" +
+                "        }\n" +
+                "    </style>";
+
         // Header Part
-        StringBuilder emailBody = new StringBuilder("Hello " + user.getFullName() + ",<br>Here's your receipt for the Order ID " + this.getOrderId() + "<br><br>");
+        StringBuilder emailBody = new StringBuilder("<body>" + styles + "Hello " + user.getFullName() + ",<br>Here's your receipt for the Order ID " + this.getOrderId() + "<br><br>");
 
         // Order Details Table
         emailBody.append("<table border=\"1px\"><thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Sub Total</th></tr></thead><tbody>");
@@ -398,6 +492,7 @@ public class Order {
         // Footer
         emailBody.append("<br><br>");
         emailBody.append("GreenSuperMarket - <a href=\"https://www.greensupermarket.live/\">https://www.greensupermarket.live/</a>");
+        emailBody.append("</body>");
 
         Email receiptEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
         receiptEmail.send();

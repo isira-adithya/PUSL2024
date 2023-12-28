@@ -11,6 +11,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%
     String searchQuery = "";
     String msg = "";
@@ -28,11 +29,6 @@
         products = Product.getProducts();
     } else {
         products = Product.findProductsByName(searchQuery);
-    }
-
-    if (products.size() <= 0){
-        response.sendRedirect("/products/?msg=No Products Found");
-        return;
     }
 
     pageContext.setAttribute("products", products);
@@ -53,7 +49,7 @@
     </style>
 </head>
 <body>
-    <%@include file="../includes/header.jsp"%>
+<%@include file="/includes/header.jsp"%>
     
 <section class="d-flex justify-content-center align-items-center">
     <div>
@@ -64,22 +60,30 @@
 <section >  
   <div class="container mt-4"> 
     <div class="row">
-      <c:forEach items="${products}" var="product">
-          <c:if test="${product.visibility}">
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="custom-card">
-                      <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
-                      <h5>${fn:escapeXml(product.name)}</h5>
-                      <p class="card-text">${fn:escapeXml(product.shortDescription)}</p>
-                      <p>${product.price}$</p>
-                      <a href="/products/product.jsp?id=${product.productId}" class="custom-btn">Buy Now</a>
-                  </div>
-              </div>
-          </c:if>
-      </c:forEach>
+      <c:if test="${products.size() > 0}">
+            <c:forEach items="${products}" var="product">
+                <c:if test="${product.visibility}">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="custom-card">
+                            <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
+                            <h5>${fn:escapeXml(product.name)}</h5>
+                            <p class="card-text">${fn:escapeXml(product.shortDescription)}</p>
+                            <p>${product.price}$</p>
+                            <a href="/products/product.jsp?id=${product.productId}" class="card-button">Buy Now</a>
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </c:if>
     </div>
   </div>
 </section>
+<c:if test="${products.size() <= 0}">
+    <div class="align-items-center text-center justify-content-center my-5">
+        <img src="/uploads/images/common/not-found.jpeg" class="not-found-img" style="width: 300px;">
+        <h3>No Products Found</h3>
+    </div>
+</c:if>
     <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

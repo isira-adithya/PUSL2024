@@ -73,37 +73,26 @@
     </style>
 </head>
 
-   <%@include file="../../includes/header.jsp"%>
+   <%@include file="includes/header.jsp"%>
 <body>
     
 
     <main>
-        <h1>Help And Support</h1>
-        
-        Contact Info<br>
-        
-         <image src =" http://localhost:8080/uploads/images/contactus/PhoneCall.jpg"> <b>Phone:</b> +94701234561 , +94701234562 <br>
-         <image src ="http://localhost:8080/uploads/images/contactus/Email.png"> <b>Email:</b> support@greensupermarket.com
-        
-        <br>
+        <h3>Contact Info</h3>
         <br>
         
-        <h4><p><i>Welcome to Green Supermarket's Help & Support page. Here you can find answers to common questions and get assistance.</i></p></h4>
+         <img src ="/uploads/images/contactus/PhoneCall.jpg" width="32px" style="margin-right:15px; margin-bottom: 10px;"> <b>Phone:</b> <a href="tel:+94701234561">+94701234561</a> , <a href="tel:+94701234562">+94701234562</a> <br>
+         <img src ="/uploads/images/contactus/Email.png" width="32px" style="margin-right:15px;"> <b>Email:</b> <a href="mailto:support@greensupermarket.com">support@greensupermarket.com</a>
         <br>
-        
+        <br>
         <br>
         <h3>Frequently Asked Questions (FAQs)</h3>
-        
         <br>
-        
         <br>
         <ul>
-           
             <li>
                 <h4>What payment methods do you accept?</h4>
                 <p>We accept various payment methods including PayPal</p>
-                  
-                    
             </li>
             <li>
             <h4>How to track my order?</h4>
@@ -132,7 +121,7 @@
 
     
 </body>
-<%@include file="../../includes/footer.jsp"%>
+<%@include file="/includes/footer.jsp"%>
 
 
 </html>

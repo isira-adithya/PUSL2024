@@ -1,4 +1,4 @@
-package com.isiraadithya.greensupermarket.routes.admin.users;
+package com.isiraadithya.greensupermarket.routes.admin.orders;
 
 import com.isiraadithya.greensupermarket.models.Order;
 import com.isiraadithya.greensupermarket.models.User;

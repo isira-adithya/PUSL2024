@@ -97,9 +97,9 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center"> 
                         <h6 class=" mb-4 font-weight-bold"><br><br><br>My Account</h6>
-                        <p><a class="paracolor mb-3.5 d-block" href="/user/profile.jsp"> Account</a></p>
-                        <p><a class="paracolor mb-3.5 d-block" href="/user/cart.jsp">Shopping Cart</a></p>
-                        <p><a class="paracolor mb-3.5 d-block" href="/user/wishlist/">Wish List</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/user/profile.jsp" style="text-decoration: none" > Account</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/user/cart.jsp" style="text-decoration: none">Shopping Cart</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/user/wishlist/" style="text-decoration: none">Wish List</a></p>
                        
                     </div>
                     <!-- Grid column -->
@@ -108,10 +108,10 @@
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
-                        <h6 class=" mb-4 font-weight-bold"><br><br><br>Helps</h6>
-                        <p><a class="paracolor mb-3.5 d-block" href="/contact-us.jsp">Contact Us</a></p>
-                        <p><a class="paracolor mb-3.5 d-block" href="/about-us.jsp">About Us</a></p>
-                        <p><a class="paracolor mb-3.5 d-block" href="/products/">Products</a></p>
+                        <h6 class=" mb-4 font-weight-bold"><br><br><br>Help and Support</h6>
+                        <p><a class="paracolor mb-3.5 d-block" href="/contact-us.jsp" style="text-decoration: none">Contact Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/about-us.jsp" style="text-decoration: none">About Us</a></p>
+                        <p><a class="paracolor mb-3.5 d-block" href="/support.jsp" style="text-decoration: none">FAQ & Support</a></p>
                     </div>
                     <!-- Grid column -->
 

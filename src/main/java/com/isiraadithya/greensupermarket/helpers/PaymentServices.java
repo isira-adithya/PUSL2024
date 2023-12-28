@@ -14,6 +14,7 @@ import com.paypal.base.rest.*;
 /**
  *
  * @author sanid
+ * @modifed_by isira_adithya
  * Taken and modified from https://www.codejava.net/coding/how-to-integrate-paypal-payment-into-java-web-application
  */
 public class PaymentServices {
@@ -40,9 +41,7 @@ public class PaymentServices {
 
         Payer payer = getPayerInformation();
         RedirectUrls redirectUrls = getRedirectURLs();
-
         List<Transaction> listTransaction = getTransactionInformation(this.order);
-
         Payment requestPayment = new Payment();
         requestPayment.setTransactions(listTransaction);
         requestPayment.setRedirectUrls(redirectUrls);
@@ -69,13 +68,23 @@ public class PaymentServices {
 
     private RedirectUrls getRedirectURLs() {
         RedirectUrls redirectUrls = new RedirectUrls();
-        if (System.getenv("JSP_DEV").equals("TRUE")){
+        boolean isDev = false;
+        try {
+            if (System.getenv("JSP_DEV").equals("TRUE")){
+                isDev = true;
+            };
+        } catch (Exception err){
+            isDev = false;
+        }
+
+        if (isDev){
             redirectUrls.setCancelUrl("http://localhost:9090/user/orders/");
             redirectUrls.setReturnUrl("http://localhost:9090/user/payments/review.jsp?orderid="+order.getOrderId());
             System.out.println("[DEV] Environment Detected; Using http://localhost:9090/user/ for Paypal Payment Handling.");
+        } else {
+            redirectUrls.setCancelUrl("https://www.greensupermarket.live/user/orders/");
+            redirectUrls.setReturnUrl("https://www.greensupermarket.live/user/payments/review.jsp?orderid="+order.getOrderId());
         }
-        redirectUrls.setCancelUrl("https://www.greensupermarket.live/user/orders/");
-        redirectUrls.setReturnUrl("https://www.greensupermarket.live/user/payments/review.jsp?orderid="+order.getOrderId());
 
         return redirectUrls;
     }

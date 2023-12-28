@@ -34,8 +34,28 @@ public class Cart {
 
     public boolean addProduct(Product product, int quantity){
         try {
-            this.productQuantities.put(product, quantity);
-            this.totalCost += (product.getPrice() * quantity);
+            // Checking whether the product already exists in the cart
+            boolean isFoundInCartAlready = false;
+            for(Map.Entry<Product, Integer> entry: this.productQuantities.entrySet()){
+                Product _product = entry.getKey();
+                int _prev_quantity = entry.getValue();
+                if ((_prev_quantity + quantity) > product.getQuantity()){
+                    return false;
+                }
+                if (_product.getProductId() == product.getProductId()){
+                    isFoundInCartAlready = true;
+                    this.deleteProduct(entry.getKey().getProductId());
+                    this.productQuantities.put(entry.getKey(), (_prev_quantity + quantity));
+                    this.totalCost += (product.getPrice() * (_prev_quantity + quantity));
+                    break;
+                }
+            };
+
+            if (!isFoundInCartAlready){
+                this.productQuantities.put(product, quantity);
+                this.totalCost += (product.getPrice() * quantity);
+            }
+
             return true;
         } catch (Exception ex){
             System.out.println("DEBUG: Add product");
@@ -66,5 +86,16 @@ public class Cart {
             System.out.println(ex.getMessage());
         }
         return false;
+    }
+
+    public int getProductQuantity(int productId){
+        for(Map.Entry<Product, Integer> entry: this.productQuantities.entrySet()){
+            Product _product = entry.getKey();
+            int _quantity = entry.getValue();
+            if (_product.getProductId() == productId){
+                return _quantity;
+            }
+        };
+        return -1;
     }
 }
