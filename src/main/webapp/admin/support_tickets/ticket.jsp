@@ -194,9 +194,18 @@
           </div>
 
           <div class="mb-4">
-            <label>Date/Time</label>
-            <input type="text" class="form-control" value="${fn:escapeXml(ticket.createdAt)}" disabled>
+            <div class="row">
+              <div class="col">
+                <label>Date/Time</label>
+                <input type="text" class="form-control" value="${fn:escapeXml(ticket.createdAt)}" disabled>
+              </div>
+              <div class="col">
+                <label>Status</label>
+                <input type="email" class="form-control" id="Email" name="email" value="${ticket.read ? 'Already Viewed' : 'New Ticket'}" disabled>
+              </div>
+            </div>
           </div>
+
           <div class="mb-4">
             <label>Title</label>
             <input type="text" class="form-control" id="title" name="title" value="${fn:escapeXml(ticket.title)}" disabled>
@@ -204,7 +213,7 @@
 
           <div>
             <label>Ticket Content / Subject:</label>
-            <textarea name="subject" class="form-control" rows="8">${fn:escapeXml(ticket.subject)}</textarea>
+            <textarea name="subject" class="form-control" rows="8" disabled>${fn:escapeXml(ticket.subject)}</textarea>
           </div>
         </div>
 
@@ -216,7 +225,7 @@
           <c:if test="${ticket.read == true}">
             <button onclick="document.getElementById('toggleReadForm').submit()" class="btn btn-primary my-2" type="submit">Mark as Unread</button>
           </c:if>
-          <button onclick="document.getElementById('deleteTicketForm').submit()" type="submit" class="btn btn-danger my-2">Delete</button>
+          <button onclick="if (confirm('Are you sure?')) {document.getElementById('deleteTicketForm').submit()}" type="submit" class="btn btn-danger my-2">Delete</button>
 
           <form id="toggleReadForm" method="post" action="/api/admin/support_tickets/toggle_read">
             <input type="hidden" name="ticketId" value="${ticket.ticketId}">
