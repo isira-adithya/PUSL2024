@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="styles.css" rel="stylesheet">
+
 <nav class="navbar custom-bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
     <div class="container-fluid custom-align-content-center text-center d-flex justify-content-around p-0">
     <a href="/" class="custom-nav-home-link">
@@ -41,7 +41,7 @@
 
     <ul class="custom-link-list">
         <li class="custom-nav-item">
-            <a class="custom-nav-link " aria-current="page" href="/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
+            <a class="custom-nav-link " aria-current="page" href="/index.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
         </li>
         <li class="custom-nav-item">
             <a class="custom-nav-link" href="/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
