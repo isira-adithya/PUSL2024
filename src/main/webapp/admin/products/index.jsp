@@ -34,6 +34,7 @@
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
+            text-align: justify-all;
         }
 
         th {
@@ -110,11 +111,13 @@
     <div>
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
-<div>
-    <br>
-   
+<div
+ 
+class="container">
 
-    <table>
+    
+<div class="table-responsive">
+      <table class="table table-bordered">
          
         <thead>
         <tr>
@@ -123,7 +126,7 @@
             <th>Product Description</th>
             <th>Product Quantity</th>
             <th>Product Price</th>
-            <th></th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -157,6 +160,7 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 
 <br><br><br><br><br><br><br>
