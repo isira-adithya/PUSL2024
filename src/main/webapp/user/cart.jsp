@@ -204,10 +204,10 @@
                         <tr>
                             <td style="vertical-align: middle; text-align:center;"><img src="${_value.key.image}"
                                     alt="product img" class="product-img"></td>
-                            <td style="vertical-align: middle;">${_value.key.name}</td>
-                            <td style="vertical-align: middle;">${_value.value}</td>
-                            <td style="vertical-align: middle;">$${_value.key.price} Each</td>
-                            <td style="vertical-align: middle;">$${_value.key.price * _value.value}</td>
+                            <td style="vertical-align: middle;"><a>${fn:escapeXml(_value.key.name)}</a></td>
+                            <td style="vertical-align: middle;">${fn:escapeXml(_value.value)}</td>
+                            <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price)} Each</td>
+                            <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price * _value.value)}</td>
                             <td style="vertical-align: middle;">
                                 <form action="/api/user/cart/deleteItem" method="post">
                                     <input type="hidden" name="productId" value="${_value.key.productId}">
