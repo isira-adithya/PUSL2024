@@ -199,23 +199,23 @@
           <p>Need assistance? or have to tell something? Feel free to contact us <br> by submitting the below form</p>
         </div>
 
-        <form action="#" method="post">
+        <form action="/api/misc/addSupportTicket" method="post">
           <div class="mb-4">
             <div class="row">
               <div class="col">
                 <c:if test="${isLoggedIn == false}">
-                  <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
+                  <input type="text" class="form-control" id="Name" name="name" placeholder="Name">
                 </c:if>
                 <c:if test="${isLoggedIn == true}">
-                  <input type="text" class="form-control" id="Name" name="Name" value="${fn:escapeXml(name)}" disabled>
+                  <input type="text" class="form-control" id="Name" name="name" value="${fn:escapeXml(name)}" readonly>
                 </c:if>
               </div>
               <div class="col">
                 <c:if test="${isLoggedIn == false}">
-                  <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                  <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
                 </c:if>
                 <c:if test="${isLoggedIn == true}">
-                  <input type="email" class="form-control" id="Email" name="Email" value="${fn:escapeXml(email)}" disabled>
+                  <input type="email" class="form-control" id="Email" name="email" value="${fn:escapeXml(email)}" readonly>
                 </c:if>
               </div>
             </div>
@@ -226,7 +226,7 @@
           </div>
 
           <div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Subject"></textarea>
+            <textarea name="subject" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Subject"></textarea>
           </div>
 
           <div>
