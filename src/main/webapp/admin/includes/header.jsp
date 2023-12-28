@@ -32,7 +32,7 @@
 
     <ul class="custom-link-list">
         <li class="custom-nav-item">
-            <a class="custom-nav-link" href="/admin/analytics/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
+            <a class="custom-nav-link" href="/admin/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
         </li>
         <li class="custom-nav-item">
             <a class="custom-nav-link" href="/admin/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Products</a>
