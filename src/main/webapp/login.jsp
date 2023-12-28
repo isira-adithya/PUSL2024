@@ -61,6 +61,12 @@
             position: relative;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
         }
+        @media (max-width: 576px) {
+            .login-form {
+                max-width: 100%;
+                margin-top: 30px; /* Adjust margin for smaller screens */
+            }
+        }
         
     </style>
 </head>
