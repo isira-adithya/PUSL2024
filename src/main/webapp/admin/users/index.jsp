@@ -97,11 +97,22 @@
             width: 30px;
             height: 30px;
         }
+        .image{
+            margin-bottom: 5px;
+            width: 100%;
+            height: 120px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        }
         
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
+        <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+        </div>
+
 <div
  
 class="container">
