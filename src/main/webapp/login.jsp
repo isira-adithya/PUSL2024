@@ -86,8 +86,8 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>
             <div class="form-check mb-3">
-                <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
-                <label class="form-check-label" for="remember_me">Remember me</label>
+<%--                <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">--%>
+<%--                <label class="form-check-label" for="remember_me">Remember me</label>--%>
                 <a href="/forgot-password.jsp" class="float-end" style="color: #000;">Forgot Password?</a>
             </div>
             <div class="d-grid gap-2">

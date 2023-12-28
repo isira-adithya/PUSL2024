@@ -38,19 +38,36 @@ public class Analytics {
 
         for (int i = 0; i < orders.size(); i++){
             Order order = orders.get(i);
-            // DEBUG:
-            System.out.println("\nOrder ID: " + order.getOrderId() + " | User ID: " + order.getUserId() + " | Order Amount: " + order.getAmount() + "");
             for (int n = 0; n < order.getOrderDetails().size(); n++){
                 Product product = order.getOrderDetails().get(n).getProduct();
                 int quantity = order.getOrderDetails().get(n).getQuantity();
                 double individualPrice = (order.getOrderDetails().get(n).getSubTotal() / quantity);
+                double totalOrderPrice = individualPrice * quantity;
                 if (results.containsKey(product.getName())){
-                    System.out.println("Existing " + product.getName());
                     double currentVal = results.get(product.getName());
-                    results.put(product.getName(), currentVal + individualPrice);
+                    results.put(product.getName(), currentVal + totalOrderPrice);
                 } else {
-                    System.out.println("Added " + product.getName());
-                    results.put(product.getName(), individualPrice);
+                    results.put(product.getName(), totalOrderPrice);
+                }
+            }
+        }
+
+        return results;
+    }
+
+    public Map<String, Integer> getQuantitySoldByProduct(){
+        Map<String, Integer> results = new HashMap<String, Integer>();
+
+        for (int i = 0; i < orders.size(); i++){
+            Order order = orders.get(i);
+            for (int n = 0; n < order.getOrderDetails().size(); n++){
+                Product product = order.getOrderDetails().get(n).getProduct();
+                int quantity = order.getOrderDetails().get(n).getQuantity();
+                if (results.containsKey(product.getName())){
+                    int currentVal = results.get(product.getName());
+                    results.put(product.getName(), currentVal + quantity);
+                } else {
+                    results.put(product.getName(), quantity);
                 }
             }
         }
