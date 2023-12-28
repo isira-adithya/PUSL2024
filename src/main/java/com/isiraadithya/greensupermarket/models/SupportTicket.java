@@ -88,7 +88,7 @@ public class SupportTicket {
         }
     }
 
-    public List<SupportTicket> findSupportTickets(boolean isRead){
+    public static List<SupportTicket> findSupportTickets(boolean isRead){
         List<SupportTicket> supportTickets = new ArrayList<SupportTicket>();
         try {
             Connection dbconn = Database.connect();
