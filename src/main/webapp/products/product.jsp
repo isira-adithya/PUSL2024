@@ -315,8 +315,13 @@
                     </button>
                     
                     
-                     <!-- wishlist icon -->  
-                    <a href="#"><img src="/uploads/images/navbar/wish.png" alt="wishlist" width="33px"></a>
+                     <!-- wishlist icon -->
+                    <form method="post" action="/api/user/wishlist/addProduct">
+                        <input type="hidden" name="productId" value="${[product.productId]}">
+                        <button type="submit">
+                            <img src="/uploads/images/navbar/wish.png" alt="wishlist" width="33px">
+                        </button>
+                    </form>
 
                     
                 </form>
