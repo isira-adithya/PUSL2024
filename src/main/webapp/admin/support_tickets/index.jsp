@@ -28,6 +28,7 @@
     } else {
         supportTickets = SupportTicket.findSupportTickets(false);
     }
+    System.out.println(supportTickets.size());
     pageContext.setAttribute("tickets", supportTickets);
 %>
 <html>
@@ -153,11 +154,11 @@
                     <td>${fn:escapeXml(ticket.email)}</td>
                     <td>${fn:escapeXml(ticket.createdAt)}</td>
                     <td>
-                        <a href="/admin/orders/order.jsp?id=${ticket.ticketId}"><button class="submitBtn">View Ticket</button></a>
-                        <form id="deleteTicket${ticket.ticketId}Form" method="post" action="/api/admin/orders/delete"><br>
+                        <a href="/admin/support_tickets/ticket.jsp?id=${ticket.ticketId}"><button class="btn btn-primary btn-sm">View Ticket</button></a>
+                        <button onclick="if(confirm('Are you sure?')){document.getElementById('deleteTicket${ticket.ticketId}Form').submit()}" class="btn btn-danger btn-sm">Delete</button>
+                        <form id="deleteTicket${ticket.ticketId}Form" method="post" action="/api/admin/support_tickets/delete">
                             <input type="hidden" name="ticketId" value="${ticket.ticketId}">
                         </form>
-                        <button onclick="if(confirm('Are you sure?')){document.getElementById('deleteTicket${ticket.ticketId}Form').submit()}" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
             </c:forEach>
