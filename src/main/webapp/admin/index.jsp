@@ -80,7 +80,7 @@
                     <img src="/uploads/images/Admin/mt.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
                     <p></p>
-                    <a href="/admin/users" class="card-button">Manage Users</a>
+                    <a href="/admin/support_tickets" class="card-button">Manage Tickets</a>
                 </div>
             </div>
             
