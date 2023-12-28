@@ -111,4 +111,20 @@ public class WishlistDetail {
         }
         return wishlistDetails;
     }
+
+    public static void deleteProductFromWishlist(int wishlistId, int productId){
+        try {
+            Connection dbconn = Database.connect();
+
+            String sqlQuery = "DELETE FROM WishlistDetails WHERE wishlistid=? AND productid=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
+            sqlStatement.setInt(1, wishlistId);
+            sqlStatement.setInt(2, productId);
+            sqlStatement.executeQuery();
+
+            Database.closeConnection();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 }
