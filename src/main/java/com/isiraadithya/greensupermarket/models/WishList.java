@@ -5,7 +5,7 @@ import com.isiraadithya.greensupermarket.helpers.Database;
 import java.sql.*;
 
 public class WishList {
-    private int wishListId;
+    private int wishListId = -1;
     private int userId;
     private Timestamp createdAt;
 
@@ -68,4 +68,34 @@ public class WishList {
         }
         return new WishList(-1, new Timestamp(1));
     }
+
+    public void saveWishlist(){
+        try {
+            Connection dbconn = Database.connect();
+            String sqlQuery = "INSERT INTO Wishlists(userid, createdAt) VALUES (?, ?, ?)";
+            PreparedStatement statement = dbconn.prepareStatement(sqlQuery);
+            statement.setInt(1, this.userId);
+            statement.setTimestamp(2, this.createdAt);
+            statement.execute();
+
+            Database.closeConnection();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteWishlist(){
+        try {
+            Connection dbconn = Database.connect();
+            String sqlQuery = "DELETE FROM Wishlists WHERE wishlistid=?";
+            PreparedStatement statement = dbconn.prepareStatement(sqlQuery);
+            statement.setInt(1, this.wishListId);
+            statement.execute();
+
+            Database.closeConnection();
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
 }
