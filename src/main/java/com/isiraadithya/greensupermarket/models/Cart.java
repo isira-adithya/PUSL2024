@@ -87,4 +87,15 @@ public class Cart {
         }
         return false;
     }
+
+    public int getProductQuantity(int productId){
+        for(Map.Entry<Product, Integer> entry: this.productQuantities.entrySet()){
+            Product _product = entry.getKey();
+            int _quantity = entry.getValue();
+            if (_product.getProductId() == productId){
+                return _quantity;
+            }
+        };
+        return -1;
+    }
 }

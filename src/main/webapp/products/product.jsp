@@ -7,11 +7,14 @@
 <%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.Comment" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
 <%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int id = -1;
     Product product;
+    int availableQuantity = 0;
+    boolean foundProductInCart = false;
 
     // Only allowing numbers
     if (request.getParameterMap().containsKey("id")){
@@ -34,6 +37,23 @@
         return;
     }
 
+    // Calculating the available product quantity based on their cart if they have one.
+    availableQuantity = product.getQuantity();
+    if (isLoggedIn){
+        int userId = (int) session.getAttribute("userId");
+        Cart userCart = (Cart) session.getAttribute("cart");
+        if (userCart == null){
+            userCart = new Cart(userId);
+            session.setAttribute("cart", userCart);
+        }
+
+        int inCartCount = userCart.getProductQuantity(product.getProductId());
+        if (inCartCount != -1){
+            foundProductInCart = true;
+            availableQuantity = availableQuantity - inCartCount;
+        }
+    }
+
     // Loading comments
     List<Comment> comments = Comment.findCommentsByProductId(id);
 
@@ -41,6 +61,8 @@
     pageContext.setAttribute("product", product);
     pageContext.setAttribute("comments", comments);
     pageContext.setAttribute("userId", session.getAttribute("userId"));
+    pageContext.setAttribute("availableQuantity", availableQuantity);
+    pageContext.setAttribute("foundProductInCart", foundProductInCart);
 %>
 <!DOCTYPE html>
 <html>
@@ -248,17 +270,34 @@
       
       <hr>
       <p>${fn:escapeXml(product.description)}</p>
-    
-      <hr>       
-        <c:if test="${userId != null}">
-            <form action="/api/user/cart/addItem" method="post">
-                <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${product.quantity}">
-                <input type="hidden" name="productId" value="${product.productId}">
-                 <button type="submit" class="btn btn-outline addToCart-button" style="position: relative;">
-                    Add to Cart
-                </button>
 
-            </form>
+      <hr>
+        <c:if test="${availableQuantity <= 0}">
+            <c:if test="${foundProductInCart == true}">
+                <b><i>You have added the maximum available quantity to your cart.</i></b><br>
+                <a href="/user/cart.jsp" class="btn btn-primary btn-sm my-2">Visit Cart</a>
+            </c:if>
+            <c:if test="${foundProductInCart == false}">
+                <p>We are sorry. 😔 </p>
+                <p>This product is currently unavailable in our inventory.</p>
+                <p class="mt-5">Please visit us later to order this product.</p>
+
+                <a href="/products/" class="btn btn-primary btn-sm my-2">Go Back</a>
+            </c:if>
+        </c:if>
+        <c:if test="${availableQuantity > 0}">
+            <small>Only ${availableQuantity} are available in Stock</small>
+            <hr>
+            <c:if test="${userId != null}">
+                <form action="/api/user/cart/addItem" method="post">
+                    <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${availableQuantity}">
+                    <input type="hidden" name="productId" value="${product.productId}">
+                    <button type="submit" class="btn btn-outline addToCart-button" style="position: relative;">
+                        Add to Cart
+                    </button>
+
+                </form>
+            </c:if>
         </c:if>
     </div>              
   </div>
