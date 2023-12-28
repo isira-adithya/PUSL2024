@@ -90,6 +90,15 @@ CREATE TABLE Comments (
        FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE,
        CONSTRAINT wishlist_product_key UNIQUE (wishlistid, productid)
  );
+CREATE TABLE SupportTickets (
+    ticketid INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(256),
+    email VARCHAR(128),
+    title VARCHAR(1024),
+    subject VARCHAR(4096),
+    markedAsRead BOOLEAN DEFAULT false,
+    createdAt TIMESTAMP
+);
 
 -- Sample Data
 INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken, is_email_verified, createdAt) VALUES

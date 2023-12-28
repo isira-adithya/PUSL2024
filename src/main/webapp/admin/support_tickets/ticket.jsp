@@ -8,19 +8,24 @@
 <%@include file="/includes/variables.jsp"%>
 <%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.User" %>
+<%@ page import="com.isiraadithya.greensupermarket.models.SupportTicket" %>
 <%
-  String email = "";
-  String name = "";
-
-  if(isLoggedIn){
-    User userObj = User.findUserById((int) session.getAttribute("userId"));
-    name = userObj.getFullName();
-    email = userObj.getEmail();
+  int ticketId = -1;
+  SupportTicket ticket;
+  try {
+    ticketId = Integer.parseInt(request.getParameter("id"));
+  } catch (Exception ex){
+    response.sendRedirect("/admin/support_tickets/");
+    return;
   }
 
-  pageContext.setAttribute("isLoggedIn", isLoggedIn);
-  pageContext.setAttribute("email", email);
-  pageContext.setAttribute("name", name);
+  ticket = SupportTicket.findSupportTicketById(ticketId);
+  if (ticket.getTicketId() == -1){
+    response.sendRedirect("/admin/support_tickets/");
+    return;
+  }
+
+  pageContext.setAttribute("ticket", ticket);
 %>
 <!DOCTYPE html>
 
@@ -43,7 +48,6 @@
 
 
     .login-form {
-      max-width: 800px;
       padding: 15px;
       border: 1px solid #e9e9e9;
       border-radius: 5px;
@@ -162,91 +166,83 @@
 
 
 <body>
-<%@include file="includes/header.jsp"%>
+<%@include file="../includes/header.jsp"%>
   <div>
     <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
   </div>
-    <br><br><br><br>
-  <div class="container login-form-container">
-    <!-- Left Section -->
-    <div class="col-md-4">
-      <div class="login-form mb-4">
-        <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
-            <p>Send us a mail</p>
-          <p><a href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
-            <a href="mailto:support@greensupermarket.live">support@greensupermarket.live</a></p>
-                <hr>
-                <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
-                <p>
-                <p>
-                    <p>Call us here</p>
-                  <a href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
-                  <a href="tel:+94701234562"> (+94) 70 123 4562 </a>
-                </p>
-        </center>
-        
-      </div>
-    </div>
-
-    <!-- Spacer -->
-    <div class="spacer"></div>
 
     <!-- Right Form -->
-    <div class="col-md-8">
+    <div class="container mb-5">
       <div class="login-form">
-        <div class="head">
-          <h3><b>Just Say Hello!</b></h3>
-          <p>Need assistance? or have to tell something? Feel free to contact us <br> by submitting the below form</p>
+        <div class="head mb-4">
+          <h3><b>Ticket ID - ${ticket.ticketId}</b></h3>
+          <p>Review this support ticket as soon as possible and contact the customer through <a href="mailto:${fn:escapeXml(ticket.email)}">${fn:escapeXml(ticket.email)}</a> if needed.</p>
         </div>
 
-        <form action="/api/misc/createSupportTicket" method="post">
+        <div>
           <div class="mb-4">
             <div class="row">
               <div class="col">
-                <c:if test="${isLoggedIn == false}">
-                  <input type="text" class="form-control" id="Name" name="name" placeholder="Name">
-                </c:if>
-                <c:if test="${isLoggedIn == true}">
-                  <input type="text" class="form-control" id="Name" name="name" value="${fn:escapeXml(name)}" readonly>
-                </c:if>
+                <label>User's Name</label>
+                <input type="text" class="form-control" id="Name" name="name" value="${fn:escapeXml(ticket.fullName)}" disabled>
               </div>
               <div class="col">
-                <c:if test="${isLoggedIn == false}">
-                  <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
-                </c:if>
-                <c:if test="${isLoggedIn == true}">
-                  <input type="email" class="form-control" id="Email" name="email" value="${fn:escapeXml(email)}" readonly>
-                </c:if>
+                <label>User's Email</label>
+                  <input type="email" class="form-control" id="Email" name="email" value="${fn:escapeXml(ticket.email)}" disabled>
               </div>
             </div>
           </div>
 
           <div class="mb-4">
-            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+            <div class="row">
+              <div class="col">
+                <label>Date/Time</label>
+                <input type="text" class="form-control" value="${fn:escapeXml(ticket.createdAt)}" disabled>
+              </div>
+              <div class="col">
+                <label>Status</label>
+                <input type="email" class="form-control" id="Email" name="email" value="${ticket.read ? 'Already Viewed' : 'New Ticket'}" disabled>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label>Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="${fn:escapeXml(ticket.title)}" disabled>
           </div>
 
           <div>
-            <textarea name="subject" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Subject"></textarea>
+            <label>Ticket Content / Subject:</label>
+            <textarea name="subject" class="form-control" rows="8" disabled>${fn:escapeXml(ticket.subject)}</textarea>
           </div>
+        </div>
 
-          <div>
-            <br>
-            <input type="submit" class="btn btn-outline sendmsg-button " style="background-color: #00b207" value="Send Message">
-          </div>
-        </form>
+        <div>
+
+          <c:if test="${ticket.read == false}">
+            <button onclick="document.getElementById('toggleReadForm').submit()" class="btn btn-primary my-2" type="submit">Mark as Read</button>
+          </c:if>
+          <c:if test="${ticket.read == true}">
+            <button onclick="document.getElementById('toggleReadForm').submit()" class="btn btn-primary my-2" type="submit">Mark as Unread</button>
+          </c:if>
+          <button onclick="if (confirm('Are you sure?')) {document.getElementById('deleteTicketForm').submit()}" type="submit" class="btn btn-danger my-2">Delete</button>
+
+          <form id="toggleReadForm" method="post" action="/api/admin/support_tickets/toggle_read">
+            <input type="hidden" name="ticketId" value="${ticket.ticketId}">
+          </form>
+          <form id="deleteTicketForm" method="post" action="/api/admin/support_tickets/delete">
+            <input type="hidden" name="ticketId" value="${ticket.ticketId}">
+          </form>
+        </div>
       </div>
     </div>
+
   </div>
-    
-    
-    
-    <div class="google-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7265.530708148501!2d80.03573163662269!3d6.8234098956563365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2523b05555555%3A0x546c34cd99f6f488!2sNSBM%20Green%20University!5e0!3m2!1sen!2slk!4v1702651401888!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
+
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <%@include file="includes/footer.jsp"%>
+    <%@include file="../includes/footer.jsp"%>
 </body>
 
 
