@@ -102,7 +102,22 @@
             position: relative;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
         }
-        
+         .buttons{
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+           
+            
+            
+            
+        }
+        .custom-button{
+            width:50px;
+            border-radius: 100px;
+             text-align: left;
+        }
         
     </style>
 </head>
@@ -153,13 +168,22 @@ class="container">
         </tbody>
         
     </table>
-    <div class="button">
-        <div class="d-grid gap-2">
-            <form method="post" action="/admin/products/add.jsp">
-                <input type="submit" class="btn btn-primary" style="background-color:#00B207; " value="Add New Product">
-            </form>
+    
+    
+    
+   <div class="buttons">
+        <div class="row">
+         <div class="col">  
+        <button class="btn btn-primary col mx-2 "  onclick="window.location.href='/admin/products/add.jsp'"; style="background-color: #00B207;">
+        Add New Product                 
+          </button>
+         </div>
         </div>
-    </div>
+</div>
+    
+    
+    
+    
 </div>
 </div>
 
@@ -167,3 +191,4 @@ class="container">
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
+
