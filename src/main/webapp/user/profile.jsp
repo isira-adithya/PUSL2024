@@ -85,25 +85,25 @@
             min-width: 120px;
             max-width: 200px;
         }
-        
-        .image{
-            margin-bottom: 50px;
-            max-width: 100%;
-            height: auto;
-            position: relative;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        .image {
+              margin-bottom: 60px;
+              width: 100%;
+              height: 130px;
+              position: relative;
+              background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+              background-image: url("/uploads/images/products/Breadcrumbs.png");
+              background-size: cover;
+              background-position: center; /* Default position */
         }
-        @media (max-width: 767px) {
-            .col-md-3 {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
 
-            .col-md-9 {
-                flex: 0 0 100%;
-                max-width: 100%;
+        /* Adjust background position for mobile view */
+            @media screen and (max-width: 600px) {
+                .image {
+                    height: 120px; /* Adjust the height as needed */
+                    background-position: left center; /* Adjust position for left cropping */
+                    object-fit: cover;
             }
-        }
+          }
     </style>
     
 </head>
