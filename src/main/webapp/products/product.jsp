@@ -4,17 +4,17 @@
   Date: 12/9/2023
   Time: 11:58 PM
 --%>
-<%@ page import="com.isiraadithya.greensupermarket.models.Product" %>
-<%@ page import="com.isiraadithya.greensupermarket.models.Comment" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
+<%@ page import="com.isiraadithya.greensupermarket.models.*" %>
 <%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int id = -1;
+    int userId = -1;
     Product product;
     int availableQuantity = 0;
     boolean foundProductInCart = false;
+    boolean productExistsInWishlist = false;
 
     // Only allowing numbers
     if (request.getParameterMap().containsKey("id")){
@@ -40,7 +40,7 @@
     // Calculating the available product quantity based on their cart if they have one.
     availableQuantity = product.getQuantity();
     if (isLoggedIn){
-        int userId = (int) session.getAttribute("userId");
+        userId = (int) session.getAttribute("userId");
         Cart userCart = (Cart) session.getAttribute("cart");
         if (userCart == null){
             userCart = new Cart(userId);
@@ -52,6 +52,10 @@
             foundProductInCart = true;
             availableQuantity = availableQuantity - inCartCount;
         }
+
+        // Checking if the product exists in user's wishlist
+        WishList wishlist = WishList.findWishListByUserId(userId);
+        productExistsInWishlist = wishlist.doesProductExist(product);
     }
 
     // Loading comments
@@ -63,6 +67,7 @@
     pageContext.setAttribute("userId", session.getAttribute("userId"));
     pageContext.setAttribute("availableQuantity", availableQuantity);
     pageContext.setAttribute("foundProductInCart", foundProductInCart);
+    pageContext.setAttribute("productExistsInWishlist", productExistsInWishlist);
 %>
 <!DOCTYPE html>
 <html>
@@ -324,14 +329,28 @@
                     </button>
 
                     <!-- wishlist icon -->
-                    <div onclick="document.getElementById('addToWishlistForm').submit()" class="wishlist-button">
-                        <img src="/uploads/images/navbar/wish.png" width="33px">
+                    <div class="wishlist-button">
+                        <c:if test="${productExistsInWishlist == true}">
+                            <img onclick="document.getElementById('addToWishlistForm').submit()" src="/uploads/images/navbar/removefromwishlist.png" width="33px">
+                        </c:if>
+                        <c:if test="${productExistsInWishlist == false}">
+                            <img onclick="document.getElementById('addToWishlistForm').submit()" src="/uploads/images/navbar/addtowishlist.png" width="33px">
+                        </c:if>
                     </div>
                 </form>
 
-                <form id="addToWishlistForm" method="post" action="/api/user/wishlist/addProduct" style="display: inline-block;">
-                    <input type="hidden" name="productId" value="${product.productId}">
-                </form>
+                <c:if test="${productExistsInWishlist == true}">
+                    <form id="addToWishlistForm" method="post" action="/api/user/wishlist/deleteProduct" style="display: inline-block;">
+                        <input type="hidden" name="productId" value="${product.productId}">
+                        <input type="hidden" name="fromProductPage" value="true">
+                    </form>
+                </c:if>
+                <c:if test="${productExistsInWishlist == false}">
+                    <form id="addToWishlistForm" method="post" action="/api/user/wishlist/addProduct" style="display: inline-block;">
+                        <input type="hidden" name="productId" value="${product.productId}">
+                    </form>
+                </c:if>
+
             </c:if>
         </c:if>
     </div>              
