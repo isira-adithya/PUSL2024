@@ -63,16 +63,16 @@
              background-image: url("/uploads/images/products/Breadcrumbs.png");
              background-size: cover;
              background-position: center; /* Default position */
-}
+          }
 
-/* Adjust background position for mobile view */
-    @media screen and (max-width: 600px) {
+        /* Adjust background position for mobile view */
+        @media screen and (max-width: 600px) {
         .image {
             height: 120px; /* Adjust the height as needed */
             background-position: left center; /* Adjust position for left cropping */
             object-fit: cover;
-    }
-}
+          }
+        }
         
     </style>
 </head>
