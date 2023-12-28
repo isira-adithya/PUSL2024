@@ -65,10 +65,6 @@
         padding: 0px;
         margin: 0px;
     }
-    .custom-form-control {
-        font-weight: bold;
-        font-size: 15px;
-    }
     
     .custom-navbar-brand span {
         font-size: 22px;
@@ -91,6 +87,11 @@
         border-color: #00B207;
     }
     
+    .custom-form-control {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
     .custom-search-button {
         background-color: #00B207;
         color: #FFFFFF;
@@ -98,12 +99,14 @@
         border: none;
         padding: 8px;
     }
+    
     .custom-search-button:hover{
         background-color: #666666;
         color:#ffffff;
     }
+    
     .custom-nav-icons {
-        margin-right: 2.5rem;
+        margin: 0.75rem;
     }
     
     .custom-small-image {
