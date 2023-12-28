@@ -375,7 +375,7 @@
 
     <div class="centered-text">
         <h1><center>Our Awesome Team</center></h1>
-        <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innoative solutions and exceptional service"</p>
+        <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innovative solutions and exceptional service"</p>
     </div>
 
     <div id="teamCarousel" class="carousel slide" data-ride="carousel">
