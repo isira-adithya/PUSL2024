@@ -26,16 +26,17 @@
             text-align: center;
         }
 
-        table {
+        .table {
             width: 80%;
             margin: 20px auto; /* Center the table */
             border-collapse: collapse;
+            text-align: center;
         }
 
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: left;
+            text-align: center;
         }
 
         th {
@@ -72,38 +73,61 @@
             cursor: pointer;
             width: 150px;
         }
-
-        .Add-new-button {
-            padding: 10px 15px;
-            font-size: 23px;
-            background-color: #00B207; /* Green background color */
-            color: white; /* White text color */
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            width: 700px;
+        
+         .buttons{
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            
+            
+            
         }
+        .custom-button{
+            width:150px;
+            border-radius: 100px;
+            
+        }
+
+
+       
 
         .icon {
             width: 30px;
             height: 30px;
         }
+        .image{
+            margin-bottom: 5px;
+            width: 100%;
+            height: 120px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
-<div>
+        <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+        </div>
 
-    <br><br>
-    <table>
+<div
+ 
+class="container">
+
+    
+<div class="table-responsive">
+      <table class="table table-bordered">
         <thead>
-        <tr>
+          <tr>
             <th>Email</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Country</th>
-            <th></th>
-        </tr>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
         <c:forEach items="${users}" var="user">
@@ -128,21 +152,41 @@
         </c:forEach>
         </tbody>
     </table>
-    <br><br><br>
-    <center><button class="Add-new-button" onclick="window.location.href='/admin/users/add.jsp'">Add New User / Administrator</button></center>
-        <br><br>
-        
+    
+    <div class="buttons">
+        <div class="row">
+            
+        <button class="btn btn-primary col mx-2 "  onclick="window.location.href='/admin/users/add.jsp'" style="background-color: #00B207;">
+        Add New User / Administrator                 
+        </button>
+            
+            
+            
     <c:if test="${selectedRole.equals('ADMIN')}">
         
-        <center><button class="Add-new-button" onclick="window.location.href='/admin/users/'">See all customers</button></center>
+        <button class="btn btn-primary "  onclick="window.location.href='/admin/users/?role=ADMIN'" style="background-color: #00B207;">
+        See All Administrators                  
+        </button>
 
     </c:if><br>
     <c:if test="${selectedRole.equals('USER')}">
-        <center> <button class="Add-new-button" onclick="window.location.href='/admin/users/?role=ADMIN'">See all administrators</button></center>
+          
+                        <button class="btn btn-primary col mx-2"  onclick="window.location.href='/admin/users/'" style="background-color: #00B207;">
+                            See All Customers
+                        </button>
     </c:if>
-        
+    </div>
+   </div>     
+</div>
+    
 </div>
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
+
+
+                    
+                      
+                        
+                    
 
