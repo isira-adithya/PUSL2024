@@ -5,6 +5,7 @@ import com.isiraadithya.greensupermarket.helpers.Database;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,8 @@ public class WishlistDetail {
             sqlStatement.executeQuery();
 
             Database.closeConnection();
+        } catch (SQLIntegrityConstraintViolationException ignore) {
+            return;
         } catch (Exception ex){
             ex.printStackTrace();
         }
