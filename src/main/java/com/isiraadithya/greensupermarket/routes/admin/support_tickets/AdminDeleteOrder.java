@@ -33,7 +33,7 @@ public class AdminDeleteOrder extends HttpServlet {
             }
             resp.sendRedirect("/admin/support_tickets/");
         } else {
-            resp.sendRedirect("/admin/support_tickets/?err=Order does not exists in our database");
+            resp.sendRedirect("/admin/support_tickets/?err=Ticket does not exists in our database");
         }
     }
 }
