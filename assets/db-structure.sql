@@ -95,7 +95,9 @@ CREATE TABLE SupportTickets (
     full_name VARCHAR(256),
     email VARCHAR(128),
     title VARCHAR(1024),
-    subject VARCHAR(4096)
+    subject VARCHAR(4096),
+    markedAsRead BOOLEAN DEFAULT false,
+    createdAt TIMESTAMP
 );
 
 -- Sample Data
