@@ -19,7 +19,7 @@
     <style>
         #addProductForm {
             max-width: 600px;
-            margin: 20px auto;
+            margin:  auto;
             padding: 15px;
             border: 1px solid #e9e9e9;
             border-radius: 5px;
@@ -36,7 +36,7 @@
             padding: 8px 15px;
             text-decoration: none;
             color: #ffffff;
-            background-color: #4caf50;
+            background-color: #00b207;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -48,7 +48,7 @@
             background-color: #45a049;
         }
           .image{
-            margin-bottom: 5px;
+            margin-bottom: 50px;
             width: 100%;
             height: 120px;
             position: relative;
@@ -64,7 +64,7 @@
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
     
-<center><h2>Add New Product</h2></center><br><br><br>
+<center><h2>Add New Product</h2></center><br>
     <div class="container">
         <form id="addProductForm" method="post" action="/api/admin/products/add" enctype="multipart/form-data">
             <div class="mb-3">
