@@ -199,7 +199,7 @@
           <p>Need assistance? or have to tell something? Feel free to contact us <br> by submitting the below form</p>
         </div>
 
-        <form action="/api/misc/addSupportTicket" method="post">
+        <form action="/api/misc/createSupportTicket" method="post">
           <div class="mb-4">
             <div class="row">
               <div class="col">
