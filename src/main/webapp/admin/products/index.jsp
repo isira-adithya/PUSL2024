@@ -25,7 +25,7 @@
         }
 
         table {
-            width: 100%;
+            width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
             text-align: center;
@@ -75,7 +75,7 @@
         }
 
         .button {
-            padding-left: 10px;
+            padding-left: 150px;
             padding-right: 10px;
         }
 
@@ -103,13 +103,7 @@
    
 
     <table>
-         <div class="button">
-        <div class="d-grid gap-2">
-            <form method="post" action="/admin/products/add.jsp">
-                <input type="submit" class="btn btn-primary" style="background-color:#00B207; " value="Add New Product">
-            </form>
-        </div>
-    </div>
+         
         <thead>
         <tr>
             <th>Product Name</th>
@@ -142,7 +136,15 @@
             </tr>
         </c:forEach>
         </tbody>
+        
     </table>
+    <div class="button">
+        <div class="d-grid gap-2">
+            <form method="post" action="/admin/products/add.jsp">
+                <input type="submit" class="btn btn-primary" style="background-color:#00B207; " value="Add New Product">
+            </form>
+        </div>
+    </div>
 </div>
 
 <br><br><br><br><br><br><br>
