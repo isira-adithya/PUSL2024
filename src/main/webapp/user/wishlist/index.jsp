@@ -13,6 +13,7 @@
     if (wishList.getUserId() == -1){
         wishList = new WishList(userId);
         wishList.saveWishlist();
+        wishList = WishList.findWishListByUserId(userId);
     }
     List<WishlistDetail> wishlistDetailList = wishList.getWishlistDetails();
     pageContext.setAttribute("wishlistDetailList", wishlistDetailList);
