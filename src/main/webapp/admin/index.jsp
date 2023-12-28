@@ -24,7 +24,7 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
 </head>
 <body>
-<%@include file="../includes/header.jsp"%>
+<%@include file="includes/header.jsp"%>
 <section>
 <div class="container">
     <h1 class="text-center mt-4">Last 5 Months Analytics</h1>
