@@ -1,14 +1,26 @@
-<%--
+<%@ page import="com.isiraadithya.greensupermarket.models.WishList" %>
+<%@ page import="com.isiraadithya.greensupermarket.models.WishlistDetail" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: @isira_adithya, @thiyara
   Date: 12/19/2023
   Time: 3:00 AM
 --%>
 <%@include file="/includes/variables.jsp"%>
+<%
+    int userId = (int) session.getAttribute("userId");
+    WishList wishList = WishList.findWishListByUserId(userId);
+    if (wishList.getUserId() == -1){
+        wishList = new WishList(userId);
+        wishList.saveWishlist();
+    }
+    List<WishlistDetail> wishlistDetailList = wishList.getWishlistDetails();
+    pageContext.setAttribute("wishlistDetailList", wishlistDetailList);
+%>
 <html>
 <head>
-  <title>WishList - GreenSuperMarket</title>
-  <link rel="stylesheet" href="styles.css">
+    <title>WishList - GreenSuperMarket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   
   <style>
        .image {
@@ -51,24 +63,35 @@
             margin: 2px 2px;
             cursor: pointer;
         }
+
+       .not-found-img {
+           width: 500px;
+       }
     </style>
 
 </head>
 <body>
     <%@include file="/includes/header.jsp"%>
-   
-    <img src = "/uploads/images/products/Breadcrumbs.png" class="image"> 
-<center><br>
-                <h3>Wish List</h3>
-                <table border="1" width ="70%" >
+    <c:if test="${wishlistDetailList.size() <= 0}">
+        <div class="align-items-center text-center justify-content-center my-5">
+            <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
+            <h3>Your wishlist is empty</h3>
+            <a href="/products">Visit Our Products</a>
+        </div>
+    </c:if>
+    <c:if test="${wishlistDetailList.size() > 0}">
+    <img src = "/uploads/images/products/Breadcrumbs.png" class="image">
+    <center><br>
+        <h3>Wish List</h3>
+        <table border="1" width ="70%" >
             <thead>
             <tr>
                 <th>PRODUCT  </th>
                 <th>PRICE  </th>
                 <th><center>ADD TO CART  </center></th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr>
                 <td>Green Capsicum</td>
                 <td>$10.99</td>
@@ -90,8 +113,10 @@
               text-align: center; text-decoration: none; display: inline-block;
                                   font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Fresh Mango')">Add to Cart</button></center></td>
             </tr>
-        </tbody>
-                </table>
+            </tbody>
+        </table>
+    </c:if>
+
 
     
               
