@@ -71,7 +71,7 @@
                     <img src="/uploads/images/Admin/mo.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
                     <p></p>
-                    <a href="/products/product.jsp" class="card-button">Manage Products</a>
+                    <a href="/admin/orders/" class="card-button">Manage Orders</a>
                 </div>
             </div>
         </div>
