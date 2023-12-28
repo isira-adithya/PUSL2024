@@ -130,4 +130,21 @@ public class WishlistDetail {
             ex.printStackTrace();
         }
     }
+
+    public static boolean doesProductExistsInUserWishlist(int wishlistId, int productId){
+        try {
+            Connection dbconn = Database.connect();
+
+            String sqlQuery = "SELECT * FROM WishlistDetails WHERE wishlistid=? AND productid=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
+            sqlStatement.setInt(1, wishlistId);
+            sqlStatement.setInt(2, productId);
+            ResultSet resultSet = sqlStatement.executeQuery();
+            Database.closeConnection();
+            return (resultSet.isBeforeFirst());
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }
