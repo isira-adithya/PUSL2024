@@ -20,7 +20,7 @@
             <div class="input-group">
                 <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
                 <div class="input-group-append">
-                    <button class="btn custom-search-button" type="submit">Search</button>
+                    <input class=" custom-search-button" type="submit">
                 </div>
             </div>
         </form>
@@ -74,6 +74,7 @@
     
     .custom-navbar-brand span:hover {
         text-decoration: none;
+        
     }
     
     .custom-nav-home-link:hover {
@@ -98,15 +99,18 @@
         border-radius: 0 5px 5px 0;
         border: none;
         padding: 8px;
+        cursor: pointer;
     }
     
     .custom-search-button:hover{
         background-color: #666666;
         color:#ffffff;
+        cursor: pointer;
     }
+
     
     .custom-nav-icons {
-        margin: 0.75rem;
+        margin: 0.75rem 0.75rem 0rem 0.75rem;
     }
     
     .custom-small-image {

@@ -44,7 +44,7 @@
 
 <section>
 <div class="container">
-    <h1 class="text-center mt-4">Last 5 Months Anallytics</h1>
+    <h2 class="text-center mt-4" style="font-weight: bold;">Last 5 Months Anallytics</h2>
 
     <div class="row my-4">
 
@@ -64,7 +64,7 @@
     <section style="margin-top:100px;">
        <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mp.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mu.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mo.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
@@ -90,6 +90,16 @@
                     <a href="/admin/orders/" class="card-button">Manage Orders</a>
                 </div>
             </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="custom-card">
+                    <img src="/uploads/images/Admin/mt.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
+                    <h5></h5>
+                    <p></p>
+                    <a href="/admin/support_tickets" class="card-button">Manage Tickets</a>
+                </div>
+            </div>
+            
         </div>
     </div>
     </section>
