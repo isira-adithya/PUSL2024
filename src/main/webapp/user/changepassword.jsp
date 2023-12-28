@@ -1,40 +1,80 @@
-<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %><%--
-  Created by IntelliJ IDEA.
-  User: @isira_adithya
-  Date: 12/8/2023
-  Time: 10:11 PM
---%>
+<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
 <%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String errMsg = "";
-    String infoMsg = "";
-    if (request.getParameterMap().containsKey("err")){
-        errMsg = request.getParameter("err");
-    }
-    if (request.getParameterMap().containsKey("infoMsg")){
-        infoMsg = request.getParameter("infoMsg");
-    }
-
-//    Settng pageContext
-    pageContext.setAttribute("errMsg", errMsg);
-    pageContext.setAttribute("infoMsg", infoMsg);
-%>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Your Password</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+    <style>
+        .login-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+            border: 1px solid #e9e9e9;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .login-form:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: box-shadow 0.5s ease;
+        }
+
+        .head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+    </style>
 </head>
 <body>
-    <%@include file="../includes/header.jsp"%>
-    <h3>Change your password</h3>
-    <form method="post" action="/api/user/change-password">
-        <label>Current Password</label> <br>
-        <input type="password" name="current_password"> <br>
-        <label>New Password</label> <br>
-        <input type="password" name="new_password"> <br>
-        <input type="submit" value="Submit"> <br>
-    </form>
-    <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
-    <%@include file="../includes/footer.jsp"%>
+<%@include file="../includes/header.jsp"%>
+
+<div>
+    <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+</div>
+
+<div class="container mt-3">
+   
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="login-form my-5">
+                 <div class="head">
+                        <h4><center>Change Password</center></h4>
+                 </div>
+                <form action="/api/user/change-password" method="post">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Current Password :</label>
+                        <input type="password" class="form-control" name="current_password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">New Password :</label>
+                        <input type="password" class="form-control" name="new_password">
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <input type="submit" class="btn btn-primary btn-sm mt-3" style="background-color:#00B207"
+                               value="Submit">
+                    </div>
+                </form>
+            </div>
+            <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
+        </div>
+    </div>
+</div>
+
+<%@include file="../includes/footer.jsp"%>
 </body>
 </html>

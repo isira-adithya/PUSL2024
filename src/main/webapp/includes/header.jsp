@@ -7,41 +7,41 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="styles.css" rel="stylesheet">
+
 <nav class="navbar custom-bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
-    <div class="container-fluid custom-align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
-        <a href="/" class="custom-nav-home-link">
-            <div class="custom-navbar-brand d-flex" style="margin: 0px;">
-                <img src="/uploads/images/navbar/plant_1.jpg" alt="plant img" class="custom-logo-img">
-                <span>GreenSuperMarket</span>
-            </div>
-        </a>
-        <form class="custom-input-group d-flex" style="margin: 0px;" action="/products/">
-            <div class="input-group">
-                <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
-                <div class="input-group-append">
-                    <button class="btn custom-search-button" type="submit">Search</button>
-                </div>
-            </div>
-        </form>
-        <div class="nav-icon-container">
-            <c:if test="${isLoggedIn}">
-                <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
-                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
-                <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
-                <c:if test="${isAdmin}">
-                    <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
-                </c:if>
-            </c:if>
-            <c:if test="${!isLoggedIn}">
-                <a href="/login.jsp" class="custom-card-button">Log In</a>
-            </c:if>
+    <div class="container-fluid custom-align-content-center text-center d-flex justify-content-around p-0">
+    <a href="/" class="custom-nav-home-link">
+        <div class="custom-navbar-brand d-flex align-items-center">
+            <img src="/uploads/images/navbar/plant_1.jpg" alt="plant img" class="custom-logo-img">
+            <span>GreenSuperMarket</span>
         </div>
+    </a>
+    <form class="custom-input-group d-flex align-items-center" action="/products/">
+        <div class="input-group">
+            <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+            <div class="input-group-append">
+                <button class="btn custom-search-button" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <div class="nav-icon-container d-flex align-items-center">
+        <c:if test="${isLoggedIn}">
+            <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
+            <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
+            <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
+            <c:if test="${isAdmin}">
+                <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
+            </c:if>
+        </c:if>
+        <c:if test="${!isLoggedIn}">
+            <a href="/login.jsp" class="custom-log-button">Log In</a>
+        </c:if>
     </div>
+</div>
 
     <ul class="custom-link-list">
         <li class="custom-nav-item">
-            <a class="custom-nav-link " aria-current="page" href="/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
+            <a class="custom-nav-link " aria-current="page" href="/index.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
         </li>
         <li class="custom-nav-item">
             <a class="custom-nav-link" href="/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Products</a>
@@ -128,6 +128,24 @@
         color: #666666;
         transition: color 0.3s;
     }
+    .custom-log-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 8px 15px;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #00B207;
+        border: none;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+        font-size: 14px;
+      }
+
+      .custom-log-button:hover {
+        background-color: #666666;
+        color: #ffffff;
+        text-decoration: none;
+      }
     
     @media (max-width: 768px) {
 
