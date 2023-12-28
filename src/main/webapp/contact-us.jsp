@@ -7,6 +7,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/includes/variables.jsp"%>
 <%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
+<%@ page import="com.isiraadithya.greensupermarket.models.User" %>
+<%
+  String email = "";
+  String name = "";
+
+  if(isLoggedIn){
+    User userObj = User.findUserById((int) session.getAttribute("userId"));
+    name = userObj.getFullName();
+    email = userObj.getEmail();
+  }
+
+  pageContext.setAttribute("isLoggedIn", isLoggedIn);
+  pageContext.setAttribute("email", email);
+  pageContext.setAttribute("name", name);
+%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -188,10 +203,20 @@
           <div class="mb-4">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
+                <c:if test="${isLoggedIn == false}">
+                  <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
+                </c:if>
+                <c:if test="${isLoggedIn == true}">
+                  <input type="text" class="form-control" id="Name" name="Name" value="${fn:escapeXml(name)}" disabled>
+                </c:if>
               </div>
               <div class="col">
-                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                <c:if test="${isLoggedIn == false}">
+                  <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                </c:if>
+                <c:if test="${isLoggedIn == true}">
+                  <input type="email" class="form-control" id="Email" name="Email" value="${fn:escapeXml(email)}" disabled>
+                </c:if>
               </div>
             </div>
           </div>
