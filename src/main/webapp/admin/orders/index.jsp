@@ -122,12 +122,12 @@ button {
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
-<div>
+    <div>
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
 
 
-    <div>
+    <div class="container">
 
         <div class="my-4 mx-2">
             <h4>Filter by Order Status</h4>
@@ -136,7 +136,8 @@ button {
             <a class="btn btn-danger btn-sm" href="/admin/orders/?orderStatus=cl">Cancelled Orders</a>
             <a class="btn btn-secondary btn-sm" href="/admin/orders/">All Orders</a>
         </div>
-        <table>
+        <div class="table-responsive">
+            <table class="table table-bordered">
             <thead>
             <tr>
                  <th>Order ID</th>
@@ -172,7 +173,7 @@ button {
             </tbody>
         </table><br><br><br><br>
     </div>
-    
+    </div>   
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
