@@ -53,7 +53,7 @@
                     <img src="/uploads/images/Admin/pm.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
                     <p></p>
-                    <a href="/products/product.jsp" class="card-button">Manage Products</a>
+                    <a href="/admin/products/" class="card-button">Manage Products</a>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                     <img src="/uploads/images/Admin/mu.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
                     <p></p>
-                    <a href="/products/product.jsp" class="card-button">Manage Users</a>
+                    <a href="/admin/users" class="card-button">Manage Users</a>
                 </div>
             </div>
 
