@@ -136,7 +136,7 @@
         .enter()
         .append('rect')
         .attr('x', function (d, i) {
-            return i * (barChartWidth / productSales.length * 1.2);
+            return i * (barChartWidth / productSales.length * 1.1);
         })
         .attr('y', function (d){
             d = d / (maxValue / barChartHeight + 10);
@@ -154,9 +154,12 @@
         .data(productSales)
         .enter()
         .append('text')
-        .text(d => d)
+        .text(function (d) {
+            d = (Math.round(parseFloat(d) * 100) / 100).toFixed(2);
+            return d;
+        })
         .attr('x', function (d, i) {
-            return i * (barChartWidth / productSales.length * 1.2) + (barChartWidth / productSales.length / 2);
+            return i * (barChartWidth / productSales.length * 1.1) + (barChartWidth / productSales.length / 4);
         })
         .attr('y', function(d) {
             d = d / (maxValue / barChartHeight + 10);
@@ -174,7 +177,7 @@
         .style('display', 'flex')
         .style('align-items', 'center')
         .style('margin-bottom', '5px')
-        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Items Sold (<b>\${productSales[i]}\$</b>)</i>`);
+        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Items Sold (<b>\${(Math.round(parseFloat(productSales[i]) * 100) / 100).toFixed(2)}\$</b>)</i>`);
 
 </script>
 </body>
