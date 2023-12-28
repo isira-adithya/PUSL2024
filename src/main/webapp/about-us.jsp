@@ -5,14 +5,19 @@
   Time: 3:01 AM
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="/includes/variables.jsp"%>
 <html>
 <head>
-    <title>Title</title>
-        <meta charset="UTF-8">
+    <title>About Us</title>
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
     <style>
+        /* Adjust background position for mobile view */
+
         body {
             background-color: #ffffff;
         }
@@ -64,8 +69,8 @@
         }
 
         .product-list li .product-image {
-            width: 50px; /* Set the width */
-            height: 50px; /* Set the height */
+            width: 40px; /* Set the width */
+            height: 40px; /* Set the height */
             object-fit: cover; /* Maintain the aspect ratio and cover the container */
             margin-right: 10px; /* Add some space between the image and text */
             border-radius: 0; /* Remove the border-radius */
@@ -79,6 +84,7 @@
             font-size: 0.8em; /* Adjust the font size of the subtext */
             margin-top: 5px; /* Add some space between the strong word and the subtext */
         }
+
 
         /* Add this style in the head or a separate CSS file */
 
@@ -107,43 +113,14 @@
         }
 
 
-.card {
+    .card {
     flex: 1 0 100%;
     margin: 0 15px 15px 0;
-    max-height: 900px;
     border: 1px solid #ccc; /* Add border properties */
     border-radius: 15px; /* Add border-radius for rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
 }
 
-.card img {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-
-.carousel-item .card img {
-    border-top-left-radius: 15px; /* Adjust the top-left border-radius for the image */
-    border-top-right-radius: 15px; /* Adjust the top-right border-radius for the image */
-    max-height: 250px; /* Adjust the maximum height of the image */
-}
-
-
-    /* Additional styles for the second card */
-    .carousel-item:nth-child(2) .card {
-        background-color: #fff; /* Set a background color for the second card */
-    }
-
-    .carousel-item:nth-child(2) .card img {
-        border-top-left-radius: 15px; /* Match the top-left border-radius for the image */
-        border-top-right-radius: 15px; /* Match the top-right border-radius for the image */
-    }
-      /* Adjust the size of the arrow images */
-        .carousel-control-prev img,
-        .carousel-control-next img {
-            width: 30px; /* Adjust the width as needed */
-            height: 30px; /* Adjust the height as needed */
-        }   
         .centered-text {
             text-align: center;
             margin-top: 50px;
@@ -151,13 +128,13 @@
 
         .centered-text h1 {
             font-weight: bold;
-            font-size: 24px;
+            font-size: 34px;
         }
 
         .centered-text p {
             font-size: 16px;
         }
-                .team
+        .team
         {
             margin:75px 0;
         }
@@ -192,7 +169,7 @@
 .profile h2
 {
   font-size: 22px;
- font-weight: bold;
+  font-size: bold;
   margin-top: 15px;  
 }
 .profile h3
@@ -225,8 +202,8 @@
 }
 .img-box ul li
 {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: 1px solid #fff;
     border-radius:50%;
     margin:3px;
@@ -254,12 +231,22 @@
     max-width: 30px; /* Set the maximum width of your arrow images */
     max-height: 30px; /* Set the maximum height of your arrow images */
 }
+
+.social-square i {
+    font-size: 25px; /* Adjust the size as needed */
+    line-height: 24px; 
+    color: #01b206; 
+}
+
 </style>
 </head>
 <body>
-    <meta charset="UTF-8">
-
-      <div class="container-fluid mt-10">
+<%@include file="includes/header.jsp"%>
+    <div>
+        <img src="\uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image" >
+    </div>
+    
+     <div class="container-fluid mt-10">
         <!-- First Card (Image on the Right, Text on the Left) -->
         <div class="card custom-card mb-4">
             <div class="row">
@@ -306,28 +293,28 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/star.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/star.jpg" alt="Product 2" class="rounded-circle product-image" width="30" height="50">
                                 <div>
                                     <strong>Customer Feedback</strong>
                                     <p>Our Happy Customer</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="uploads/about us/bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Secure Payment</strong>
                                     <p>We ensure your money is safe</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="uploads/about us/lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Free Shipping</strong>
                                     <p>Free shipping with Discount.</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="uploads/about us/box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food </strong>
                                     <p>100% healthy & Fresh Food.</p>
@@ -350,9 +337,9 @@
 
                         <!-- List with green tick images -->
                         <ul class="list-unstyled check-list">
-                            <li><img src="uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
-                            <li><img src="uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
-                            <li style="position: relative;"><img src="uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
+                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
+                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
+                            <li style="position: relative;"><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
                                 <!-- Shop Now button -->
                                 <div class="shop-now-container">
                                     <a href="/products/product.jsp" class="shop-now-btn">Shop Now <span>&rarr;</span></a>
@@ -363,7 +350,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="uploads/about us/theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
+                    <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
                 </div>
             </div>
         </div>
@@ -373,96 +360,120 @@
         <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innoative solutions and exceptional service"</p>
     </div>
 
- <div id="teamCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-     <div class="carousel-item active">
-    <div class="container">
-    <section class="team">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 profile text center">
-                    <div class="img-box">
-                     <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
-                        <ul>
-                         <li><a href="#" class="social-square"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" class="social-square"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
+    <div id="teamCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
 
-                    <h2>Isira Adithya</h2>
-                    <h3>Founder</h3>
-                </div>
-                    <div class="col-md-3 profile text center">
-                    <div class="img-box">
-                    <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
-                        <ul>
-                         <li><a href="#" class="social-square"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" class="social-square"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <h2>Nesith Perera</h2>
-                    <h3>Founder</h3>
-                </div>
-                <div class="col-md-3 profile text center">
-                    <div class="img-box">
-                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
-                        <ul>
-                         <li><a href="#" class="social-square"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" class="social-square"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <h2>Hashen Ruwanpura</h2>
-                    <h3>Founder</h3>
-                </div>
-             </div>
+            <!-- First Slide -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <section class="team">
+                        <div class="container">
+                            <div class="row">
 
+                                <!-- First Team Member -->
+                                <div class="col-md-3 profile text-center mx-auto">
+                                    <div class="img-box">
+                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <ul>
+                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <h2>Isira Adithya</h2>
+                                    <h3>Founder</h3>
+                                </div>
 
-                   <div class="carousel-item">
-                    <div class="row">
-                    <div class="col-md-3 profile text center">
-                    <div class="img-box">
-                     <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
-                        <ul>
-                         <li><a href="#" class="social-square"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" class="social-square"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <h2>Sanuth Karunagoda</h2>
-                    <h3>Founder</h3>
-                </div>
-                    <div class="col-md-3 profile text center">
-                    <div class="img-box">
-                    <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
-                        <ul>
-                         <li><a href="#" class="social-square"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" class="social-square"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <h2>Chandesh Gunawardena</h2>
-                    <h3>Founder</h3>
-                </div>
-                <div class="col-md-3 profile text center">
-                    <div class="img-box">
-                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
-                        <ul>
-                         <li><a href="#" class="social-square"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#" class="social-square"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <h2>Thiyara Bandara</h2>
-                    <h3>Founder</h3>
+                                <!-- Second Team Member -->
+                                <div class="col-md-3 profile text-center mx-auto">
+                                    <div class="img-box">
+                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <ul>
+                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <h2>Nesith Perera</h2>
+                                    <h3>Founder</h3>
+                                </div>
+                                <!-- Third Team Member -->
+                                 <div class="col-md-3 profile text-center mx-auto">
+                                    <div class="img-box">
+                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <ul>
+                                        <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <h2>Hashen Ruwanpura</h2>
+                                    <h3>Founder</h3>
+                            </div>                           
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-</div>
-            <a class="carousel-control-prev" href="#teamCarousel" role="button" data-slide="prev">
-            <img src="uploads/about us/left arrow.png" alt="Previous" class="custom-arrow">
-            </a>
-             <a class="carousel-control-next" href="#teamCarousel" role="button" data-slide="next">
-             <img src="uploads/about us/right arrow.png" alt="Next" class="custom-arrow">
-           </a>
+
+            <!-- Second Slide -->
+            <div class="carousel-item">
+                <div class="container">
+                    <section class="team">
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Fourth Team Member -->
+                                <div class="col-md-3 profile text-center mx-auto">
+                                    <div class="img-box">
+                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <ul>
+                                        <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <h2>Sanuth Karunagoda</h2>
+                                    <h3>Founder</h3>
+                                </div>
+
+                                <!-- Fifth Team Member -->
+                                <div class="col-md-3 profile text-center mx-auto">
+                                    <div class="img-box">
+                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <ul>
+                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Fifth Team Member -->
+                                    <h2>Chandesh Gunawardena</h2>
+                                    <h3>Founder</h3>
+                                </div>
+                                <div class="col-md-3 profile text-center mx-auto">
+                                    <div class="img-box">
+                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <ul>
+                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Sixth Team Member -->
+                                    <h2>Thiyara Bandara</h2>
+                                    <h3>Founder</h3>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
+
+        <a class="carousel-control-prev" href="#teamCarousel" role="button" data-slide="prev">
+            <img src="/uploads/about us/left arrow.png" alt="Previous" class="custom-arrow">
+        </a>
+        <a class="carousel-control-next" href="#teamCarousel" role="button" data-slide="next">
+            <img src="/uploads/about us/right arrow.png" alt="Next" class="custom-arrow">
+        </a>
     </div>
+    <%@include file="includes/footer.jsp"%>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>

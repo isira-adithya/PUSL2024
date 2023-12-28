@@ -1,6 +1,6 @@
 <%@ page import="com.isiraadithya.greensupermarket.models.Analytics" %>
 <%@ page import="java.util.Map" %>
-<%@include file="../includes/variables.jsp"%>
+<%@include file="/includes/variables.jsp"%>
 <%--
   Created by IntelliJ IDEA.
   User: @isira_adithya

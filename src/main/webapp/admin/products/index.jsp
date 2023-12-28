@@ -56,34 +56,39 @@
         #submitBtn {
             padding: 10px 15px;
             font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
             border: none;
             border-radius: 100px;
             cursor: pointer;
             width: 150px;
-        }
+         }
 
         .submitBtn {
             padding: 10px 15px;
             font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
             border: none;
             border-radius: 100px;
             cursor: pointer;
             width: 150px;
         }
-
-        .button {
-            padding-left: 150px;
-            padding-right: 10px;
+        .Add-new-button{
+            padding: 10px 15px;
+            font-size: 23px;
+            background-color: #00B207; /* Green background color */
+            color: white; /* White text color */
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 40%;
+        }
+        .icon{
+            width:30px;
+            height:30px;
         }
 
-        .icon {
-            width: 30px;
-            height: 30px;
-        }
 
         @media only screen and (max-width: 600px) {
             table {
@@ -164,22 +169,30 @@ class="container">
                     </button>
                 </td>
             </tr>
-        </c:forEach>
-        </tbody>
-        
-    </table>
-    
-    
-    
-   <div class="buttons">
-        <div class="row">
-         <div class="col">  
-        <button class="btn btn-primary col mx-2 "  onclick="window.location.href='/admin/products/add.jsp'"; style="background-color: #00B207;">
-        Add New Product                 
-          </button>
-         </div>
-        </div>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach items="${products}" var="product">
+                <tr>
+                    <td>${fn:escapeXml(product.name)}</td>
+                    <td><center><img src="${fn:escapeXml(product.image)}" width="200px"></center></td>
+                    <td>${fn:escapeXml(product.description)}</td>
+                    <td>${fn:escapeXml(product.quantity)}</td>
+                    <td>${fn:escapeXml(product.price)}</td>
+                    <td><center>
+                        <a href="/admin/products/product.jsp?id=${product.productId}"><button class="submitBtn">Edit Product</button></a>
+                        <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
+                            <input type="hidden" name="productId" value="${product.productId}">
+                        </form>
+                        <button id="submitBtn" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product</button>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table><br><br><br><br>
+        <form method="post" action="/admin/products/add.jsp">
+            <center><button class="Add-new-button">Add New Product</button></center>
+        </form>
+    </div>
     
     
     
