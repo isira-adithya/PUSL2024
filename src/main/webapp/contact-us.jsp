@@ -120,6 +120,16 @@
 
             .col-md-4 {
                 order: 1; /* Set the order for the email/phone container */
+                margin-top: 20px; /* Add margin-top for space between form and email/phone container */
+            }
+
+            .google-map {
+                height: auto; /* Make the height auto to adjust based on content */
+            }
+
+            .google-map iframe {
+                top: 0;
+                height: 200px; /* Set a specific height for the map on mobile view */
             }
   </style>
 
