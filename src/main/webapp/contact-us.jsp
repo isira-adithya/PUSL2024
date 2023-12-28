@@ -50,10 +50,22 @@
     .image {
       margin-bottom: 60px;
       width: 100%;
-      height: 110px;
+      height: 130px;
       position: relative;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
     }
+}
 
     p {
       color: #808080;
@@ -94,12 +106,43 @@
          border: 0;
 }
 
+
 /* Responsive padding for the container */
 @media (min-width: 576px) {
   .google-map {
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
   }
+  
+  
 }
+  </style>
+  <style>
+      @media (max-width: 767px) {
+            /* Mobile view styles */
+
+            .login-form-container {
+                flex-direction: column;
+            }
+
+            .col-md-4,
+            .col-md-8 {
+                max-width: 100%;
+                order: 0; /* Default order for both columns */
+            }
+
+            .col-md-4 {
+                order: 1; /* Set the order for the email/phone container */
+                margin-top: 20px; /* Add margin-top for space between form and email/phone container */
+            }
+
+            .google-map {
+                height: auto; /* Make the height auto to adjust based on content */
+            }
+
+            .google-map iframe {
+                top: 0;
+                height: 200px; /* Set a specific height for the map on mobile view */
+            }
   </style>
 
 
@@ -114,11 +157,14 @@
     <div class="col-md-4">
       <div class="login-form mb-4">
         <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
+            <p>Send us a mail</p>
           <p><a href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
             <a href="mailto:support@greensupermarket.live">support@greensupermarket.live</a></p>
                 <hr>
                 <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
                 <p>
+                <p>
+                    <p>Call us here</p>
                   <a href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
                   <a href="tel:+94701234562"> (+94) 70 123 4562 </a>
                 </p>

@@ -77,24 +77,27 @@
     
 <style>
      
-    .image {
+ .image {
       margin-bottom: 60px;
       width: 100%;
       height: 130px;
       position: relative;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
     }
+}
         h2 {
             margin-bottom: 20px;
-        }
-        
-        .addToCart-button {
-             height: 40px;
-             width: 450px;
-             border-radius: 100px;
-             color: #ffffff;
-             background-color: #00b207;
-             margin-left: 40px;
         }
         
         .Deletebutton {
@@ -245,6 +248,30 @@
             font-family: FontAwesome;
 
         }
+
+        .wishlist-button {
+            display: inline-block;
+        }
+
+        .wishlist-button img {
+            cursor: pointer;
+        }
+
+        .addToCart-button {
+            height: 38px;
+            width: 60%;
+            border-radius: 100px;
+            color: #ffffff;
+            background-color: #00b207;
+            margin-left: 20px;
+            margin-right: 25px; /* Add margin-right to create space */
+            border: none;
+            display: inline-block;
+        }
+        .addToCart-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+
+        }
     </style>
     
 </head>
@@ -292,10 +319,18 @@
                 <form action="/api/user/cart/addItem" method="post">
                     <input type="number" name="quantity" inputmode="numeric" value="1" min="1" max="${availableQuantity}">
                     <input type="hidden" name="productId" value="${product.productId}">
-                    <button type="submit" class="btn btn-outline addToCart-button" style="position: relative;">
-                        Add to Cart
+                    <button type="submit" class="addToCart-button" style="position: relative;">
+                        Add to Cart                        
                     </button>
 
+                    <!-- wishlist icon -->
+                    <div onclick="document.getElementById('addToWishlistForm').submit()" class="wishlist-button">
+                        <img src="/uploads/images/navbar/wish.png" width="33px">
+                    </div>
+                </form>
+
+                <form id="addToWishlistForm" method="post" action="/api/user/wishlist/addProduct" style="display: inline-block;">
+                    <input type="hidden" name="productId" value="${product.productId}">
                 </form>
             </c:if>
         </c:if>
@@ -353,7 +388,7 @@
                     <div class="col-4">
 
                     </div>
-                    <div class="col-4 text-right mt-2">
+                    <div class="row mt-2 text-right mt-2">
                         <h5>Give us a rating</h5>
                     </div>
                     <div class="col-4">

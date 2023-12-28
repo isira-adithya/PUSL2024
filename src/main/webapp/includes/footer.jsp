@@ -72,6 +72,47 @@
         
 </style>
 
+<style>
+
+    @media (max-width: 767px) {
+        /* Mobile view styles */
+
+        .footer-container {
+            padding: 1rem 0; /* Adjust padding for mobile view */
+        }
+
+        .footer-section {
+            margin-bottom: 1rem; /* Adjust margin for mobile view */
+        }
+
+        .footer-section h6 {
+            margin-bottom: 0.5rem; /* Adjust margin for mobile view */
+            font-size: 1rem; /* Adjust font size for mobile view */
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem; /* Adjust margin for mobile view */
+        }
+
+        .social-icons a {
+            margin-right: 0.5rem; /* Adjust margin for mobile view */
+        }
+
+        .social-link {
+            margin: 10px; /* Adjust margin for mobile view */
+        }
+
+        .social-link img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .copyright {
+            padding: 0.5rem 0; /* Adjust padding for mobile view */
+        }
+    }
+</style>
+
 <div>
     <!-- Footer -->
     <footer class="text-left text-lg-start">
@@ -92,7 +133,7 @@
 
                     <!-- Grid column -->
 
-                    <hr class="w-100 clearfix d-md-none" />
+                    
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center"> 
@@ -104,7 +145,7 @@
                     </div>
                     <!-- Grid column -->
 
-                    <hr class="w-100 clearfix d-md-none" />
+                    
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg- col-xl-2 mx-auto mt-2; col align-self-center">
