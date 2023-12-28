@@ -145,14 +145,14 @@
     <div class="col-md-4">
       <div class="login-form mb-4">
         <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
-            <p>Main us here</p>
+            <p>Send us a mail</p>
           <p><a href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
             <a href="mailto:support@greensupermarket.live">support@greensupermarket.live</a></p>
                 <hr>
                 <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
                 <p>
                 <p>
-                    <p>Main us here</p>
+                    <p>Call us here</p>
                   <a href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
                   <a href="tel:+94701234562"> (+94) 70 123 4562 </a>
                 </p>
