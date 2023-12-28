@@ -90,7 +90,7 @@
         color:#ffffff;
     }
     .custom-nav-icons {
-        margin-right: 2.5rem;
+        margin:0.75rem;
     }
     
     .custom-small-image {

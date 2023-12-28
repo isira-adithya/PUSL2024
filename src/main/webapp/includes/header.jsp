@@ -8,36 +8,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<nav class="navbar custom-bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
-    <div class="container-fluid custom-align-content-center text-center d-flex justify-content-around p-0">
-    <a href="/" class="custom-nav-home-link">
-        <div class="custom-navbar-brand d-flex align-items-center">
-            <img src="/uploads/images/navbar/plant_1.jpg" alt="plant img" class="custom-logo-img">
-            <span>GreenSuperMarket</span>
-        </div>
-    </a>
-    <form class="custom-input-group d-flex align-items-center" action="/products/">
-        <div class="input-group">
-            <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
-            <div class="input-group-append">
-                <button class="btn custom-search-button" type="submit">Search</button>
+<nav class="navbar custom-nav justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
+    <div class="container-fluid d-flex flex-wrap justify-content-around custom-head-container">
+        <a href="/" class="custom-nav-home-link">
+            <div class="custom-navbar-brand d-flex align-items-center">
+                <img src="/uploads/images/navbar/plant_1.jpg" alt="plant img" class="custom-logo-img">
+                <span>GreenSuperMarket</span>
             </div>
-        </div>
-    </form>
-    <div class="nav-icon-container d-flex align-items-center">
-        <c:if test="${isLoggedIn}">
-            <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
-            <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
-            <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
-            <c:if test="${isAdmin}">
-                <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
+        </a>
+        <form class="custom-input-group d-flex align-items-center" action="/products/">
+            <div class="input-group">
+                <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
+                <div class="input-group-append">
+                    <button class="btn custom-search-button" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="nav-icon-container d-flex align-items-center">
+            <c:if test="${isLoggedIn}">
+                <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
+                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
+                <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
+                <c:if test="${isAdmin}">
+                    <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
+                </c:if>
             </c:if>
-        </c:if>
-        <c:if test="${!isLoggedIn}">
-            <a href="/login.jsp" class="custom-log-button">Log In</a>
-        </c:if>
+            <c:if test="${!isLoggedIn}">
+                <a href="/login.jsp" class="custom-log-button">Log In</a>
+            </c:if>
+        </div>
     </div>
-</div>
 
     <ul class="custom-link-list">
         <li class="custom-nav-item">
@@ -56,9 +56,14 @@
 </nav>
 
 <style>
-    .custom-form-control {
-        font-weight: bold;
-        font-size: 15px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .custom-head-container{
+        padding: 0px;
+        margin: 0px;
     }
     
     .custom-navbar-brand span {
@@ -82,6 +87,11 @@
         border-color: #00B207;
     }
     
+    .custom-form-control {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
     .custom-search-button {
         background-color: #00B207;
         color: #FFFFFF;
@@ -89,12 +99,14 @@
         border: none;
         padding: 8px;
     }
+    
     .custom-search-button:hover{
         background-color: #666666;
         color:#ffffff;
     }
+    
     .custom-nav-icons {
-        margin-right: 2.5rem;
+        margin: 0.75rem;
     }
     
     .custom-small-image {
@@ -174,6 +186,14 @@
 
         .custom-nav-item {
             margin: 10px 0;
+        }
+        .custom-head-container {
+            flex-direction: column; /* Stack elements vertically on small screens */
+            align-items: center; /* Center align items on small screens */
+        }
+
+        .custom-head-container > * {
+            margin-bottom: 10px; /* Add some spacing between child elements on small screens */
         }
     }
 </style>
