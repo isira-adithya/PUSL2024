@@ -76,6 +76,19 @@ CREATE TABLE Comments (
       FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE,
       FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
 );
+ CREATE TABLE Wishlists (
+     wishlistid INT AUTO_INCREMENT PRIMARY KEY,
+     userid INT UNIQUE,
+     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
+ );
+ CREATE TABLE WishlistDetails (
+   wishlistdetailid INT AUTO_INCREMENT PRIMARY KEY,
+   wishlistid INT,
+   productid INT,w
+   FOREIGN KEY (wishlistid) REFERENCES Wishlists(wishlistid) ON DELETE CASCADE,
+   FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE SET NULL
+ );
 
 -- Sample Data
 INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_address, city, state, country, postalcode, role, passwordresettoken, is_email_verified, createdAt) VALUES
