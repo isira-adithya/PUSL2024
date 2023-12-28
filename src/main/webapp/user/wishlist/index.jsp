@@ -42,26 +42,12 @@
             object-fit: cover;
     }
 }
-        table {
-            border-collapse: collapse;
-            width: 80%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 15px ;
-            text-align: left;
-        }
-        button.addToCart {
-            background-color: #00B207;
-            color: white;
-            border: none;
-            padding: 10px 15px;
+        th {
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 2px;
-            cursor: pointer;
+        }
+
+        td {
+            text-align: center;
         }
 
        .not-found-img {
@@ -74,41 +60,48 @@
     <%@include file="/includes/header.jsp"%>
     <c:if test="${wishlistDetailList.size() <= 0}">
         <div class="align-items-center text-center justify-content-center my-5">
-            <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
+            <img src="/uploads/images/common/wishlist-image.png" class="not-found-img mb-3">
             <h3>Your wishlist is empty</h3>
             <a href="/products">Visit Our Products</a>
         </div>
     </c:if>
     <c:if test="${wishlistDetailList.size() > 0}">
-    <img src = "/uploads/images/products/Breadcrumbs.png" class="image">
-    <center><br>
-        <h3>Wish List</h3>
-        <table border="1" width ="70%" >
-            <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Operations</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${wishlistDetailList}" var="wishListItem">
-                <c:if test="${wishListItem.product.visibility == true}">
-                    <tr>
-                        <td>${wishListItem.product.name}</td>
-                        <td>$10.99</td>
-                        <td>
-                            <a href="/products/product.jsp?id=${wishListItem.product.productId}" class="btn btn-primary btn-sm">View</a>
-                            <button onclick="document.getElementById('removeProduct${wishListItem.product.productId}Form').submit()" type="submit" class="btn btn-danger btn-sm">Remove</button>
-                            <form id="removeProduct${wishListItem.product.productId}Form" action="/api/user/wishlist/deleteProduct" method="post">
-                                <input type="hidden" name="productId" value="${wishListItem.product.productId}">
-                            </form>
-                        </td>
-                    </tr>
-                </c:if>
-            </c:forEach>
-            </tbody>
-        </table>
+        <img src = "/uploads/images/products/Breadcrumbs.png" class="image">
+        <br>
+        <div class="mx-5">
+            <h3 class="text-center">Your Wishlist</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col" style="text-align: center;">Product</th>
+                    <th scope="col" style="text-align: center;">Description</th>
+                    <th scope="col" style="text-align: center;">Price</th>
+                    <th scope="col" style="text-align: right;">Operations</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${wishlistDetailList}" var="wishListItem">
+                    <c:if test="${wishListItem.product.visibility == true}">
+                        <tr>
+                            <td>
+                                <img src="${wishListItem.product.image}" width="75px">
+                                <p>${wishListItem.product.name}</p>
+                            </td>
+                            <td>${fn:escapeXml(wishListItem.product.shortDescription)}</td>
+                            <td>$${wishListItem.product.price}</td>
+                            <td style="text-align: right;">
+                                <a href="/products/product.jsp?id=${wishListItem.product.productId}" class="btn btn-primary btn-sm">View</a>
+                                <button onclick="document.getElementById('removeProduct${wishListItem.product.productId}Form').submit()" type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                <form id="removeProduct${wishListItem.product.productId}Form" action="/api/user/wishlist/deleteProduct" method="post">
+                                    <input type="hidden" name="productId" value="${wishListItem.product.productId}">
+                                </form>
+                            </td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </c:if>
 
 
@@ -122,7 +115,7 @@
     </script>
       
    
-                </center>
+
 <div style="margin-top:25px;"></div>
 <%@include file="/includes/footer.jsp"%>
 </body>
