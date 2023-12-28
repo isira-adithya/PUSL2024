@@ -37,4 +37,10 @@
             <taglib-location>tld/c-1_0.tld</taglib-location>
         </taglib>
     </jsp-config>
+
+    <!-- Error Mappings -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
 </web-app>
