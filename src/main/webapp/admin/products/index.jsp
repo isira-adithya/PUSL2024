@@ -18,117 +18,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Products</title>
     <style>
-body {
-    text-align: center;
-}
+        body {
+            text-align: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-table {
-    width: 80%;
-    margin: 20px auto; /* Center the table */
-    border-collapse: collapse;  
-}
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    
-}
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-th {
-    background-color: #f2f2f2;
-    font-weight: normal;
-    font-size: 17px;
-    
-}
+        th {
+            background-color: #f2f2f2;
+            font-weight: normal;
+            font-size: 17px;
+        }
 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
 
-button {
-    padding: 5px 10px;
-    cursor: pointer;
-}
-#submitBtn {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Green background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    width: 150px;
- }
- 
-.submitBtn {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Green background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    width: 150px;
-}
-.Add-new-button{
-    padding: 10px 15px;
-    font-size: 23px;
-    background-color: #00B207; /* Green background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    width: 800px;
-}
-.icon{
-    width:30px;
-    height:30px;
-}
+        #submitBtn {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            width: 150px;
+        }
 
-</style>
+        .submitBtn {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        .button {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            table {
+                font-size: 12px;
+            }
+
+            .submitBtn,
+            #submitBtn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
-    <div>
-        
-        <br><br><br><br>
-        <table>
-            <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Product Image</th>
-                <th>Product Description</th>
-                <th>Product Quantity</th>
-                <th>Product Price</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${products}" var="product">
-                <tr>
-                    <td>${fn:escapeXml(product.name)}</td>
-                    <td><center><img src="${fn:escapeXml(product.image)}" width="200px"></center></td>
-                    <td>${fn:escapeXml(product.description)}</td>
-                    <td>${fn:escapeXml(product.quantity)}</td>
-                    <td>${fn:escapeXml(product.price)}</td>
-                    <td><center>
-                        <a href="/admin/products/product.jsp?id=${product.productId}"><button class="submitBtn">Edit Product</button></a>
-                        <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
-                            <input type="hidden" name="productId" value="${product.productId}">
-                        </form>
-                        <button id="submitBtn" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product</button>
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table><br><br><br><br>
-        <form method="post" action="/admin/products/add.jsp">
-            <center><button class="Add-new-button">Add New Product</button></center>
+<div>
+    <br>
+   
+
+    <table>
+         <div class="button">
+        <div class="d-grid gap-2">
+            <form method="post" action="/admin/products/add.jsp">
+                <input type="submit" class="btn btn-primary" style="background-color:#00B207; " value="Add New Product">
+            </form>
+        </div>
     </div>
-    
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Product Description</th>
+            <th>Product Quantity</th>
+            <th>Product Price</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${products}" var="product">
+            <tr>
+                <td>${fn:escapeXml(product.name)}</td>
+                <td><center><img src="${fn:escapeXml(product.image)}" width="200px"></center></td>
+                <td>${fn:escapeXml(product.description)}</td>
+                <td>${fn:escapeXml(product.quantity)}</td>
+                <td>${fn:escapeXml(product.price)}</td>
+                <td><center>
+                    <a href="/admin/products/product.jsp?id=${product.productId}">
+                        <button class="submitBtn">Edit Product</button>
+                    </a>
+                    <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
+                        <input type="hidden" name="productId" value="${product.productId}">
+                    </form>
+                    <button id="submitBtn"
+                            onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product
+                    </button>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
+
 <br><br><br><br><br><br><br>
 <%@include file="../includes/footer.jsp"%>
 </body>
