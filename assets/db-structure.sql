@@ -85,7 +85,7 @@ CREATE TABLE Comments (
  CREATE TABLE WishlistDetails (
    wishlistdetailid INT AUTO_INCREMENT PRIMARY KEY,
    wishlistid INT,
-   productid INT,w
+   productid INT,
    FOREIGN KEY (wishlistid) REFERENCES Wishlists(wishlistid) ON DELETE CASCADE,
    FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE SET NULL
  );
