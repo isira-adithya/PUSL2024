@@ -67,7 +67,7 @@
         }
     }
     .image{
-            margin-bottom: 5px;
+            margin-bottom: 20px;
             width: 100%;
             height: 120px;
             position: relative;
@@ -87,6 +87,7 @@
             <div class="col-md-8">
                 <div style="margin-top: 25px;" class="mx-auto col-md-8 form-box">
                     <h3 class="text-center">Personal Information</h3>
+                    <hr>
                     <form id="signupForm" action="/api/admin/users/add" method="post">
                         
                         <div class="form-group">
@@ -116,6 +117,7 @@
                         </div>
                         
                         <h3 class="text-center"> Address</h3>
+                        <hr>
                         <div class="form-group">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" name="street_address" class="form-control" id="address" placeholder="Enter address" style="box-shadow: none;" >
@@ -149,6 +151,7 @@
         </div>
     </div>
 </section>
+<br><br>
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

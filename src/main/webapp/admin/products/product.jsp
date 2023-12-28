@@ -155,7 +155,7 @@
         transition: box-shadow 0.5s ease;
     }
     .image{
-            margin-bottom: 5px;
+            margin-bottom: 50px;
             width: 100%;
             height: 120px;
             position: relative;
