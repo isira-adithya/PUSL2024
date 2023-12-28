@@ -17,15 +17,31 @@
 %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics - GreenSuperMarket</title>
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="/includes/styles.css" rel="stylesheet">
     <!-- Include D3.js library -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        
+        .image{
+            margin-bottom: 5px;
+            width: 100%;
+            height: 120px;
+            position: relative;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        }      
+    </style>
 </head>
+
 <body>
+    
 <%@include file="includes/header.jsp"%>
+
 <section>
 <div class="container">
     <h1 class="text-center mt-4">Last 5 Months Anallytics</h1>
@@ -151,6 +167,5 @@
         .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Items Sold (<b>\${productSales[i]}\$</b>)</i>`);
 
 </script>
-
 </body>
 </html>
