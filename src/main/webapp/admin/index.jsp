@@ -48,7 +48,7 @@
     <section style="margin-top:100px;">
        <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mp.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mu.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mo.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="custom-card">
                     <img src="/uploads/images/Admin/mt.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
                     <h5></h5>
