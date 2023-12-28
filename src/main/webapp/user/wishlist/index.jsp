@@ -11,6 +11,25 @@
   <link rel="stylesheet" href="styles.css">
   
   <style>
+       .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
         table {
             border-collapse: collapse;
             width: 80%;
@@ -38,7 +57,7 @@
 <body>
     <%@include file="/includes/header.jsp"%>
    
-    <img src = "/uploads/images/products/Breadcrumbs.png">
+    <img src = "/uploads/images/products/Breadcrumbs.png" class="image"> 
 <center><br>
                 <h3>Wish List</h3>
                 <table border="1" width ="70%" >

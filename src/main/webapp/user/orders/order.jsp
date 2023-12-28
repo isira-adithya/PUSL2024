@@ -75,7 +75,7 @@
         .image{
             margin-bottom: 50px;
             width: 100%;
-            height: 120px;
+            height: 130px;
             position: relative;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
             
@@ -138,6 +138,7 @@
             </c:if>
             <td><b>$${order.amount}</b></td>
         </tr>
+        
         <c:if test="${order.orderStatus.equals('COMPLETED')}">
             <tr>
                 <td></td>
@@ -167,9 +168,9 @@
                 </small>
             </b>
         </c:if>
-        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green; border: 3px solid #ccc; background-color:#A7FFA4 ">COMPLETED</i></c:if>
         <c:if test="${order.orderStatus.equals('CANCELLED')}">
-            <i style="color: red;">CANCELLED</i>
+            <i style="color: red;border: 3px solid #ccc; background-color:#F7AA97 ">CANCELLED</i>
             <br>
             <b>
                 <small>

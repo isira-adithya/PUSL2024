@@ -81,7 +81,7 @@ button {
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    width: 800px;
+    width: 40%;
 }
 .icon{
     width:30px;
@@ -127,6 +127,7 @@ button {
         </table><br><br><br><br>
         <form method="post" action="/admin/products/add.jsp">
             <center><button class="Add-new-button">Add New Product</button></center>
+        </form>
     </div>
     
 <br><br><br><br><br><br><br>
