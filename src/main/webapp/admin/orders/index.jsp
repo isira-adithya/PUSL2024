@@ -9,7 +9,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/includes/variables.jsp"%>
 <%
-    List<Order> orders = Order.getOrders();
+    List<Order> orders;
+
+    // Order Type Filtering
+    String status;
+
+    if (request.getParameter("orderStatus") != null){
+        switch (request.getParameter("orderStatus")){
+            case "cp":
+                status = "COMPLETED";
+                break;
+            case "cl":
+                status = "CANCELLED";
+                break;
+            default:
+                status = "PENDING";
+                break;
+        }
+        orders = Order.findOrdersByStatus(status);
+    } else {
+        orders = Order.getOrders();
+    }
     pageContext.setAttribute("orders", orders);
 %>
 <html>
@@ -94,8 +114,14 @@ button {
 <body>
 <%@include file="../includes/header.jsp"%>
     <div>
-        
-        <br><br><br><br>
+
+        <div class="my-4 mx-2">
+            <h4>Filter by Order Status</h4>
+            <a class="btn btn-success btn-sm" href="/admin/orders/?orderStatus=cp">Completed Orders</a>
+            <a class="btn btn-primary btn-sm" href="/admin/orders/?orderStatus=pd">Pending Orders</a>
+            <a class="btn btn-danger btn-sm" href="/admin/orders/?orderStatus=cl">Cancelled Orders</a>
+            <a class="btn btn-secondary btn-sm" href="/admin/orders/">All Orders</a>
+        </div>
         <table>
             <thead>
             <tr>
