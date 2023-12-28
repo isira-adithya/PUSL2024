@@ -131,9 +131,7 @@
     <div>
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
-<div
- 
-class="container">
+<div class="container">
 
     
 <div class="table-responsive">
@@ -181,7 +179,7 @@ class="container">
     
     
 </div>
-</div>
+
 
 <br><br><br><br><br><br><br>
 <%@include file="../includes/footer.jsp"%>
