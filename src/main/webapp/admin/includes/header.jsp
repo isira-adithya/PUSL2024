@@ -44,7 +44,7 @@
             <a class="custom-nav-link" href="/admin/orders/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Orders</a>
         </li>
         <li class="custom-nav-item">
-            <a class="custom-nav-link" href="" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Tickets</a>
+            <a class="custom-nav-link" href="/admin/support_tickets" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Tickets</a>
         </li>
         <li class="custom-nav-item">
             <a class="custom-nav-link" href="/logout.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Logout</a>
