@@ -87,7 +87,7 @@ CREATE TABLE Comments (
    wishlistid INT,
    productid INT,
    FOREIGN KEY (wishlistid) REFERENCES Wishlists(wishlistid) ON DELETE CASCADE,
-   FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE SET NULL
+   FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
  );
 
 -- Sample Data
