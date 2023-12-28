@@ -28,7 +28,6 @@
     } else {
         supportTickets = SupportTicket.findSupportTickets(false);
     }
-    System.out.println(supportTickets.size());
     pageContext.setAttribute("tickets", supportTickets);
 %>
 <html>
