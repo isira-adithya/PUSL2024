@@ -88,6 +88,28 @@ public class SupportTicket {
         }
     }
 
+    public void updateTicket(){
+        try {
+            Connection dbconn = Database.connect();
+
+            String sqlQuery = "UPDATE SupportTickets SET full_name=?, email=?, title=?, subject=?, markedAsRead=? WHERE ticketid=?";
+            PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
+
+            sqlStatement.setString(1, this.full_name);
+            sqlStatement.setString(2, this.email);
+            sqlStatement.setString(3, this.title);
+            sqlStatement.setString(4, this.subject);
+            sqlStatement.setBoolean(5, this.isRead);
+            sqlStatement.setInt(6, this.ticketId);
+
+            sqlStatement.executeQuery();
+
+            Database.closeConnection();
+        } catch (Exception ignore){
+
+        }
+    }
+
     public static List<SupportTicket> findSupportTickets(boolean isRead){
         List<SupportTicket> supportTickets = new ArrayList<SupportTicket>();
         try {
