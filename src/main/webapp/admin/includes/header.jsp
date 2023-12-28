@@ -18,7 +18,7 @@
         <div class="nav-icon-container">
             <c:if test="${isLoggedIn}">
                 <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
-                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
+                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/addtowishlist.png" alt="wishlist" class="custom-small-image"></a>
                 <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
                 <c:if test="${isAdmin}">
                     <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
