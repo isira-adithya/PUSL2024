@@ -15,6 +15,12 @@ public class RemoveProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int productId = -1;
+        boolean redirectToProductPage = false;
+
+        if (req.getParameterMap().containsKey("fromProductPage")){
+            redirectToProductPage = true;
+        }
+
         if (req.getParameterMap().containsKey("productId")){
             try {
                 productId = Integer.parseInt(req.getParameter("productId"));
@@ -54,6 +60,10 @@ public class RemoveProduct extends HttpServlet {
 
         wishlist.removeProductFromWishlist(product);
 
-        resp.sendRedirect("/user/wishlist/");
+        if (redirectToProductPage){
+            resp.sendRedirect("/products/product.jsp?id=" + product.getProductId());
+        } else {
+            resp.sendRedirect("/user/wishlist/");
+        }
     }
 }
