@@ -86,33 +86,27 @@
         <table border="1" width ="70%" >
             <thead>
             <tr>
-                <th>PRODUCT  </th>
-                <th>PRICE  </th>
-                <th><center>ADD TO CART  </center></th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Operations</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Green Capsicum</td>
-                <td>$10.99</td>
-                <td><center><button style="background-color: green; color: white; border: none; padding: 5px 10px;
-              text-align: center; text-decoration: none; display: inline-block;
-                                  font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Green Capsicum')">Add to Cart</button></center></td>
-            </tr>
-            <tr>
-                <td>Chinese Cabbage</td>
-                <td>$40.00</td>
-                <td><center><button style="background-color: green; color: white; border: none; padding: 5px 10px;
-              text-align: center; text-decoration: none; display: inline-block;
-                                  font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Chinise Cabbage')">Add to Cart</button></center></td>
-            </tr>
-            <tr>
-                <td>Fresh Mango</td>
-                <td>$10.00</td>
-                <td><center><button style="background-color: green; color: white; border: none; padding: 5px 10px;
-              text-align: center; text-decoration: none; display: inline-block;
-                                  font-size: 14px; margin: 2px 2px; cursor: pointer;" onclick="addToCart('Fresh Mango')">Add to Cart</button></center></td>
-            </tr>
+            <c:forEach items="${wishlistDetailList}" var="wishListItem">
+                <c:if test="${wishListItem.product.visibility == true}">
+                    <tr>
+                        <td>${wishListItem.product.name}</td>
+                        <td>$10.99</td>
+                        <td>
+                            <a href="/products/product.jsp?id=${wishListItem.product.productId}" class="btn btn-primary btn-sm">View</a>
+                            <button onclick="document.getElementById('removeProduct${wishListItem.product.productId}Form').submit()" type="submit" class="btn btn-danger btn-sm">Remove</button>
+                            <form id="removeProduct${wishListItem.product.productId}Form" action="/api/user/wishlist/deleteProduct" method="post">
+                                <input type="hidden" name="productId" value="${wishListItem.product.productId}">
+                            </form>
+                        </td>
+                    </tr>
+                </c:if>
+            </c:forEach>
             </tbody>
         </table>
     </c:if>
