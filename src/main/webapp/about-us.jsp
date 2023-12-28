@@ -156,88 +156,106 @@
             width: 150px;
             margin: 10px auto;
         }
-.profile
-{
-    margin-top: 25px;
-}
-.profile .img-box
-{
-    opacity:1;
-    display: block;
-    position: relative;
-}
-.profile h2
-{
-  font-size: 22px;
-  font-size: bold;
-  margin-top: 15px;  
-}
-.profile h3
-{
-  font-size: 15px;
-  font-weight: bold;
-  margin-top: 15px;
-}
-.img-box:after {
-    content: '';
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-.img-box ul
-{
-    margin:0;
-    padding:20px 0;
-    position: absolute;
-    z-index: 1;
-    bottom:0;
-    display:block;
-    left:50%;
-    transform:translateX(-50px);
-    opacity:0;
-}
-.img-box ul li
-{
-    width: 40px;
-    height: 40px;
-    border: 1px solid #fff;
-    border-radius:50%;
-    margin:3px;
-    padding:7px;
-    display: inline-block;
-}
-.img-box a
-{
-  color: #fff;  
-}
-.img-box:hover:after,
-.img-box:hover ul {
-    opacity: 1;
-}
-.img-box:hover a li {
-    color: #007bff;
-    border: 1px solid #007bff;
-}
-.img-box:after,
-.img-box ul,
-.img-box ul li {
-    transition: all 0.5s ease-in-out 0s, opacity 0.5s ease-in-out 0s;
-}
-.custom-arrow {
-    max-width: 30px; /* Set the maximum width of your arrow images */
-    max-height: 30px; /* Set the maximum height of your arrow images */
-}
+        .profile
+        {
+            margin-top: 25px;
+        }
+        .profile .img-box
+        {
+            opacity:1;
+            display: block;
+            position: relative;
+        }
+        .profile h2
+        {
+          font-size: 22px;
+          font-size: bold;
+          margin-top: 15px;  
+        }
+        .profile h3
+        {
+          font-size: 15px;
+          font-weight: bold;
+          margin-top: 15px;
+        }
+        .img-box:after {
+            content: '';
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .img-box ul
+        {
+            margin:0;
+            padding:20px 0;
+            position: absolute;
+            z-index: 1;
+            bottom:0;
+            display:block;
+            left:50%;
+            transform:translateX(-50px);
+            opacity:0;
+        }
+        .img-box ul li
+        {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #fff;
+            border-radius:50%;
+            margin:3px;
+            padding:7px;
+            display: inline-block;
+        }
+        .img-box a
+        {
+          color: #fff;  
+        }
+        .img-box:hover:after,
+        .img-box:hover ul {
+            opacity: 1;
+        }
+        .img-box:hover a li {
+            color: #007bff;
+            border: 1px solid #007bff;
+        }
+        .img-box:after,
+        .img-box ul,
+        .img-box ul li {
+            transition: all 0.5s ease-in-out 0s, opacity 0.5s ease-in-out 0s;
+        }
+        .custom-arrow {
+            max-width: 30px; /* Set the maximum width of your arrow images */
+            max-height: 30px; /* Set the maximum height of your arrow images */
+        }
 
-.social-square i {
-    font-size: 25px; /* Adjust the size as needed */
-    line-height: 24px; 
-    color: #01b206; 
-}
+        .social-square i {
+            font-size: 25px; /* Adjust the size as needed */
+            line-height: 24px; 
+            color: #01b206; 
+        }
+         .image {
+                     margin-bottom: 60px;
+                     width: 100%;
+                     height: 130px;
+                     position: relative;
+                     background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+                     background-image: url("/uploads/images/products/Breadcrumbs.png");
+                     background-size: cover;
+                     background-position: center; /* Default position */
+        }
 
+        /* Adjust background position for mobile view */
+            @media screen and (max-width: 600px) {
+                .image {
+                    height: 120px; /* Adjust the height as needed */
+                    background-position: left center; /* Adjust position for left cropping */
+                    object-fit: cover;
+            }
+        }
 </style>
 </head>
 <body>
