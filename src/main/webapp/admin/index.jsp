@@ -46,20 +46,36 @@
 </section>
 
     <section style="margin-top:100px;">
-        <div class="container ">
-            <div class="row">
-                <div class="col-12 text-center text-md-left">
+       <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="custom-card">
+                    <img src="/uploads/images/Admin/pm.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
+                    <h5></h5>
+                    <p></p>
+                    <a href="/products/product.jsp" class="card-button">Manage Products</a>
                 </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="custom-card">
-                            <img src="/uploads/images/Admin/pm.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px;width: 191px;">
-                            <h5></h5>
-                            <p></p>
-                            <a href="/products/product.jsp" class="card-button">Manage Products</a>
-                        </div>
-                    </div> 
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="custom-card">
+                    <img src="/uploads/images/Admin/pm.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
+                    <h5></h5>
+                    <p></p>
+                    <a href="/products/product.jsp" class="card-button">Manage Products</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="custom-card">
+                    <img src="/uploads/images/Admin/pm.jpg" alt="" class="img-fluid mb-3 card-img" style="height: 191px; width: 191px;">
+                    <h5></h5>
+                    <p></p>
+                    <a href="/products/product.jsp" class="card-button">Manage Products</a>
+                </div>
             </div>
         </div>
+    </div>
     </section>
 
 
