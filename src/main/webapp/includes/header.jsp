@@ -8,8 +8,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<nav class="navbar custom-bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
-    <div class="container-fluid custom-align-content-center text-center d-flex justify-content-around p-0">
+<nav class="navbar custom-nav justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
+    <div class="container-fluid  d-flex justify-content-around custom-head-container ">
     <a href="/" class="custom-nav-home-link">
         <div class="custom-navbar-brand d-flex align-items-center">
             <img src="/uploads/images/navbar/plant_1.jpg" alt="plant img" class="custom-logo-img">
@@ -56,6 +56,15 @@
 </nav>
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .custom-head-container{
+        padding: 0px;
+        margin: 0px;
+    }
     .custom-form-control {
         font-weight: bold;
         font-size: 15px;
