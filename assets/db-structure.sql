@@ -83,11 +83,12 @@ CREATE TABLE Comments (
      FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
  );
  CREATE TABLE WishlistDetails (
-   wishlistdetailid INT AUTO_INCREMENT PRIMARY KEY,
-   wishlistid INT,
-   productid INT,
-   FOREIGN KEY (wishlistid) REFERENCES Wishlists(wishlistid) ON DELETE CASCADE,
-   FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE
+       wishlistdetailid INT AUTO_INCREMENT PRIMARY KEY,
+       wishlistid INT,
+       productid INT,
+       FOREIGN KEY (wishlistid) REFERENCES Wishlists(wishlistid) ON DELETE CASCADE,
+       FOREIGN KEY (productid) REFERENCES Products(productid) ON DELETE CASCADE,
+       CONSTRAINT wishlist_product_key UNIQUE (wishlistid, productid)
  );
 
 -- Sample Data
