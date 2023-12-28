@@ -204,7 +204,7 @@
                         <tr>
                             <td style="vertical-align: middle; text-align:center;"><img src="${_value.key.image}"
                                     alt="product img" class="product-img"></td>
-                            <td style="vertical-align: middle;"><a>${fn:escapeXml(_value.key.name)}</a></td>
+                            <td style="vertical-align: middle;"><a href="/products/product.jsp?id=${_value.key.productId}">${fn:escapeXml(_value.key.name)}</a></td>
                             <td style="vertical-align: middle;">${fn:escapeXml(_value.value)}</td>
                             <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price)} Each</td>
                             <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price * _value.value)}</td>
@@ -231,14 +231,12 @@
                 <tr>
                     <td colspan="2">
                         <p>Subtotal:</p>
-                        <p>Shipping:</p>
-                        
+                        <p><small>Shipping and additional costs:</small></p>
                     </td>
                     
                     <td class="pricing">
-                        
                         <p style="color: #000000;">$${userCart.totalCost}</p>
-                        <p style="color: #000000;">Free</p>                        
+                        <p style="color: #000000;"><small><i>will be applied during PayPal checkout.</i></small></p>
                     </td>
                     
                 </tr>
