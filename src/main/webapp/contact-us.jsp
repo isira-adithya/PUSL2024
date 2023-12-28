@@ -94,12 +94,33 @@
          border: 0;
 }
 
+
 /* Responsive padding for the container */
 @media (min-width: 576px) {
   .google-map {
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
   }
+  
+  
 }
+  </style>
+  <style>
+      @media (max-width: 767px) {
+            /* Mobile view styles */
+
+            .login-form-container {
+                flex-direction: column;
+            }
+
+            .col-md-4,
+            .col-md-8 {
+                max-width: 100%;
+                order: 0; /* Default order for both columns */
+            }
+
+            .col-md-4 {
+                order: 1; /* Set the order for the email/phone container */
+            }
   </style>
 
 
