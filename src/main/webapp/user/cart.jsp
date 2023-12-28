@@ -182,7 +182,7 @@
         <div class="align-items-center text-center justify-content-center my-5">
             <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
             <h3>Your cart is empty</h3>
-            <a href="/products">Visit Our Products</a>
+            <a href="/products" style="color:#00b207">Visit Our Products</a>
         </div>
     </c:if>
     <c:if test="${!isCartEmpty}">
