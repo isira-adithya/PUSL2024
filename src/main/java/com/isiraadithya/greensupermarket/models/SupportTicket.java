@@ -118,9 +118,11 @@ public class SupportTicket {
                 _tmp.setTicketId(_ticketId);
                 _tmp.setCreatedAt(_createdAt);
                 _tmp.setRead(_markedAsRead);
-            }
 
+                supportTickets.add(_tmp);
+            }
             Database.closeConnection();
+            return supportTickets;
         } catch (Exception ex){
             ex.printStackTrace();
         }
