@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: @isira_adithya
+  User: @isira_adithya, @hashen-ruwanpura
   Date: 12/7/2023
   Time: 9:47 PM
 --%>
@@ -52,7 +52,8 @@
             margin: 0 auto;
             padding: 15px;
             border-radius: 5px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            
             
         }
         .custom-button{
@@ -87,10 +88,21 @@
         
         .image{
             margin-bottom: 50px;
-            width: 100%;
-            height: 120px;
+            max-width: 100%;
+            height: auto;
             position: relative;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+        @media (max-width: 767px) {
+            .col-md-3 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .col-md-9 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
         }
     </style>
     
