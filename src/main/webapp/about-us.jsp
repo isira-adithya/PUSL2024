@@ -407,7 +407,7 @@
                                 <!-- Second Team Member -->
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/NesithPic.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/nesith.jpg" class="img-responsive img-fluid">
                                         <ul>
                                          <li><a href="https://www.instagram.com/___nesith_perera___/" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                          <li><a href="https://lk.linkedin.com/in/nesithperera" class="social-square"><i class="fab fa-linkedin"></i></a></li>
