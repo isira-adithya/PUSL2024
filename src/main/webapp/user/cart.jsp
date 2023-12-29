@@ -236,7 +236,7 @@
                     </div>
                     <div a href="/cart.jsp"
                          style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
-                        Shopping Cart</div>
+                        Order History</div>
                 </div>
                 <div
                         style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer; box-shadow: 3px 0px 0px #20B526 inset;">
