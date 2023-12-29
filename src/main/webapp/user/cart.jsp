@@ -216,18 +216,6 @@
                         Edit Profile</div>
                 </div>
                 <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer; box-shadow: 3px 0px 0px #20B526 inset;">
-                    <div
-                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
-
-                        <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
-
-                    </div>
-                    <div
-                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
-                        Order History</div>
-                </div>
-                <div
                         style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                     <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
 
