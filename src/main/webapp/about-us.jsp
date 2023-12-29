@@ -67,8 +67,7 @@
 
         .product-list li {
             flex: 0 0 45%; /* Adjust the width of each item */
-            display: flex;
-            background-color: #fff; /* Set the background color for each list item */
+            display: flex;           
             padding: 0px; /* Add some padding for spacing */
             border-radius: 8px; /* Add border-radius for rounded corners */
             position: relative; /* Added position relative */
