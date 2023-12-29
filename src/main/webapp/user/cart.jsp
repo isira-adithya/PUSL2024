@@ -175,10 +175,16 @@
 
 /* Adjust background position for mobile view */
     @media screen and (max-width: 600px) {
-        .image {
-            height: 120px; /* Adjust the height as needed */
-            background-position: left center; /* Adjust position for left cropping */
+        .not-found-img {
+            /* Adjust the height as needed */
+            width: 100%;
+            background-position: center; /* Adjust position for left cropping */
             object-fit: cover;
+           margin-top:50px;
+    }
+    .navi-box{
+        justify-content: center;
+        align-content: center;
     }
 }
         
@@ -196,7 +202,7 @@
     <br><br>
     <div class="container">
     <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 navi-box">
             <div style="width: 220px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                 <div style="padding-top: 24px; padding-bottom: 16px; padding-left: 20px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                     <div style="color: #1A1A1A; font-size: 20px; font-family: Poppins; font-weight: 500; line-height: 30px; word-wrap: break-word">
