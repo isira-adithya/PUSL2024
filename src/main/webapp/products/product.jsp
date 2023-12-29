@@ -170,6 +170,29 @@
             background-color: #45a049; /* Darker green on hover */
 
          } 
+         .wishlist-button {
+            display: inline-block;
+        }
+
+        .wishlist-button img {
+            cursor: pointer;
+        }
+
+        .addToCart-button {
+            height: 38px;
+            width: 60%;
+            border-radius: 100px;
+            color: #ffffff;
+            background-color: #00b207;
+            margin-left: 20px;
+            margin-right: 25px; /* Add margin-right to create space */
+            border: none;
+            display: inline-block;
+        }
+        .addToCart-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+
+        }
 
         
     
@@ -254,29 +277,7 @@
 
         }
 
-        .wishlist-button {
-            display: inline-block;
-        }
-
-        .wishlist-button img {
-            cursor: pointer;
-        }
-
-        .addToCart-button {
-            height: 38px;
-            width: 60%;
-            border-radius: 100px;
-            color: #ffffff;
-            background-color: #00b207;
-            margin-left: 20px;
-            margin-right: 25px; /* Add margin-right to create space */
-            border: none;
-            display: inline-block;
-        }
-        .addToCart-button:hover {
-            background-color: #45a049; /* Darker green on hover */
-
-        }
+        
     </style>
     
 </head>
@@ -406,7 +407,7 @@
                 <div class="row">
                     <div class="col-4">
 
-                    </div><center>
+                    </div>
                     <div class="row mt-2 text-right mt-2">
                         <h5>Give us a rating</h5>
                     </div>
@@ -433,7 +434,7 @@
                             <label class="star star-1" for="star-1"></label>
                         </div>
                     </div>
-</center>
+
                 </div>
                 <div class="row">
                     <div class="col-4"></div>
