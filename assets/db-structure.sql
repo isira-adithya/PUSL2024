@@ -93,16 +93,16 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL', true, TIMESTAMP('2023-07-15', '09:12:55'));
 
 INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
-(1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', true, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
-(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
-(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
-(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
-(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', true, '',TIMESTAMP('2023-06-17', '14:10:30')),
-(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', true, '',TIMESTAMP('2023-06-19', '15:02:24')),
-(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', true, '',TIMESTAMP('2023-06-21', '13:38:19')),
-(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', true, '',TIMESTAMP('2023-06-21', '11:07:27')),
-(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '',TIMESTAMP('2023-06-22', '12:05:12')),
-(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
+(1, 'Extra Virgin Olive Oil', 9.99, 16, 'Essential, pure, adds rich flavor to dishes', '', true, '', TIMESTAMP('2023-06-15', '11:10:58')),
+(2, 'Exotic Mangoes', 2.9, 55, 'Transport yourself with the tropical allure of Exotic Mangoes', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Organic Baby Spinach', 79.99, 93, 'Nourish your body with nutrient-packed Organic Baby Spinach leaves', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Exotic Dragon Fruit', 3.99, 30, 'Experience the extraordinary flavors of Exotic Dragon Fruit today', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Organic Tomatoes', 1.79, 15, 'Enjoy the freshness and richness of locally sourced Organic Tomatoes', '', true, '',TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Organic Bell Pepper', 2.39, 25, 'Add vibrancy and taste to your dishes with Organic Bell Pepper', '', true, '',TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Organic Beet', 2.29, 50, 'Discover the earthy sweetness and health benefits of Organic Beet', '', true, '',TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Green Beans', 4.99, 154, 'Crisp, tender Green Beans, a staple for every healthy plate', '', true, '',TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Organic Carrots', 1.99, 43, 'Snack on the satisfying crunch of Organic Carrots', '', true, '',TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Organic Red Grapes', 3.29, 34, 'Elevate your palate with the succulent sweetness of Organic Red Grapes', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
 
 INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery_status, createdAt) VALUES
 (1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '12:15:55')),
@@ -117,16 +117,16 @@ INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery
 (10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
-(1, 1, 1, 2, 'Smartphone', 1999.98),
-(2, 1, 2, 1, 'Laptop', 599.99),
-(3, 3, 3, 3, 'Headphones', 239.97),
-(4, 2, 4, 1, 'Tablet', 399.99),
-(5, 5, 5, 1, 'Laptop', 1499.99),
-(6, 6, 6, 2, 'Smartphone', 599.98),
-(7, 1, 7, 4, 'Tablet', 799.96),
-(8, 1, 8, 1, 'Laptop', 49.99),
-(9, 2, 9, 3, 'Gaming Console', 1499.97),
-(10, 2, 10, 2, 'Wireless Router', 159.98);
+(1, 1, 1, 2, 'Extra Virgin Olive Oil', 1999.98),
+(2, 1, 2, 1, 'Exotic Mangoes', 599.99),
+(3, 3, 3, 3, 'Organic Baby Spinach', 239.97),
+(4, 2, 4, 1, 'Exotic Dragon Fruit', 399.99),
+(5, 5, 5, 1, 'Organic Tomatoes', 1499.99),
+(6, 6, 6, 2, 'Organic Bell Pepper', 599.98),
+(7, 1, 7, 4, 'Organic Beet', 799.96),
+(8, 1, 8, 1, 'Organic Beans', 49.99),
+(9, 2, 9, 3, 'Organic Carrots', 1499.97),
+(10, 2, 10, 2, 'Organic Red Grapes', 159.98);
 
 INSERT INTO Comments (commentid, userid, productid, content, starcount, createdAt) VALUES
     (1, 2, 1, 'Outstanding product quality! The attention to detail and craftsmanship are truly impressive.', 4, TIMESTAMP('2023-07-17', '12:13:41')),
