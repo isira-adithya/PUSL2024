@@ -33,7 +33,7 @@ public class ValidatePayment extends HttpServlet {
 
             if (payment.getState().equals("approved")){
                 order.setAdditionalCharges(PaymentServices.shippingCost + PaymentServices.tax);
-                order.markAsCompleted();
+                order.markPaymentAsCompleted();
                 order.sendReceiptEmail();
 
                 // Resetting the cart
