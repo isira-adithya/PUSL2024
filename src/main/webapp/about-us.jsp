@@ -456,8 +456,8 @@
                                     <div class="img-box">
                                         <img src="uploads/about us/ChandeshPic.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                         <li><a href="https://www.instagram.com/chandesh.g?utm_source=qr&igsh=YzVkZGFybmEza3Nt" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="https://www.linkedin.com/in/chandesh-gunawardena-505520255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <!-- Fifth Team Member -->
