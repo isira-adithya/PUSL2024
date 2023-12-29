@@ -48,8 +48,8 @@
     -[]Comments
 
 ### Products
--[] Test Index Page
-    -[]Comments
+-[x] Test Index Page
+    -[x]Responsiveness Fixed
 -[] Test Product Page
     -[]Comments
 
