@@ -117,15 +117,15 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 
 INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
 (1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', true, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
-(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
-(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
-(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
-(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', true, '',TIMESTAMP('2023-06-17', '14:10:30')),
-(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', true, '',TIMESTAMP('2023-06-19', '15:02:24')),
-(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', true, '',TIMESTAMP('2023-06-21', '13:38:19')),
-(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', true, '',TIMESTAMP('2023-06-21', '11:07:27')),
-(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '',TIMESTAMP('2023-06-22', '12:05:12')),
-(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
+(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', true, '', TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', true, '', TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', true, '', TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', true, '', TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', true, '', TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', true, '', TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', true, '', TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '', TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '', TIMESTAMP('2023-06-14', '19:25:52'));
 
 INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, status, delivery_status) VALUES
 (1, 1, '2023-12-12 06:45:55', 1249.98, 23.99, 'CANCELLED', 'N/A'),
