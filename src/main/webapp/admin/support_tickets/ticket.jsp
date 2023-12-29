@@ -161,7 +161,7 @@
             .google-map iframe {
                 top: 0;
                 height: 200px; /* Set a specific height for the map on mobile view */
-            }
+            }}
   </style>
 
 
@@ -237,7 +237,7 @@
       </div>
     </div>
 
-  </div>
+ 
 
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
