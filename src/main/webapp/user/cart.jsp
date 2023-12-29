@@ -38,7 +38,7 @@
             flex-wrap: wrap;
             justify-content: space-around;
             max-width: 1300px;
-            margin: 50px auto;
+            
         }
 
         .cart-container {
@@ -50,7 +50,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
+            
         }
 
         .additional-container {
@@ -183,8 +183,7 @@
            margin-top:50px;
     }
     .navi-box{
-        justify-content: center;
-        align-content: center;
+        margin: 0.75rem;
     }
 }
         
@@ -253,8 +252,10 @@
         </div>
     </c:if>
     <c:if test="${!isCartEmpty}">
-    <div class="main-container">
-        <div class="cart-container">
+<div class="main-container">
+    <div class="cart-container">
+        <div class="table-responsive">
+            <!-- Add 'table-responsive' class for small screens -->
             <table class="table">
                 <thead>
                     <tr>
@@ -269,67 +270,66 @@
                     <!-- Iterate over productQuantities using JSTL forEach -->
                     <c:forEach items="${userCart.productQuantities}" var="_value">
                         <tr>
-                            <td style="vertical-align: middle; text-align:center;"><img src="${_value.key.image}"
-                                    alt="product img" class="product-img"></td>
-                            <td style="vertical-align: middle;"><a href="/products/product.jsp?id=${_value.key.productId}">${fn:escapeXml(_value.key.name)}</a></td>
+                            <td style="vertical-align: middle; text-align:center;">
+                                <img src="${_value.key.image}" alt="product img" class="product-img">
+                            </td>
+                            <td style="vertical-align: middle;">
+                                <a href="/products/product.jsp?id=${_value.key.productId}">
+                                    ${fn:escapeXml(_value.key.name)}
+                                </a>
+                            </td>
                             <td style="vertical-align: middle;">${fn:escapeXml(_value.value)}</td>
                             <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price)} Each</td>
-                            <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price * _value.value)}</td>
+                            <td style="vertical-align: middle;">
+                                $${fn:escapeXml(_value.key.price * _value.value)}
+                            </td>
                             <td style="vertical-align: middle;">
                                 <form action="/api/user/cart/deleteItem" method="post">
                                     <input type="hidden" name="productId" value="${_value.key.productId}">
                                     <button type="submit" class="Removebutton">
-                                        <img src="/uploads/images/shopping-cart/removeicon.png" alt="remove icon" class="icon">
+                                        <img src="/uploads/images/shopping-cart/removeicon.png" alt="remove icon"
+                                            class="icon">
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                        
-                        
                     </c:forEach>
                 </tbody>
-            </table>        
-            
-        </div>
-
-        <div class="additional-container">
-            <h4>Cart Total</h4><br>
-            <table class="cart-total">
-                <tr>
-                    <td colspan="2">
-                        <p>Subtotal:</p>
-                        <p><small>Shipping and additional costs:</small></p>
-                    </td>
-                    
-                    <td class="pricing">
-                        <p style="color: #000000;">$${userCart.totalCost}</p>
-                        <p style="color: #000000;"><small><i>will be applied during PayPal checkout.</i></small></p>
-                    </td>
-                    
-                </tr>
             </table>
-
-            <!-- total price table -->
-            <table class="cart-total" style="margin-bottom: -35px;">
-                <tr>
-                    <td colspan="2" style="border-bottom: none;"> 
-
-                        <p style="font-size: 22px">Total</p><br>                       
-                    </td>
-                    
-                    <td class="pricing" style="border-bottom: none;">                                              
-                        <p style="color: #000000; font-size: 22px;"> $${userCart.totalCost}</p><br>                        
-                    </td>
-                    
-                </tr>
-            </table>
-            <form method="post" action="/api/user/orders/new">
-                <input type="submit" class="btn btn-success" value="Place Order">
-            </form>
-            
-            
-            
         </div>
+    </div>
+
+    <div class="additional-container">
+        <h4>Cart Total</h4><br>
+        <table class="cart-total">
+            <tr>
+                <td colspan="2">
+                    <p>Subtotal:</p>
+                    <p><small>Shipping and additional costs:</small></p>
+                </td>
+                <td class="pricing">
+                    <p style="color: #000000;">$${userCart.totalCost}</p>
+                    <p style="color: #000000;"><small><i>will be applied during PayPal checkout.</i></small></p>
+                </td>
+            </tr>
+        </table>
+
+        <!-- total price table -->
+        <table class="cart-total" style="margin-bottom: -35px;">
+            <tr>
+                <td colspan="2" style="border-bottom: none;">
+                    <p style="font-size: 22px">Total</p><br>
+                </td>
+                <td class="pricing" style="border-bottom: none;">
+                    <p style="color: #000000; font-size: 22px;"> $${userCart.totalCost}</p><br>
+                </td>
+            </tr>
+        </table>
+        <form method="post" action="/api/user/orders/new">
+            <input type="submit" class="btn btn-success" value="Place Order">
+        </form>
+    </div>
+</div>
     </c:if>
     </div>
     </div>
