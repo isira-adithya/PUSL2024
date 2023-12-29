@@ -238,7 +238,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden>
+                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden style="background-color: #00B207">
                                     Submit
                                 </button>
                             </div>
