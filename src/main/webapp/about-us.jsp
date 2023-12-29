@@ -326,7 +326,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Secure Payment</strong>
                                     <p>We ensure your money is safe</p>
