@@ -231,7 +231,7 @@
                         style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                     <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
 
-                        <img src="/uploads/images/profile/shoppingcart.jpg" style="width:20px; height:20px;">
+                        <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
 
                     </div>
                     <div a href="/cart.jsp"
