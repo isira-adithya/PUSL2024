@@ -304,7 +304,7 @@
                             high-quality organic products for conscious consumers.Providing a secure and wholesome
                             shopping experience with a focus on organic and trustable practices.</p>
                         <!-- List with images on both sides -->
-                        <ul class="list-unstyled product-list">
+                        <ul class="product-list">
                             <li>
                                 <img src="/uploads/about us/leave.jpg" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
                                 <div>
