@@ -340,7 +340,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food </strong>
                                     <p>100% healthy & Fresh Food.</p>
