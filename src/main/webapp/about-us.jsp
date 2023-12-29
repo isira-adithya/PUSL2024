@@ -298,8 +298,8 @@
                     <img src="uploads/images/userhome/Image.png" alt="farmer1" class="img-fluid">
                 </div>
                 <div class="col-md-6" style="width:100%;">
-                                        <div class="card-text">
-                        <h2 class="card-title"><strong>100% Trusted<br>Organic Food Store</strong></h2>
+                    <div class="card-text">
+                        <h1 class="card-title">100% Trusted Organic Food Store</h1>
                         <p>A reputable and reliable organic food store committed to offering 100%<br>trusted
                             high-quality organic products for conscious consumers.<br>Providing a secure and wholesome
                             shopping experience with a focus<br>on organic and trustable practices.</p>
