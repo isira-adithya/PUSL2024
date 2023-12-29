@@ -7,6 +7,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/includes/variables.jsp"%>
 <%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
+<%@ page import="com.isiraadithya.greensupermarket.models.User" %>
+<%
+  String email = "";
+  String name = "";
+
+  if(isLoggedIn){
+    User userObj = User.findUserById((int) session.getAttribute("userId"));
+    name = userObj.getFullName();
+    email = userObj.getEmail();
+  }
+
+  pageContext.setAttribute("isLoggedIn", isLoggedIn);
+  pageContext.setAttribute("email", email);
+  pageContext.setAttribute("name", name);
+%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -50,10 +65,22 @@
     .image {
       margin-bottom: 60px;
       width: 100%;
-      height: 110px;
+      height: 130px;
       position: relative;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
     }
+}
 
     p {
       color: #808080;
@@ -94,12 +121,43 @@
          border: 0;
 }
 
+
 /* Responsive padding for the container */
 @media (min-width: 576px) {
   .google-map {
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
   }
+  
+  
 }
+  </style>
+  <style>
+      @media (max-width: 767px) {
+            /* Mobile view styles */
+
+            .login-form-container {
+                flex-direction: column;
+            }
+
+            .col-md-4,
+            .col-md-8 {
+                max-width: 100%;
+                order: 0; /* Default order for both columns */
+            }
+
+            .col-md-4 {
+                order: 1; /* Set the order for the email/phone container */
+                margin-top: 20px; /* Add margin-top for space between form and email/phone container */
+            }
+
+            .google-map {
+                height: auto; /* Make the height auto to adjust based on content */
+            }
+
+            .google-map iframe {
+                top: 0;
+                height: 200px; /* Set a specific height for the map on mobile view */
+            }
   </style>
 
 
@@ -114,11 +172,14 @@
     <div class="col-md-4">
       <div class="login-form mb-4">
         <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
+            <p>Send us a mail</p>
           <p><a href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
             <a href="mailto:support@greensupermarket.live">support@greensupermarket.live</a></p>
                 <hr>
                 <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
                 <p>
+                <p>
+                    <p>Call us here</p>
                   <a href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
                   <a href="tel:+94701234562"> (+94) 70 123 4562 </a>
                 </p>
@@ -138,14 +199,24 @@
           <p>Need assistance? or have to tell something? Feel free to contact us <br> by submitting the below form</p>
         </div>
 
-        <form action="#" method="post">
+        <form action="/api/misc/createSupportTicket" method="post">
           <div class="mb-4">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
+                <c:if test="${isLoggedIn == false}">
+                  <input type="text" class="form-control" id="Name" name="name" placeholder="Name">
+                </c:if>
+                <c:if test="${isLoggedIn == true}">
+                  <input type="text" class="form-control" id="Name" name="name" value="${fn:escapeXml(name)}" readonly>
+                </c:if>
               </div>
               <div class="col">
-                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                <c:if test="${isLoggedIn == false}">
+                  <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
+                </c:if>
+                <c:if test="${isLoggedIn == true}">
+                  <input type="email" class="form-control" id="Email" name="email" value="${fn:escapeXml(email)}" readonly>
+                </c:if>
               </div>
             </div>
           </div>
@@ -155,7 +226,7 @@
           </div>
 
           <div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Subject"></textarea>
+            <textarea name="subject" class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Subject"></textarea>
           </div>
 
           <div>

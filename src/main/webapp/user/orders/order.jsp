@@ -72,12 +72,25 @@
             color: white;
         }
         
-        .image{
-            margin-bottom: 50px;
-            width: 100%;
-            height: 120px;
-            position: relative;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        .image {
+             margin-bottom: 60px;
+             width: 100%;
+             height: 130px;
+             position: relative;
+             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+             background-image: url("/uploads/images/products/Breadcrumbs.png");
+             background-size: cover;
+             background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
             
             .custom-button{
             width:150px;
@@ -138,6 +151,7 @@
             </c:if>
             <td><b>$${order.amount}</b></td>
         </tr>
+        
         <c:if test="${order.orderStatus.equals('COMPLETED')}">
             <tr>
                 <td></td>
@@ -167,9 +181,9 @@
                 </small>
             </b>
         </c:if>
-        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green; border: 3px solid #ccc; background-color:#A7FFA4 ">COMPLETED</i></c:if>
         <c:if test="${order.orderStatus.equals('CANCELLED')}">
-            <i style="color: red;">CANCELLED</i>
+            <i style="color: red;border: 3px solid #ccc; background-color:#F7AA97 ">CANCELLED</i>
             <br>
             <b>
                 <small>

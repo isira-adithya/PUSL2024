@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: @isira_adithya
+  User: @isira_adithya, @hashen-ruwanpura
   Date: 12/7/2023
   Time: 9:47 PM
 --%>
@@ -52,7 +52,8 @@
             margin: 0 auto;
             padding: 15px;
             border-radius: 5px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            
             
         }
         .custom-button{
@@ -84,14 +85,25 @@
             min-width: 120px;
             max-width: 200px;
         }
-        
-        .image{
-            margin-bottom: 50px;
-            width: 100%;
-            height: 120px;
-            position: relative;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+        .image {
+              margin-bottom: 60px;
+              width: 100%;
+              height: 130px;
+              position: relative;
+              background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+              background-image: url("/uploads/images/products/Breadcrumbs.png");
+              background-size: cover;
+              background-position: center; /* Default position */
         }
+
+        /* Adjust background position for mobile view */
+            @media screen and (max-width: 600px) {
+                .image {
+                    height: 120px; /* Adjust the height as needed */
+                    background-position: left center; /* Adjust position for left cropping */
+                    object-fit: cover;
+            }
+          }
     </style>
     
 </head>
@@ -226,7 +238,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden>
+                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden style="background-color: #00B207">
                                     Submit
                                 </button>
                             </div>
@@ -258,7 +270,7 @@
         let isEditMode = false;
         function toggleEdit(){
             isEditMode = !isEditMode;
-            const inputTags = document.getElementsByTagName("input")
+            const inputTags = document.getElementsByTagName("input");
             for (let i = 0; i < inputTags.length; i++) {
                 const inputTag = inputTags[i];
                 if (inputTag.name === "email"){
@@ -285,8 +297,8 @@
                         document.location.href = "/logout.jsp";
                     }
                 }).catch(err => {
-                    alert("Something went wrong. Please try again later.")
-                })
+                    alert("Something went wrong. Please try again later.");
+                });
             }
         }
     </script>

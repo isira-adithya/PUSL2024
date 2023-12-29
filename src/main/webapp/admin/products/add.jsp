@@ -19,7 +19,7 @@
     <style>
         #addProductForm {
             max-width: 600px;
-            margin: 20px auto;
+            margin:  auto;
             padding: 15px;
             border: 1px solid #e9e9e9;
             border-radius: 5px;
@@ -36,7 +36,7 @@
             padding: 8px 15px;
             text-decoration: none;
             color: #ffffff;
-            background-color: #4caf50;
+            background-color: #00b207;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -47,11 +47,36 @@
         #submitBtn:hover {
             background-color: #45a049;
         }
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
+        
+        
     </style>
 </head>
 <body>
     <%@include file="../includes/header.jsp"%>
-<center><h2>Add New Product</h2></center><br><br><br>
+    <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+    </div>
+    
+<center><h2>Add New Product</h2></center><br>
     <div class="container">
         <form id="addProductForm" method="post" action="/api/admin/products/add" enctype="multipart/form-data">
             <div class="mb-3">

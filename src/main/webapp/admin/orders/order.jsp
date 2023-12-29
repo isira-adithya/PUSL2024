@@ -61,12 +61,34 @@
             background-color: #4CAF50;
             color: white;
         }
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
+        
     </style>
 </head>
 
 <body>
 <%@include file="../includes/header.jsp"%>
-
+    <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+    </div>
 <div class="cart-container">
     <h2>Order ID ${order.orderId}</h2>
     <table>

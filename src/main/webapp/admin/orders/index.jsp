@@ -37,6 +37,7 @@
     <title>Manage Orders</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
 body {
@@ -47,12 +48,14 @@ table {
     width: 80%;
     margin: 20px auto; /* Center the table */
     border-collapse: collapse;  
+    text-align: center;
+    
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
     
 }
 
@@ -109,20 +112,47 @@ button {
     height:30px;
 }
 
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
+        
+
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
     <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+    </div>
+
+
+    <div class="container">
 
         <div class="my-4 mx-2">
-            <h4>Filter by Order Status</h4>
+            <h4><b>Filter by Order Status</b></h4>
             <a class="btn btn-success btn-sm" href="/admin/orders/?orderStatus=cp">Completed Orders</a>
             <a class="btn btn-primary btn-sm" href="/admin/orders/?orderStatus=pd">Pending Orders</a>
             <a class="btn btn-danger btn-sm" href="/admin/orders/?orderStatus=cl">Cancelled Orders</a>
             <a class="btn btn-secondary btn-sm" href="/admin/orders/">All Orders</a>
         </div>
-        <table>
+        <div class="table-responsive">
+            <table class="table table-bordered">
             <thead>
             <tr>
                  <th>Order ID</th>
@@ -130,7 +160,7 @@ button {
                  <th>Placed at</th>
                  <th>Total</th>
                  <th>Order Status</th>
-                 <th>Operations</th>
+                 <th colspan="2">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -147,18 +177,24 @@ button {
                     <td>${fn:escapeXml(order.amount)} USD</td>
                     <td>${fn:escapeXml(order.orderStatus)}</td>
                     <td>
-                        <a href="/admin/orders/order.jsp?id=${order.orderId}"><button class="submitBtn">View Order</button></a>
-                        <form id="deleteOrder${order.orderId}Form" method="post" action="/api/admin/orders/delete"><br>
+                        <a class="btn btn-primary py-2"  href="/admin/orders/order.jsp?id=${order.orderId}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger py-2" onclick="if(confirm('Are you sure?')){document.getElementById('deleteOrder${order.orderId}Form').submit()}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <form id="deleteOrder${order.orderId}Form" method="post" action="/api/admin/orders/delete">
                             <input type="hidden" name="orderId" value="${order.orderId}">
                         </form>
-                        <button onclick="if(confirm('Are you sure?')){document.getElementById('deleteOrder${order.orderId}Form').submit()}" id="submitBtn">Delete Order</button>
                     </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table><br><br><br><br>
     </div>
-    
+    </div>   
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
