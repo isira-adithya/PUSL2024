@@ -494,7 +494,8 @@
             <img src="/uploads/about us/right arrow.png" alt="Next" class="custom-arrow">
         </a>
     </div>
-     </div>
+</div>
+
 <%@include file="includes/footer.jsp"%>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

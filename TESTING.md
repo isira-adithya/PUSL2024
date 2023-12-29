@@ -31,8 +31,9 @@
     -[]Comments
 -[] Test E-mail Verification Page
     -[]Comments
--[] Test Change Passowrd Page
-    -[]Comments
+-[x] Test Change Password Page
+    -[x]Checked Responsiveness
+    -[x]Links Work Well
 -[] Test Cart Page
     -[]Comments
 
