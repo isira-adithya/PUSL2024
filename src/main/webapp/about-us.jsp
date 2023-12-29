@@ -44,7 +44,9 @@
   
         }
         
-        
+        .card-title{
+            font-weight: 600;
+        }
         
         
         
@@ -137,7 +139,7 @@
         {
             margin:75px 0;
         }
-        h1
+        .team-title
         {
             text-align:center;
             font-weight:bold;
@@ -146,7 +148,7 @@
             padding-bottom: 10px;
 
         }
-        h1:after
+        .team-title:after
         {
             content:'';
             background: #333;
@@ -271,12 +273,12 @@
         <div class="custom-card ">
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 ">
-                    <h2 class="card-title">Enriching Lives Through Quality and Community Focus.</h2>
-                    <p>Dedicated to enriching lives through a diverse selection of quality<br>products, with a
-                        commitment to excellence, we strive to be your<br>go-to destination for all your grocery
-                        needs, fostering a<br>welcoming environment for families and individuals alike.</p>
+                    <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
+                    <p>Dedicated to enriching lives through a diverse selection of quality products, with a
+                        commitment to excellence, we strive to be your go-to destination for all your grocery
+                        needs, fostering a welcoming environment for families and individuals alike.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
                 </div>
             </div>
@@ -376,7 +378,7 @@
         </div>
 
     <div class="centered-text">
-        <h1><center>Our Awesome Team</center></h1>
+        <h1 class="team-title"><center>Our Awesome Team</center></h1>
         <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innovative solutions and exceptional service"</p>
     </div>
 
