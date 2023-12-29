@@ -117,7 +117,8 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL', true, TIMESTAMP('2023-07-15', '09:12:55'));
 
 INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
-(1, 'Extra Virgin Olive Oil', 9.99, 16, 'Essential, pure, adds rich flavor to dishes', '', true, '', TIMESTAMP('2023-06-15', '11:10:58')),
+(1, 'Extra Virgin Olive Oil', 9.99, 16, 'Essential, pure, adds rich flavor to dishes', 'Our special extra virgin olive oil comes from sunny orchards where olives grow.\nIts made by pressing the olives without using heat, keeping all the good flavors in.\nYou can use it for making salads tastier, dipping bread, or adding a healthy richness to your cooking.\n
+Our extra virgin olive oil elevates every meal with its exquisite taste and healthful benefits.\nGet our extra virgin olive oil and enjoy a delicious meal. ', true, 'virginoil.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
 (2, 'Exotic Mangoes', 2.9, 55, 'Transport yourself with the tropical allure of Exotic Mangoes', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
 (3, 'Organic Baby Spinach', 79.99, 93, 'Nourish your body with nutrient-packed Organic Baby Spinach leaves', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
 (4, 'Exotic Dragon Fruit', 3.99, 30, 'Experience the extraordinary flavors of Exotic Dragon Fruit today', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
