@@ -300,9 +300,9 @@
                 <div class="col-md-6" style="width:100%;">
                     <div class="card-text">
                         <h1 class="card-title">100% Trusted Organic Food Store</h1>
-                        <p>A reputable and reliable organic food store committed to offering 100%<br>trusted
-                            high-quality organic products for conscious consumers.<br>Providing a secure and wholesome
-                            shopping experience with a focus<br>on organic and trustable practices.</p>
+                        <p>A reputable and reliable organic food store committed to offering 100%trusted
+                            high-quality organic products for conscious consumers.Providing a secure and wholesome
+                            shopping experience with a focus on organic and trustable practices.</p>
                         <!-- List with images on both sides -->
                         <ul class="list-unstyled product-list">
                             <li>
