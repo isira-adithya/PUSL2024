@@ -8,7 +8,7 @@
 -[] Test About us Page
     -[x]Tested The Page
     -[]Edits to be Made
-    -[]Check Responsiveness
+    -[x]Check Responsiveness
 -[] Test Contact-Us Page
     -[]Comments
 -[] Test Forgot Password Page
