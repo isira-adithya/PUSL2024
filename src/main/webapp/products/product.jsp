@@ -406,7 +406,7 @@
                 <div class="row">
                     <div class="col-4">
 
-                    </div>
+                    </div><center>
                     <div class="row mt-2 text-right mt-2">
                         <h5>Give us a rating</h5>
                     </div>
@@ -433,7 +433,7 @@
                             <label class="star star-1" for="star-1"></label>
                         </div>
                     </div>
-
+</center>
                 </div>
                 <div class="row">
                     <div class="col-4"></div>
