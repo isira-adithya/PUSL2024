@@ -122,12 +122,12 @@
                     <td>${fn:escapeXml(product.quantity)}</td>
                     <td>${fn:escapeXml(product.price)}</td>
                     <td><center>
-                        <a class="btn btn-primary my-2" href="/admin/products/product.jsp?id=${product.productId}">
+                        <a class="btn btn-primary my-2 py-2" href="/admin/products/product.jsp?id=${product.productId}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                     </td>
                     <td>
-                        <button class="btn btn-danger my-2" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">
+                        <button class="btn btn-danger my-2 py-2" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                         <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>

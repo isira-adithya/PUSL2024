@@ -196,12 +196,12 @@
                     <td>${fn:escapeXml(user.lastname)}</td>
                     <td>${fn:escapeXml(user.country)}</td>
                     <td>
-                            <a class="btn btn-primary text-center" href="/admin/users/user.jsp?id=${user.userId}">
+                            <a class="btn btn-primary text-center py-2" href="/admin/users/user.jsp?id=${user.userId}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                     </td>
                     <td>
-                        <button class="btn btn-danger text-center" onclick="if(confirm('Are you sure?')){document.getElementById('deleteUser${user.userId}Form').submit()}">
+                        <button class="btn btn-danger text-center py-2" onclick="if(confirm('Are you sure?')){document.getElementById('deleteUser${user.userId}Form').submit()}">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </td>
