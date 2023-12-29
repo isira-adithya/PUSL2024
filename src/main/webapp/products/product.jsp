@@ -452,10 +452,11 @@
                     </div>
 
                 </div>
+                
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4"></div>
-                    <div class="col-4 text-right"><input id="submitBtn" type="submit" class="mb-4" value="Submit"></div>
+                    <div class="col-3 text-right"><input id="submitBtn" type="submit" class="mb-4" value="Submit"></div>
                 </div>
             </form>
         </div>
