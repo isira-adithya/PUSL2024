@@ -60,11 +60,13 @@
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-       
-            
-            
+            border: 2px solid #00B207;
          
+        }
+        .additional-container:hover {
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: none;
         }
         .containerprices{
             display: flex;
