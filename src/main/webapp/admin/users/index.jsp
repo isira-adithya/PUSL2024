@@ -116,13 +116,30 @@
             cursor: pointer;
         }
 
-         .buttons{
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+.buttons {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+    .btn {
+        width: auto;
+    }
+}
 
 
         }
