@@ -16,6 +16,8 @@ public class Order {
     private List<OrderDetail> orderDetails;
     private Cart cartObj; // Required when initializing an object
     private String orderStatus;
+    private String paymentStatus;
+    private String deliveryStatus;
     private double additionalCharges;
 
 
@@ -88,12 +90,38 @@ public class Order {
         this.additionalCharges = additionalCharges;
     }
 
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        if (paymentStatus.equals("PENDING") || paymentStatus.equals("COMPLETED") || paymentStatus.equals("ERROR")){
+            this.paymentStatus = paymentStatus;
+        } else {
+            this.paymentStatus = "PENDING";
+        }
+    }
+
+    public String getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+        if (deliveryStatus.equals("N/A") || deliveryStatus.equals("PENDING") || deliveryStatus.equals("COMPLETED") || deliveryStatus.equals("CANCELLED")){
+            this.deliveryStatus = deliveryStatus;
+        } else {
+            this.deliveryStatus = "PENDING";
+        }
+    }
+
     public Order(Cart cartObj){
         this.dateTime = new Timestamp(System.currentTimeMillis());
         this.amount = cartObj.getTotalCost();
         this.userId = cartObj.getUserId();
         this.cartObj = cartObj;
         this.setOrderStatus("PENDING");
+        this.setPaymentStatus("PENDING");
+        this.setDeliveryStatus("PENDING");
         if (this.saveOrder()){
             this.saveOrderDetails();
         }
@@ -117,12 +145,14 @@ public class Order {
     public boolean saveOrder(){
         try {
             Connection dbconn = Database.connect();
-            String query = "INSERT INTO Orders(userid, createdAt, amount, additionalCharges, status) VALUES (?,?,?,0,?)";
+            String query = "INSERT INTO Orders(userid, createdAt, amount, additionalCharges, status, delivery_status, payment_status) VALUES (?,?,?,0,?,?,?)";
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             sqlStatement.setInt(1, this.userId);
             sqlStatement.setTimestamp(2, this.dateTime);
             sqlStatement.setDouble(3, this.amount);
             sqlStatement.setString(4, this.orderStatus);
+            sqlStatement.setString(5, this.deliveryStatus);
+            sqlStatement.setString(6, this.paymentStatus);
             int affectedRows = sqlStatement.executeUpdate();
 
             // Taken from: https://stackoverflow.com/a/1915197/11670864, https://stackoverflow.com/a/40988131/11670864
@@ -151,7 +181,7 @@ public class Order {
     public boolean updateOrder(){
         try {
             Connection dbconn = Database.connect();
-            String query = "UPDATE Orders SET userid=?, createdAt=?, amount=?, status=?, additionalCharges=? WHERE orderid = ?";
+            String query = "UPDATE Orders SET userid=?, createdAt=?, amount=?, status=?, additionalCharges=?, delivery_status=?, payment_status=? WHERE orderid = ?";
             String[] generatedColumns = {"orderid"};
             PreparedStatement sqlStatement = dbconn.prepareStatement(query, generatedColumns);
             sqlStatement.setInt(1, this.userId);
@@ -159,7 +189,9 @@ public class Order {
             sqlStatement.setDouble(3, this.amount);
             sqlStatement.setString(4, this.orderStatus);
             sqlStatement.setDouble(5, this.additionalCharges);
-            sqlStatement.setInt(6, this.orderId);
+            sqlStatement.setString(6, this.deliveryStatus);
+            sqlStatement.setString(7, this.paymentStatus);
+            sqlStatement.setInt(8, this.orderId);
             sqlStatement.execute();
             Database.closeConnection();
             return true;
@@ -197,6 +229,8 @@ public class Order {
             double amount = -1;
             double additionalCharges = 0;
             String orderStatus = "PENDING";
+            String paymentStatus = "ERROR";
+            String deliveryStatus = "N/A";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
@@ -204,12 +238,16 @@ public class Order {
                 amount = resultSet.getDouble("amount");
                 additionalCharges = resultSet.getDouble("additionalCharges");
                 orderStatus = resultSet.getString("status");
+                paymentStatus = resultSet.getString("payment_status");
+                deliveryStatus = resultSet.getString("delivery_status");
             }
 
             Order _tmp = new Order(userId, amount);
             _tmp.setOrderId(orderId);
             _tmp.setDateTime(createdAt);
             _tmp.setOrderStatus(orderStatus);
+            _tmp.setPaymentStatus(paymentStatus);
+            _tmp.setDeliveryStatus(deliveryStatus);
             _tmp.setAdditionalCharges(additionalCharges);
             List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
             _tmp.setOrderDetails(_tmp2);
@@ -238,6 +276,8 @@ public class Order {
             double amount = -1;
             double additionalCharges = 0;
             String orderStatus = "PENDING";
+            String paymentStatus = "ERROR";
+            String deliveryStatus = "N/A";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
@@ -245,11 +285,15 @@ public class Order {
                 amount = resultSet.getDouble("amount");
                 orderStatus = resultSet.getString("status");
                 additionalCharges = resultSet.getDouble("additionalCharges");
+                paymentStatus = resultSet.getString("payment_status");
+                deliveryStatus = resultSet.getString("delivery_status");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
                 _tmp.setDateTime(createdAt);
                 _tmp.setOrderStatus(orderStatus);
+                _tmp.setPaymentStatus(paymentStatus);
+                _tmp.setDeliveryStatus(deliveryStatus);
                 _tmp.setAdditionalCharges(additionalCharges);
                 List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
                 _tmp.setOrderDetails(_tmp2);
@@ -282,18 +326,24 @@ public class Order {
             double amount = -1;
             double additionalCharges = 0;
             String orderStatus = "CANCELLED";
+            String paymentStatus = "ERROR";
+            String deliveryStatus = "N/A";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
                 createdAt = resultSet.getTimestamp("createdAt");
                 amount = resultSet.getDouble("amount");
                 orderStatus = resultSet.getString("status");
+                paymentStatus = resultSet.getString("payment_status");
+                deliveryStatus = resultSet.getString("delivery_status");
                 additionalCharges = resultSet.getDouble("additionalCharges");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
                 _tmp.setDateTime(createdAt);
                 _tmp.setOrderStatus(orderStatus);
+                _tmp.setPaymentStatus(paymentStatus);
+                _tmp.setDeliveryStatus(deliveryStatus);
                 _tmp.setAdditionalCharges(additionalCharges);
                 List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
                 _tmp.setOrderDetails(_tmp2);
@@ -326,6 +376,8 @@ public class Order {
             double amount = -1;
             double additionalCharges = 0;
             String orderStatus = "PENDING";
+            String paymentStatus = "ERROR";
+            String deliveryStatus = "N/A";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
@@ -333,11 +385,15 @@ public class Order {
                 amount = resultSet.getDouble("amount");
                 orderStatus = resultSet.getString("status");
                 additionalCharges = resultSet.getDouble("additionalCharges");
+                paymentStatus = resultSet.getString("payment_status");
+                deliveryStatus = resultSet.getString("delivery_status");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
                 _tmp.setDateTime(createdAt);
                 _tmp.setOrderStatus(orderStatus);
+                _tmp.setPaymentStatus(paymentStatus);
+                _tmp.setDeliveryStatus(deliveryStatus);
                 _tmp.setAdditionalCharges(additionalCharges);
                 List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
                 _tmp.setOrderDetails(_tmp2);
@@ -369,6 +425,8 @@ public class Order {
             double amount = -1;
             double additionalCharges = 0;
             String orderStatus = "PENDING";
+            String paymentStatus = "ERROR";
+            String deliveryStatus = "N/A";
             while(resultSet.next()){
                 orderId = resultSet.getInt("orderid");
                 userId = resultSet.getInt("userid");
@@ -376,11 +434,15 @@ public class Order {
                 amount = resultSet.getDouble("amount");
                 orderStatus = resultSet.getString("status");
                 additionalCharges = resultSet.getDouble("additionalCharges");
+                paymentStatus = resultSet.getString("payment_status");
+                deliveryStatus = resultSet.getString("delivery_status");
 
                 Order _tmp = new Order(userId, amount);
                 _tmp.setOrderId(orderId);
                 _tmp.setDateTime(createdAt);
                 _tmp.setOrderStatus(orderStatus);
+                _tmp.setPaymentStatus(paymentStatus);
+                _tmp.setDeliveryStatus(deliveryStatus);
                 _tmp.setAdditionalCharges(additionalCharges);
                 List<OrderDetail> _tmp2 = OrderDetail.findOrderDetailsByOrderId(_tmp.getOrderId());
                 _tmp.setOrderDetails(_tmp2);

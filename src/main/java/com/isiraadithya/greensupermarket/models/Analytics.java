@@ -38,16 +38,18 @@ public class Analytics {
 
         for (int i = 0; i < orders.size(); i++){
             Order order = orders.get(i);
-            for (int n = 0; n < order.getOrderDetails().size(); n++){
-                Product product = order.getOrderDetails().get(n).getProduct();
-                int quantity = order.getOrderDetails().get(n).getQuantity();
-                double individualPrice = (order.getOrderDetails().get(n).getSubTotal() / quantity);
-                double totalOrderPrice = individualPrice * quantity;
-                if (results.containsKey(product.getName())){
-                    double currentVal = results.get(product.getName());
-                    results.put(product.getName(), currentVal + totalOrderPrice);
-                } else {
-                    results.put(product.getName(), totalOrderPrice);
+            if (order.getOrderStatus().equalsIgnoreCase("COMPLETED")){
+                for (int n = 0; n < order.getOrderDetails().size(); n++){
+                    Product product = order.getOrderDetails().get(n).getProduct();
+                    int quantity = order.getOrderDetails().get(n).getQuantity();
+                    double individualPrice = (order.getOrderDetails().get(n).getSubTotal() / quantity);
+                    double totalOrderPrice = individualPrice * quantity;
+                    if (results.containsKey(product.getName())){
+                        double currentVal = results.get(product.getName());
+                        results.put(product.getName(), currentVal + totalOrderPrice);
+                    } else {
+                        results.put(product.getName(), totalOrderPrice);
+                    }
                 }
             }
         }
@@ -60,16 +62,33 @@ public class Analytics {
 
         for (int i = 0; i < orders.size(); i++){
             Order order = orders.get(i);
-            for (int n = 0; n < order.getOrderDetails().size(); n++){
-                Product product = order.getOrderDetails().get(n).getProduct();
-                int quantity = order.getOrderDetails().get(n).getQuantity();
-                if (results.containsKey(product.getName())){
-                    int currentVal = results.get(product.getName());
-                    results.put(product.getName(), currentVal + quantity);
-                } else {
-                    results.put(product.getName(), quantity);
+            if (order.getOrderStatus().equalsIgnoreCase("COMPLETED")){
+                for (int n = 0; n < order.getOrderDetails().size(); n++){
+                    Product product = order.getOrderDetails().get(n).getProduct();
+                    int quantity = order.getOrderDetails().get(n).getQuantity();
+                    if (results.containsKey(product.getName())){
+                        int currentVal = results.get(product.getName());
+                        results.put(product.getName(), currentVal + quantity);
+                    } else {
+                        results.put(product.getName(), quantity);
+                    }
                 }
             }
+        }
+
+        return results;
+    }
+
+    public Map<String, Integer> getOrderStatuses(){
+        Map<String, Integer> results = new HashMap<String, Integer>();
+
+        for (int i = 0; i < orders.size(); i++){
+            Order order = orders.get(i);
+            if (!results.containsKey(order.getOrderStatus())){
+                results.put(order.getOrderStatus(), 0);
+            }
+            int currentIndex = results.get(order.getOrderStatus());
+            results.put(order.getOrderStatus(), (currentIndex+1));
         }
 
         return results;

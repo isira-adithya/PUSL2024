@@ -1,12 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
-  User: @isira_adithya
+  User: @isira_adithya 
   Date: 12/12/2023
   Time: 5:39 PM
 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="styles.css" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
 <nav class="navbar custom-bs-light-rgb justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
     <div class="container-fluid custom-align-content-center text-center" style="justify-content: space-evenly; padding: 0px">
         <a href="/" class="custom-nav-home-link">
@@ -18,7 +23,7 @@
         <div class="nav-icon-container">
             <c:if test="${isLoggedIn}">
                 <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
-                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
+                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/addtowishlist.png" alt="wishlist" class="custom-small-image"></a>
                 <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
                 <c:if test="${isAdmin}">
                     <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
@@ -32,6 +37,9 @@
 
     <ul class="custom-link-list">
         <li class="custom-nav-item">
+            <a class="custom-nav-link" href="/admin/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Home</a>
+        </li>
+        <li class="custom-nav-item">
             <a class="custom-nav-link" href="/admin/products/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Products</a>
         </li>
         <li class="custom-nav-item">
@@ -41,7 +49,7 @@
             <a class="custom-nav-link" href="/admin/orders/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Orders</a>
         </li>
         <li class="custom-nav-item">
-            <a class="custom-nav-link" href="/admin/analytics/" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Analytics</a>
+            <a class="custom-nav-link" href="/admin/support_tickets" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Manage Tickets</a>
         </li>
         <li class="custom-nav-item">
             <a class="custom-nav-link" href="/logout.jsp" onmouseover="this.style.color='#00B207'" onmouseout="this.style.color='#666666'">Logout</a>
@@ -90,7 +98,7 @@
         color:#ffffff;
     }
     .custom-nav-icons {
-        margin-right: 2.5rem;
+        margin:0.75rem;
     }
     
     .custom-small-image {
@@ -110,6 +118,7 @@
     
     .custom-link-list {
         display: flex;
+        justify-content: center;
         align-items: center;
         list-style: none;
         padding: 0;

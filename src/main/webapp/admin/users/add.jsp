@@ -66,16 +66,40 @@
            text-align: center;
         }
     }
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
     </style>
 </head>
 <body>
 <%@include file="../includes/header.jsp"%>
+        <div>
+        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
+        </div>
+
 <section>
     <div class="container">
         <div class="row text-center justify-content-center align-items-center">
             <div class="col-md-8">
                 <div style="margin-top: 25px;" class="mx-auto col-md-8 form-box">
                     <h3 class="text-center">Personal Information</h3>
+                    <hr>
                     <form id="signupForm" action="/api/admin/users/add" method="post">
                         
                         <div class="form-group">
@@ -105,6 +129,7 @@
                         </div>
                         
                         <h3 class="text-center"> Address</h3>
+                        <hr>
                         <div class="form-group">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" name="street_address" class="form-control" id="address" placeholder="Enter address" style="box-shadow: none;" >
@@ -138,6 +163,7 @@
         </div>
     </div>
 </section>
+<br><br>
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>
