@@ -312,7 +312,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/headphone.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Great Support 24/7</strong>
                                     <p>Instant access to Contact</p>
