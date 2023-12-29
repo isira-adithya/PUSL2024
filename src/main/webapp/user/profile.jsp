@@ -270,7 +270,7 @@
         let isEditMode = false;
         function toggleEdit(){
             isEditMode = !isEditMode;
-            const inputTags = document.getElementsByTagName("input")
+            const inputTags = document.getElementsByTagName("input");
             for (let i = 0; i < inputTags.length; i++) {
                 const inputTag = inputTags[i];
                 if (inputTag.name === "email"){

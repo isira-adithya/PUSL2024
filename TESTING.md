@@ -2,8 +2,9 @@
 
 -### *Testing The Website*
 
--[] Test Login Page
-    -[]Comments
+-[X] Test Login Page
+    -[X]Page Works Well.
+    -[X]Responsive.
 -[] Test About us Page
     -[]Comments
 -[] Test Contact-Us Page
