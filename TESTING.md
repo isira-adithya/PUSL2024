@@ -2,26 +2,26 @@
 
 -### *Testing The Website*
 
--[X] Test Login Page
-    -[X]Page Works Well.
-    -[X]Responsive.
--[] Test About us Page
-    -[x]Tested The Page
-    -[]Edits to be Made
-    -[x]Check Responsiveness
--[] Test Contact-Us Page
+- [X] Test Login Page  
+    - [X] Page Works Well  .
+    - [X] Responsive  .
+- [] Test About us Page  
+    - [X] Tested The Page  
+    - [] Edits to be Made  
+    - [X] Check Responsiveness  
+- [] Test Contact-Us Page  
+    - [] Comments   
+- [] Test Forgot Password Page
+    - [] Comments
+- [] Test Index Page
+    - [] Comments
+- [] Test Logout Page
     -[]Comments
--[] Test Forgot Password Page
-    -[]Comments
--[] Test Index Page
-    -[]Comments
--[] Test Logout Page
-    -[]Comments
--[] Test Reset Password Page
-    -[]Comments
--[x] Test Sign-Up Page
-    -[x]Added Required Fields
-    -[x]Responsiveness Checked
+- [] Test Reset Password Page
+    - [] Comments
+- [X] Test Sign-Up Page
+    - [X] Added Required Fields
+    - [X] Responsiveness Checked
 -[] Test Support Page
     -[]Comments
 -[] Test 404 Page
