@@ -215,7 +215,7 @@
                     <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
                         <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
                     </div>
-                    <div a href="/cart.jsp" style=" color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
+                    <div a href="/cart.jsp" style=" color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/orders/index.jsp'">
                         Order History
                     </div>
                 </div>
