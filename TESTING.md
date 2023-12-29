@@ -19,8 +19,9 @@
     -[]Comments
 -[] Test Reset Password Page
     -[]Comments
--[] Test Sign-Up Page
-    -[]Comments
+-[x] Test Sign-Up Page
+    -[x]Added Required Fields
+    -[x]Responsiveness Checked
 -[] Test Support Page
     -[]Comments
 -[] Test 404 Page
