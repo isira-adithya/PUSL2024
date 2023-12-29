@@ -105,7 +105,7 @@
         .shop-now-btn {
             display: inline-block;
             padding: 5px 10px;
-            background-color: #01b206;
+            background-color: #00b207;
             color: white;
             text-decoration: none;
             border-radius: 5px;
