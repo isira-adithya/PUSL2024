@@ -95,66 +95,66 @@
       <div class="row">
       <div class="mb-3 ">
         <label class="form-label">Email address</label>
-        <input type="email" class="form-control" name="email" placeholder="Enter email">
+        <input type="email" class="form-control" name="email" placeholder="Enter email" required>
       </div>
     
 
       <div class="mb-3 col-sm-5 col-md-6">
         <label class="form-label">First Name</label>
-        <input type="text" class="form-control" name="firstname" placeholder="Enter first name">
+        <input type="text" class="form-control" name="firstname" placeholder="Enter first name" required>
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
         <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" name="lastname" placeholder="Enter last name">
+        <input type="text" class="form-control" name="lastname" placeholder="Enter last name" required>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Phone Number</label>
-        <input type="tel" class="form-control" name="phone" placeholder="Enter phone number">
+        <input type="tel" class="form-control" name="phone" placeholder="Enter phone number" required>
       </div>
 
       <div class="mb-3">
         <h3><center>Password</center></h3>
         <label class="form-label">Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Enter password">
+        <input type="password" class="form-control" name="password" placeholder="Enter password" required>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Repeat Password</label>
-        <input type="password" class="form-control" name="repeatPassword" placeholder="Repeat password">
+        <input type="password" class="form-control" name="repeatPassword" placeholder="Repeat password" required>
       </div>
 
       <h3><center>Address</center></h3>
       <br><br>
       <div class="mb-3 col-sm-5 col-md-6">
         <label class="form-label">Address</label>
-        <input type="text" class="form-control" name="street_address" placeholder="Enter address">
+        <input type="text" class="form-control" name="street_address" placeholder="Enter address" required>
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
         <label class="form-label">Street/No</label>
-        <input type="text" class="form-control" name="streetno" placeholder="Enter street/number">
+        <input type="text" class="form-control" name="streetno" placeholder="Enter street/number" required>
       </div>
 
       <div class="mb-3 col-sm-5 col-md-6">
         <label class="form-label">City</label>
-        <input type="text" class="form-control" name="city" placeholder="Enter city">
+        <input type="text" class="form-control" name="city" placeholder="Enter city" required>
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
         <label class="form-label">State</label>
-        <input type="text" class="form-control" name="state" placeholder="Enter state">
+        <input type="text" class="form-control" name="state" placeholder="Enter state" required>
       </div>
 
       <div class="mb-3 col-sm-5 col-md-6">
         <label class="form-label">Country</label>
-        <input type="text" class="form-control" name="country" placeholder="Enter country">
+        <input type="text" class="form-control" name="country" placeholder="Enter country" required>
       </div>
 
       <div class="mb-3 col-sm-5 offset-sm-2 col-md-6 offset-md-0">
         <label class="form-label">Postal Code</label>
-        <input type="text" class="form-control" name="postalcode" placeholder="Enter postal code">
+        <input type="text" class="form-control" name="postalcode" placeholder="Enter postal code" required>
       </div>
     </div>
         <br>

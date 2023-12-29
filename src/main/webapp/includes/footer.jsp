@@ -76,13 +76,11 @@
 
     @media (max-width: 767px) {
         /* Mobile view styles */
-
-        .footer-container {
-            padding: 1rem 0; /* Adjust padding for mobile view */
-        }
+     
 
         .footer-section {
             margin-bottom: 1rem; /* Adjust margin for mobile view */
+           
         }
 
         .footer-section h6 {

@@ -238,7 +238,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden>
+                                <button type="submit" id="submitBtn" class="btn btn-secondary" hidden style="background-color: #00B207">
                                     Submit
                                 </button>
                             </div>
@@ -270,7 +270,7 @@
         let isEditMode = false;
         function toggleEdit(){
             isEditMode = !isEditMode;
-            const inputTags = document.getElementsByTagName("input")
+            const inputTags = document.getElementsByTagName("input");
             for (let i = 0; i < inputTags.length; i++) {
                 const inputTag = inputTags[i];
                 if (inputTag.name === "email"){
@@ -297,8 +297,8 @@
                         document.location.href = "/logout.jsp";
                     }
                 }).catch(err => {
-                    alert("Something went wrong. Please try again later.")
-                })
+                    alert("Something went wrong. Please try again later.");
+                });
             }
         }
     </script>

@@ -21,6 +21,7 @@
 <html>
 <head>
     <title>Manage Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <style>
         body {
             text-align: center;
@@ -51,28 +52,6 @@
             padding: 5px 10px;
             cursor: pointer;
         }
-
-        #submitBtn {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #4CAF50; /* Green background color */
-            color: white; /* White text color */
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            width: 150px;
-        }
-
-        .submitBtn {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #4CAF50; /* Green background color */
-            color: white; /* White text color */
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            width: 150px;
-        }
         
          .buttons{
             max-width: 650px;
@@ -84,27 +63,90 @@
             
             
         }
-        .custom-button{
-            width:150px;
-            border-radius: 100px;
-            
-        }
-
-
-       
-
-        .icon {
-            width: 30px;
-            height: 30px;
-        }
-        .image{
-            margin-bottom: 5px;
-            width: 100%;
-            height: 120px;
-            position: relative;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
-        }
         
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
+        
+    </style>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .table {
+            width: 80%;
+            margin: 20px auto; /* Center the table */
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: normal;
+            font-size: 17px;
+        }
+
+
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+         .buttons{
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+
+
+
+        }
+
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
+
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -113,12 +155,28 @@
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
         </div>
 
-<div
- 
-class="container">
+<div class="container">
 
-    
-<div class="table-responsive">
+    <div class="buttons">
+        <div class="row">
+
+            <button class="btn btn-primary col mx-2" onclick="window.location.href='/admin/users/add.jsp'">
+                Add New User / Administrator
+            </button>
+            <c:if test="${selectedRole.equals('ADMIN')}">
+                <button class="btn btn-secondary col mx-2" onclick="window.location.href='/admin/users/'">
+                    See All Customers
+                </button>
+            </c:if><br>
+            <c:if test="${selectedRole.equals('USER')}">
+                <button class="btn btn-secondary col mx-2" onclick="window.location.href='/admin/users/?role=ADMIN'">
+                    See All Administrators
+                </button>
+            </c:if>
+        </div>
+    </div>
+
+    <div class="table-responsive mb-5">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -126,7 +184,7 @@ class="container">
             <th>First Name</th>
             <th>Last Name</th>
             <th>Country</th>
-            <th>Actions</th>
+            <th colspan="2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -138,46 +196,24 @@ class="container">
                     <td>${fn:escapeXml(user.lastname)}</td>
                     <td>${fn:escapeXml(user.country)}</td>
                     <td>
-                        <center>
-                            <br>
-                            <a href="/admin/users/user.jsp?id=${user.userId}"><button class="submitBtn">Edit User</button></a>
-                            <form id="deleteUser${user.userId}Form" method="post" action="/api/admin/users/delete"><br>
-                                <input type="hidden" name="userId" value="${user.userId}">
-                            </form>
-                            <button onclick="if(confirm('Are you sure?')){document.getElementById('deleteUser${user.userId}Form').submit()}" id="submitBtn">Delete</button>
-                        </center>
+                            <a class="btn btn-primary text-center py-2" href="/admin/users/user.jsp?id=${user.userId}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
                     </td>
+                    <td>
+                        <button class="btn btn-danger text-center py-2" onclick="if(confirm('Are you sure?')){document.getElementById('deleteUser${user.userId}Form').submit()}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                    <form id="deleteUser${user.userId}Form" method="post" action="/api/admin/users/delete">
+                        <input type="hidden" name="userId" value="${user.userId}">
+                    </form>
                 </tr>
             </c:if>
         </c:forEach>
         </tbody>
     </table>
-    
-    <div class="buttons">
-        <div class="row">
-            
-        <button class="btn btn-primary col mx-2 "  onclick="window.location.href='/admin/users/add.jsp'" style="background-color: #00B207;">
-        Add New User / Administrator                 
-        </button>
-            
-            
-            
-    <c:if test="${selectedRole.equals('ADMIN')}">
-        
-        <button class="btn btn-primary "  onclick="window.location.href='/admin/users/?role=ADMIN'" style="background-color: #00B207;">
-        See All Administrators                  
-        </button>
-
-    </c:if><br>
-    <c:if test="${selectedRole.equals('USER')}">
-          
-                        <button class="btn btn-primary col mx-2"  onclick="window.location.href='/admin/users/'" style="background-color: #00B207;">
-                            See All Customers
-                        </button>
-    </c:if>
     </div>
-   </div>     
-</div>
     
 </div>
 <%@include file="../includes/footer.jsp"%>

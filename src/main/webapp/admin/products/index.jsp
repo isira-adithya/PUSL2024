@@ -16,6 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <title>Manage Products</title>
     <style>
         body {
@@ -53,27 +54,6 @@
             cursor: pointer;
         }
 
-        #submitBtn {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #4CAF50; /* Green background color */
-            color: white; /* White text color */
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            width: 150px;
-         }
-
-        .submitBtn {
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: #4CAF50; /* Green background color */
-            color: white; /* White text color */
-            border: none;
-            border-radius: 100px;
-            cursor: pointer;
-            width: 150px;
-        }
         .Add-new-button{
             padding: 10px 15px;
             font-size: 23px;
@@ -84,45 +64,30 @@
             cursor: pointer;
             width: 40%;
         }
-        .icon{
-            width:30px;
-            height:30px;
-        }
-
 
         @media only screen and (max-width: 600px) {
             table {
                 font-size: 12px;
             }
+        }
+    .image {
+      margin-bottom: 60px;
+      width: 100%;
+      height: 130px;
+      position: relative;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
+      background-image: url("/uploads/images/products/Breadcrumbs.png");
+      background-size: cover;
+      background-position: center; /* Default position */
+}
 
-            .submitBtn,
-            #submitBtn {
-                width: 100%;
-            }
-        }
-          .image{
-            margin-bottom: 5px;
-            width: 100%;
-            height: 120px;
-            position: relative;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
-        }
-         .buttons{
-            max-width: 300px;
-            margin: 0 auto;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-           
-            
-            
-            
-        }
-        .custom-button{
-            width:50px;
-            border-radius: 100px;
-             text-align: left;
-        }
+/* Adjust background position for mobile view */
+    @media screen and (max-width: 600px) {
+        .image {
+            height: 120px; /* Adjust the height as needed */
+            background-position: left center; /* Adjust position for left cropping */
+            object-fit: cover;
+    }
         
     </style>
 </head>
@@ -135,6 +100,7 @@
 
     
 <div class="table-responsive">
+    <br>
       <table class="table table-bordered">
          
         <thead>
@@ -144,7 +110,7 @@
             <th>Product Description</th>
             <th>Product Quantity</th>
             <th>Product Price</th>
-            <th>Action</th>
+            <th colspan="2">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -156,15 +122,17 @@
                     <td>${fn:escapeXml(product.quantity)}</td>
                     <td>${fn:escapeXml(product.price)}</td>
                     <td><center>
-                        <a href="/admin/products/product.jsp?id=${product.productId}">
-                            <button class="submitBtn">Edit Product</button>
+                        <a class="btn btn-primary my-2 py-2" href="/admin/products/product.jsp?id=${product.productId}">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger my-2 py-2" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                         <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
                             <input type="hidden" name="productId" value="${product.productId}">
                         </form>
-                        <button id="submitBtn"
-                                onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product
-                        </button>
                     </td>
                 </tr>
             </c:forEach>

@@ -15,7 +15,7 @@
             max-width: 500px;
             margin: 0 auto;
             padding: 15px;
-            border: 1px solid #e9e9e9;
+            border: 2px solid #e9e9e9;
             border-radius: 5px;
             margin-bottom: 10px;
         }
@@ -31,7 +31,7 @@
         }
 
         .image {
-             margin-bottom: 60px;
+             margin-bottom: 20px;
              width: 100%;
              height: 130px;
              position: relative;
@@ -66,6 +66,7 @@
             <div class="login-form my-5">
                  <div class="head">
                         <h4><center>Change Password</center></h4>
+                        <hr>
                  </div>
                 <form action="/api/user/change-password" method="post">
                     <div class="mb-3">
