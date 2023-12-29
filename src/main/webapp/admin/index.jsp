@@ -12,8 +12,10 @@
     Analytics analyticsObj = new Analytics(150);
     Map<String, Double> analyticsSalesByProduct = analyticsObj.getSalesByProduct();
     Map<String, Integer> analyticsQuantitySoldByProduct = analyticsObj.getQuantitySoldByProduct();
+    Map<String, Integer> orderStatuses = analyticsObj.getOrderStatuses();
     pageContext.setAttribute("analyticsSalesByProduct", analyticsSalesByProduct);
     pageContext.setAttribute("analyticsQuantitySoldByProduct", analyticsQuantitySoldByProduct);
+    pageContext.setAttribute("orderStatuses", orderStatuses);
 %>
 <html>
 <head>
@@ -44,16 +46,24 @@
 
 <section>
 <div class="container">
-    <h2 class="text-center mt-4" style="font-weight: bold;">Last 5 Months Anallytics</h2>
+    <h2 class="text-center mt-4" style="font-weight: bold;">Last 5 Months Analytics</h2>
 
     <div class="row my-4">
 
         <!-- Container for Bar Chart -->
         <div class="col-md-6">
             <div class="border p-3">
-                <h3 class="text-center">Sales by Products</h3>
-                <div id="barChartContainer"></div>
-                <div id="barChartLegend" class="mt-3"></div>
+                <h4 class="text-center">Sales by Products</h4>
+                <div id="salesByProductBarchartContainer"></div>
+                <div id="salesByProductBarchartLegend" class="mt-3"></div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="border p-3">
+                <h4 class="text-center">Status of Orders</h4>
+                <div id="statusOfOrdersBarchartContainer"></div>
+                <div id="statusOfOrdersBarchartLegend" class="mt-3"></div>
             </div>
         </div>
 
@@ -61,7 +71,7 @@
 </div>
 </section>
 
-    <section style="margin-top:100px;">
+    <section style="margin-top:100px; margin-bottom: 50px;">
        <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -118,15 +128,25 @@
     const productQuantities = [<c:forEach var="analyticQuantitySoldByProductObj" items="${analyticsQuantitySoldByProduct}">
         ${fn:escapeXml(analyticQuantitySoldByProductObj.value)},
         </c:forEach>];
+    const orderStatusTypes = [
+        <c:forEach var="orderStatus" items="${orderStatuses}">
+        '${fn:escapeXml(orderStatus.key.replaceAll("\'", ""))}',
+        </c:forEach>
+    ];
+    const orderStatusIndexes = [
+        <c:forEach var="orderStatus" items="${orderStatuses}">
+        ${fn:escapeXml(orderStatus.value)},
+        </c:forEach>
+    ];
 
     // Bar Chart
-    const barChartContainer = d3.select('#barChartContainer');
+    const barChartContainer = d3.select('#salesByProductBarchartContainer');
     const barChartWidth = 500;
     const barChartHeight = 300;
     const maxValue = Math.max(...productSales);
     console.log(maxValue)
 
-    const barChart = d3.select('#barChartContainer')
+    const barChart = d3.select('#salesByProductBarchartContainer')
         .append('svg')
         .attr('width', barChartWidth)
         .attr('height', barChartHeight);
@@ -136,7 +156,7 @@
         .enter()
         .append('rect')
         .attr('x', function (d, i) {
-            return i * (barChartWidth / productSales.length * 1.2);
+            return i * (barChartWidth / productSales.length * 1.1);
         })
         .attr('y', function (d){
             d = d / (maxValue / barChartHeight + 10);
@@ -154,9 +174,12 @@
         .data(productSales)
         .enter()
         .append('text')
-        .text(d => d)
+        .text(function (d) {
+            d = (Math.round(parseFloat(d) * 100) / 100).toFixed(2);
+            return d;
+        })
         .attr('x', function (d, i) {
-            return i * (barChartWidth / productSales.length * 1.2) + (barChartWidth / productSales.length / 2);
+            return i * (barChartWidth / productSales.length * 1.1) + (barChartWidth / productSales.length / 4);
         })
         .attr('y', function(d) {
             d = d / (maxValue / barChartHeight + 10);
@@ -166,7 +189,7 @@
         .attr('fill', 'red');
 
     // Adding legend to the bar chart
-    const barChartLegend = d3.select('#barChartLegend');
+    const barChartLegend = d3.select('#salesByProductBarchartLegend');
     barChartLegend.selectAll('div')
         .data(productCategories)
         .enter()
@@ -174,7 +197,7 @@
         .style('display', 'flex')
         .style('align-items', 'center')
         .style('margin-bottom', '5px')
-        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Items Sold (<b>\${productSales[i]}\$</b>)</i>`);
+        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Items Sold (<b>\${(Math.round(parseFloat(productSales[i]) * 100) / 100).toFixed(2)}\$</b>)</i>`);
 
 </script>
 </body>

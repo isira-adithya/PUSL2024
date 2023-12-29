@@ -51,7 +51,7 @@ public class AddProduct extends HttpServlet {
         if (wishlist.getUserId() == -1){
             wishlist = new WishList(userId);
             wishlist.saveWishlist();
-            wishList = WishList.findWishListByUserId(userId);
+            wishlist = WishList.findWishListByUserId(userId);
         }
 
         wishlist.addNewProductToWishlist(product);

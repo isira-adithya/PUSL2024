@@ -117,27 +117,29 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 
 INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
 (1, 'Laptop', 999.99, 16, 'Powerful laptop for all your needs', '', true, 'laptop-image.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
-(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
-(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
-(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
-(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', true, '',TIMESTAMP('2023-06-17', '14:10:30')),
-(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', true, '',TIMESTAMP('2023-06-19', '15:02:24')),
-(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', true, '',TIMESTAMP('2023-06-21', '13:38:19')),
-(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', true, '',TIMESTAMP('2023-06-21', '11:07:27')),
-(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '',TIMESTAMP('2023-06-22', '12:05:12')),
-(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
+(2, 'Smartphone', 599.99, 55, 'Latest smartphone with advanced features', '', true, '', TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Headphones', 79.99, 93, 'High-quality over-ear headphones', '', true, '', TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Tablet', 399.99, 30, 'Compact tablet for on-the-go use', '', true, '', TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Desktop Computer', 1499.99, 15, 'High-performance desktop computer', '', true, '', TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Camera', 299.99, 25, 'Professional-grade digital camera', '', true, '', TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Smartwatch', 199.99, 50, 'Smartwatch with fitness tracking features', '', true, '', TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Bluetooth Speaker', 49.99, 154, 'Portable Bluetooth speaker with crisp sound', '', true, '', TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '', TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '', TIMESTAMP('2023-06-14', '19:25:52'));
 
-INSERT INTO Orders (orderid, userid, amount, additionalCharges, status, delivery_status, createdAt) VALUES
-(1, 1, 1249.98, 23.99, 'PENDING', 'N/A', TIMESTAMP('2023-07-12', '12:15:55')),
-(2, 1, 1679.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-15', '13:11:44')),
-(3, 3, 359.98, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-16', '11:20:15')),
-(4, 4, 799.95, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-01', '13:18:40')),
-(5, 5, 299.99, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-12', '11:19:30')),
-(6, 6, 899.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-16', '09:20:43')),
-(7, 7, 459.96, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-08-14', '18:19:12')),
-(8, 8, 129.98, 23.99, 'COMPLETED', 'PENDING', TIMESTAMP('2023-12-28', '15:11:21')),
-(9, 9, 679.94, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-07-06', '13:19:23')),
-(10, 10, 239.97, 23.99, 'COMPLETED', 'COMPLETED', TIMESTAMP('2023-09-01', '12:23:45'));
+INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, status, delivery_status) VALUES
+(1, 1, '2023-12-12 06:45:55', 1249.98, 23.99, 'CANCELLED', 'N/A'),
+(2, 1, '2023-07-15 07:41:44', 1679.97, 23.99, 'COMPLETED', 'COMPLETED'),
+(3, 3, '2023-07-16 05:50:15', 359.98, 23.99, 'COMPLETED', 'COMPLETED'),
+(4, 4, '2023-08-01 07:48:40', 799.95, 23.99, 'COMPLETED', 'COMPLETED'),
+(5, 5, '2023-08-12 05:49:30', 299.99, 23.99, 'COMPLETED', 'COMPLETED'),
+(6, 6, '2023-07-16 03:50:43', 899.97, 23.99, 'COMPLETED', 'COMPLETED'),
+(7, 7, '2023-08-14 12:49:12', 459.96, 23.99, 'COMPLETED', 'COMPLETED'),
+(8, 8, '2023-12-28 09:41:21', 129.98, 23.99, 'COMPLETED', 'PENDING'),
+(9, 9, '2023-07-06 07:49:23', 679.94, 23.99, 'COMPLETED', 'COMPLETED'),
+(10, 10, '2023-09-01 06:53:45', 239.97, 23.99, 'COMPLETED', 'COMPLETED'),
+(11, 11, '2023-12-28 23:26:52', 2739.91, 23.99, 'COMPLETED', NULL),
+(12, 11, '2023-12-28 23:55:38', 5799.71, 23.99, 'COMPLETED', NULL);
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
 (1, 1, 1, 2, 'Smartphone', 1999.98),
