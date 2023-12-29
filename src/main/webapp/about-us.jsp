@@ -305,7 +305,7 @@
                         <!-- List with images on both sides -->
                         <ul class="product-list">
                             <li>
-                                <img src="/uploads/about us/leave.jpg" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food</strong>
                                     <p>100% healthy and fresh food.</p>
