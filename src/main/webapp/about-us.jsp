@@ -49,7 +49,7 @@
         }
         
         .sec-2{
-            background-image: url(uploads/about us/BG1.png);
+            background-image: url(uploads/BG1.png);
             background-size: cover;
             background-position: center;
         }
