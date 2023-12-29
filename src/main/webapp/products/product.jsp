@@ -276,6 +276,22 @@
             font-family: FontAwesome;
 
         }
+        /* For Rating Stars - Responsive Styles */
+@media screen and (max-width: 600px) {
+    div.stars {
+        width: 80%; /* Adjust the width to fit the smaller screen */
+    }
+
+    label.star {
+        font-size: 20px; /* Adjust the font size of the stars for smaller screens */
+    }
+
+    label.star-small {
+        font-size: 12px; /* Adjust the font size of the stars for smaller screens */
+    }
+}
+
+
 
         
     </style>
@@ -408,8 +424,8 @@
                     <div class="col-4">
 
                     </div>
-                    <div class="row mt-2 text-right mt-2">
-                        <h5>Give us a rating</h5>
+                    <div>
+                        <h5 style="text-align: left">Give us a rating</h5>
                     </div>
                     <div class="col-4">
                         <div class="stars">
