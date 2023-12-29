@@ -118,7 +118,7 @@
             background-position: left center; /* Adjust position for left cropping */
             object-fit: cover;
     }
-}}
+}
          .buttons{
             max-width: 300px;
             margin: 0 auto;
