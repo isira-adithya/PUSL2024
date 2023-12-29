@@ -105,7 +105,7 @@
         .shop-now-btn {
             display: inline-block;
             padding: 5px 10px;
-            background-color: #01b206;
+            background-color: #00b207;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -391,7 +391,7 @@
                                 <!-- First Team Member -->
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/IsiraPic.jpg" class="img-responsive img-fluid">
                                         <ul>
                                          <li><a href="https://www.instagram.com/isira_adithya/" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                          <li><a href="https://www.linkedin.com/in/isiraadithya/" class="social-square"><i class="fab fa-linkedin"></i></a></li>
@@ -404,7 +404,7 @@
                                 <!-- Second Team Member -->
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/NesithPic.jpg" class="img-responsive img-fluid">
                                         <ul>
                                          <li><a href="https://www.instagram.com/___nesith_perera___/" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                          <li><a href="https://lk.linkedin.com/in/nesithperera" class="social-square"><i class="fab fa-linkedin"></i></a></li>
@@ -416,7 +416,7 @@
                                 <!-- Third Team Member -->
                                  <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/HashenPic2.jpg" class="img-responsive img-fluid">
                                         <ul>
                                         <li><a href="https://www.instagram.com/_.hashh.r_?igsh=ZGNjOWZkYTE3MQ%3D%3D&utm_source=qr" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                         <li><a href="https://www.linkedin.com/in/hashen-ruwanpura-184a1b283/?originalSubdomain=lk" class="social-square"><i class="fab fa-linkedin"></i></a></li>
@@ -441,7 +441,7 @@
                                 <!-- Fourth Team Member -->
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/SanuthPic.jpg" class="img-responsive img-fluid">
                                         <ul>
                                         <li><a href="https://www.instagram.com/sanuth.karunagoda/" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                         <li><a href="https://lk.linkedin.com/in/sanuth-karungoda-403001257" class="social-square"><i class="fab fa-linkedin"></i></a></li>
@@ -454,10 +454,10 @@
                                 <!-- Fifth Team Member -->
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/ChandeshPic.jpg" class="img-responsive img-fluid">
                                         <ul>
-                                         <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
-                                         <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
+                                         <li><a href="https://www.instagram.com/chandesh.g?utm_source=qr&igsh=YzVkZGFybmEza3Nt" class="social-square"><i class="fab fa-instagram"></i></a></li>
+                                         <li><a href="https://www.linkedin.com/in/chandesh-gunawardena-505520255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-square"><i class="fab fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                     <!-- Fifth Team Member -->

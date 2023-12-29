@@ -2,10 +2,13 @@
 
 -### *Testing The Website*
 
--[] Test Login Page
-    -[]Comments
+-[X] Test Login Page
+    -[X]Page Works Well.
+    -[X]Responsive.
 -[] Test About us Page
-    -[]Comments
+    -[x]Tested The Page
+    -[]Edits to be Made
+    -[]Check Responsiveness
 -[] Test Contact-Us Page
     -[]Comments
 -[] Test Forgot Password Page
@@ -48,8 +51,8 @@
     -[]Comments
 
 ### Products
--[] Test Index Page
-    -[]Comments
+-[x] Test Index Page
+    -[x]Responsiveness Fixed
 -[] Test Product Page
     -[]Comments
 
