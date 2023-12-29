@@ -51,8 +51,9 @@ CREATE TABLE Orders (
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     amount DECIMAL(10, 2) NOT NULL,
     additionalCharges DECIMAL(10, 2),
-    status VARCHAR(32), /* PENDING, COMPLETED */
-    delivery_status VARCHAR(32),
+    status VARCHAR(32), /* PENDING, COMPLETED, CANCELLED */
+    delivery_status VARCHAR(32), /* N/A, PENDING, COMPLETED, CANCELLED */
+    payment_status VARCHAR(32), /* PENDING, COMPLETED, ERROR */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
@@ -138,8 +139,8 @@ INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, statu
 (8, 8, '2023-12-28 09:41:21', 129.98, 23.99, 'COMPLETED', 'PENDING'),
 (9, 9, '2023-07-06 07:49:23', 679.94, 23.99, 'COMPLETED', 'COMPLETED'),
 (10, 10, '2023-09-01 06:53:45', 239.97, 23.99, 'COMPLETED', 'COMPLETED'),
-(11, 11, '2023-12-28 23:26:52', 2739.91, 23.99, 'COMPLETED', NULL),
-(12, 11, '2023-12-28 23:55:38', 5799.71, 23.99, 'COMPLETED', NULL);
+(11, 11, '2023-12-28 23:26:52', 2739.91, 23.99, 'COMPLETED', 'PENDING'),
+(12, 11, '2023-12-28 23:55:38', 5799.71, 23.99, 'COMPLETED', 'PENDING');
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
 (1, 1, 1, 2, 'Smartphone', 1999.98),
