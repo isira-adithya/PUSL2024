@@ -6,7 +6,9 @@
     -[X]Page Works Well.
     -[X]Responsive.
 -[] Test About us Page
-    -[]Comments
+    -[x]Tested The Page
+    -[]Edits to be Made
+    -[]Check Responsiveness
 -[] Test Contact-Us Page
     -[]Comments
 -[] Test Forgot Password Page
