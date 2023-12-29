@@ -194,7 +194,7 @@
     <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
   </div>
     <br><br>
-    <div class="col-md-3">
+            <div class="col-md-3">
                 <div
                     style="width: 312px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
                     <div
@@ -237,6 +237,18 @@
                         <div a href="/cart.jsp"
                             style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
                             Shopping Cart</div>
+                    </div>
+                    <div
+                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; box-shadow: 3px 0px 0px #20B526 inset; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+                        <div
+                            style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
+                            
+                            <img src="/uploads/images/profile/editprofile.jpg" style="width:20px; height:20px;">
+
+                        </div>
+                        <div
+                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/profile.jsp'">
+                            Edit Profile</div>
                     </div>
                     <div
                         style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
