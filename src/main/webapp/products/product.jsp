@@ -170,6 +170,29 @@
             background-color: #45a049; /* Darker green on hover */
 
          } 
+         .wishlist-button {
+            display: inline-block;
+        }
+
+        .wishlist-button img {
+            cursor: pointer;
+        }
+
+        .addToCart-button {
+            height: 38px;
+            width: 60%;
+            border-radius: 100px;
+            color: #ffffff;
+            background-color: #00b207;
+            margin-left: 20px;
+            margin-right: 25px; /* Add margin-right to create space */
+            border: none;
+            display: inline-block;
+        }
+        .addToCart-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+
+        }
 
         
     
@@ -253,30 +276,24 @@
             font-family: FontAwesome;
 
         }
+        /* For Rating Stars - Responsive Styles */
+@media screen and (max-width: 600px) {
+    div.stars {
+        width: 80%; /* Adjust the width to fit the smaller screen */
+    }
 
-        .wishlist-button {
-            display: inline-block;
-        }
+    label.star {
+        font-size: 20px; /* Adjust the font size of the stars for smaller screens */
+    }
 
-        .wishlist-button img {
-            cursor: pointer;
-        }
+    label.star-small {
+        font-size: 12px; /* Adjust the font size of the stars for smaller screens */
+    }
+}
 
-        .addToCart-button {
-            height: 38px;
-            width: 60%;
-            border-radius: 100px;
-            color: #ffffff;
-            background-color: #00b207;
-            margin-left: 20px;
-            margin-right: 25px; /* Add margin-right to create space */
-            border: none;
-            display: inline-block;
-        }
-        .addToCart-button:hover {
-            background-color: #45a049; /* Darker green on hover */
 
-        }
+
+        
     </style>
     
 </head>
@@ -401,16 +418,16 @@
         <div class="col-md-8 mx-auto">
             <form method="post" action="/api/user/comments/add">
                 <input type="hidden" name="productId" value="${product.productId}"><br><br><br><br><h4>Give us your feedback</h4> <br>
-                <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea>
+                <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea><br><br>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-2">
 
                     </div>
                     <div class="row mt-2 text-right mt-2">
                         <h5>Give us a rating</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="stars">
                             <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
 
@@ -435,10 +452,11 @@
                     </div>
 
                 </div>
+                
                 <div class="row">
                     <div class="col-4"></div>
                     <div class="col-4"></div>
-                    <div class="col-4 text-right"><input id="submitBtn" type="submit" class="mb-4" value="Submit"></div>
+                    <div class="col-3 text-right"><input id="submitBtn" type="submit" class="mb-4" value="Submit"></div>
                 </div>
             </form>
         </div>

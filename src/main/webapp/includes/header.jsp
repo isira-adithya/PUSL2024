@@ -7,7 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
 <nav class="navbar custom-nav justify-content-center align-content-center text-center" style="padding: 10px 0px 30px 0px">
     <div class="container-fluid d-flex flex-wrap justify-content-around custom-head-container">
         <a href="/" class="custom-nav-home-link">

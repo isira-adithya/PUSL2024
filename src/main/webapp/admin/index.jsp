@@ -279,7 +279,7 @@
         .style('display', 'flex')
         .style('align-items', 'center')
         .style('margin-bottom', '5px')
-        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Orders</i>`);
+        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${orderStatusIndexes[i]}</b> Orders</i>`);
 
 </script>
 </body>

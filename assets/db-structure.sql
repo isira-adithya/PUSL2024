@@ -51,8 +51,9 @@ CREATE TABLE Orders (
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     amount DECIMAL(10, 2) NOT NULL,
     additionalCharges DECIMAL(10, 2),
-    status VARCHAR(32), /* PENDING, COMPLETED */
-    delivery_status VARCHAR(32),
+    status VARCHAR(32), /* PENDING, COMPLETED, CANCELLED */
+    delivery_status VARCHAR(32), /* N/A, PENDING, COMPLETED, CANCELLED */
+    payment_status VARCHAR(32), /* PENDING, COMPLETED, ERROR */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
@@ -127,19 +128,19 @@ INSERT INTO Products (productid, name, price, quantity, short_description, descr
 (9, 'Gaming Console', 499.99, 43, 'Next-gen gaming console for immersive gaming', '', true, '', TIMESTAMP('2023-06-22', '12:05:12')),
 (10, 'Wireless Router', 79.99, 34, 'High-speed wireless router for seamless connectivity', '', true, '', TIMESTAMP('2023-06-14', '19:25:52'));
 
-INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, status, delivery_status) VALUES
-(1, 1, '2023-12-12 06:45:55', 1249.98, 23.99, 'CANCELLED', 'N/A'),
-(2, 1, '2023-07-15 07:41:44', 1679.97, 23.99, 'COMPLETED', 'COMPLETED'),
-(3, 3, '2023-07-16 05:50:15', 359.98, 23.99, 'COMPLETED', 'COMPLETED'),
-(4, 4, '2023-08-01 07:48:40', 799.95, 23.99, 'COMPLETED', 'COMPLETED'),
-(5, 5, '2023-08-12 05:49:30', 299.99, 23.99, 'COMPLETED', 'COMPLETED'),
-(6, 6, '2023-07-16 03:50:43', 899.97, 23.99, 'COMPLETED', 'COMPLETED'),
-(7, 7, '2023-08-14 12:49:12', 459.96, 23.99, 'COMPLETED', 'COMPLETED'),
-(8, 8, '2023-12-28 09:41:21', 129.98, 23.99, 'COMPLETED', 'PENDING'),
-(9, 9, '2023-07-06 07:49:23', 679.94, 23.99, 'COMPLETED', 'COMPLETED'),
-(10, 10, '2023-09-01 06:53:45', 239.97, 23.99, 'COMPLETED', 'COMPLETED'),
-(11, 11, '2023-12-28 23:26:52', 2739.91, 23.99, 'COMPLETED', NULL),
-(12, 11, '2023-12-28 23:55:38', 5799.71, 23.99, 'COMPLETED', NULL);
+INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, status, delivery_status, payment_status) VALUES
+(1, 1, '2023-12-12 06:45:55', 1249.98, 23.99, 'CANCELLED', 'N/A', 'COMPLETED'),
+(2, 1, '2023-07-15 07:41:44', 1679.97, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(3, 3, '2023-07-16 05:50:15', 359.98, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(4, 4, '2023-08-01 07:48:40', 799.95, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(5, 5, '2023-08-12 05:49:30', 299.99, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(6, 6, '2023-07-16 03:50:43', 899.97, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(7, 7, '2023-08-14 12:49:12', 459.96, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(8, 8, '2023-12-28 09:41:21', 129.98, 23.99, 'COMPLETED', 'PENDING', 'COMPLETED'),
+(9, 9, '2023-07-06 07:49:23', 679.94, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(10, 10, '2023-09-01 06:53:45', 239.97, 23.99, 'COMPLETED', 'COMPLETED', 'COMPLETED'),
+(11, 11, '2023-12-28 23:26:52', 2739.91, 23.99, 'COMPLETED', 'PENDING', 'COMPLETED'),
+(12, 11, '2023-12-28 23:55:38', 5799.71, 23.99, 'COMPLETED', 'PENDING', 'COMPLETED');
 
 INSERT INTO OrderDetails (orderdetailid, orderid, productid, quantity, productname, subtotal) VALUES
 (1, 1, 1, 2, 'Smartphone', 1999.98),
