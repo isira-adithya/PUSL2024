@@ -138,11 +138,11 @@
             </c:forEach>
         </tbody>
         </table><br><br><br><br>
-        <form method="post" action="/admin/products/add.jsp">
+        
+    </div>
+    <form method="post" action="/admin/products/add.jsp">
             <center><button class="Add-new-button">Add New Product</button></center>
         </form>
-    </div>
-    
     
     
     
