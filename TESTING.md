@@ -8,7 +8,7 @@
 -[] Test About us Page
     -[x]Tested The Page
     -[]Edits to be Made
-    -[]Check Responsiveness
+    -[x]Check Responsiveness
 -[] Test Contact-Us Page
     -[]Comments
 -[] Test Forgot Password Page
@@ -19,8 +19,9 @@
     -[]Comments
 -[] Test Reset Password Page
     -[]Comments
--[] Test Sign-Up Page
-    -[]Comments
+-[x] Test Sign-Up Page
+    -[x]Added Required Fields
+    -[x]Responsiveness Checked
 -[] Test Support Page
     -[]Comments
 -[] Test 404 Page
@@ -31,8 +32,9 @@
     -[]Comments
 -[] Test E-mail Verification Page
     -[]Comments
--[] Test Change Passowrd Page
-    -[]Comments
+-[x] Test Change Password Page
+    -[x]Checked Responsiveness
+    -[x]Links Work Well
 -[] Test Cart Page
     -[]Comments
 
