@@ -131,9 +131,7 @@
     <div>
         <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
     </div>
-<div
- 
-class="container">
+<div class="container">
 
     
 <div class="table-responsive">
@@ -150,27 +148,6 @@ class="container">
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${products}" var="product">
-            <tr>
-                <td>${fn:escapeXml(product.name)}</td>
-                <td><center><img src="${fn:escapeXml(product.image)}" width="200px"></center></td>
-                <td>${fn:escapeXml(product.description)}</td>
-                <td>${fn:escapeXml(product.quantity)}</td>
-                <td>${fn:escapeXml(product.price)}</td>
-                <td><center>
-                    <a href="/admin/products/product.jsp?id=${product.productId}">
-                        <button class="submitBtn">Edit Product</button>
-                    </a>
-                    <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
-                        <input type="hidden" name="productId" value="${product.productId}">
-                    </form>
-                    <button id="submitBtn"
-                            onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product
-                    </button>
-                </td>
-            </tr>
-            </thead>
-            <tbody>
             <c:forEach items="${products}" var="product">
                 <tr>
                     <td>${fn:escapeXml(product.name)}</td>
@@ -179,15 +156,19 @@ class="container">
                     <td>${fn:escapeXml(product.quantity)}</td>
                     <td>${fn:escapeXml(product.price)}</td>
                     <td><center>
-                        <a href="/admin/products/product.jsp?id=${product.productId}"><button class="submitBtn">Edit Product</button></a>
+                        <a href="/admin/products/product.jsp?id=${product.productId}">
+                            <button class="submitBtn">Edit Product</button>
+                        </a>
                         <form id="deleteProduct${product.productId}Form" method="post" action="/api/admin/products/delete"><br>
                             <input type="hidden" name="productId" value="${product.productId}">
                         </form>
-                        <button id="submitBtn" onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product</button>
+                        <button id="submitBtn"
+                                onclick="if(confirm('Are you sure?')){document.getElementById('deleteProduct${product.productId}Form').submit()}">Delete Product
+                        </button>
                     </td>
                 </tr>
             </c:forEach>
-            </tbody>
+        </tbody>
         </table><br><br><br><br>
         <form method="post" action="/admin/products/add.jsp">
             <center><button class="Add-new-button">Add New Product</button></center>
@@ -198,7 +179,7 @@ class="container">
     
     
 </div>
-</div>
+
 
 <br><br><br><br><br><br><br>
 <%@include file="../includes/footer.jsp"%>

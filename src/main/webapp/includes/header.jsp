@@ -20,14 +20,14 @@
             <div class="input-group">
                 <input class="form-control custom-no-outline" name="searchQuery" type="text" placeholder="Search" aria-label="Search" aria-describedby="search-addon">
                 <div class="input-group-append">
-                    <button class="btn custom-search-button" type="submit">Search</button>
+                    <input class=" custom-search-button" type="submit">
                 </div>
             </div>
         </form>
         <div class="nav-icon-container d-flex align-items-center">
             <c:if test="${isLoggedIn}">
                 <a href="/user/cart.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/s_cart.png" alt="cart" class="custom-small-image"></a>
-                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/wish.png" alt="wishlist" class="custom-small-image"></a>
+                <a href="/user/wishlist/" class="custom-nav-icons"><img src="/uploads/images/navbar/addtowishlist.png" alt="wishlist" class="custom-small-image"></a>
                 <a href="/user/profile.jsp" class="custom-nav-icons"><img src="/uploads/images/navbar/log.png" alt="profile" class="custom-small-image"></a>
                 <c:if test="${isAdmin}">
                     <a href="/admin/" class="custom-nav-icons"><img src="/uploads/images/navbar/admin.png" alt="admin" class="custom-small-image"></a>
@@ -74,6 +74,7 @@
     
     .custom-navbar-brand span:hover {
         text-decoration: none;
+        
     }
     
     .custom-nav-home-link:hover {
@@ -98,15 +99,18 @@
         border-radius: 0 5px 5px 0;
         border: none;
         padding: 8px;
+        cursor: pointer;
     }
     
     .custom-search-button:hover{
         background-color: #666666;
         color:#ffffff;
+        cursor: pointer;
     }
+
     
     .custom-nav-icons {
-        margin: 0.75rem;
+        margin: 0.75rem 0.75rem 0rem 0.75rem;
     }
     
     .custom-small-image {
@@ -127,6 +131,7 @@
     .custom-link-list {
         display: flex;
         align-items: center;
+        justify-content: center;
         list-style: none;
         padding: 0;
         margin: 40px 0px 0px 0px;
