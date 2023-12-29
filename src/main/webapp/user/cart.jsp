@@ -194,71 +194,53 @@
     <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
   </div>
     <br><br>
-   
-    <div class="col-md-3">
-            <div
-                    style="width: 220px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                <div
-                        style="padding-top: 24px; padding-bottom: 16px; padding-left: 20px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                    <div
-                            style="color: #1A1A1A; font-size: 20px; font-family: Poppins; font-weight: 500; line-height: 30px; word-wrap: break-word">
-                        <b>Navigation</b></div>
-                </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
-                    <div
-                            style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
-
-                        <img src="/uploads/images/profile/Edit.png" style="width:20px; height:20px;">
-
+    <div class="container">
+    <div class="row">
+    <div class="col-md-2">
+            <div style="width: 220px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                <div style="padding-top: 24px; padding-bottom: 16px; padding-left: 20px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <div style="color: #1A1A1A; font-size: 20px; font-family: Poppins; font-weight: 500; line-height: 30px; word-wrap: break-word">
+                        <b>Navigation</b>
                     </div>
-                    <div
-                            style="width: 238px; color:#666666 ; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;"  onclick="location.href = '/user/profile.jsp'" >
-                        Edit Profile</div>
                 </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+                <div style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
                     <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
-
+                        <img src="/uploads/images/profile/Edit.png" style="width:20px; height:20px;">
+                    </div>
+                    <div style=" color:#666666 ; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;"  onclick="location.href = '/user/profile.jsp'" >
+                        Edit Profile
+                    </div>
+                </div>
+                <div style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+                    <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
                         <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
-
                     </div>
-                    <div a href="/cart.jsp"
-                         style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
-                        Order History</div>
+                    <div a href="/cart.jsp" style=" color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
+                        Order History
+                    </div>
                 </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer; box-shadow: 3px 0px 0px #20B526 inset;">
-                    <div
-                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
-
+                <div style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer; box-shadow: 3px 0px 0px #20B526 inset;">
+                    <div style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
                         <img src="/uploads/images/profile/shoppingcart.jpg" style="width:20px; height:20px;">
-
                     </div>
-                    <div
-                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
-                        Shopping Cart</div>
+                    <div style=" color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
+                        Shopping Cart
+                    </div>
                 </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
-
-                    <div
-                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex">
+                <div style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
+                    <div style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex">
                         <img src="/uploads/images/profile/logout.jpg" style="width:20px; height:20px;">
-
                     </div>
-
-                    <div
-                            style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/logout.jsp'">
-                        Log-out</div>
+                    <div style=" color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/logout.jsp'">
+                        Log-out
+                    </div>
                 </div>
             </div>
-
     </div>
     
-    <center><h1 style="font-size:50px">My Shopping Cart</h1></center>
+    <div class="col-md-6">
     <c:if test="${isCartEmpty}">
-        <div class="align-items-center text-center justify-content-center my-5">
+        <div class="align-items-center text-center justify-content-center ">
             <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
             <h3>Your cart is empty</h3>
             <a href="/products">Visit Our Products</a>
@@ -344,90 +326,14 @@
         </div>
     </c:if>
     </div>
-
+    </div>
+    </div>
+    </div>
     <%@include file="../includes/footer.jsp"%>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-<body>
-    <%@include file="../includes/header.jsp"%>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div
-                    style="width: 220px; height: 306px; padding-bottom: 12px; background: white; border-radius: 8px; border: 1px #E6E6E6 solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                <div
-                        style="padding-top: 24px; padding-bottom: 16px; padding-left: 20px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-                    <div
-                            style="color: #1A1A1A; font-size: 20px; font-family: Poppins; font-weight: 500; line-height: 30px; word-wrap: break-word">
-                        <b>Navigation</b></div>
-                </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; background: white; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
-                    <div
-                            style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
-
-                        <img src="/uploads/images/profile/Edit.png" style="width:20px; height:20px;">
-
-                    </div>
-                    <div
-                            style="width: 238px; color:#666666 ; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;"  onclick="location.href = '/user/profile.jsp'" >
-                        Edit Profile</div>
-                </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
-                    <div style="width: 24px; height: 24px; padding-left: 2.30px; padding-right: 2.30px; padding-top: 2px; padding-bottom: 2px; justify-content: center; align-items: center; display: flex">
-
-                        <img src="/uploads/images/profile/orderhistorydark.png" style="width:20px; height:20px;">
-
-                    </div>
-                    <div a href="/cart.jsp"
-                         style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/user/cart.jsp'">
-                        Order History</div>
-                </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer; box-shadow: 3px 0px 0px #20B526 inset;">
-                    <div
-                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex;">
-
-                        <img src="/uploads/images/profile/shoppingcart.jpg" style="width:20px; height:20px;">
-
-                    </div>
-                    <div
-                            style="width: 238px; color: #1A1A1A; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:4px;" onclick="location.href = '/user/orders/index.jsp'" >
-                        Shopping Cart</div>
-                </div>
-                <div
-                        style="padding-left: 20px; padding-right: 20px; padding-top: 16px; padding-bottom: 16px; justify-content: center; align-items: center; gap: 10px; display: inline-flex; cursor: pointer;">
-
-                    <div
-                            style="width: 24px; height: 24px; padding: 2.30px; justify-content: center; align-items: center; display: flex">
-                        <img src="/uploads/images/profile/logout.jpg" style="width:20px; height:20px;">
-
-                    </div>
-
-                    <div
-                            style="width: 238px; color: #666666; font-size: 16px; font-family: Poppins; font-weight: 400; line-height: 24px; word-wrap: break-word; padding-left:5px;" onclick="location.href = '/logout.jsp'">
-                        Log-out</div>
-                </div>
-            </div> 
-            </div>
-            
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <center><h1 style="font-size:50px">My Shopping Cart</h1></center>
-                
-            </div>
-        </div>
-    </div>
-    <%@include file="../includes/footer.jsp"%>
-
-    <!-- Add Bootstrap JS and Popper.js if needed -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
