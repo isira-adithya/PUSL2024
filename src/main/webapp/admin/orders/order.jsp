@@ -147,25 +147,49 @@
     </table>
     <p>
         Date/Time: <i>${order.dateTime.toString()}</i><br><br>
-        Order Status:
-        <c:if test="${order.orderStatus.equals('PENDING')}">
-            <i style="color: blue">PENDING</i><br><br>
-            <b>
-                <small>
-                    Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
-                    <br><br>
-                    We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
-                </small>
-            </b>
-        </c:if>
-        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
-        <c:if test="${order.orderStatus.equals('CANCELLED')}">
-            <i style="color: red;">CANCELLED</i>
-        </c:if>
+        <form id="updateOrderForm" method="post" action="/api/admin/orders/updateOrderStatus">
+            <table>
+                <tr>
+                    <td>Payment Status:</td>
+                    <td><span class="btn btn-dark btn-sm">${order.paymentStatus}</span></td>
+                </tr>
+
+                <c:if test="${order.paymentStatus.equals('COMPLETED')}">
+                    <td>Delivery Status:</td>
+                    <td>
+                        <select class="form-select" name="deliveryStatus">
+                            <option value="CANCELLED" ${order.deliveryStatus.equals('CANCELLED') ? 'selected' : ''}>CANCELLED</option>
+                            <option value="PENDING" ${order.deliveryStatus.equals('PENDING') ? 'selected' : ''}>PENDING</option>
+                            <option value="COMPLETED" ${order.deliveryStatus.equals('COMPLETED') ? 'selected' : ''}>COMPLETED</option>
+                        </select>
+                    </td>
+                </c:if>
+
+                <tr>
+                    <td>Order Status:</td>
+                    <td>
+                        <select class="form-select" name="orderStatus">
+                            <option value="CANCELLED" ${order.orderStatus.equals('CANCELLED') ? 'selected' : ''}>CANCELLED</option>
+                            <option value="PENDING" ${order.orderStatus.equals('PENDING') ? 'selected' : ''}>PENDING</option>
+                            <option value="COMPLETED" ${order.orderStatus.equals('COMPLETED') ? 'selected' : ''}>COMPLETED</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="orderId" value="${order.orderId}">
+
+            <div class="alert alert-primary mt-3">
+                <p>You can use the <b><i>Order Status</i></b> value to sort/filter orders.</p>
+                <p>Note: Marking an order <b>Cancelled</b> will notify the user via an email and make delivery status to <b>Not Applicable</b>. Furthermore, You will have to perform a refund to the customer as soon as possible.</p>
+            </div>
+            <br>
+        </form>
+
     </p>
     <br>
 
-    <a href="/admin/orders/">Go back</a>
+    <a class="btn btn-primary btn-sm" href="/admin/orders/">Go back</a>
+    <button onclick="document.getElementById('updateOrderForm').submit()" class="btn btn-success btn-sm" href="/admin/orders/">Update Order</button>
 </div>
 
 <%@include file="../../includes/footer.jsp"%>
