@@ -54,7 +54,7 @@
         }
 
         .additional-container {
-            width: 320px;
+            width: 100%;
             height: 350px; /* Set the desired height */
             background-color: #ffffff;
             padding: 20px;
@@ -62,8 +62,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
             
-            justify-content: space-between;
-            align-items: flex-start;
+            
+         
         }
         .containerprices{
             display: flex;
@@ -172,6 +172,9 @@
       background-size: cover;
       background-position: center; /* Default position */
 }
+    .navi-box{
+        margin: 0.75rem;
+    }
 
 /* Adjust background position for mobile view */
     @media screen and (max-width: 600px) {
