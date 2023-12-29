@@ -292,66 +292,6 @@
     </section>
         <!-- Second Card (Image on the Left, Text on the Right) -->
     <section class="sec-2">
-    <div class="row custom-card">
-                <div class="col-md-4 col-sm-50">
-                    <img src="/uploads/about us/theman2.png" style="max-height: 365px; margin-top: 115px;">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-text">
-                        <h2 class="card-title"><strong>100% Trusted<br>Organic Food Store</strong></h2>
-                        <p>A reputable and reliable organic food store committed to offering 100%<br>trusted
-                            high-quality organic products for conscious consumers.<br>Providing a secure and wholesome
-                            shopping experience with a focus<br>on organic and trustable practices.</p>
-                        <!-- List with images on both sides -->
-                        <ul class="list-unstyled product-list">
-                            <li>
-                                <img src="/uploads/about us/leave.jpg" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
-                                <div>
-                                    <strong>100% Organic Food</strong>
-                                    <p>100% healthy and fresh food.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="/uploads/about us/headphone.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
-                                <div>
-                                    <strong>Great Support 24/7</strong>
-                                    <p>Instant access to Contact</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="/uploads/about us/star.jpg" alt="Product 2" class="rounded-circle product-image" width="30" height="50">
-                                <div>
-                                    <strong>Customer Feedback</strong>
-                                    <p>Our Happy Customer</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="/uploads/about us/bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
-                                <div>
-                                    <strong>100% Secure Payment</strong>
-                                    <p>We ensure your money is safe</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="/uploads/about us/lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
-                                <div>
-                                    <strong>Free Shipping</strong>
-                                    <p>Free shipping with Discount.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="/uploads/about us/box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
-                                <div>
-                                    <strong>100% Organic Food </strong>
-                                    <p>100% healthy & Fresh Food.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <section class="sec-2">
         <div class="container">
             <div class="row text-center justify-content-center align-items-center">
                 <div class="col-md-6">
