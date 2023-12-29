@@ -130,7 +130,7 @@ Our extra virgin olive oil elevates every meal with its exquisite taste and heal
 ', true, 'beetroot.jpg',TIMESTAMP('2023-06-21', '13:38:19')),
 (8, 'Green Beans', 4.99, 154, 'Crisp, tender Green Beans, a staple for every healthy plate', 'Try our green beans which are really crispy and come straight from our farms without any harmful chemicals.\nYou can steam them gently for a simple and tasty side dish that keeps their crunchiness, fry them with your favorite spices and can include them in salads too.\nThey are full of vitamins like vitamin A, C, K, iron, calcium and folate that make your meals healthy.', true, 'greenbeans.jpg',TIMESTAMP('2023-06-21', '11:07:27')),
 (9, 'Organic Carrots', 1.99, 43, 'Snack on the satisfying crunch of Organic Carrots', '', true, 'carrots.jpg',TIMESTAMP('2023-06-22', '12:05:12')),
-(10, 'Organic Red Grapes', 3.29, 34, 'Elevate your palate with the succulent sweetness of Organic Red Grapes', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
+(10, 'Organic Red Grapes', 3.29, 34, 'Elevate your palate with the succulent sweetness of Organic Red Grapes', '', true, 'grapes.jpg',TIMESTAMP('2023-06-14', '19:25:52'));
 
 
 INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, status, delivery_status, payment_status) VALUES
