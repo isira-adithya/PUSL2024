@@ -49,9 +49,14 @@
             background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
+            border: 2px solid #00B207;
+            margin: 10px 0px 10px 0px;
+            
+        }
+        .cart-container:hover{
+            transition: 0.3s;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            
-            
+            border: none;
         }
 
         .additional-container {
@@ -61,12 +66,13 @@
             padding: 20px;
             border-radius: 10px;
             border: 2px solid #00B207;
-         
+            margin: 10px 0px 10px 0px;
+            
         }
         .additional-container:hover {
             transition: 0.3s;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: none;
+            border: none;  
         }
         .containerprices{
             display: flex;
