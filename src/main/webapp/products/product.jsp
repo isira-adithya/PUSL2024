@@ -421,13 +421,13 @@
                 <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea>
 
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-2">
 
                     </div>
-                    <div>
-                        <h5 style="text-align: left">Give us a rating</h5>
+                    <div class="row mt-2 text-right mt-2">
+                        <h5>Give us a rating</h5>
                     </div>
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="stars">
                             <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
 
