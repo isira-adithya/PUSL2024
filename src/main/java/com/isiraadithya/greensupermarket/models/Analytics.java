@@ -79,6 +79,21 @@ public class Analytics {
         return results;
     }
 
+    public Map<String, Integer> getOrderStatuses(){
+        Map<String, Integer> results = new HashMap<String, Integer>();
+
+        for (int i = 0; i < orders.size(); i++){
+            Order order = orders.get(i);
+            if (!results.containsKey(order.getOrderStatus())){
+                results.put(order.getOrderStatus(), 0);
+            }
+            int currentIndex = results.get(order.getOrderStatus());
+            results.put(order.getOrderStatus(), (currentIndex+1));
+        }
+
+        return results;
+    }
+
     public static double getAverageRatingOfAProduct(int productId){
         double rating = -1;
         try {
