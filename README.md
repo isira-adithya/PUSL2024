@@ -28,6 +28,7 @@
 - [ ] Show random featured products for every user (should check the visibility of products)
 - [ ] Update the `Product.getProducts` function and add functionalities to filter products by visibility.
 - [ ] Finish the about us section of the website.
+- [ ] Fix the Signup page's form
 
 ## Sample Credentials For Payments
 *Visit https://developer.paypal.com/tools/sandbox/card-testing/ to generate your own card.*
