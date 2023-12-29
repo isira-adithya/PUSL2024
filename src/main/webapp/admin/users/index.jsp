@@ -142,7 +142,7 @@
 }
 
 
-        }
+        
 
     .image {
       margin-bottom: 60px;
