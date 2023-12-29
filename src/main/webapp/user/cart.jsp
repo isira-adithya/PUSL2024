@@ -51,6 +51,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             
+            
         }
 
         .additional-container {
@@ -60,7 +61,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px;
+       
             
             
          
@@ -131,7 +132,7 @@
             }
 
             .cart-container {
-                margin: 10px;
+                
                 height: auto; /* Set auto height for smaller screens */
             }
 
@@ -163,7 +164,7 @@
              
         }
          .image {
-      margin-bottom: 60px;
+      margin-bottom: 20px;
       width: 100%;
       height: 130px;
       position: relative;
@@ -175,6 +176,8 @@
     .navi-box{
         margin: 0.75rem;
     }
+    
+
 
 /* Adjust background position for mobile view */
     @media screen and (max-width: 600px) {
