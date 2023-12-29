@@ -17,6 +17,14 @@
 
     <style>
 
+        p{
+            margin-bottom: 0 !important;
+        }
+        
+        .tile-1{
+            margin-bottom: 50px; 
+        }
+        
         .custom-card {
             position: relative;
             overflow: hidden;
@@ -27,19 +35,22 @@
         .card-img-right {
             width: 100%;
             height: auto;
-            max-height: none;
-            object-fit: cover;       
-            top: 0;
-            left: 0;
-            margin-right: 20px; /* Add margin to create space */
+
         }
 
-        .card-text {
-            position: relative;
-            z-index: 1;
-            text-align: left;
-            padding: 45px; 
+        .card-text{ 
+             justify-content: center;
+             align-content: center;
+  
         }
+        
+        
+        
+        
+        
+        
+        
+        
 
         .product-list {
             display: flex;
@@ -255,23 +266,23 @@
         <img src="\uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image" >
     </div>
     
-     <div class="container-fluid mt-10">
-       
-        <div class=" custom-card mb-4">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-text">
-                        <h2 class="card-title"><strong>Enriching Lives<br>Through Quality and <br>Community Focus.</strong></h2>
-                        <p>Dedicated to enriching lives through a diverse selection of quality<br>products, with a
-                            commitment to excellence, we strive to be your<br>go-to destination for all your grocery
-                            needs, fostering a<br>welcoming environment for families and individuals alike.</p>
-                    </div>
+    <section>
+    <div class="container tile-1">      
+        <div class="custom-card ">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 ">
+                    <h2 class="card-title">Enriching Lives Through Quality and Community Focus.</h2>
+                    <p>Dedicated to enriching lives through a diverse selection of quality<br>products, with a
+                        commitment to excellence, we strive to be your<br>go-to destination for all your grocery
+                        needs, fostering a<br>welcoming environment for families and individuals alike.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="card-img-right img-fluid">
+                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
                 </div>
             </div>
         </div>
+    <div>
+    </section>
 
         <!-- Second Card (Image on the Left, Text on the Right) -->
         <div class="card custom-card mb-4" style="background-image: url('/uploads/about us/background.jpg'); background-size: 680px; background-position: left; background-repeat: no-repeat;">
