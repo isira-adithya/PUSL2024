@@ -248,17 +248,19 @@
                 </form>
 
                 <div class="buttons">
-                    <div class="row">
-                        <button class="btn btn-primary col mx-2" id="editBtn" onclick="toggleEdit()">
-                            Edit
-                        </button>
-                        <a href="/user/changepassword.jsp" class="btn btn-primary col mx-2">Change password</a>
-                        <a class="btn btn-primary col mx-2" href="/logout.jsp">Log-out</a>
-                        <button class="btn btn-danger col mx-2" onclick="deleteAccount()">
-                            Delete Account
-                        </button>
-                    </div>
-                </div>
+    <div class="row">
+        <button class="btn btn-primary col-12 col-md-3 mx-2 mb-2" id="editBtn" onclick="toggleEdit()">
+            Edit
+        </button>
+        <a href="/user/changepassword.jsp" class="btn btn-primary col-12 col-md-3 mx-2 mb-2">
+            Change password
+        </a>
+        <a class="btn btn-primary col-12 col-md-3 mx-2 mb-2" href="/logout.jsp">Log-out</a>
+        <button class="btn btn-danger col-12 col-md-3 mx-2 mb-2" onclick="deleteAccount()">
+            Delete Account
+        </button>
+    </div>
+</div>
 
             </div>
         </div>
