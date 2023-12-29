@@ -16,17 +16,6 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <style>
-        /* Adjust background position for mobile view */
-
-        body {
-            background-color: #ffffff;
-        }
-
-        h1,
-        h2,
-        p {
-            font-family: Arial, sans-serif;
-        }
 
         .custom-card {
             position: relative;
@@ -39,18 +28,17 @@
             width: 100%;
             height: auto;
             max-height: none;
-            object-fit: cover;
-            position: center;
+            object-fit: cover;       
             top: 0;
             left: 0;
             margin-right: 20px; /* Add margin to create space */
         }
 
         .card-text {
-        position: relative;
-        z-index: 1;
-        text-align: left;
-       padding: 45px; /* Adjusted padding for reduced gap */
+            position: relative;
+            z-index: 1;
+            text-align: left;
+            padding: 45px; 
         }
 
         .product-list {
@@ -268,8 +256,8 @@
     </div>
     
      <div class="container-fluid mt-10">
-        <!-- First Card (Image on the Right, Text on the Left) -->
-        <div class="card custom-card mb-4">
+       
+        <div class=" custom-card mb-4">
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-text">
