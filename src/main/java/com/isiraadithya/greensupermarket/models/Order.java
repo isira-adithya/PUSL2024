@@ -121,7 +121,7 @@ public class Order {
         this.cartObj = cartObj;
         this.setOrderStatus("PENDING");
         this.setPaymentStatus("PENDING");
-        this.setDeliveryStatus("PENDING");
+        this.setDeliveryStatus("N/A");
         if (this.saveOrder()){
             this.saveOrderDetails();
         }
@@ -560,8 +560,9 @@ public class Order {
         receiptEmail.send();
     }
 
-    public void markAsCompleted(){
-        this.setOrderStatus("COMPLETED");
+    public void markPaymentAsCompleted(){
+        this.setPaymentStatus("COMPLETED");
+        this.setDeliveryStatus("PENDING");
 
         for (int i = 0; i < this.orderDetails.size(); i++){
             Product product = this.orderDetails.get(i).getProduct();
