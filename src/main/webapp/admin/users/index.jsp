@@ -160,16 +160,16 @@
     <div class="buttons">
         <div class="row">
 
-            <button class="btn btn-primary col mx-2 "  onclick="window.location.href='/admin/users/add.jsp'">
+            <button class="btn btn-primary col mx-2" onclick="window.location.href='/admin/users/add.jsp'">
                 Add New User / Administrator
             </button>
             <c:if test="${selectedRole.equals('ADMIN')}">
-                <button class="btn btn-secondary col mx-2"  onclick="window.location.href='/admin/users/'">
+                <button class="btn btn-secondary col mx-2" onclick="window.location.href='/admin/users/'">
                     See All Customers
                 </button>
             </c:if><br>
             <c:if test="${selectedRole.equals('USER')}">
-                <button class="btn btn-secondary col mx-2"  onclick="window.location.href='/admin/users/?role=ADMIN'">
+                <button class="btn btn-secondary col mx-2" onclick="window.location.href='/admin/users/?role=ADMIN'">
                     See All Administrators
                 </button>
             </c:if>
