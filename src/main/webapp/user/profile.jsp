@@ -297,8 +297,8 @@
                         document.location.href = "/logout.jsp";
                     }
                 }).catch(err => {
-                    alert("Something went wrong. Please try again later.")
-                })
+                    alert("Something went wrong. Please try again later.");
+                });
             }
         }
     </script>
