@@ -48,6 +48,11 @@
             font-weight: 600;
         }
         
+        .sec-2{
+            background-image: url(uploads/about us/BG1.png);
+            background-size: cover;
+            background-position: center;
+        }
         
         
         
@@ -285,10 +290,9 @@
         </div>
     <div>
     </section>
-
         <!-- Second Card (Image on the Left, Text on the Right) -->
-        <div class="card custom-card mb-4" style="background-image: url('/uploads/about us/background.jpg'); background-size: 680px; background-position: left; background-repeat: no-repeat;">
-            <div class="row">
+    <section class="sec-2">
+    <div class="row custom-card">
                 <div class="col-md-4 col-sm-50">
                     <img src="/uploads/about us/theman2.png" style="max-height: 365px; margin-top: 115px;">
                 </div>
@@ -346,7 +350,21 @@
                     </div>
                 </div>
             </div>
+    </section>
+    <section class="sec-2">
+        <div class="container">
+            <div class="row text-center justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <img src="uploads/images/userhome/Image.png" alt="farmer1" class="img-fluid">
+                </div>
+                <div class="col-md-6" style="width:100%;">
+                    <p style="font-size: 30px; font-weight: bold; width:100%;">
+                        "Savor the flavours of nature, where every bite is a commitment to your well-being and the planet's health."
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
 
         <!-- Third Card (Image on the Left, Text on the Right) -->
         <div class="card custom-card mb-4">
