@@ -168,14 +168,14 @@
         </c:if>
         </tbody>
     </table>
-        Date/Time: <i>${order.dateTime.toString()}</i><br><br>
 
       <div>
+          <p class="my-2">Date/Time: <i>${order.dateTime.toString()}</i></p>
       Payment Status:
       <c:if test="${order.paymentStatus.equals('PENDING')}">
           <i style="color: #00B207">PENDING</i><br><br>
           <b>
-              <small>
+              <small class="mb-4">
                   Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
                   <br><br>
                   We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
@@ -186,7 +186,7 @@
       <c:if test="${order.paymentStatus.equals('ERROR')}">
           <i style="color: red;">ERROR</i>
           <b>
-              <small>
+              <small class="mb-4">
                   Something went wrong while processing your payment. Please try again later.
               </small>
           </b>
@@ -199,7 +199,7 @@
           <c:if test="${order.deliveryStatus.equals('PENDING')}">
               <i style="color: #00B207">PENDING</i><br><br>
               <b>
-                  <small>
+                  <small class="mb-4">
                       Your order is on the way, if you haven't received the order within 7 days after you placed your order, please inform us.
                   </small>
               </b>
@@ -210,7 +210,7 @@
           </c:if>
       </div>
 
-    <c:if test="${order.orderStatus.equals('PENDING')}">
+    <c:if test="${order.paymentStatus.equals('PENDING')}">
         
         <div class="buttons mt-4">
             <div class="row text-center">
