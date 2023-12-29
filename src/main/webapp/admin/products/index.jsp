@@ -87,7 +87,7 @@
             height: 120px; /* Adjust the height as needed */
             background-position: left center; /* Adjust position for left cropping */
             object-fit: cover;
-    }
+    }}
         
     </style>
 </head>
