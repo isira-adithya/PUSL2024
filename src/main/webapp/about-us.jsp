@@ -416,7 +416,7 @@
                                 <!-- Third Team Member -->
                                  <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/HashenPic.jpeg" class="img-responsive img-fluid">
                                         <ul>
                                         <li><a href="https://www.instagram.com/_.hashh.r_?igsh=ZGNjOWZkYTE3MQ%3D%3D&utm_source=qr" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                         <li><a href="https://www.linkedin.com/in/hashen-ruwanpura-184a1b283/?originalSubdomain=lk" class="social-square"><i class="fab fa-linkedin"></i></a></li>
