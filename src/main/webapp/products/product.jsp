@@ -418,7 +418,7 @@
         <div class="col-md-8 mx-auto">
             <form method="post" action="/api/user/comments/add">
                 <input type="hidden" name="productId" value="${product.productId}"><br><br><br><br><h4>Give us your feedback</h4> <br>
-                <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea>
+                <textarea id="commentInput" placeholder="Add your comment..." name="comment"></textarea><br><br>
 
                 <div class="row">
                     <div class="col-2">
