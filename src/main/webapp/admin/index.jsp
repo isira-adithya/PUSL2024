@@ -9,13 +9,32 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    Analytics analyticsObj = new Analytics(150);
+    int timePeriodInDays = 31;
+    try {
+        if (request.getParameterMap().containsKey("analyticsTimePeriod")){
+            switch (request.getParameter("analyticsTimePeriod")){
+                case "90":
+                    timePeriodInDays = 90;
+                    break;
+                case "365":
+                    timePeriodInDays = 365;
+                    break;
+                default:
+                    timePeriodInDays = 31;
+                    break;
+            }
+        }
+    } catch (NumberFormatException ex){
+    }
+
+    Analytics analyticsObj = new Analytics(timePeriodInDays);
     Map<String, Double> analyticsSalesByProduct = analyticsObj.getSalesByProduct();
     Map<String, Integer> analyticsQuantitySoldByProduct = analyticsObj.getQuantitySoldByProduct();
     Map<String, Integer> orderStatuses = analyticsObj.getOrderStatuses();
     pageContext.setAttribute("analyticsSalesByProduct", analyticsSalesByProduct);
     pageContext.setAttribute("analyticsQuantitySoldByProduct", analyticsQuantitySoldByProduct);
     pageContext.setAttribute("orderStatuses", orderStatuses);
+    pageContext.setAttribute("timePeriodInDays", timePeriodInDays);
 %>
 <html>
 <head>
@@ -46,7 +65,18 @@
 
 <section>
 <div class="container">
-    <h2 class="text-center mt-4" style="font-weight: bold;">Last 5 Months Analytics</h2>
+    <h2 class="text-center mt-4" style="font-weight: bold;">
+        ${(timePeriodInDays == 31) ? 'Last Month\'s' : ''}
+            ${(timePeriodInDays == 90) ? 'Last 3 Month\'s' : ''}
+            ${(timePeriodInDays == 365) ? 'Last 12 Month\'s' : ''} Analytics
+    </h2>
+
+    <div class="text-left mt-5 container">
+        <span class="mx-3"><b>Time Period:</b></span>
+        <a href="/admin/?analyticsTimePeriod=31" class="btn ${(timePeriodInDays == 31) ? 'btn-secondary' : 'btn-primary'} btn-sm text-white">Last Month</a>
+        <a href="/admin/?analyticsTimePeriod=90" class="btn ${(timePeriodInDays == 90) ? 'btn-secondary' : 'btn-primary'} btn-sm text-white">Last 3 Months</a>
+        <a href="/admin/?analyticsTimePeriod=365" class="btn ${(timePeriodInDays == 365) ? 'btn-secondary' : 'btn-primary'} btn-sm text-white">Last 12 Months</a>
+    </div>
 
     <div class="row my-4">
 
@@ -140,18 +170,22 @@
     ];
 
     // Bar Chart
-    const barChartContainer = d3.select('#salesByProductBarchartContainer');
     const barChartWidth = 500;
     const barChartHeight = 300;
-    const maxValue = Math.max(...productSales);
-    console.log(maxValue)
+    const maxSalesValue = Math.max(...productSales);
+    const maxOrderStatusValue = Math.max(...orderStatusIndexes);
 
-    const barChart = d3.select('#salesByProductBarchartContainer')
+    const salesBarChart = d3.select('#salesByProductBarchartContainer')
         .append('svg')
         .attr('width', barChartWidth)
         .attr('height', barChartHeight);
 
-    barChart.selectAll('rect')
+    const orderStatusesBarChart = d3.select("#statusOfOrdersBarchartContainer")
+        .append('svg')
+        .attr('width', barChartWidth)
+        .attr('height', barChartHeight);
+
+    salesBarChart.selectAll('rect')
         .data(productSales)
         .enter()
         .append('rect')
@@ -159,18 +193,38 @@
             return i * (barChartWidth / productSales.length * 1.1);
         })
         .attr('y', function (d){
-            d = d / (maxValue / barChartHeight + 10);
+            d = d / (maxSalesValue / barChartHeight + 10);
             return barChartHeight - d;
         })
         .attr('width', (barChartWidth / productSales.length))
         .attr('height', function(d) {
-            d = d / (maxValue / barChartHeight + 10);
+            d = d / (maxSalesValue / barChartHeight + 10);
             return d;
         })
         .attr('fill', (d, i) => d3.schemeCategory10[i]);
 
+    orderStatusesBarChart.selectAll('react')
+        .data(orderStatusIndexes)
+        .enter()
+        .append('rect')
+        .attr('x', function (d, i) {
+            return i * (barChartWidth / orderStatusIndexes.length);
+        })
+        .attr('y', function (d){
+            d = barChartHeight - d * (maxOrderStatusValue / barChartHeight + 10);
+            return d;
+        })
+        .attr('width', (barChartWidth / 3.5))
+        .attr('height', function(d) {
+            d = d * (maxOrderStatusValue / barChartHeight + 10);
+            return d;
+        })
+        .attr('fill', function (d, i) {
+            return d3.schemeCategory10[i];
+        });
+
     // Adding labels to the bars
-    barChart.selectAll('text')
+    salesBarChart.selectAll('text')
         .data(productSales)
         .enter()
         .append('text')
@@ -182,15 +236,33 @@
             return i * (barChartWidth / productSales.length * 1.1) + (barChartWidth / productSales.length / 4);
         })
         .attr('y', function(d) {
-            d = d / (maxValue / barChartHeight + 10);
+            d = d / (maxSalesValue / barChartHeight + 10);
+            return barChartHeight - d - 5;
+        })
+        .attr('text-anchor', 'middle')
+        .attr('fill', 'red');
+
+    orderStatusesBarChart.selectAll('text')
+        .data(orderStatusIndexes)
+        .enter()
+        .append('text')
+        .text(function (d) {
+            d = (Math.round(parseFloat(d) * 100) / 100).toFixed(2);
+            return d;
+        })
+        .attr('x', function (d, i) {
+            return i * (barChartWidth / orderStatusIndexes.length) + (barChartWidth / orderStatusTypes.length / 4);
+        })
+        .attr('y', function(d) {
+            d = d * (maxOrderStatusValue / barChartHeight + 10);
             return barChartHeight - d - 5;
         })
         .attr('text-anchor', 'middle')
         .attr('fill', 'red');
 
     // Adding legend to the bar chart
-    const barChartLegend = d3.select('#salesByProductBarchartLegend');
-    barChartLegend.selectAll('div')
+    const salesBarChartLegend = d3.select('#salesByProductBarchartLegend');
+    salesBarChartLegend.selectAll('div')
         .data(productCategories)
         .enter()
         .append('div')
@@ -198,6 +270,16 @@
         .style('align-items', 'center')
         .style('margin-bottom', '5px')
         .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Items Sold (<b>\${(Math.round(parseFloat(productSales[i]) * 100) / 100).toFixed(2)}\$</b>)</i>`);
+
+    const statusOfOrdersBarchartLegend = d3.select('#statusOfOrdersBarchartLegend');
+    statusOfOrdersBarchartLegend.selectAll('div')
+        .data(orderStatusTypes)
+        .enter()
+        .append('div')
+        .style('display', 'flex')
+        .style('align-items', 'center')
+        .style('margin-bottom', '5px')
+        .html((d, i) => `<div style="width: 20px; height: 20px; background-color: \${d3.schemeCategory10[i]}; margin-right: 5px;"></div>\${d} - <i class=\"ml-2\"><b>\${productQuantities[i]}</b> Orders</i>`);
 
 </script>
 </body>
