@@ -12,8 +12,11 @@
 - [X] Test Contact-Us Page  
 - [] Test Forgot Password Page
     - [] Comments
-- [] Test Index Page
-    - [] Comments
+- [X] Test Index Page
+    - [X] Tested Each Button  
+    - [X] Tested Responsiveness  
+    - [X] Tested Submit Button  
+    - [X] Tested Redirect Pages    
 - [X] Test Logout Page
 - [] Test Reset Password Page
     - [] Comments
