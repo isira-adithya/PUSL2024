@@ -16,18 +16,15 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <style>
-        /* Adjust background position for mobile view */
 
-        body {
-            background-color: #ffffff;
+        p{
+            margin-bottom: 0 !important;
         }
-
-        h1,
-        h2,
-        p {
-            font-family: Arial, sans-serif;
+        
+        .tile-1{
+            margin-bottom: 50px; 
         }
-
+        
         .custom-card {
             position: relative;
             overflow: hidden;
@@ -38,43 +35,46 @@
         .card-img-right {
             width: 100%;
             height: auto;
-            max-height: none;
-            object-fit: cover;
-            position: center;
-            top: 0;
-            left: 0;
-            margin-right: 20px; /* Add margin to create space */
+
         }
 
-        .card-text {
-        position: relative;
-        z-index: 1;
-        text-align: left;
-       padding: 45px; /* Adjusted padding for reduced gap */
+        .card-text{ 
+             justify-content: center;
+             align-content: center;
+  
         }
+        
+        .card-title{
+            font-weight: 600;
+        }
+        
+        .sec-2{
+            background-image: url(uploads/BG1.png);
+            background-repeat:no-repeat;
+            background-position: center;
+            margin-bottom:60px;
+        }
+        
+        
+        
+        
+        
 
         .product-list {
             display: flex;
             flex-wrap: wrap;
             gap: 20px; /* Adjust the gap as needed */
+            margin-top: 30px;
         }
 
         .product-list li {
             flex: 0 0 45%; /* Adjust the width of each item */
-            display: flex;
-            background-color: #fff; /* Set the background color for each list item */
+            display: flex;           
             padding: 0px; /* Add some padding for spacing */
             border-radius: 8px; /* Add border-radius for rounded corners */
             position: relative; /* Added position relative */
         }
 
-        .product-list li .product-image {
-            width: 40px; /* Set the width */
-            height: 40px; /* Set the height */
-            object-fit: cover; /* Maintain the aspect ratio and cover the container */
-            margin-right: 10px; /* Add some space between the image and text */
-            border-radius: 0; /* Remove the border-radius */
-        }
 
         .product-list li div {
             flex-grow: 1;
@@ -111,7 +111,11 @@
             border-radius: 5px;
             margin: 20px 20px 0 0; /* Add right margin to move it a bit to the right */
         }
-
+        .shop-now-btn:hover{
+            text-decoration: none;
+            color: #666666;
+        }
+            
 
         .card {
             flex: 1 0 100%;
@@ -124,6 +128,7 @@
         .centered-text {
             text-align: center;
             margin-top: 50px;
+            
         }
 
         .centered-text h1 {
@@ -138,7 +143,7 @@
         {
             margin:75px 0;
         }
-        h1
+        .team-title
         {
             text-align:center;
             font-weight:bold;
@@ -147,7 +152,7 @@
             padding-bottom: 10px;
 
         }
-        h1:after
+        .team-title:after
         {
             content:'';
             background: #333;
@@ -252,13 +257,29 @@
         }
 
         /* Adjust background position for mobile view */
-            @media screen and (max-width: 600px) {
+            @media only screen and (max-width: 600px) {
                 .image {
                     height: 120px; /* Adjust the height as needed */
                     background-position: left center; /* Adjust position for left cropping */
                     object-fit: cover;
             }
+                    
+            @media only screen and (max-width: 767px) {
+                
+                .sec-2{
+                    background-image: none;
+  
+                }
+                .sec-2 img {
+                    display: none; /* Hide the image on small screens */
+                }
+                .about-man-2{
+                    display:none;
+                }
+                
         }
+            
+        
 </style>
 </head>
 <body>
@@ -267,75 +288,69 @@
         <img src="\uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image" >
     </div>
     
-     <div class="container-fluid mt-10">
-        <!-- First Card (Image on the Right, Text on the Left) -->
-        <div class="card custom-card mb-4">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-text">
-                        <h2 class="card-title"><strong>Enriching Lives<br>Through Quality and <br>Community Focus.</strong></h2>
-                        <p>Dedicated to enriching lives through a diverse selection of quality<br>products, with a
-                            commitment to excellence, we strive to be your<br>go-to destination for all your grocery
-                            needs, fostering a<br>welcoming environment for families and individuals alike.</p>
-                    </div>
+<section>
+    <div class="container tile-1">
+        <div class="custom-card">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
+                    <p>Dedicated to enriching lives through a diverse selection of quality products, with a
+                        commitment to excellence, we strive to be your go-to destination for all your grocery
+                        needs, fostering a welcoming environment for families and individuals alike.</p>
                 </div>
-                <div class="col-md-4">
-                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="card-img-right img-fluid">
+                <div class="col-md-6">
+                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
                 </div>
             </div>
         </div>
-
+    </div>
+</section>
         <!-- Second Card (Image on the Left, Text on the Right) -->
-        <div class="card custom-card mb-4" style="background-image: url('/uploads/about us/background.jpg'); background-size: 680px; background-position: left; background-repeat: no-repeat;">
-            <div class="row">
-                <div class="col-md-4 col-sm-50">
-                    <img src="/uploads/about us/theman2.png" style="max-height: 365px; margin-top: 115px;">
+    <section class="sec-2">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6 abg-img-container">
+                    <img src="uploads/images/userhome/Image.png" alt="farmer1" class="img-fluid">
                 </div>
-                <div class="col-md-8">
-                    <div class="card-text">
-                        <h2 class="card-title"><strong>100% Trusted<br>Organic Food Store</strong></h2>
-                        <p>A reputable and reliable organic food store committed to offering 100%<br>trusted
-                            high-quality organic products for conscious consumers.<br>Providing a secure and wholesome
-                            shopping experience with a focus<br>on organic and trustable practices.</p>
+                <div class="col-md-6" style="width:100%; ">
+                    <div class="card-text text-left">
+                        <h1 class="card-title">100% Trusted Organic Food Store</h1>
+                        <p>A reputable and reliable organic food store committed to offering 100%trusted
+                            high-quality organic products for conscious consumers.Providing a secure and wholesome
+                            shopping experience with a focus on organic and trustable practices.</p>
                         <!-- List with images on both sides -->
-                        <ul class="list-unstyled product-list">
+                        <ul class="product-list">
                             <li>
-                                <img src="/uploads/about us/leave.jpg" alt="Product 1" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food</strong>
                                     <p>100% healthy and fresh food.</p>
                                 </div>
                             </li>
-                            <li>
-                                <img src="/uploads/about us/headphone.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                            <li>                               
                                 <div>
                                     <strong>Great Support 24/7</strong>
                                     <p>Instant access to Contact</p>
                                 </div>
                             </li>
-                            <li>
-                                <img src="/uploads/about us/star.jpg" alt="Product 2" class="rounded-circle product-image" width="30" height="50">
+                            <li>                               
                                 <div>
                                     <strong>Customer Feedback</strong>
                                     <p>Our Happy Customer</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/bag.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Secure Payment</strong>
                                     <p>We ensure your money is safe</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/lorry.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Free Shipping</strong>
                                     <p>Free shipping with Discount.</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/box.jpg" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food </strong>
                                     <p>100% healthy & Fresh Food.</p>
@@ -346,18 +361,19 @@
                 </div>
             </div>
         </div>
+    </section>
 
         <!-- Third Card (Image on the Left, Text on the Right) -->
-        <div class="card custom-card mb-4">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-text">
-                        <h2 class="card-title"><strong>We Deliver, You Enjoy<br>Your Order.</strong></h2>
-                        <p>We ensure swift delivery so you can savor your order stress-free.<br>Your satisfaction is our
-                            priority. Making every moment of<br> enjoyment yours to relish.</p>
-
-                        <!-- List with green tick images -->
-                        <ul class="list-unstyled check-list">
+        
+    <section>
+    <div class="container tile-1">      
+        <div class="custom-card ">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 ">
+                    <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
+                    <p>We ensure swift delivery so you can savor your order stress-free.<br>Your satisfaction is our
+                       priority. Making every moment of<br> enjoyment yours to relish.</p>
+                    <ul class="list-unstyled check-list">
                             <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
                             <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
                             <li style="position: relative;"><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
@@ -367,17 +383,19 @@
                                 </div>
                             </li>
                             <!-- Add more list items as needed -->
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
+                <div class="col-md-6 about-man-2">
+                    <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="img-fluid">
                 </div>
             </div>
         </div>
+    <div>
+    </section>
+
 
     <div class="centered-text">
-        <h1><center>Our Awesome Team</center></h1>
+        <h1 class="team-title"><center>Our Awesome Team</center></h1>
         <p>"Our dynamic team is a synergistic blend of diverse talents and expertise.<br>united by a shred passion for excellence and a collective commitment to<br>delivering innovative solutions and exceptional service"</p>
     </div>
 
@@ -401,7 +419,7 @@
                                         </ul>
                                     </div>
                                     <h2>Isira Adithya</h2>
-                                    <h3>Founder</h3>
+                                    <h3>Fullstack Developer, Team Leader</h3>
                                 </div>
 
                                 <!-- Second Team Member -->
@@ -414,7 +432,7 @@
                                         </ul>
                                     </div>
                                     <h2>Nesith Perera</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                                 </div>
                                 <!-- Third Team Member -->
                                  <div class="col-md-3 profile text-center mx-auto">
@@ -426,7 +444,7 @@
                                         </ul>
                                     </div>
                                     <h2>Hashen Ruwanpura</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                             </div>                           
                             </div>
                         </div>
@@ -451,7 +469,7 @@
                                         </ul>
                                     </div>
                                     <h2>Sanuth Karunagoda</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                                 </div>
 
                                 <!-- Fifth Team Member -->
@@ -465,11 +483,11 @@
                                     </div>
                                     <!-- Fifth Team Member -->
                                     <h2>Chandesh Gunawardena</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                                 </div>
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/women1.jpg" class="img-responsive img-fluid">
                                         <ul>
                                          <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                          <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
@@ -477,7 +495,7 @@
                                     </div>
                                     <!-- Sixth Team Member -->
                                     <h2>Thiyara Bandara</h2>
-                                    <h3>Founder</h3>
+                                    <h3> UI/UX Developer, Team Member</h3>
                                 </div>
 
                             </div>
