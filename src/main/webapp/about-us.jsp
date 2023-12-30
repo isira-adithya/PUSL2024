@@ -50,8 +50,9 @@
         
         .sec-2{
             background-image: url(uploads/BG1.png);
-            background-size: cover;
+            background-repeat:no-repeat;
             background-position: center;
+            margin-bottom:60px;
         }
         
         
@@ -110,7 +111,11 @@
             border-radius: 5px;
             margin: 20px 20px 0 0; /* Add right margin to move it a bit to the right */
         }
-
+        .shop-now-btn:hover{
+            text-decoration: none;
+            color: #666666;
+        }
+            
 
         .card {
             flex: 1 0 100%;
@@ -123,6 +128,7 @@
         .centered-text {
             text-align: center;
             margin-top: 50px;
+            
         }
 
         .centered-text h1 {
@@ -251,13 +257,25 @@
         }
 
         /* Adjust background position for mobile view */
-            @media screen and (max-width: 600px) {
+            @media only screen and (max-width: 600px) {
                 .image {
                     height: 120px; /* Adjust the height as needed */
                     background-position: left center; /* Adjust position for left cropping */
                     object-fit: cover;
             }
+                    
+            @media only screen and (max-width: 767px) {
+                
+                .sec-2{
+                    background-image: none;
+  
+                }
+                .sec-2 img {
+                    display: none; /* Hide the image on small screens */
+                }
         }
+            
+        
 </style>
 </head>
 <body>
@@ -266,11 +284,11 @@
         <img src="\uploads\images\products\Breadcrumbs.png" alt="Vege Image" class="image" >
     </div>
     
-    <section>
-    <div class="container tile-1">      
-        <div class="custom-card ">
+<section>
+    <div class="container tile-1">
+        <div class="custom-card">
             <div class="row align-items-center justify-content-center">
-                <div class="col-md-6 ">
+                <div class="col-md-6">
                     <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
                     <p>Dedicated to enriching lives through a diverse selection of quality products, with a
                         commitment to excellence, we strive to be your go-to destination for all your grocery
@@ -281,16 +299,16 @@
                 </div>
             </div>
         </div>
-    <div>
-    </section>
+    </div>
+</section>
         <!-- Second Card (Image on the Left, Text on the Right) -->
     <section class="sec-2">
         <div class="container">
-            <div class="row text-center justify-content-center align-items-center">
-                <div class="col-md-6">
+            <div class="row  justify-content-center align-items-center">
+                <div class="col-md-6 abg-img-container">
                     <img src="uploads/images/userhome/Image.png" alt="farmer1" class="img-fluid">
                 </div>
-                <div class="col-md-6" style="width:100%;">
+                <div class="col-md-6" style="width:100%; ">
                     <div class="card-text text-left">
                         <h1 class="card-title">100% Trusted Organic Food Store</h1>
                         <p>A reputable and reliable organic food store committed to offering 100%trusted
@@ -364,40 +382,13 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
+                    <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="img-fluid">
                 </div>
             </div>
         </div>
     <div>
     </section>
-    <section>
-        <div class=" custom-card mb-4">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card-text">
-                        <h2 class="card-title"><strong>We Deliver, You Enjoy<br>Your Order.</strong></h2>
-                        <p>We ensure swift delivery so you can savor your order stress-free.<br>Your satisfaction is our
-                            priority. Making every moment of<br> enjoyment yours to relish.</p>
 
-                        <!-- List with green tick images -->
-                        <ul class="list-unstyled check-list">
-                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
-                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
-                            <li style="position: relative;"><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
-                                <!-- Shop Now button -->
-                                <div class="shop-now-container">
-                                    <a href="/products/product.jsp" class="shop-now-btn">Shop Now <span>&rarr;</span></a>
-                                </div>
-                            </li>
-                            <!-- Add more list items as needed -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="card-img-right img-fluid">
-                </div>
-            </div>
-        </div>
 
     <div class="centered-text">
         <h1 class="team-title"><center>Our Awesome Team</center></h1>
