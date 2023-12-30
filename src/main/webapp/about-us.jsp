@@ -349,9 +349,8 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-6 ">
                     <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
-                    <p>Dedicated to enriching lives through a diverse selection of quality products, with a
-                        commitment to excellence, we strive to be your go-to destination for all your grocery
-                        needs, fostering a welcoming environment for families and individuals alike.</p>
+                    <p>We ensure swift delivery so you can savor your order stress-free.<br>Your satisfaction is our
+                       priority. Making every moment of<br> enjoyment yours to relish.</p>
                 </div>
                 <div class="col-md-6">
                     <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
