@@ -15,19 +15,19 @@
 
 - Isira Adithya *(Ruwanpathiranage Ruwanpathirana)*
  <img src="https://isiraadithya.com/images/profile-pic.jpg" width="200px">  
- - Contribution:  
-    - Backend Development
-    - Database Development
-    - CI/CD
-    - Paypal Integration
- - Socials  
-    - [Github](https://github.com/isira-adithya/)  
-    - [Website](https://isiraadithya.com/)  
-    - [Blog](https://blog.isiraadithya.com/)  
-    - [LinkedIn](https://www.linkedin.com/in/isiraadithya/)  
-    - [Twitter](https://twitter.com/isira_adithya)  
-    - [Facebook](https://www.facebook.com/isiraadithyaruwanpathirana/)  
-    - [Instagram](https://www.instagram.com/isira_adithya/) 
+  - Contribution:  
+     - Backend Development
+     - Database Development
+     - CI/CD
+     - Paypal Integration
+  - Socials  
+     - [Github](https://github.com/isira-adithya/)  
+     - [Website](https://isiraadithya.com/)  
+     - [Blog](https://blog.isiraadithya.com/)  
+     - [LinkedIn](https://www.linkedin.com/in/isiraadithya/)  
+     - [Twitter](https://twitter.com/isira_adithya)  
+     - [Facebook](https://www.facebook.com/isiraadithyaruwanpathirana/)  
+     - [Instagram](https://www.instagram.com/isira_adithya/) 
 - Hashen Ruwanpura
 - Nesith Perera
 - Sanuth Karunagoda
