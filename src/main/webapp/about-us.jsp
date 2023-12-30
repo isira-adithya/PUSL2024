@@ -319,7 +319,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/" alt="Feedback 2" class="rounded-circle product-image" width="30" height="50">
+                                <img src="/uploads/about us/stars1.jpg" alt="Feedback 2" class="rounded-circle product-image" width="30" height="50">
                                 <div>
                                     <strong>Customer Feedback</strong>
                                     <p>Our Happy Customer</p>
