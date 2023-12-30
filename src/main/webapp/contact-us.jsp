@@ -172,15 +172,17 @@
     <div class="login-form mb-4">
       <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
         <p>Send us a mail</p>
-        <p><a href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
-          <a href="mailto:support@greensupermarket.live">support@greensupermarket.live</a></p>
+        <p>
+          <a class="btn btn-white my-2" style="color: #00b207;" href="mailto:contact@greensupermarket.live">contact@greensupermarket.live</a> <br>
+          <a class="btn btn-white my-2" style="color: #00b207;" href="mailto:support@greensupermarket.live">support@greensupermarket.live</a>
+        </p>
         <hr>
         <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
         <p>
         <p>
         <p>Call us here</p>
-        <a href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
-        <a href="tel:+94701234562"> (+94) 70 123 4562 </a>
+        <a class="btn btn-white my-2" style="color: #00b207;" href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
+        <a class="btn btn-white my-2" style="color: #00b207;" href="tel:+94701234562"> (+94) 70 123 4562 </a>
         </p>
       </center>
 
