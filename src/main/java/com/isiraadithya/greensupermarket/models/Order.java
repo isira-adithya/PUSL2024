@@ -65,9 +65,13 @@ public class Order {
 
     public String getOrderStatus() {
         boolean isCancelled = (System.currentTimeMillis() - this.dateTime.getTime()) > (1000*60*60*24);
-        if (isCancelled && (!this.orderStatus.equals("COMPLETED"))){
+        // Checking the payment is not completed
+        if (isCancelled && !(this.paymentStatus.equals("COMPLETED"))){
+
+            // If the payment is not completed, the order status should be cancelled.
             if (!this.orderStatus.equals("CANCELLED")){
                 this.setOrderStatus("CANCELLED");
+                this.sendOrderExpiredEmail();
                 this.updateOrder();
             }
         }
@@ -560,7 +564,7 @@ public class Order {
         receiptEmail.send();
     }
 
-    private void sendCancellationEmail(){
+    public void sendCancellationEmail(){
         User user = User.findUserById(this.userId);
         String emailSubject = "Order ID " + this.orderId + " Cancelled.";
         StringBuilder emailBody = new StringBuilder("");
@@ -582,6 +586,7 @@ public class Order {
         emailBody.append("</body>");
         emailBody.append("</html>");
         Email cancellationEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
+        cancellationEmail.send();
     }
 
     public void cancelOrder(){
@@ -591,7 +596,11 @@ public class Order {
         this.sendCancellationEmail();
     }
 
-    public void markAsCompleted(){
+    public void sendOrderExpiredEmail(){
+        System.out.println("Sending order expired email");
+    }
+
+    public void markPaymentAsCompleted(){
         this.setOrderStatus("COMPLETED");
 
         for (int i = 0; i < this.orderDetails.size(); i++){
