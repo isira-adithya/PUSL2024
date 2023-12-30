@@ -303,15 +303,13 @@
                                     <p>100% healthy and fresh food.</p>
                                 </div>
                             </li>
-                            <li>
-                               
+                            <li>                               
                                 <div>
                                     <strong>Great Support 24/7</strong>
                                     <p>Instant access to Contact</p>
                                 </div>
                             </li>
-                            <li>
-                                <img src="/uploads/about us/stars1.jpg" alt="Feedback 2" class="rounded-circle product-image" width="30" height="50">
+                            <li>                               
                                 <div>
                                     <strong>Customer Feedback</strong>
                                     <p>Our Happy Customer</p>
