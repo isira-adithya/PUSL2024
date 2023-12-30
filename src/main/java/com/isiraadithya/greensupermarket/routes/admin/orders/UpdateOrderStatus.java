@@ -26,13 +26,22 @@ public class UpdateOrderStatus extends HttpServlet {
         if ((!req.getParameterMap().containsKey("deliveryStatus")) || (!req.getParameterMap().containsKey("orderStatus"))){
             resp.setStatus(500);
             return;
+        } else {
+            orderStatus = req.getParameter("orderStatus");
+            deliveryStatus = req.getParameter("deliveryStatus");
         }
 
         Order orderObj = Order.findOrderById(orderId);
         if (orderObj.getOrderId() != -1){
             try {
-                orderObj.setOrderStatus(req.getParameter("orderStatus"));
-                orderObj.setDeliveryStatus(req.getParameter("deliveryStatus"));
+                // Checking if the order status is changed to cancelled from another state. if so, sending the cancellation email.
+                if (!orderObj.getOrderStatus().equals("CANCELLED") && orderStatus.equals("CANCELLED")){
+                    orderObj.sendCancellationEmail();
+                    orderObj.setPaymentStatus("PENDING_REFUND");
+                }
+                orderObj.setOrderStatus(orderStatus);
+                orderObj.setDeliveryStatus(deliveryStatus);
+                orderObj.updateOrder();
             } catch (Exception ex) {
                 resp.sendRedirect("/admin/orders/?err=Something went wrong, please try again later");
                 System.out.println(ex.getMessage());
