@@ -319,28 +319,28 @@
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="30" height="50">
+                                <img src="/uploads/about us/" alt="Feedback 2" class="rounded-circle product-image" width="30" height="50">
                                 <div>
                                     <strong>Customer Feedback</strong>
                                     <p>Our Happy Customer</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Payment 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Secure Payment</strong>
                                     <p>We ensure your money is safe</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Shipping 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>Free Shipping</strong>
                                     <p>Free shipping with Discount.</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="/uploads/about us/" alt="Product 2" class="rounded-circle product-image" width="50" height="50">
+                                <img src="/uploads/about us/" alt="Food 2" class="rounded-circle product-image" width="50" height="50">
                                 <div>
                                     <strong>100% Organic Food </strong>
                                     <p>100% healthy & Fresh Food.</p>
