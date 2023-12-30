@@ -351,6 +351,17 @@
                     <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
                     <p>We ensure swift delivery so you can savor your order stress-free.<br>Your satisfaction is our
                        priority. Making every moment of<br> enjoyment yours to relish.</p>
+                    <ul class="list-unstyled check-list">
+                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Swift delivery, relish-free, your enjoyment our commitment"</li>
+                            <li><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Efficient delivery, indulge worry-free, delight in every bite"</li>
+                            <li style="position: relative;"><img src="/uploads/about us/Check.png" alt="Green Tick" class="checkmark"> "Timely delivery, saver with ease, your satisfaction guaranteed."
+                                <!-- Shop Now button -->
+                                <div class="shop-now-container">
+                                    <a href="/products/product.jsp" class="shop-now-btn">Shop Now <span>&rarr;</span></a>
+                                </div>
+                            </li>
+                            <!-- Add more list items as needed -->
+                    </ul>
                 </div>
                 <div class="col-md-6">
                     <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
