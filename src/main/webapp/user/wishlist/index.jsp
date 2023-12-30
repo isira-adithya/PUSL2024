@@ -71,8 +71,6 @@
         </div>
     </c:if>
     <c:if test="${wishlistDetailList.size() > 0}">
-        <img src = "/uploads/images/products/Breadcrumbs.png" class="image">
-        <br>
         <div class="mx-5">
             <h3 class="text-center">Your Wishlist</h3>
             <table class="table">
