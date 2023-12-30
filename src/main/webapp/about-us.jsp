@@ -342,7 +342,26 @@
     </section>
 
         <!-- Third Card (Image on the Left, Text on the Right) -->
-        <div class="card custom-card mb-4">
+        
+    <section>
+    <div class="container tile-1">      
+        <div class="custom-card ">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6 ">
+                    <h1 class="card-title">Enriching Lives Through Quality and Community Focus.</h1>
+                    <p>Dedicated to enriching lives through a diverse selection of quality products, with a
+                        commitment to excellence, we strive to be your go-to destination for all your grocery
+                        needs, fostering a welcoming environment for families and individuals alike.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/uploads/about us/theman1.jpg" alt="Card Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    <div>
+    </section>
+    <section>
+        <div class=" custom-card mb-4">
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-text">
