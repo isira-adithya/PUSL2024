@@ -93,11 +93,6 @@
         border-color: #00B207;
     }
     
-    .custom-form-control {
-        font-weight: bold;
-        font-size: 15px;
-    }
-    
     .custom-search-button {
         background-color: #00B207;
         color: #FFFFFF;
@@ -120,12 +115,6 @@
     
     .custom-small-image {
         max-width: 25px;
-    }
-    
-    .custom-hr-line {
-        border: 1px solid #000000;
-        margin: 10px 0;
-        width: 100%;
     }
     
     .custom-input-group {

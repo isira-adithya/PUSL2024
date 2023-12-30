@@ -122,7 +122,7 @@
                         <div class="custom-card">
                             <img src="<%= XSSPreventor.encodeToHtmlEntities(products.get(i).getImage()) %>" alt="Product Image" class="img-fluid mb-3 card-img" style="height: 191px;width: 191px;">
                             <div style="font-size: 1rem;"><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></div>
-                            <p><%= products.get(i).getPrice() %>$</p>
+                            <div class="mt-2" style="color: #18781e;"><%= products.get(i).getPrice() %>$</div>
                             <a href="/products/product.jsp?id=<%= products.get(i).getProductId() %>" class="card-button">Buy Now</a>
                         </div>
                     </div>
