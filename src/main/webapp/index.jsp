@@ -21,7 +21,7 @@
 <%
     List<Product> products = new ArrayList<Product>();
 
-    products = Product.getProducts();
+    products = Product.getRandomFeaturedProducts();
     if (products.size() <= 0){
         response.sendRedirect("/404.jsp");
         return;
@@ -70,33 +70,13 @@
             height: auto;
         }
 
-        .image {
-             margin-bottom: 60px;
-             width: 100%;
-             height: 130px;
-             position: relative;
-             background: linear-gradient(90deg, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0) 100%);
-             background-image: url("/uploads/images/products/Breadcrumbs.png");
-             background-size: cover;
-             background-position: center; /* Default position */
-}
 
-/* Adjust background position for mobile view */
-    @media screen and (max-width: 600px) {
-        .image {
-            height: 120px; /* Adjust the height as needed */
-            background-position: left center; /* Adjust position for left cropping */
-            object-fit: cover;
-    }
-}
     </style>
 </head>
 <body>
 
 <%@include file="includes/header.jsp"%>
-    <div>
-        <img src="/uploads/images/products/Breadcrumbs.png" alt="Vege Image" class="image">
-    </div>
+
     <section class="home-land">
         <div class="container">
             <div class="row text-center justify-content-center align-items-center">
@@ -141,8 +121,8 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="custom-card">
                             <img src="<%= XSSPreventor.encodeToHtmlEntities(products.get(i).getImage()) %>" alt="Product Image" class="img-fluid mb-3 card-img" style="height: 191px;width: 191px;">
-                            <h5><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></h5>
-                            <p><%= products.get(i).getPrice() %>$</p>
+                            <div style="font-size: 1rem;"><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></div>
+                            <div class="mt-2" style="color: #18781e;"><%= products.get(i).getPrice() %>$</div>
                             <a href="/products/product.jsp?id=<%= products.get(i).getProductId() %>" class="card-button">Buy Now</a>
                         </div>
                     </div>

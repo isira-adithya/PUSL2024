@@ -25,6 +25,7 @@ public class OrderCancel extends HttpServlet {
             order.setPaymentStatus("ERROR");
             order.setDeliveryStatus("N/A");
             order.updateOrder();
+            order.sendCancellationEmailByUser();
 
             resp.sendRedirect("/user/orders/order.jsp?id=" + order.getOrderId());
         } catch (Exception ex){

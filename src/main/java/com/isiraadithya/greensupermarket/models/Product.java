@@ -273,4 +273,48 @@ public class Product {
         Database.closeConnection();
         return new Product("NULL", "NULL", "NULL", "NULL", 0, 0, false);
     }
+
+    public static List<Product> getRandomFeaturedProducts(){
+        try {
+            List<Product> products = new ArrayList<Product>();
+
+            Connection dbconn = Database.connect();
+            String query = "SELECT * FROM Products WHERE visibility=true ORDER BY RAND() LIMIT 6";
+            Statement sqlStatement = dbconn.createStatement();
+            ResultSet resultSet = sqlStatement.executeQuery(query);
+
+            // Fields
+            int _productId = -1;
+            int _quantity = 0;
+            double _price = 0;
+            String _name = "NULL";
+            String _description = "NULL";
+            String _image = "NULL";
+            String _short_description = "NULL";
+            Boolean _visibility = false;
+            Timestamp _createdAt = new Timestamp(1);
+
+            while(resultSet.next()){
+                _productId = resultSet.getInt("productid");
+                _quantity = resultSet.getInt("quantity");
+                _price = resultSet.getDouble("price");
+                _name = resultSet.getString("name");
+                _description = resultSet.getString("description");
+                _image = resultSet.getString("image");
+                _short_description = resultSet.getString("short_description");
+                _visibility = resultSet.getBoolean("visibility");
+                _createdAt = resultSet.getTimestamp("createdAt");
+
+                Product _tmp = new Product(_name, _short_description, _description, _image, _price, _quantity, _visibility);
+                _tmp.setCreatedAt(_createdAt);
+                _tmp.setProductId(_productId);
+                products.add(_tmp);
+            }
+            Database.closeConnection();
+            return products;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return new ArrayList<Product>();
+    }
 }

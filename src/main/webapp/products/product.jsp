@@ -6,6 +6,7 @@
 --%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.isiraadithya.greensupermarket.models.*" %>
+<%@ page import="com.isiraadithya.greensupermarket.helpers.XSSPreventor" %>
 <%@include file="/includes/variables.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
@@ -318,7 +319,7 @@
       <h5 style="color:#00b207;">${fn:escapeXml(product.price)}$</h5>
       
       <hr>
-      <p>${fn:escapeXml(product.description)}</p>
+      <p><% out.print(XSSPreventor.encodeToHtmlEntities(product.getDescription()).replaceAll("\n", "<br>")); %></p>
 
       <hr>
         <c:if test="${availableQuantity <= 0}">

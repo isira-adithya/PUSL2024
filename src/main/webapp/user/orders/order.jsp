@@ -91,17 +91,6 @@
             object-fit: cover;
     }
 }
-            
-            .custom-button{
-            width:150px;
-            border-radius: 100px;
-            
-            .buttons{
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 30px;
     </style>
 </head>
 
@@ -169,55 +158,61 @@
         </tbody>
     </table>
 
-      <div class="mt-4">
-          <p class="my-2">Date/Time: <i>${order.dateTime.toString()}</i></p><br>
+      <div class="mt-4 mb-2">Date/Time: <i>${order.dateTime.toString()}</i><br></div>
+      <div>
       Payment Status:
       <c:if test="${order.paymentStatus.equals('PENDING')}">
-          <i style="color: #00B207">PENDING</i><br>
-          <b>
-              <small>
-                  Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
-                  <br><br>
-                  We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
-              </small>
-          </b>
+          <span><b class="btn btn-white pb-2" style="color: #00B207">PENDING</b></span>
+          <div class="alert alert-primary">
+              <b>
+                  <small>
+                      Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
+                      <br><br>
+                      We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
+                  </small>
+              </b>
+          </div>
       </c:if>
-      <c:if test="${order.paymentStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
-          <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><i style="color: yellow;">PENDING_REFUND</i></c:if>
-          <c:if test="${order.paymentStatus.equals('REFUNDED')}"><i style="color: green;">REFUNDED</i></c:if>
+      <c:if test="${order.paymentStatus.equals('COMPLETED')}"><span><b class="btn btn-white pb-2" style="color: green;">COMPLETED</b></span></c:if>
+          <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><span><b class="btn btn-white pb-2" style="color: yellow;">PENDING_REFUND</b></span></c:if>
+          <c:if test="${order.paymentStatus.equals('REFUNDED')}"><span><b class="btn btn-white pb-2" style="color: green;">REFUNDED</b></span></c:if>
       <c:if test="${order.paymentStatus.equals('ERROR')}">
-          <i style="color: red;">ERROR</i><br>
-          <b>
-              <small class="mb-4">
-                  Something went wrong while processing your payment. Please try again later.
-              </small>
-          </b>
+          <span><b class="btn btn-white pb-2" style="color: red;">ERROR</b><br></span>
+          <div class="alert alert-primary">
+              <b>
+                  <small class="mb-4">
+                      Something went wrong while processing your payment. Please try again later.
+                  </small>
+              </b>
+          </div>
           <br>
       </c:if>
         </div>
 
-      <div class="mt-4">
+      <div>
           Delivery Status:
           <c:if test="${order.deliveryStatus.equals('PENDING')}">
-              <i style="color: #00B207">PENDING</i><br>
-              <b>
-                  <small class="mb-4">
-                      Your order is on the way, if you haven't received the order within 7 days after you placed your order, please inform us.
-                  </small>
-              </b>
+              <b class="btn btn-white pb-2" style="color: #00B207">PENDING</b><br>
+              <div class="alert alert-primary">
+                  <b>
+                      <small class="mb-4">
+                          Your order is on the way, if you haven't received the order within 7 days after you placed your order, please inform us.
+                      </small>
+                  </b>
+              </div>
           </c:if>
-          <c:if test="${order.deliveryStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+          <c:if test="${order.deliveryStatus.equals('COMPLETED')}"><b class="btn btn-white pb-2" style="color: green;">COMPLETED</b></c:if>
           <c:if test="${order.deliveryStatus.equals('N/A')}">
-              <i style="color: black;">Not Applicable</i>
+              <b class="btn btn-white pb-2" style="color: black;">Not Applicable</b>
           </c:if>
           <c:if test="${order.deliveryStatus.equals('CANCELLED')}">
-              <i style="color: black;">CANCELLED</i>
+              <b class="btn btn-white pb-2" style="color: black;">CANCELLED</b>
           </c:if>
       </div>
 
     <c:if test="${order.paymentStatus.equals('PENDING')}">
         
-        <div class="buttons mt-4">
+        <div class="mt-4">
             <div class="row text-center">
                 <div class="col-4">
                     <button type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207">Pay 💵</button>
@@ -233,6 +228,7 @@
                 </div>
             </div>
         </div>
+
     </c:if>
   </div>
 </div>
