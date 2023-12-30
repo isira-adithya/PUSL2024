@@ -168,7 +168,7 @@
 <br><br><br><br>
 <div class="container login-form-container">
   <!-- Left Section -->
-  <div class="col-md-4">
+  <div class="col-md-4 mt-2">
     <div class="login-form mb-4">
       <center><img src="/uploads/images/contactus/Email.png" alt="Email image">
         <p>Send us a mail</p>
@@ -178,8 +178,6 @@
         </p>
         <hr>
         <img src="/uploads/images/contactus/PhoneCall.jpg" alt="Email image">
-        <p>
-        <p>
         <p>Call us here</p>
         <a class="btn btn-white my-2" style="color: #00b207;" href="tel:+94701234561"> (+94) 70 123 4561 </a><br>
         <a class="btn btn-white my-2" style="color: #00b207;" href="tel:+94701234562"> (+94) 70 123 4562 </a>
