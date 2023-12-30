@@ -419,7 +419,7 @@
                                         </ul>
                                     </div>
                                     <h2>Isira Adithya</h2>
-                                    <h3>Founder</h3>
+                                    <h3>Fullstack Developer, Team Leader</h3>
                                 </div>
 
                                 <!-- Second Team Member -->
@@ -432,7 +432,7 @@
                                         </ul>
                                     </div>
                                     <h2>Nesith Perera</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                                 </div>
                                 <!-- Third Team Member -->
                                  <div class="col-md-3 profile text-center mx-auto">
@@ -444,7 +444,7 @@
                                         </ul>
                                     </div>
                                     <h2>Hashen Ruwanpura</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                             </div>                           
                             </div>
                         </div>
@@ -469,7 +469,7 @@
                                         </ul>
                                     </div>
                                     <h2>Sanuth Karunagoda</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                                 </div>
 
                                 <!-- Fifth Team Member -->
@@ -483,11 +483,11 @@
                                     </div>
                                     <!-- Fifth Team Member -->
                                     <h2>Chandesh Gunawardena</h2>
-                                    <h3>Founder</h3>
+                                    <h3>UI/UX Developer, Team Member</h3>
                                 </div>
                                 <div class="col-md-3 profile text-center mx-auto">
                                     <div class="img-box">
-                                        <img src="uploads/about us/person.jpg" class="img-responsive img-fluid">
+                                        <img src="uploads/about us/women1.jpg" class="img-responsive img-fluid">
                                         <ul>
                                          <li><a href="#" class="social-square"><i class="fab fa-instagram"></i></a></li>
                                          <li><a href="#" class="social-square"><i class="fab fa-linkedin"></i></a></li>
@@ -495,7 +495,7 @@
                                     </div>
                                     <!-- Sixth Team Member -->
                                     <h2>Thiyara Bandara</h2>
-                                    <h3>Founder</h3>
+                                    <h3> UI/UX Developer, Team Member</h3>
                                 </div>
 
                             </div>
