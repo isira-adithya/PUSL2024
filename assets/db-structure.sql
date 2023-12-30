@@ -53,7 +53,7 @@ CREATE TABLE Orders (
     additionalCharges DECIMAL(10, 2),
     status VARCHAR(32), /* PENDING, COMPLETED, CANCELLED */
     delivery_status VARCHAR(32), /* N/A, PENDING, COMPLETED, CANCELLED */
-    payment_status VARCHAR(32), /* PENDING, COMPLETED, ERROR */
+    payment_status VARCHAR(32), /* PENDING, COMPLETED, ERROR, PENDING_REFUND, REFUNDED */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (

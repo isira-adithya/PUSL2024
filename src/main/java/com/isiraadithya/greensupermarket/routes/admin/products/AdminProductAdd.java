@@ -48,7 +48,7 @@ public class AdminProductAdd extends HttpServlet {
             }
 
             // Creating a new product
-            Product product = new Product(productName, productDescription, productShortDescription, "NULL", productPrice, productQuantity, productVisibility);
+            Product product = new Product(productName, productShortDescription, productDescription, "NULL", productPrice, productQuantity, productVisibility);
 
             // Let's make sure that the dir is accessible
             String productImageUploadDirPath = req.getServletContext().getRealPath("/uploads/images/products/");
