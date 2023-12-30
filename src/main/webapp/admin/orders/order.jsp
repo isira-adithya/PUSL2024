@@ -155,14 +155,19 @@
                 </tr>
 
                 <c:if test="${order.paymentStatus.equals('COMPLETED') || order.paymentStatus.equals('PENDING_REFUND') || order.paymentStatus.equals('REFUNDED')}">
-                    <td>Delivery Status:</td>
-                    <td>
-                        <select class="form-select" name="deliveryStatus">
-                            <option value="CANCELLED" ${order.deliveryStatus.equals('CANCELLED') ? 'selected' : ''}>CANCELLED</option>
-                            <option value="PENDING" ${order.deliveryStatus.equals('PENDING') ? 'selected' : ''}>PENDING</option>
-                            <option value="COMPLETED" ${order.deliveryStatus.equals('COMPLETED') ? 'selected' : ''}>COMPLETED</option>
-                        </select>
-                    </td>
+                    <c:if test="${order.deliveryStatus.equals('N/A')}">
+                        <div class="btn btn-danger btn-sm" style="cursor: default;">Not Applicable</div>
+                    </c:if>
+                    <c:if test="${!order.deliveryStatus.equals('N/A')}">
+                        <td>Delivery Status:</td>
+                        <td>
+                            <select class="form-select" name="deliveryStatus">
+                                <option value="CANCELLED" ${order.deliveryStatus.equals('CANCELLED') ? 'selected' : ''}>CANCELLED</option>
+                                <option value="PENDING" ${order.deliveryStatus.equals('PENDING') ? 'selected' : ''}>PENDING</option>
+                                <option value="COMPLETED" ${order.deliveryStatus.equals('COMPLETED') ? 'selected' : ''}>COMPLETED</option>
+                            </select>
+                        </td>
+                    </c:if>
                 </c:if>
 
                 <tr>
@@ -170,6 +175,7 @@
                     <td>
                         <c:if test="${!order.orderStatus.equals('CANCELLED')}">
                             <select class="form-select" name="orderStatus">
+                                <option value="CANCELLED" ${order.orderStatus.equals('CANCELLED') ? 'selected' : ''}>CANCELLED</option>
                                 <option value="PENDING" ${order.orderStatus.equals('PENDING') ? 'selected' : ''}>PENDING</option>
                                 <option value="COMPLETED" ${order.orderStatus.equals('COMPLETED') ? 'selected' : ''} ${!order.deliveryStatus.equals('COMPLETED') ? 'disabled' : ''}>COMPLETED</option>
                             </select>
