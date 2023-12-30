@@ -1,5 +1,7 @@
 package com.isiraadithya.greensupermarket.models;
 
+import com.isiraadithya.greensupermarket.helpers.PaymentServices;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class Cart {
     }
 
     public double getTotalCost(){
-        return this.totalCost;
+        return Double.parseDouble(PaymentServices.formatPaymentValue(this.totalCost));
     }
 
     public Map<Product, Integer> getProductQuantities() {
