@@ -21,7 +21,7 @@
 <%
     List<Product> products = new ArrayList<Product>();
 
-    products = Product.getProducts();
+    products = Product.getRandomFeaturedProducts();
     if (products.size() <= 0){
         response.sendRedirect("/404.jsp");
         return;
@@ -141,7 +141,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="custom-card">
                             <img src="<%= XSSPreventor.encodeToHtmlEntities(products.get(i).getImage()) %>" alt="Product Image" class="img-fluid mb-3 card-img" style="height: 191px;width: 191px;">
-                            <h5><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></h5>
+                            <div style="font-size: 1rem;"><%= XSSPreventor.encodeToHtmlEntities(products.get(i).getName()) %></div>
                             <p><%= products.get(i).getPrice() %>$</p>
                             <a href="/products/product.jsp?id=<%= products.get(i).getProductId() %>" class="card-button">Buy Now</a>
                         </div>

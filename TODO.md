@@ -1,8 +1,7 @@
 # GreenSuperMarket - Online E-Commerce Website
 
-### *Todos*
+### Todos
 - [X] Add Styles (CSS, Bootstrap, etc)
-  - [ ] Add Styles to the order confirmation email
 - [X] Make File Uploads More Secure
 - [X] Add / Load sample data to the database
   - [X] Add realistic product information
@@ -25,11 +24,11 @@
   - [X] Send order cancellation emails
 - [X] Add the PayPal sandbox integration
 - [X] Add better Exceptional handling, Logging and Verbose Error messages for users to see.
-- [ ] Show random featured products for every user (should check the visibility of products)
-- [ ] Update the `Product.getProducts` function and add functionalities to filter products by visibility.
-- [ ] Finish the about us section of the website.
+- [X] Show random featured products for every user (should check the visibility of products)
+- [X] Update the `Product.getProducts` function and add functionalities to filter products by visibility.
+- [X] Finish the about us section of the website.
 - [X] Fix the Signup page's form
-- [ ] Change roles in About us
+- [X] Change roles in About us
 
 ## Sample Credentials For Payments
 *Visit https://developer.paypal.com/tools/sandbox/card-testing/ to generate your own card.*

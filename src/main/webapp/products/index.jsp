@@ -45,7 +45,18 @@
         .banner-image{
             max-width: 100%;
         }
-        
+
+        .shortDescriptionText {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; /* number of lines to show */
+        }
+
+        .productNameText {
+            min-height: 3rem;
+        }
     </style>
 </head>
 <body>
@@ -66,9 +77,9 @@
                     <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="custom-card">
                             <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
-                            <h5>${fn:escapeXml(product.name)}</h5>
-                            <p class="card-text">${fn:escapeXml(product.shortDescription)}</p>
-                            <p>${product.price}$</p>
+                            <h5 class="productNameText">${fn:escapeXml(product.name)}</h5>
+                            <p class="shortDescriptionText" style="font-size: 0.8rem; color: gray;">${fn:escapeXml(product.shortDescription)}</p>
+                            <p style="color: #18781e;">${product.price} $</p>
                             <a href="/products/product.jsp?id=${product.productId}" class="card-button">Buy Now</a>
                         </div>
                     </div>
