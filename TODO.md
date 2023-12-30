@@ -3,7 +3,7 @@
 ### *Todos*
 - [X] Add Styles (CSS, Bootstrap, etc)
   - [ ] Add Styles to the order confirmation email
-- [ ] Make File Uploads More Secure
+- [X] Make File Uploads More Secure
 - [X] Add / Load sample data to the database
   - [X] Add realistic product information
 - [X] Add Contact Us Page (Not a static HTML page)
