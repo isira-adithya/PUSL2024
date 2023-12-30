@@ -6,6 +6,7 @@
 --%>
 <%@include file="/includes/variables.jsp"%>
 <%@ page import="com.isiraadithya.greensupermarket.models.Cart" %>
+<%@ page import="com.isiraadithya.greensupermarket.helpers.PaymentServices" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     int userId = (int) session.getAttribute("userId");
@@ -53,11 +54,7 @@
             margin: 10px 0px 10px 0px;
             
         }
-        .cart-container:hover{
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: none;
-        }
+
 
         .additional-container {
             width: 100%;
@@ -68,15 +65,6 @@
             border: 2px solid #00B207;
             margin: 10px 0px 10px 0px;
             
-        }
-        .additional-container:hover {
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: none;  
-        }
-        .containerprices{
-            display: flex;
-
         }
 
         p {
@@ -259,7 +247,7 @@
     
     <div class="col-md-8">
     <c:if test="${isCartEmpty}">
-        <div class="align-items-center text-center justify-content-center ">
+        <div class="align-items-center text-center justify-content-center mb-5">
             <img src="/uploads/images/common/not-found.jpeg" class="not-found-img">
             <h3>Your cart is empty</h3>
             <a href="/products" style="color:#00b207">Visit Our Products</a>
@@ -295,7 +283,7 @@
                             <td style="vertical-align: middle;">${fn:escapeXml(_value.value)}</td>
                             <td style="vertical-align: middle;">$${fn:escapeXml(_value.key.price)} Each</td>
                             <td style="vertical-align: middle;">
-                                $${fn:escapeXml(_value.key.price * _value.value)}
+                                $<script>document.write((Math.round(${fn:escapeXml(_value.key.price * _value.value)} * 100) / 100).toFixed(2))</script>
                             </td>
                             <td style="vertical-align: middle;">
                                 <form action="/api/user/cart/deleteItem" method="post">

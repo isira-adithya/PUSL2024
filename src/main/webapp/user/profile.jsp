@@ -249,17 +249,21 @@
 
                 <div class="buttons">
                     <div class="row">
-                        <button class="btn btn-primary col mx-2" id="editBtn" onclick="toggleEdit()">
-                            Edit
+                        <button class="btn btn-primary col-12 col-md-2 mx-1 mb-2" id="editBtn" onclick="toggleEdit()">
+                         Edit
                         </button>
-                        <a href="/user/changepassword.jsp" class="btn btn-primary col mx-2">Change password</a>
-                        <a class="btn btn-primary col mx-2" href="/logout.jsp">Log-out</a>
-                        <button class="btn btn-danger col mx-2" onclick="deleteAccount()">
-                            Delete Account
+
+                        <a href="/user/changepassword.jsp" class="btn btn-primary col-12 col-md-4 mx-1 mb-2">
+                         Change password
+                        </a>
+
+                        <a class="btn btn-primary col-12 col-md-2 mx-1 mb-2" href="/logout.jsp">Log-out</a>
+
+                        <button class="btn btn-danger col-12 col-md-3 mx-1 mb-2" onclick="deleteAccount()">
+                             Delete Profile
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

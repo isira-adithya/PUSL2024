@@ -87,7 +87,7 @@
             height: 120px; /* Adjust the height as needed */
             background-position: left center; /* Adjust position for left cropping */
             object-fit: cover;
-    }
+    }}
         
     </style>
 </head>
@@ -118,7 +118,7 @@
                 <tr>
                     <td>${fn:escapeXml(product.name)}</td>
                     <td><center><img src="${fn:escapeXml(product.image)}" width="200px"></center></td>
-                    <td>${fn:escapeXml(product.description)}</td>
+                    <td>${fn:escapeXml(product.shortDescription)}</td>
                     <td>${fn:escapeXml(product.quantity)}</td>
                     <td>${fn:escapeXml(product.price)}</td>
                     <td><center>
@@ -138,11 +138,11 @@
             </c:forEach>
         </tbody>
         </table><br><br><br><br>
-        <form method="post" action="/admin/products/add.jsp">
+        
+</div><br><br>
+    <form method="post" action="/admin/products/add.jsp">
             <center><button class="Add-new-button">Add New Product</button></center>
         </form>
-    </div>
-    
     
     
     

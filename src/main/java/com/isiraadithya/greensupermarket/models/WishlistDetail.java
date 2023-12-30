@@ -87,7 +87,7 @@ public class WishlistDetail {
         try {
             Connection dbconn = Database.connect();
 
-            String sqlQuery = "SELECT * FROM wishlistdetails WHERE wishlistid=?";
+            String sqlQuery = "SELECT * FROM WishlistDetails WHERE wishlistid=?";
             PreparedStatement sqlStatement = dbconn.prepareStatement(sqlQuery);
             sqlStatement.setInt(1, wishlistId);
             ResultSet resultSet = sqlStatement.executeQuery();

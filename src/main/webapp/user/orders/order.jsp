@@ -168,36 +168,57 @@
         </c:if>
         </tbody>
     </table>
-    <p>
-        Date/Time: <i>${order.dateTime.toString()}</i><br><br>
-        Order Status:
-        <c:if test="${order.orderStatus.equals('PENDING')}">
-            <i style="color: #00B207">PENDING</i><br><br>
-            <b>
-                <small>
-                    Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
-                    <br><br>
-                    We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
-                </small>
-            </b>
-        </c:if>
-        <c:if test="${order.orderStatus.equals('COMPLETED')}"><i style="color: green; border: 3px solid #ccc; background-color:#A7FFA4 ">COMPLETED</i></c:if>
-        <c:if test="${order.orderStatus.equals('CANCELLED')}">
-            <i style="color: red;border: 3px solid #ccc; background-color:#F7AA97 ">CANCELLED</i>
-            <br>
-            <b>
-                <small>
-                    Unfortunately, your order has been cancelled. Please reorder the items again by visiting <a href="/products/">here</a> .
-                </small>
-            </b>
-        </c:if>
-    </p>
-    <br>
 
-    <c:if test="${order.orderStatus.equals('PENDING')}">
+      <div>
+          <p class="my-2">Date/Time: <i>${order.dateTime.toString()}</i></p>
+      Payment Status:
+      <c:if test="${order.paymentStatus.equals('PENDING')}">
+          <i style="color: #00B207">PENDING</i><br><br>
+          <b>
+              <small class="mb-4">
+                  Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
+                  <br><br>
+                  We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
+              </small>
+          </b>
+      </c:if>
+      <c:if test="${order.paymentStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+          <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><i style="color: yellow;">PENDING_REFUND</i></c:if>
+          <c:if test="${order.paymentStatus.equals('REFUNDED')}"><i style="color: green;">REFUNDED</i></c:if>
+      <c:if test="${order.paymentStatus.equals('ERROR')}">
+          <i style="color: red;">ERROR</i>
+          <b>
+              <small class="mb-4">
+                  Something went wrong while processing your payment. Please try again later.
+              </small>
+          </b>
+          <br>
+      </c:if>
+        </div>
+
+      <div class="mt-2">
+          Delivery Status:
+          <c:if test="${order.deliveryStatus.equals('PENDING')}">
+              <i style="color: #00B207">PENDING</i><br><br>
+              <b>
+                  <small class="mb-4">
+                      Your order is on the way, if you haven't received the order within 7 days after you placed your order, please inform us.
+                  </small>
+              </b>
+          </c:if>
+          <c:if test="${order.deliveryStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+          <c:if test="${order.deliveryStatus.equals('N/A')}">
+              <i style="color: black;">Not Applicable</i>
+          </c:if>
+          <c:if test="${order.deliveryStatus.equals('CANCELLED')}">
+              <i style="color: black;">CANCELLED</i>
+          </c:if>
+      </div>
+
+    <c:if test="${order.paymentStatus.equals('PENDING')}">
         
-        <div class="buttons">
-        <div class="row text-center">
+        <div class="buttons mt-4">
+            <div class="row text-center">
                 <div class="col-4">
                     <button type="submit" class="btn btn-primary custom-button"  onclick="location.href ='/api/user/payments/authorize_payment?orderid=${order.orderId}'" style="background-color:#00B207">Pay 💵</button>
                 </div>
@@ -211,9 +232,9 @@
                     <button type="button" class="btn btn-primary custom-button" onclick="location.href ='/user/orders/'">Go Back</button>
                 </div>
             </div>
-        <br><br>
-    </c:if>
         </div>
+    </c:if>
+  </div>
 </div>
 
 <%@include file="../../includes/footer.jsp"%>
