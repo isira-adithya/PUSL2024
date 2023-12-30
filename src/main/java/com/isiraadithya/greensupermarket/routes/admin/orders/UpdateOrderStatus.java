@@ -38,6 +38,7 @@ public class UpdateOrderStatus extends HttpServlet {
                 if (!orderObj.getOrderStatus().equals("CANCELLED") && orderStatus.equals("CANCELLED")){
                     orderObj.sendCancellationEmail();
                     orderObj.setPaymentStatus("PENDING_REFUND");
+                    orderObj.setDeliveryStatus("N/A");
                 }
                 orderObj.setOrderStatus(orderStatus);
                 orderObj.setDeliveryStatus(deliveryStatus);
