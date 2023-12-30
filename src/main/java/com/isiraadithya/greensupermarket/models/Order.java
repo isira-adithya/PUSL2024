@@ -601,7 +601,7 @@ public class Order {
     }
 
     public void markPaymentAsCompleted(){
-        this.setOrderStatus("COMPLETED");
+        this.setPaymentStatus("COMPLETED");
 
         for (int i = 0; i < this.orderDetails.size(); i++){
             Product product = this.orderDetails.get(i).getProduct();
