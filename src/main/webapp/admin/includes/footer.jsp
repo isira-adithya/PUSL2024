@@ -55,11 +55,6 @@
         height: 25px;
     }
 
-    .social-link:hover {
-        background-color: #01c707;
-        border-radius: 50%;
-    }
-
     .green-supermarket-text {
         position: relative;
         display: inline-block;
@@ -74,6 +69,21 @@
         position: absolute;
         bottom: 0;
         left: 25%;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .footer-section {
+            text-align: center;
+        }
+
+        .social-link {
+            margin: 10px;
+        }
+
+        .footer-container {
+            padding: 1rem;
+        }
     }
 </style>
 
