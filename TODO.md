@@ -29,6 +29,7 @@
 - [ ] Update the `Product.getProducts` function and add functionalities to filter products by visibility.
 - [ ] Finish the about us section of the website.
 - [X] Fix the Signup page's form
+- [ ] Change roles in About us
 
 ## Sample Credentials For Payments
 *Visit https://developer.paypal.com/tools/sandbox/card-testing/ to generate your own card.*
