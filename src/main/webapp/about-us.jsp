@@ -73,13 +73,6 @@
             position: relative; /* Added position relative */
         }
 
-.product-image {
-
-    background-size: cover; /* Make sure the background covers the entire container */
-    background-position: center;
-    margin-right: 10px; /* Add some space between the image and text */
-    border-radius: 50%; /* Set border-radius to 50% to create a circle */
-}
 
         .product-list li div {
             flex-grow: 1;
@@ -305,7 +298,6 @@
                         <!-- List with images on both sides -->
                         <ul class="product-list">
                             <li>
-                                <img src="/uploads/about us/leaf 2.jpg" alt="Product 1" class="rounded-circle product-image" >
                                 <div>
                                     <strong>100% Organic Food</strong>
                                     <p>100% healthy and fresh food.</p>
