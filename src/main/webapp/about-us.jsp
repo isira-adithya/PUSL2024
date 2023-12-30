@@ -273,6 +273,10 @@
                 .sec-2 img {
                     display: none; /* Hide the image on small screens */
                 }
+                .about-man-2{
+                    display:none;
+                }
+                
         }
             
         
@@ -304,7 +308,7 @@
         <!-- Second Card (Image on the Left, Text on the Right) -->
     <section class="sec-2">
         <div class="container">
-            <div class="row  justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center">
                 <div class="col-md-6 abg-img-container">
                     <img src="uploads/images/userhome/Image.png" alt="farmer1" class="img-fluid">
                 </div>
@@ -381,7 +385,7 @@
                             <!-- Add more list items as needed -->
                     </ul>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 about-man-2">
                     <img src="/uploads/about us/theman3.jpg" alt="Card Image" class="img-fluid">
                 </div>
             </div>
