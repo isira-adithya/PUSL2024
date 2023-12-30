@@ -14,13 +14,13 @@
 #### Team Members
 
 - Isira Adithya *(Ruwanpathiranage Ruwanpathirana)*
-> <img src="https://isiraadithya.com/images/profile-pic.jpg" width="200px">
-> - Contribution:
+ <img src="https://isiraadithya.com/images/profile-pic.jpg" width="200px">  
+ - Contribution:  
     - Backend Development
     - Database Development
     - CI/CD
     - Paypal Integration
-> - Socials  
+ - Socials  
     - [Github](https://github.com/isira-adithya/)  
     - [Website](https://isiraadithya.com/)  
     - [Blog](https://blog.isiraadithya.com/)  
