@@ -53,7 +53,7 @@ CREATE TABLE Orders (
     additionalCharges DECIMAL(10, 2),
     status VARCHAR(32), /* PENDING, COMPLETED, CANCELLED */
     delivery_status VARCHAR(32), /* N/A, PENDING, COMPLETED, CANCELLED */
-    payment_status VARCHAR(32), /* PENDING, COMPLETED, ERROR */
+    payment_status VARCHAR(32), /* PENDING, COMPLETED, ERROR, PENDING_REFUND, REFUNDED */
     FOREIGN KEY (userid) REFERENCES Users(userid) ON DELETE CASCADE
 );
 CREATE TABLE OrderDetails (
@@ -117,16 +117,20 @@ INSERT INTO Users (userid, email, password, firstname, lastname, phone, street_a
 (12, 'lilla63@wireconnected.com', '$2a$10$ncecBp9mdwHy1h85qGX.u.SlrJ8E.qZzzs/eGNViFQ82E5/lUqAYC', 'Lilla', 'Louseee', '+9474032566', 'No 74, Sundara Mawatha123', 'Colombo', 'Western Province', 'Sri Lanka', '42669', 'USER', 'NULL', true, TIMESTAMP('2023-07-15', '09:12:55'));
 
 INSERT INTO Products (productid, name, price, quantity, short_description, description, visibility, image, createdAt) VALUES
-(1, 'Extra Virgin Olive Oil', 9.99, 16, 'Essential, pure, adds rich flavor to dishes', '', true, '', TIMESTAMP('2023-06-15', '11:10:58')),
-(2, 'Exotic Mangoes', 2.9, 55, 'Transport yourself with the tropical allure of Exotic Mangoes', '', true, '',TIMESTAMP('2023-06-16', '12:05:30')),
-(3, 'Organic Baby Spinach', 79.99, 93, 'Nourish your body with nutrient-packed Organic Baby Spinach leaves', '', true, '',TIMESTAMP('2023-06-16', '13:06:09')),
-(4, 'Exotic Dragon Fruit', 3.99, 30, 'Experience the extraordinary flavors of Exotic Dragon Fruit today', '', true, '',TIMESTAMP('2023-06-17', '08:10:11')),
-(5, 'Organic Tomatoes', 1.79, 15, 'Enjoy the freshness and richness of locally sourced Organic Tomatoes', '', true, '',TIMESTAMP('2023-06-17', '14:10:30')),
-(6, 'Organic Bell Pepper', 2.39, 25, 'Add vibrancy and taste to your dishes with Organic Bell Pepper', '', true, '',TIMESTAMP('2023-06-19', '15:02:24')),
-(7, 'Organic Beet', 2.29, 50, 'Discover the earthy sweetness and health benefits of Organic Beet', '', true, '',TIMESTAMP('2023-06-21', '13:38:19')),
-(8, 'Green Beans', 4.99, 154, 'Crisp, tender Green Beans, a staple for every healthy plate', '', true, '',TIMESTAMP('2023-06-21', '11:07:27')),
-(9, 'Organic Carrots', 1.99, 43, 'Snack on the satisfying crunch of Organic Carrots', '', true, '',TIMESTAMP('2023-06-22', '12:05:12')),
-(10, 'Organic Red Grapes', 3.29, 34, 'Elevate your palate with the succulent sweetness of Organic Red Grapes', '', true, '',TIMESTAMP('2023-06-14', '19:25:52'));
+(1, 'Extra Virgin Olive Oil', 9.99, 16, 'Essential, pure, adds rich flavor to dishes', 'Our special extra virgin olive oil comes from sunny orchards where olives grow.\nIts made by pressing the olives without using heat, keeping all the good flavors in.\nYou can use it for making salads tastier, dipping bread, or adding a healthy richness to your cooking.\n
+Our extra virgin olive oil elevates every meal with its exquisite taste and healthful benefits.\nGet our extra virgin olive oil and enjoy a delicious meal. ', true, 'virginoil.jpg', TIMESTAMP('2023-06-15', '11:10:58')),
+(2, 'Exotic Mangoes', 2.9, 55, 'Transport yourself with the tropical allure of Exotic Mangoes', 'Our exotic mangoes with a yummy honey like taste are super juicy and has a vibrant sweet flavor.\nEach mango is picked after its perfectly ripe, so it has a delicious taste.\nYou can eat them just by slicing them up, blend them into smoothies or add them to salads to make them sweeter.\nThese exotic mangoes are not just fruits; they are an embodiment of pure, unadulterated indulgence.', true, 'Mango.jpg',TIMESTAMP('2023-06-16', '12:05:30')),
+(3, 'Organic Baby Spinach', 79.99, 93, 'Nourish your body with nutrient-packed Organic Baby Spinach leaves', 'Introducing our organic baby spinach which is really pure and fresh is super healthy and full of good stuff that helps you stay energetic and healthy.\nIt is grown with sustainable farming, without chemicals and harmful pesticides and full of vitamins like A C and K and minerals such as iron and calcium.\nYou can put it in salads, blend it into smoothies or cook it lightly in a pan and make your food nutritious.
+', true, 'spinach.jpg',TIMESTAMP('2023-06-16', '13:06:09')),
+(4, 'Exotic Dragon Fruit', 3.99, 30, 'Experience the extraordinary flavors of Exotic Dragon Fruit today', 'Try our exotic dragon fruit that tastes sweet and a bit like flowers, which makes it different from other fruits.\nYou can eat it cold and sliced, mix it into smoothies, blend it into your favorite smoothie recipes or add it to fruit salads.\nThe specialty of this fruit is Its unique color, taste and appearance create a feast for both eye and tongue.
+', true, 'dragonfruit.jpg',TIMESTAMP('2023-06-17', '08:10:11')),
+(5, 'Organic Tomatoes', 1.79, 15, 'Enjoy the freshness and richness of locally sourced Organic Tomatoes', 'Introducing our special organic tomatoes grown without any chemicals or harmful pesticides which is super fresh and healthy.\nThese tomatoes are super versatile as You can make yummy sauces, toss them in salads, or put them on your favorite dishes.\nThese tomatoes are super versatile. offering not only a burst of flavor but also an array of health benefits. ', true, 'tomatoe.jpg',TIMESTAMP('2023-06-17', '14:10:30')),
+(6, 'Organic Bell Pepper', 2.39, 25, 'Add vibrancy and taste to your dishes with Organic Bell Pepper', 'Taste our super fresh organic bell peppers grown without chemicals and any other harmful pesticides.\nYou can chop them for salads, stuff and bake them, or cook them in a pan for yummy fajitas.\nYou can get them in colors like red, green and yellow.\nThey are packed with vitamins and nutrients and these organic bell peppers make your meals tastier and healthy.\n', true, 'bellpaper.jpg',TIMESTAMP('2023-06-19', '15:02:24')),
+(7, 'Organic Beet', 2.29, 50, 'Discover the earthy sweetness and health benefits of Organic Beet', 'Try our organic beet Grown naturally and free from any harmful chemicals.\nYou can cook them by roasting for a sweet flavor, chop them up for salads, or even blend them into smoothies.\nThey will make your meal healthy as they are rich in vitamins and minerals like iron, fiber, manganese, potassium, vitamin B9 and vitamin C.
+', true, 'beetroot.jpg',TIMESTAMP('2023-06-21', '13:38:19')),
+(8, 'Green Beans', 4.99, 154, 'Crisp, tender Green Beans, a staple for every healthy plate', 'Try our green beans which are really crispy and come straight from our farms without any harmful chemicals.\nYou can steam them gently for a simple and tasty side dish that keeps their crunchiness, fry them with your favorite spices and can include them in salads too.\nThey are full of vitamins like vitamin A, C, K, iron, calcium and folate that make your meals healthy.', true, 'greenbeans.jpg',TIMESTAMP('2023-06-21', '11:07:27')),
+(9, 'Organic Carrots', 1.99, 43, 'Snack on the satisfying crunch of Organic Carrots', 'Try our organic carrots which comes in different colors and naturally grown without harmful chemicals.\nYou can eat these carrots which are super yummy by munching on them for a crunchy snack, cook them in the oven for a sweet taste or shred them into salads.\nThey are rich in vitamins and minerals like vitamin B and B6.', true, 'carrots.jpg',TIMESTAMP('2023-06-22', '12:05:12')),
+(10, 'Organic Red Grapes', 3.29, 34, 'Elevate your palate with the succulent sweetness of Organic Red Grapes', 'Try our organic red grapes which are deep red in color and really sweet in taste.\nThey are grown without any chemicals or harmful pesticides.\nThey are rich in vitamins like vitamin K and copper.\nYou can eat them right off the bunch for a tasty snack or add them to fruit salads for extra sweetness and beauty.', true, 'grapes.jpg',TIMESTAMP('2023-06-14', '19:25:52'));
 
 
 INSERT INTO Orders (orderid, userid, createdAt, amount, additionalCharges, status, delivery_status, payment_status) VALUES
