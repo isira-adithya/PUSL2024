@@ -183,6 +183,8 @@
           </b>
       </c:if>
       <c:if test="${order.paymentStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
+          <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><i style="color: yellow;">PENDING_REFUND</i></c:if>
+          <c:if test="${order.paymentStatus.equals('REFUNDED')}"><i style="color: green;">REFUNDED</i></c:if>
       <c:if test="${order.paymentStatus.equals('ERROR')}">
           <i style="color: red;">ERROR</i>
           <b>
@@ -207,6 +209,9 @@
           <c:if test="${order.deliveryStatus.equals('COMPLETED')}"><i style="color: green;">COMPLETED</i></c:if>
           <c:if test="${order.deliveryStatus.equals('N/A')}">
               <i style="color: black;">Not Applicable</i>
+          </c:if>
+          <c:if test="${order.deliveryStatus.equals('CANCELLED')}">
+              <i style="color: black;">CANCELLED</i>
           </c:if>
       </div>
 
