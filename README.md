@@ -32,7 +32,13 @@
 - Nesith Perera
 - Sanuth Karunagoda
 - Thiyara Bandara
-- Chandesh Gunawardena
+- Chandesh Gunawardena *(Rakitha Gunawardena)* - `Frontend Developer`,`Team member`
+  - Contribution:
+    - Frontend Developer
+  - Socials
+    - [Github](https://github.com/chandeshg/)
+    - [LinkedIn](https://www.linkedin.com/in/chandesh-/)
+    - [Instagram](https://www.instagram.com/chandesh.g/)
 
 <img src="https://contrib.rocks/image?repo=isira-adithya/PUSL2024">
 
