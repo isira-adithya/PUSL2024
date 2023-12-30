@@ -95,7 +95,7 @@ public class Order {
     }
 
     public void setPaymentStatus(String paymentStatus) {
-        if (paymentStatus.equals("PENDING") || paymentStatus.equals("COMPLETED") || paymentStatus.equals("ERROR")){
+        if (paymentStatus.equals("PENDING") || paymentStatus.equals("COMPLETED") || paymentStatus.equals("ERROR") || paymentStatus.equals("PENDING_REFUND") || paymentStatus.equals("REFUNDED")){
             this.paymentStatus = paymentStatus;
         } else {
             this.paymentStatus = "PENDING";
@@ -558,6 +558,37 @@ public class Order {
 
         Email receiptEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
         receiptEmail.send();
+    }
+
+    private void sendCancellationEmail(){
+        User user = User.findUserById(this.userId);
+        String emailSubject = "Order ID " + this.orderId + " Cancelled.";
+        StringBuilder emailBody = new StringBuilder("");
+        emailBody.append("<html>");
+        emailBody.append("<body>");
+        emailBody.append("<p>Hi " + user.getFullName() + ",</p>");
+        emailBody.append("<p>We sincerely regret to inform you that, unfortunately, we have had to cancel your recent order <a href=\"https://www.greensupermarket.live/user/orders/order.jsp?id=" + this.orderId + "\">(Order ID: " + this.orderId + ")</a> due to unforeseen circumstances. We understand the inconvenience this may cause, and we sincerely apologize for any disappointment or frustration it may have caused.</p>");
+        emailBody.append("<br>");
+        emailBody.append("Our team has identified an issue that has impacted the processing of orders, including yours. We take full responsibility for this situation and assure you that we are working diligently to resolve the issue and prevent any recurrence in the future.<br>" +
+                "<br>" +
+                "To address this matter promptly, we have initiated the cancellation of your order, and any charges associated with it will be refunded to your original payment method. Please allow 7 business days for the refund to reflect in your account.");
+        emailBody.append("If you have any further questions or concerns regarding this cancellation, please don't hesitate to reach out to our customer support team by visiting <a href=\"https://www.greensupermarket.live/contact-us.jsp\">https://www.greensupermarket.live/contact-us.jsp</a>. We are here to assist you and ensure that any inconvenience you've experienced is addressed promptly.");
+        emailBody.append("<p>Once again, we sincerely apologize for any inconvenience this may have caused. We value your understanding and appreciate your continued trust in our service.<br>" +
+                "<br>" +
+                "Thank you for your understanding.<br>" +
+                "<br>" +
+                "Best regards,</p>");
+        emailBody.append("<p>Administrative Staff,</p><p>GreenSuperMarket.</p>");
+        emailBody.append("</body>");
+        emailBody.append("</html>");
+        Email cancellationEmail = new Email(user.getEmail(), emailSubject, emailBody);
+    }
+
+    public void cancelOrder(){
+        this.setOrderStatus("CANCELLED");
+        this.setDeliveryStatus("CANCELLED");
+        this.setPaymentStatus("PENDING_REFUND");
+        this.sendCancellationEmail();
     }
 
     public void markAsCompleted(){
