@@ -581,7 +581,7 @@ public class Order {
         emailBody.append("<p>Administrative Staff,</p><p>GreenSuperMarket.</p>");
         emailBody.append("</body>");
         emailBody.append("</html>");
-        Email cancellationEmail = new Email(user.getEmail(), emailSubject, emailBody);
+        Email cancellationEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
     }
 
     public void cancelOrder(){
