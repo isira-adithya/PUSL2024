@@ -369,6 +369,12 @@
                 </c:if>
 
             </c:if>
+            <c:if test="${userId == null}">
+                <div class="alert alert-primary">
+                    To purchase this product, please <a href="/login.jsp">log in</a> to your account.<br>
+                    Don't have an account yet? <a href="/signup.jsp">Sign up</a> here.
+                </div>
+            </c:if>
         </c:if>
     </div>              
   </div>
