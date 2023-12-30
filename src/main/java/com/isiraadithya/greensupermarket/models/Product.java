@@ -21,7 +21,7 @@ public class Product {
     private boolean visibility;
     private Timestamp createdAt;
 
-    public Product(String name, String description, String short_description, String image, double price, int quantity, boolean visibility){
+    public Product(String name, String short_description, String description, String image, double price, int quantity, boolean visibility){
         this.name = name;
         this.short_description = short_description;
         this.description = description;
