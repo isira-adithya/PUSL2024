@@ -22,12 +22,9 @@ public class OrderCancel extends HttpServlet {
         try {
             Order order = Order.findOrderById(orderId);
             order.setOrderStatus("CANCELLED");
+            order.setPaymentStatus("ERROR");
+            order.setDeliveryStatus("N/A");
             order.updateOrder();
-
-            // Resetting the cart
-            HttpSession session = req.getSession(true);
-            Cart userCart = new Cart((int) session.getAttribute("userId"));
-            session.setAttribute("cart", userCart);
 
             resp.sendRedirect("/user/orders/order.jsp?id=" + order.getOrderId());
         } catch (Exception ex){
