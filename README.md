@@ -35,13 +35,12 @@
 - Chandesh Gunawardena*(Rakitha Gunawardena)* - `Frontend Developer`,`Team member`
   - Contribution:
      -Frontend Developer 
-     -
+    -
  - Socials 
    -
-  [Github]https://github.com/chandeshg/]
- - [LinkedIn][https://www.linkedin.com/in/chandesh-/]
--
-[Instagram][https://www.instagram.com/chandesh.g/]
+ [Github]https://github.com/chandeshg/]
+   -                      [LinkedIn](https://www.linkedin.com/in/chandesh-/)
+   -  [Instagram](https://www.instagram.com/chandesh.g/)
 
 
 
