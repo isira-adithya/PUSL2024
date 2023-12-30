@@ -13,7 +13,7 @@
 ---
 #### Team Members
 
-- Isira Adithya *(Ruwanpathiranage Ruwanpathirana)*
+- Isira Adithya *(Ruwanpathiranage Ruwanpathirana)* - `Team Leader`
   - Contribution:  
      - Backend Development
      - Database Development
@@ -32,3 +32,5 @@
 - Sanuth Karunagoda
 - Thiyara Bandara
 - Chandesh Gunawardena
+
+<img src="https://contrib.rocks/image?repo=isira-adithya/PUSL2024">
