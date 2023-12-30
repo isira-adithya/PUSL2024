@@ -169,13 +169,13 @@
         </tbody>
     </table>
 
-      <div>
-          <p class="my-2">Date/Time: <i>${order.dateTime.toString()}</i></p>
+      <div class="mt-4">
+          <p class="my-2">Date/Time: <i>${order.dateTime.toString()}</i></p><br>
       Payment Status:
       <c:if test="${order.paymentStatus.equals('PENDING')}">
-          <i style="color: #00B207">PENDING</i><br><br>
+          <i style="color: #00B207">PENDING</i><br>
           <b>
-              <small class="mb-4">
+              <small>
                   Note: You have to make the payment for this order before ${expireDateTime.toLocaleString()}. Otherwise, this order will be cancelled and you will have to order again with the updated prices.
                   <br><br>
                   We would like to inform you that when making a payment through PayPal for your order, please be aware that additional charges for taxes and shipping costs may apply.
@@ -186,7 +186,7 @@
           <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><i style="color: yellow;">PENDING_REFUND</i></c:if>
           <c:if test="${order.paymentStatus.equals('REFUNDED')}"><i style="color: green;">REFUNDED</i></c:if>
       <c:if test="${order.paymentStatus.equals('ERROR')}">
-          <i style="color: red;">ERROR</i>
+          <i style="color: red;">ERROR</i><br>
           <b>
               <small class="mb-4">
                   Something went wrong while processing your payment. Please try again later.
@@ -196,10 +196,10 @@
       </c:if>
         </div>
 
-      <div class="mt-2">
+      <div class="mt-4">
           Delivery Status:
           <c:if test="${order.deliveryStatus.equals('PENDING')}">
-              <i style="color: #00B207">PENDING</i><br><br>
+              <i style="color: #00B207">PENDING</i><br>
               <b>
                   <small class="mb-4">
                       Your order is on the way, if you haven't received the order within 7 days after you placed your order, please inform us.
