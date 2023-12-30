@@ -588,6 +588,22 @@ public class Order {
         cancellationEmail.send();
     }
 
+    public void sendCancellationEmailByUser(){
+        User user = User.findUserById(this.userId);
+        String emailSubject = "Order ID " + this.orderId + " Cancelled.";
+        StringBuilder emailBody = new StringBuilder("");
+        emailBody.append("<html>");
+        emailBody.append("<body>");
+        emailBody.append("<p>Hi " + user.getFullName() + ",</p>");
+        emailBody.append("<p>Your Order ID " + this.orderId + " has been cancelled.</p>");
+        emailBody.append("<br><p>Regards,</p>");
+        emailBody.append("<p>GreenSuperMarket,</p>");
+        emailBody.append("</body>");
+        emailBody.append("</html>");
+        Email cancellationEmail = new Email(user.getEmail(), emailSubject, emailBody.toString());
+        cancellationEmail.send();
+    }
+
     public void cancelOrder(){
         this.setOrderStatus("CANCELLED");
         this.setDeliveryStatus("CANCELLED");
