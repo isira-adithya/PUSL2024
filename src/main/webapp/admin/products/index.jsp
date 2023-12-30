@@ -118,7 +118,7 @@
                 <tr>
                     <td>${fn:escapeXml(product.name)}</td>
                     <td><center><img src="${fn:escapeXml(product.image)}" width="200px"></center></td>
-                    <td>${fn:escapeXml(product.description)}</td>
+                    <td>${fn:escapeXml(product.shortDescription)}</td>
                     <td>${fn:escapeXml(product.quantity)}</td>
                     <td>${fn:escapeXml(product.price)}</td>
                     <td><center>

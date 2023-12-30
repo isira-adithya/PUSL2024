@@ -1,5 +1,6 @@
 package com.isiraadithya.greensupermarket.routes.admin.products;
 
+import com.isiraadithya.greensupermarket.helpers.ImageValidation;
 import com.isiraadithya.greensupermarket.helpers.RandomStringGenerator;
 import com.isiraadithya.greensupermarket.models.Product;
 import jakarta.servlet.ServletException;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -48,7 +50,7 @@ public class AdminProductAdd extends HttpServlet {
             }
 
             // Creating a new product
-            Product product = new Product(productName, productDescription, productShortDescription, "NULL", productPrice, productQuantity, productVisibility);
+            Product product = new Product(productName, productShortDescription, productDescription, "NULL", productPrice, productQuantity, productVisibility);
 
             // Let's make sure that the dir is accessible
             String productImageUploadDirPath = req.getServletContext().getRealPath("/uploads/images/products/");
@@ -62,8 +64,13 @@ public class AdminProductAdd extends HttpServlet {
                 }
             }
 
-            // TODO: Check if this is not malicious, and verify that it is a Image
             Part imagePart = req.getPart("imageFile");
+            // Checking if it is secure
+            if (!ImageValidation.isSafe(imagePart)){
+                resp.setStatus(403);
+                return;
+            }
+
             String imageName = RandomStringGenerator.getRandomString(16) + "_" + imagePart.getSubmittedFileName();
             product.setImage(imageName);
             imagePart.write(productImageUploadDirPath + File.separator + imageName);

@@ -1,38 +1,36 @@
-# GreenSuperMarket - Online E-Commerce Website
+## Green Super Market - PUSL2024 Group Project
 
-### *Todos*
-- [X] Add Styles (CSS, Bootstrap, etc)
-  - [ ] Add Styles to the order confirmation email
-- [ ] Make File Uploads More Secure
-- [X] Add / Load sample data to the database
-  - [ ] Add realistic product information
-- [X] Add Contact Us Page (Not a static HTML page)
-  - [X] Create database tables
-  - [X] Create a Model
-  - [X] Create API routes
-  - [X] Finish the backend part
-- [X] Add to WishList feature
-  - [X] Create database tables
-  - [X] Create a Model
-  - [X] Create API routes
-  - [X] Finish the backend part
-- [X] Remove all the secrets / sensitive information from the code; Instead use environmental variables
-- [X] Implement CSRF Protection *(Specially protect `/api/*`)*
-- [X] Connect the system to a SMTP Server
-  - [X] Send password reset emails
-  - [X] Send order confirmation emails
-  - [X] Send email verification emails (optional at the moment, but would be better)
-  - [ ] Send order cancellation emails
-- [X] Add the PayPal sandbox integration
-- [ ] Add better Exceptional handling, Logging and Verbose Error messages for users to see.
-- [ ] Show random featured products for every user (should check the visibility of products)
-- [ ] Update the `Product.getProducts` function and add functionalities to filter products by visibility.
-- [ ] Finish the about us section of the website.
-- [ ] Fix the Signup page's form
+---
+#### Project Details
 
-## Sample Credentials For Payments
-*Visit https://developer.paypal.com/tools/sandbox/card-testing/ to generate your own card.*
-- Valid Card
-  - Card Number: `5110929971155987`
-  - Expiry Date: `05/27`
-  - CVC: `971`
+- Group ID: B8
+- Module Code: PUSL2024
+- Module Name: Software Engineering 2
+- Year: 2023
+- University: [University of Plymouth](https://www.plymouth.ac.uk/)
+- Partner University: [NSBM Green University](https://www.nsbm.ac.lk/)
+
+---
+#### Team Members
+
+- Isira Adithya *(Ruwanpathiranage Ruwanpathirana)* - `Team Leader`
+  - Contribution:  
+     - Backend Development
+     - Database Development
+     - CI/CD
+     - Paypal Integration
+  - Socials  
+     - [Github](https://github.com/isira-adithya/)
+     - [Website](https://isiraadithya.com/)
+     - [Blog](https://blog.isiraadithya.com/)
+     - [LinkedIn](https://www.linkedin.com/in/isiraadithya/)
+     - [Twitter](https://twitter.com/isira_adithya)
+     - [Facebook](https://www.facebook.com/isiraadithyaruwanpathirana/)
+     - [Instagram](https://www.instagram.com/isira_adithya/)
+- Hashen Ruwanpura
+- Nesith Perera
+- Sanuth Karunagoda
+- Thiyara Bandara
+- Chandesh Gunawardena
+
+<img src="https://contrib.rocks/image?repo=isira-adithya/PUSL2024">

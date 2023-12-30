@@ -315,7 +315,7 @@
     <!-- Description and prices on the right -->
     <div class="col-md-7">
       <h2>${fn:escapeXml(product.name)}</h2>
-      <h5 style="color:#00b207;">${fn:escapeXml(product.price)}</h5>
+      <h5 style="color:#00b207;">${fn:escapeXml(product.price)}$</h5>
       
       <hr>
       <p>${fn:escapeXml(product.description)}</p>
@@ -368,6 +368,12 @@
                     </form>
                 </c:if>
 
+            </c:if>
+            <c:if test="${userId == null}">
+                <div class="alert alert-primary">
+                    To purchase this product, please <a href="/login.jsp">log in</a> to your account.<br>
+                    Don't have an account yet? <a href="/signup.jsp">Sign up</a> here.
+                </div>
             </c:if>
         </c:if>
     </div>              

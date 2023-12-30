@@ -50,11 +50,12 @@ public class Comment {
         if ((this.userId != -1) && (this.productId != -1) && (!content.isEmpty())){
             try {
                 Connection dbconn = Database.connect();
-                String query = "INSERT INTO Comments (userid, productid, content) VALUES (?, ?, ?)";
+                String query = "INSERT INTO Comments (userid, productid, content, starcount) VALUES (?, ?, ?, ?)";
                 PreparedStatement sqlStatement = dbconn.prepareStatement(query);
                 sqlStatement.setInt(1, this.userId);
                 sqlStatement.setInt(2, this.productId);
                 sqlStatement.setString(3, this.content);
+                sqlStatement.setInt(4, this.starCount);
                 sqlStatement.execute();
                 Database.closeConnection();
             } catch (Exception ex){
