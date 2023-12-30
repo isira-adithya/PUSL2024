@@ -35,40 +35,6 @@
             transition: box-shadow 0.5s ease;
         }
 
-         .menu-container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 15px;
-            border: 1px solid #e9e9e9;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .menu-container:hover{
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            transition: box-shadow 0.5s ease;
-        }
-        
-
-        .menu-title {
-            font-size: 20px;
-            font-weight: 500;
-            padding: 5px 0px 10px 0px;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            color: #666666;
-            font-size: 16px;   
-            border:none;
-            transition: background-color 0.3s;
-        }
-
-        .menu-item:hover {
-            background-color: #e9ecef;
-            
-        }
         .menu-item p:hover{
             text-decoration:none;
             
@@ -78,13 +44,6 @@
             width: 24px;
             height: 24px;
             margin-right: 10px;
-        }
-
-        .menu-text {
-            margin:0px;
-        }
-        .menu-text:hover{
-            text-decoration: none;
         }
 
         .account-info {
@@ -214,7 +173,7 @@
                                                 </c:when>
                                             </c:choose>
                                         </td>
-                                        <td><a href="/user/orders/order.jsp?id=${order.orderId}" class="custom-btn" style="margin: 0;">View Order</a></td>
+                                        <td><a href="/user/orders/order.jsp?id=${order.orderId}" class="btn btn-primary btn-sm" style="margin: 0;">View Order</a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

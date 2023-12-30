@@ -76,42 +76,6 @@ button {
     padding: 5px 10px;
     cursor: pointer;
 }
-#submitBtn {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Green background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    width: 150px;
- }
- 
-.submitBtn {
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Green background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    width: 150px;
-}
-.Add-new-button{
-    padding: 10px 15px;
-    font-size: 23px;
-    background-color: #00B207; /* Green background color */
-    color: white; /* White text color */
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    width: 800px;
-}
-.icon{
-    width:30px;
-    height:30px;
-}
-
     .image {
       margin-bottom: 60px;
       width: 100%;
@@ -159,7 +123,9 @@ button {
                  <th>Customer</th>
                  <th>Placed at</th>
                  <th>Total</th>
-                 <th>Order Status</th>
+                 <th>Status</th>
+                <th>Payment Status</th>
+                <th>Delivery Status</th>
                  <th colspan="2">Actions</th>
             </tr>
             </thead>
@@ -176,6 +142,8 @@ button {
                     <td>${fn:escapeXml(order.dateTime)}</td>
                     <td>${fn:escapeXml(order.amount)} USD</td>
                     <td>${fn:escapeXml(order.orderStatus)}</td>
+                    <td>${fn:escapeXml(order.paymentStatus)}</td>
+                    <td>${fn:escapeXml(order.deliveryStatus)}</td>
                     <td>
                         <a class="btn btn-primary py-2"  href="/admin/orders/order.jsp?id=${order.orderId}">
                             <i class="fa-solid fa-eye"></i>
