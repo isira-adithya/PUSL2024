@@ -124,7 +124,8 @@
         <div class="row text-center justify-content-center align-items-center">
             <div class="col-md-8">
                 <div style="margin-top: 25px;" class="mx-auto col-md-8 form-box">
-                    <h3 class="text-center">Personal Information</h3>
+                    <h3 class="mb-4">Edit User</h3>
+                    <h3 class="text-center" style="color: #8f8e8e;">Personal Information</h3>
                     <hr>
                     <form id="signupForm" action="/api/admin/users/update" method="post">
                         
@@ -160,7 +161,7 @@
                             <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number" value="${fn:escapeXml(user.phone)}" style="box-shadow: none;">
                         </div>
                         
-                        <h3 class="text-center"> Address</h3>
+                        <h3 class="text-center" style="color: #8f8e8e;"> Address</h3>
                         <hr>
                         <div class="form-group">
                             <label for="address" class="form-label">Address</label>
