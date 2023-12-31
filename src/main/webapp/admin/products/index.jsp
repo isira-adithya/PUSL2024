@@ -98,8 +98,8 @@
     </div>
 <div class="container">
 
-    
-<div class="table-responsive">
+    <a href="/admin/products/add.jsp" class="btn btn-success text-white">Add Product</a>
+<div class="table-responsive mb-4">
     <br>
       <table class="table table-bordered">
          
@@ -137,19 +137,9 @@
                 </tr>
             </c:forEach>
         </tbody>
-        </table><br><br><br><br>
-        
-</div><br><br>
-    <form method="post" action="/admin/products/add.jsp">
-            <center><button class="Add-new-button">Add New Product</button></center>
-        </form>
-    
-    
-    
+        </table>
 </div>
-
-
-<br><br><br><br><br><br><br>
+</div>
 <%@include file="../includes/footer.jsp"%>
 </body>
 </html>

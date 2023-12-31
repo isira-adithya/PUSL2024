@@ -104,7 +104,7 @@
                         
                         <div class="form-group">
                             <label for="role">Role</label>
-                            <select name="role" class="form-control" style="box-shadow: none;" >
+                            <select name="role" class="form-control" style="box-shadow: none;" required>
                                 <option value="USER" selected>Customer</option>
                                 <option value="ADMIN">Administrator</option>
                             </select>
@@ -112,16 +112,16 @@
 
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" style="box-shadow: none;" required>
+                            <input required type="email" name="email" class="form-control" id="email" placeholder="Enter email" style="box-shadow: none;" required>
                         </div>
 
                          <div class="form-group">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" name="firstname" class="form-control" id="firstName" placeholder="Enter first name" style="box-shadow: none;" required>
+                            <input required type="text" name="firstname" class="form-control" id="firstName" placeholder="Enter first name" style="box-shadow: none;" required>
                         </div>
                           <div class="form-group">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" name="lastname" class="form-control" id="lastName" placeholder="Enter last name" style="box-shadow: none;" required>
+                            <input required type="text" name="lastname" class="form-control" id="lastName" placeholder="Enter last name" style="box-shadow: none;" required>
                         </div>
                           <div class="form-group">
                             <label for="phone" class="form-label">Phone Number</label>
@@ -132,23 +132,27 @@
                         <hr>
                         <div class="form-group">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" name="street_address" class="form-control" id="address" placeholder="Enter address" style="box-shadow: none;" >
+                            <input required type="text" name="street_address" class="form-control" id="address" placeholder="Enter address" style="box-shadow: none;" >
                         </div>
                         <div class="form-group">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" name="city" class="form-control" id="city" placeholder="Enter city" style="box-shadow: none;">
+                            <input required type="text" name="city" class="form-control" id="city" placeholder="Enter city" style="box-shadow: none;">
                         </div>
                         <div class="form-group">
                             <label for="state" class="form-label">State</label>
-                            <input type="text" name="state" class="form-control" id="state" placeholder="Enter state" style="box-shadow: none;" >
+                            <input required type="text" name="state" class="form-control" id="state" placeholder="Enter state" style="box-shadow: none;" >
                         </div>
                         <div class="form-group">
                             <label for="country" class="form-label">Country</label>
-                            <input type="text" name="country" class="form-control" id="country" placeholder="Enter country"style="box-shadow: none;" >
+                            <input required type="text" name="country" class="form-control" id="country" placeholder="Enter country"style="box-shadow: none;" >
                         </div>
                         <div class="form-group">
                             <label for="postalCode" class="form-label">Postal Code</label>
-                            <input type="text" name="postalcode" class="form-control" id="postalCode" placeholder="Enter postal code"style="box-shadow: none;" >
+                            <input required type="text" name="postalcode" class="form-control" id="postalCode" placeholder="Enter postal code"style="box-shadow: none;" >
+                        </div>
+
+                        <div class="alert alert-primary">
+                            Newly added users must reset their password to login.
                         </div>
                         
 
