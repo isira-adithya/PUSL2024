@@ -28,7 +28,18 @@
      - [Twitter](https://twitter.com/isira_adithya)
      - [Facebook](https://www.facebook.com/isiraadithyaruwanpathirana/)
      - [Instagram](https://www.instagram.com/isira_adithya/)
-- Hashen Ruwanpura
+- Hashen Ruwanpura - `Team Member`,`UI/UX Developer`
+  - Contributions
+    - Frontend Developments
+    - UI Designs
+    - Diagram Deisgn (Use Case, Class, Sequence)
+    - Report Design
+  - Socials
+    - [Github](https://github.com/hashen-ruwanpura)
+    - [LinkedIn](https://www.linkedin.com/in/hashen-ruwanpura-184a1b283)
+    - [Instagram](https://www.instagram.com/__.hashh.r__/)
+    - [Facebook](https://www.facebook.com/hashen.ruwanpura?mibextid=JRoKGi)
+    - [Twitter](https://twitter.com/HashenRuwanpur3)
 - Nesith Perera
 - Sanuth Karunagoda
 - Thiyara Bandara
