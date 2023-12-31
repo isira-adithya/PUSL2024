@@ -159,7 +159,7 @@
                                     <tr>
                                         <td>${order.orderId}</td>
                                         <td>${order.dateTime}</td>
-                                        <td>${order.amount}</td>
+                                        <td>${order.amount} $</td>
                                         <td>
                                             <c:choose>
                                                 <c:when test="${order.orderStatus.equals('CANCELLED')}">
