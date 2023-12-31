@@ -29,6 +29,7 @@
      - [Twitter](https://twitter.com/isira_adithya)
      - [Facebook](https://www.facebook.com/isiraadithyaruwanpathirana/)
      - [Instagram](https://www.instagram.com/isira_adithya/)
+    
 - Hashen Ruwanpura - `Team Member`, `UI/UX Developer`
   - Contributions
     - Frontend Developments
@@ -41,7 +42,7 @@
     - [Instagram](https://www.instagram.com/__.hashh.r__/)
     - [Facebook](https://www.facebook.com/hashen.ruwanpura?mibextid=JRoKGi)
     - [Twitter](https://twitter.com/HashenRuwanpur3)
-
+    
 - Nesith Perera - `Team Member`, `UI/UX Developer`
   - Contribution:  
      - Frontend Development
@@ -54,7 +55,7 @@
      - [Website](https://www.nesithperera.com/)
      - [LinkedIn](www.linkedin.com/in/nesithperera)
      - [Instagram](https://www.instagram.com/___nesith_perera___/)
-     - 
+  
 - Sanuth Karunagoda - `Team Member`, `UI/UX Developer`, `Frontend Developer`
   - Contribution:  
      - Frontend Developments
@@ -67,7 +68,7 @@
      - [LinkedIn](www.linkedin.com/in/sanuth-karungoda-403001257)
      - [Twitter](https://twitter.com/Sanuth20448687)
      - [Instagram](https://www.instagram.com/sanuth.karunagoda/)
-     - 
+    
 - Thiyara Bandara - `Team member`, `Frontend Developer`
   - Contributions
     - Frontend Developments
@@ -82,7 +83,6 @@
     - [LinkedIn](https://www.linkedin.com/in/chandesh-/)
     - [Instagram](https://www.instagram.com/chandesh.g/)
 
-<img src="https://contrib.rocks/image?repo=isira-adithya/PUSL2024">
 
 #### Features
 - Online Shopping
@@ -109,3 +109,6 @@
 - [MariaDB](https://mariadb.org/)
 - [Paypal Software Development Kit](https://developer.paypal.com/)
 - [SMTP](https://datatracker.ietf.org/doc/html/rfc5321)
+
+
+<img src="https://contrib.rocks/image?repo=isira-adithya/PUSL2024">
