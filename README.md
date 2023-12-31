@@ -19,6 +19,7 @@
      - Backend Development
      - Database Development
      - CI/CD
+     - Creating Report 
      - Paypal Integration
   - Socials  
      - [Github](https://github.com/isira-adithya/)
@@ -33,13 +34,14 @@
     - Frontend Developments
     - UI Designs
     - Diagram Design (Use Case, Class, Sequence)
-    - Report Design
+    - Creating Report 
   - Socials
     - [Github](https://github.com/hashen-ruwanpura)
     - [LinkedIn](https://www.linkedin.com/in/hashen-ruwanpura-184a1b283)
     - [Instagram](https://www.instagram.com/__.hashh.r__/)
     - [Facebook](https://www.facebook.com/hashen.ruwanpura?mibextid=JRoKGi)
     - [Twitter](https://twitter.com/HashenRuwanpur3)
+
 - Nesith Perera - `Team Member`, `UI/UX Developer`
   - Contribution:  
      - Frontend Development
@@ -52,12 +54,26 @@
      - [Website](https://www.nesithperera.com/)
      - [LinkedIn](www.linkedin.com/in/nesithperera)
      - [Instagram](https://www.instagram.com/___nesith_perera___/)
-- Sanuth Karunagoda
-- Thiyara Bandara
+     - 
+- Sanuth Karunagoda - `Team Member`, `UI/UX Developer`, `Frontend Developer`
+  - Contribution:  
+     - Frontend Developments
+     - UI/UX development
+     - UI Designs
+     - Diagram Design (Use Case, Class diagram, Sequence diagram)
+     - Creating Report    
+  - Socials  
+     - [Github](https://github.com/KPSBKarunagoda/)
+     - [LinkedIn](www.linkedin.com/in/sanuth-karungoda-403001257)
+     - [Twitter](https://twitter.com/Sanuth20448687)
+     - [Instagram](https://www.instagram.com/sanuth.karunagoda/)
+     - 
+- Thiyara Bandara - `Team member`, `Frontend Developer`
   - Contributions
     - Frontend Developments
     - Diagram Design (ER Diagram, Relational Schema)
     - Database Design
+    - Reviewing the Report
 - Chandesh Gunawardena *(Rakitha Gunawardena)* - `Team member`, `Frontend Developer`
   - Contribution:
     - Frontend Developer
