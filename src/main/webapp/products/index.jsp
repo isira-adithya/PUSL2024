@@ -79,8 +79,19 @@
                             <img src="${fn:escapeXml(product.image)}" alt="${fn:escapeXml(product.name)}" class="img-fluid mb-3" style="height: 191px;width: 191px;">
                             <h5 class="productNameText">${fn:escapeXml(product.name)}</h5>
                             <p class="shortDescriptionText" style="font-size: 0.9rem; color: #8f8e8e;">${fn:escapeXml(product.shortDescription)}</p>
-                            <p style="color: #18781e;">${product.price} $</p>
-                            <a href="/products/product.jsp?id=${product.productId}" class="card-button">Buy Now</a>
+                            <c:if test="${product.quantity > 0}">
+                                <p class="btn btn-sm btn-white" style="color: #00B207;">IN STOCK</p>
+                            </c:if>
+                            <c:if test="${product.quantity <= 0}">
+                                <p class="btn btn-sm btn-white" style="color: red;">OUT OF STOCK</p>
+                            </c:if>
+                            <p style="color: #18781e; font-size: 1.2rem;">${product.price} $</p>
+                            <c:if test="${product.quantity > 0}">
+                                <a href="/products/product.jsp?id=${product.productId}" style="border-radius: 45px;" class="btn btn-sm btn-success">Buy Now</a>
+                            </c:if>
+                            <c:if test="${product.quantity <= 0}">
+                                <a href="/products/product.jsp?id=${product.productId}" style="border-radius: 45px;" class="btn btn-sm btn-success">View</a>
+                            </c:if>
                         </div>
                     </div>
                 </c:if>
