@@ -22,6 +22,20 @@
   pageContext.setAttribute("email", email);
   pageContext.setAttribute("name", name);
 %>
+<%
+  String errMsg = "";
+  String infoMsg = "";
+  if (request.getParameterMap().containsKey("err")){
+    errMsg = request.getParameter("err");
+  }
+  if (request.getParameterMap().containsKey("msg")){
+    infoMsg = request.getParameter("msg");
+  }
+
+//    Settng pageContext
+  pageContext.setAttribute("errMsg", errMsg);
+  pageContext.setAttribute("infoMsg", infoMsg);
+%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -233,9 +247,20 @@
 
         <div>
           <br>
-          <input type="submit" class="btn btn-outline sendmsg-button " style="background-color: #00b207"
+          <input type="submit" class="btn btn-outline sendmsg-button" style="background-color: #00b207"
                  value="Send Message">
         </div>
+        <c:if test="${errMsg.length() > 0}">
+          <div class="alert alert-danger my-2" role="alert">
+              ${fn:escapeXml(errMsg)}
+          </div>
+        </c:if>
+
+        <c:if test="${infoMsg.length() > 0}">
+          <div class="alert alert-success my-2" role="alert">
+              ${fn:escapeXml(infoMsg)}
+          </div>
+        </c:if>
       </form>
     </div>
   </div>
