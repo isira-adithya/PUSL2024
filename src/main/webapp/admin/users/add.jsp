@@ -150,6 +150,10 @@
                             <label for="postalCode" class="form-label">Postal Code</label>
                             <input type="text" name="postalcode" class="form-control" id="postalCode" placeholder="Enter postal code"style="box-shadow: none;" >
                         </div>
+
+                        <div class="alert alert-primary">
+                            Newly added users must reset their password to login.
+                        </div>
                         
 
                         <div class="d-grid gap-2">
