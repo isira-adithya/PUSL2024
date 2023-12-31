@@ -41,7 +41,18 @@
     - [Facebook](https://www.facebook.com/hashen.ruwanpura?mibextid=JRoKGi)
     - [Twitter](https://twitter.com/HashenRuwanpur3)
 - Nesith Perera
-- Sanuth Karunagoda
+- Sanuth Karunagoda - `Team Member`, `UI/UX Developer`,`Front end Developer`
+  - Contribution:  
+     - Frontend Developments
+     - UI/UX development
+     - UI Designs
+     - Diagram Design (Use Case, Class diagram, Sequence diagram)
+     - creating the final report   
+  - Socials  
+     - [Github](https://github.com/KPSBKarunagoda/)
+     - [LinkedIn](www.linkedin.com/in/sanuth-karungoda-403001257)
+     - [Twitter](https://twitter.com/Sanuth20448687)
+     - [Instagram](https://www.instagram.com/sanuth.karunagoda/)
 - Thiyara Bandara
   - Contributions
     - Frontend Developments
