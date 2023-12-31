@@ -40,7 +40,18 @@
     - [Instagram](https://www.instagram.com/__.hashh.r__/)
     - [Facebook](https://www.facebook.com/hashen.ruwanpura?mibextid=JRoKGi)
     - [Twitter](https://twitter.com/HashenRuwanpur3)
-- Nesith Perera
+- Nesith Perera - `Team Member`, `UI/UX Developer`
+  - Contribution:  
+     - Frontend Development
+     - UI Designs
+     - Diagram Design (Use Case, Class, Sequance)
+     - Creating Report 
+     - Database Data Enrty 
+  - Socials  
+     - [Github](https://github.com/Nesithp-Perera)
+     - [Website](https://www.nesithperera.com/)
+     - [LinkedIn](www.linkedin.com/in/nesithperera)
+     - [Instagram](https://www.instagram.com/___nesith_perera___/)
 - Sanuth Karunagoda
 - Thiyara Bandara
   - Contributions
