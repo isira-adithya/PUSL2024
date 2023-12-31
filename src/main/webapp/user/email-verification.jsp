@@ -117,15 +117,15 @@
                         <form action="/user/email-verification.jsp" method="get">
                             <p>We're excited to have you get started. First, you need to confirm your account.</p>
                             <p>We have sent a <b>6 digit code</b> to your email inbox, enter it to verify your account.</p>
-                            <input type="text" name="code" placeholder="******"><br>
-                            <button type="submit" class="btn btn-primary btn-sm mt-3">Verify</button>
+                            <input type="text" name="code" placeholder="******">
+                            <button type="submit" class="btn btn-sm btn-primary">Verify</button>
                         </form>
                         <c:if test="${isCodeWrong == true}">
                                 <div class="alert alert-danger my-3" role="alert">
                                     <p>Invalid Verification Code. Please try again.</p>
                                 </div>
                         </c:if>
-                        <i>Haven't received any emails from us? Try refreshing this page after 3 minutes</i>
+                        <p class="alert alert-primary mt-4">Haven't received any emails from us? Try refreshing this page after 3 minutes</p>
                     </div>
                 </div>
             </div>

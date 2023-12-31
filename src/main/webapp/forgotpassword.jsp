@@ -23,8 +23,8 @@
     if (request.getParameterMap().containsKey("err")){
         errMsg = request.getParameter("err");
     }
-    if (request.getParameterMap().containsKey("infoMsg")){
-        infoMsg = request.getParameter("infoMsg");
+    if (request.getParameterMap().containsKey("msg")){
+        infoMsg = request.getParameter("msg");
     }
 
 //    Settng pageContext
@@ -100,15 +100,22 @@
             <div class="d-grid gap-2">
                 <input type="submit" class="btn btn-primary btn-sm mt-3" style="background-color:#00B207"; value="Submit">
             </div>
-            
+
+            <c:if test="${errMsg.length() > 0}">
+                <div class="alert alert-danger my-2" role="alert">
+                        ${fn:escapeXml(errMsg)}
+                </div>
+            </c:if>
+
+            <c:if test="${infoMsg.length() > 0}">
+                <div class="alert alert-success my-2" role="alert">
+                        ${fn:escapeXml(infoMsg)}
+                </div>
+            </c:if>
+
+
         </form>
 </div>
-    
-    
-    <br>
-    <br>
-    <p id="err_msg" style="color: red">${fn:escapeXml(errMsg)}</p>
-    <p id="info_msg" style="color: blue">${fn:escapeXml(infoMsg)}</p>
     
     
     <%@include file="includes/footer.jsp"%>

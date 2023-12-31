@@ -176,7 +176,7 @@
       <div class="login-form">
         <div class="head mb-4">
           <h3><b>Ticket ID - ${ticket.ticketId}</b></h3>
-          <p>Review this support ticket as soon as possible and contact the customer through <a href="mailto:${fn:escapeXml(ticket.email)}">${fn:escapeXml(ticket.email)}</a> if needed.</p>
+          <p class="alert alert-primary my-4">Review this support ticket as soon as possible and contact the customer through <a href="mailto:${fn:escapeXml(ticket.email)}">${fn:escapeXml(ticket.email)}</a> if needed.</p>
         </div>
 
         <div>
@@ -226,6 +226,7 @@
             <button onclick="document.getElementById('toggleReadForm').submit()" class="btn btn-primary my-2" type="submit">Mark as Unread</button>
           </c:if>
           <button onclick="if (confirm('Are you sure?')) {document.getElementById('deleteTicketForm').submit()}" type="submit" class="btn btn-danger my-2">Delete</button>
+          <a class="btn btn-dark my-2" href="/admin/support_tickets/">Go Back</a>
 
           <form id="toggleReadForm" method="post" action="/api/admin/support_tickets/toggle_read">
             <input type="hidden" name="ticketId" value="${ticket.ticketId}">

@@ -72,38 +72,40 @@
     </c:if>
     <c:if test="${wishlistDetailList.size() > 0}">
         <div class="mx-5">
-            <h3 class="text-center">Your Wishlist</h3>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col" style="text-align: center;">Product</th>
-                    <th scope="col" style="text-align: center;">Description</th>
-                    <th scope="col" style="text-align: center;">Price</th>
-                    <th scope="col" style="text-align: right;">Operations</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${wishlistDetailList}" var="wishListItem">
-                    <c:if test="${wishListItem.product.visibility == true}">
-                        <tr>
-                            <td>
-                                <img src="${wishListItem.product.image}" width="75px">
-                                <p>${wishListItem.product.name}</p>
-                            </td>
-                            <td>${fn:escapeXml(wishListItem.product.shortDescription)}</td>
-                            <td>$${wishListItem.product.price}</td>
-                            <td style="text-align: right;">
-                                <a href="/products/product.jsp?id=${wishListItem.product.productId}" class="btn btn-primary btn-sm">View</a>
-                                <button onclick="document.getElementById('removeProduct${wishListItem.product.productId}Form').submit()" type="submit" class="btn btn-danger btn-sm">Remove</button>
-                                <form id="removeProduct${wishListItem.product.productId}Form" action="/api/user/wishlist/deleteProduct" method="post">
-                                    <input type="hidden" name="productId" value="${wishListItem.product.productId}">
-                                </form>
-                            </td>
-                        </tr>
-                    </c:if>
-                </c:forEach>
-                </tbody>
-            </table>
+            <h3 class="text-center mb-4">Your Wishlist</h3>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="text-align: center;">Product</th>
+                        <th scope="col" style="text-align: center;">Description</th>
+                        <th scope="col" style="text-align: center;">Price</th>
+                        <th scope="col" style="text-align: right;">Operations</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${wishlistDetailList}" var="wishListItem">
+                        <c:if test="${wishListItem.product.visibility == true}">
+                            <tr>
+                                <td>
+                                    <img src="${wishListItem.product.image}" width="75px">
+                                    <p>${wishListItem.product.name}</p>
+                                </td>
+                                <td>${fn:escapeXml(wishListItem.product.shortDescription)}</td>
+                                <td>$${wishListItem.product.price}</td>
+                                <td style="text-align: right;">
+                                    <a href="/products/product.jsp?id=${wishListItem.product.productId}" class="btn btn-primary btn-sm">View</a>
+                                    <button onclick="document.getElementById('removeProduct${wishListItem.product.productId}Form').submit()" type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                    <form id="removeProduct${wishListItem.product.productId}Form" action="/api/user/wishlist/deleteProduct" method="post">
+                                        <input type="hidden" name="productId" value="${wishListItem.product.productId}">
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:if>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </c:if>
 

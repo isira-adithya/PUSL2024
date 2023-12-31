@@ -174,7 +174,7 @@
           </div>
       </c:if>
       <c:if test="${order.paymentStatus.equals('COMPLETED')}"><span><b class="btn btn-white pb-2" style="color: green;">COMPLETED</b></span></c:if>
-          <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><span><b class="btn btn-white pb-2" style="color: yellow;">PENDING_REFUND</b></span></c:if>
+          <c:if test="${order.paymentStatus.equals('PENDING_REFUND')}"><span><b class="btn btn-white pb-2" style="color: green;">PENDING_REFUND</b></span></c:if>
           <c:if test="${order.paymentStatus.equals('REFUNDED')}"><span><b class="btn btn-white pb-2" style="color: green;">REFUNDED</b></span></c:if>
       <c:if test="${order.paymentStatus.equals('ERROR')}">
           <span><b class="btn btn-white pb-2" style="color: red;">ERROR</b><br></span>

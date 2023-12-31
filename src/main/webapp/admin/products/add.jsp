@@ -81,27 +81,27 @@
         <form id="addProductForm" method="post" action="/api/admin/products/add" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="productName" class="form-label"><b>Product Name:</b></label>
-                <input type="text" class="form-control" id="productName" name="productName">
+                <input required type="text" class="form-control" id="productName" name="productName">
             </div>
             <div class="mb-3">
                 <label for="productDescription" class="form-label"><b>Product Short Description:</b></label>
-                <textarea class="form-control" id="productShortDescription" name="productShortDescription"></textarea>
+                <textarea required class="form-control" id="productShortDescription" name="productShortDescription"></textarea>
             </div>
             <div class="mb-3">
                 <label for="productDescription" class="form-label"><b>Product Description:</b></label>
-                <textarea class="form-control" id="productDescription" name="productDescription"></textarea>
+                <textarea required class="form-control" id="productDescription" name="productDescription"></textarea>
             </div>
             <div class="mb-3">
                 <label for="productPrice" class="form-label"><b>Product Price:</b></label>
-                <input type="text" class="form-control" id="productPrice" name="productPrice">
+                <input required type="text" class="form-control" id="productPrice" name="productPrice">
             </div>
             <div class="mb-3">
                 <label for="productQuantity" class="form-label"><b>Product Quantity:</b></label>
-                <input type="number" class="form-control" inputmode="numeric" id="productQuantity" name="productQuantity">
+                <input required type="number" class="form-control" inputmode="numeric" id="productQuantity" name="productQuantity">
             </div>
             <div class="mb-3">
                 <label for="imageFile" class="form-label"><b>Select a product image:</b></label>
-                <input type="file" class="form-control" id="imageFile" name="imageFile">
+                <input required type="file" class="form-control" id="imageFile" name="imageFile">
             </div>
             <button type="submit" id="submitBtn">Submit</button>
         </form>
