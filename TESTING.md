@@ -3,20 +3,14 @@
 ### Testing The Website
 
 - [X] Test Login Page  
-    - [X] Page Works Well  .
-    - [X] Responsive  .
-- [] Test About us Page  
-    - [X] Tested The Page  
-    - [] Edits to be Made  
-    - [X] Check Responsiveness  
+    - [X] Page Works Well
+    - [X] Responsive
+- [X] Test About us Page 
 - [X] Test Contact-Us Page  
-- [] Test Forgot Password Page
-    - [] Comments
-- [] Test Index Page
-    - [] Comments
+- [X] Test Forgot Password Page
+- [X] Test Index / Home Page
 - [X] Test Logout Page
-- [] Test Reset Password Page
-    - [] Comments
+- [X] Test Reset Password Page
 - [X] Test Sign-Up Page
     - [X] Added Required Fields
     - [X] Responsiveness Checked
@@ -24,32 +18,33 @@
 -[X] Test 404 Page
 
 ### User
--[ ] Test Profile Page
--[ ] Test E-mail Verification Page
+-[X] Test Profile Page
+-[X] Test E-mail Verification Page
 -[x] Test Change Password Page
     - [x] Checked Responsiveness
     - [x] Links Work Well
 -[X] Test Cart Page
 
 ### User Orders
-- [ ] Test Index Page
-    - [ ] Comments
-- [ ] Test Order Page
-    - [ ] Comments
+- [X] Test Orders Page
+- [X] Test Order Page
 
 ### User Payments
-- [ ] Test Payment Review Page
+- [X] Test Payment Review Page
 
 ### User Wishlist
-- [ ] Test Index Page
+- [X] Test Wishlist Page
 
 ### Products
 -[x] Test Index Page
     - [x] Responsiveness Fixed
--[ ] Test Product Page
+    - [X] Added Stock Status
+-[X] Test Product Page
+  - [X] Added line breaks to product description
 
 ### Admin
-- [ ] Test Index Page
+- [X] Test Home / Analytics Page
+  - [ ] Fix Bar Charts
 
 ### Admin Users
 - [ ] Test Index Page
@@ -69,6 +64,3 @@
 ### Admin Orders *(Pay special attention to this one. Contains a quite complex logic here)*
 - [ ] Test Index Page
 - [ ] Test Order Page
-
-### Admin Analytics
-- [ ] Test Index Page
