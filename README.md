@@ -32,7 +32,7 @@
   - Contributions
     - Frontend Developments
     - UI Designs
-    - Diagram Deisgn (Use Case, Class, Sequence)
+    - Diagram Design (Use Case, Class, Sequence)
     - Report Design
   - Socials
     - [Github](https://github.com/hashen-ruwanpura)
@@ -43,6 +43,10 @@
 - Nesith Perera
 - Sanuth Karunagoda
 - Thiyara Bandara
+  - Contributions
+    - Frontend Developments
+    - Diagram Design (ER Diagram, Relational Schema)
+    - Database Design
 - Chandesh Gunawardena *(Rakitha Gunawardena)* - `Frontend Developer`,`Team member`
   - Contribution:
     - Frontend Developer
