@@ -1,6 +1,12 @@
 ## Green Super Market - PUSL2024 Group Project
 
 ---
+#### Live Website
+To view a live demo, visit https://greensupermarket.live/  
+
+![](./assets/other/teaser.png)
+
+---
 #### Project Details
 
 - Group ID: **B8**
