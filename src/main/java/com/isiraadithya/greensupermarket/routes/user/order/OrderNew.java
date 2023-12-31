@@ -18,7 +18,8 @@ public class OrderNew extends HttpServlet {
         try {
             Cart userCart = (Cart) req.getSession().getAttribute("cart");
             Order newOrder = new Order(userCart);
-            req.setAttribute("cart", new Cart(userId));
+            userCart = new Cart(userId);
+            req.getSession().setAttribute("cart", userCart);
             resp.sendRedirect("/user/orders/order.jsp?id=" + newOrder.getOrderId());
         } catch (Exception ex){
             System.out.println(ex.getMessage());
